@@ -1,0 +1,16 @@
+@import '../../styles/color.scss';
+
+body {
+  background-color: $login-background-color;
+}
+
+.content-login-main {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-width: 350px;
+  text-align: center;
+  .img-logo{
+    margin-top: 180px;
+  }
+}
