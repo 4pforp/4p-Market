@@ -1,7 +1,7 @@
 import React from 'react';
 import { Reset } from 'styled-reset'
-import './app.scss';
-import Login from './pages/Login/Login';
+import './App.scss';
+import Login from './Pages/Login/Login';
 
 function App() {
   return (
