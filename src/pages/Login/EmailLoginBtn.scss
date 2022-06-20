@@ -1,4 +1,6 @@
-.wrap-link-member {
+@import '../../Components/scss/default.scss';
+
+.wrap-linkmembership {
   margin-top: 20px;
   text-align: center;
   font-weight: 400;
@@ -6,8 +8,8 @@
   line-height: 18px;
 
   a {
-    font-family: 'Spoqa Han Sans Neo';
-    color: #767676;
+    font-family: 'SpoqaHanSansNeo-Regular';
+    color: $subtext-color;
     text-decoration: none;
   }
 
