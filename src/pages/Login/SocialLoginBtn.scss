@@ -1,0 +1,34 @@
+@import '../../Components/scss/default.scss';
+
+@mixin snsBtn($url, $color) {
+  display: block;
+  padding: 13px 80px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 18px;
+  font-weight: 400;
+  font-size: 14px;
+  background: $white;
+  color: $subtext-color;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-family: 'SpoqaHanSansNeo-Regular';
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-position: 17px center;
+  border: 1px solid $color;
+  border-radius: 44px;
+}
+
+.list-socialbtn {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  li {
+    width: 322px;
+    margin-bottom: 10px;
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+}
