@@ -1,8 +1,8 @@
 import React from 'react';
 import './profileSet.scss';
-import PictureIcon from '../../src/assets/images/upload-file.svg';
+import PictureIcon from '../../assets/images/upload-file.svg';
 
-function ProfileEdit(){
+function ProfileSet(){
     return(
         <>
         <h1>프로필 설정</h1>

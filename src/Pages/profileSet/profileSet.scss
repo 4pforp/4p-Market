@@ -64,7 +64,7 @@ main{
         height: 110px;
         margin:0 auto;
         margin-bottom: 30px;
-        background-image:url('../../src/assets/images/L-profile.svg');
+        background-image:url('../../assets/images/L-profile.svg');
         position: relative;
         .icon-img{
             width: 36px;
@@ -93,7 +93,7 @@ main{
     margin-top: 14px;
     font-family: $medium-font;
     color: $white;
-    background-image:url('../../../src/assets/images/L-disabled-button.svg');
+    background-image:url('../../assets/images/L-disabled-button.svg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
