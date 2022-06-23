@@ -30,7 +30,7 @@ function InputSection(){
     }
 
     return(
-        <article>
+        <main>
             <form method="POST">
                 <div className="email-signup">
                  <label for="input-email">이메일</label>
@@ -40,9 +40,9 @@ function InputSection(){
                   <label for="input-pwd">비밀번호</label>
                   <input onKeyUp={goodToJoin} onChange={handlePasswordInput} type="password" name="user-pwd" id="input-pwd" maxLength="16" placeholder="비밀번호를 설정해 주세요."></input>
                 </div>
-                <button type="submit" formtarget="#none" className={`next-btn ${isActive}`} disabled={isActive}>다음</button>
+                <button type="submit" formtarget="#none" className={`btn-next ${isActive}`} disabled={isActive}>다음</button>
             </form>
-        </article>
+        </main>
     )
 }
 
