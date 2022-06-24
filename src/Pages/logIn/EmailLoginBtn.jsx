@@ -1,11 +1,12 @@
 import './EmailLoginBtn.scss';
+import { Link } from 'react-router-dom';
 
 function EmailLoginBtn () {
   return (
     <div className="wrap-linkmembership">
-      <a href="#none" className="link-loginemail">이메일로 로그인</a>
+      <Link to='/emaillogin' className="link-loginemail">이메일로 로그인</Link>
       <span className="line">|</span>
-      <a href="#none" className="link-signup">회원가입</a>
+      <Link to='/signup' className="link-signup">회원가입</Link>
     </div>
   )
 }
