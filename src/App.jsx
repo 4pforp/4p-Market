@@ -1,16 +1,21 @@
 import React from 'react';
-
-//import { Reset } from 'styled-reset'// globalStyles를 쓰지 않고 scss를 쓸것이기 때문에 reset.scss 파일을 따로 추가했습니다.
+import { BrowserRouter, Route} from 'react-router-dom';
 import '../src/Components/scss/reset.scss';
-import './app.scss';
-import Login from './Pages/Login/Login';
-
+import './App.scss';
+import Login from './Pages/logIn/Login';
+import EmailLogin from './Pages/logIn/EmailLogin';
+import Splash from './Pages/logIn/Splash';
+import signUp from './Pages/signUp/signUp';
 
 function App() {
   return (
   <div className="App">
-      <Reset />
-      <Login/>
+      <BrowserRouter>
+      <Route path='/' exact component={Splash}></Route>
+      <Route path='/login' exact component={Login}></Route>
+      <Route path="/emaillogin" exact component={EmailLogin}></Route>
+      <Route path="/signup" exact component={signUp}></Route>
+      </BrowserRouter>
     </div>
   );
 }
