@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'SpoqaHanSansNeo-Regular';
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SpoqaHanSansNeo-Medium';
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Medium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SpoqaHanSansNeo-Bold';
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Bold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.section-login {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 50px 0 100px;
+  border-radius: 20px 20px 0 0;
+  background-color: #ffffff;
+}
+/*# sourceMappingURL=LoginSection.css.map */

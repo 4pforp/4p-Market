@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'SpoqaHanSansNeo-Regular';
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SpoqaHanSansNeo-Medium';
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Medium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SpoqaHanSansNeo-Bold';
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Bold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.wrap-linkmembership {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.wrap-linkmembership a {
+  font-family: 'SpoqaHanSansNeo-Regular';
+  color: #767676;
+  text-decoration: none;
+}
+
+.wrap-linkmembership .line {
+  margin: 0 12px 0 12px;
+  color: #C4C4C4;
+  font-weight: 400;
+  font-size: 14px;
+}
+/*# sourceMappingURL=EmailLoginBtn.css.map */

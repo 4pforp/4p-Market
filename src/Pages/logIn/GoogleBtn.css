@@ -1,0 +1,85 @@
+@font-face {
+  font-family: 'SpoqaHanSansNeo-Regular';
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SpoqaHanSansNeo-Medium';
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Medium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SpoqaHanSansNeo-Bold';
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Bold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.list-socialbtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.list-socialbtn li {
+  width: 322px;
+  margin-bottom: 10px;
+}
+
+.list-socialbtn li:last-child {
+  margin-bottom: 0px;
+}
+
+@font-face {
+  font-family: 'SpoqaHanSansNeo-Regular';
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SpoqaHanSansNeo-Medium';
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Medium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SpoqaHanSansNeo-Bold';
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Bold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.link-google {
+  display: block;
+  padding: 13px 80px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 18px;
+  font-weight: 400;
+  font-size: 14px;
+  background: #ffffff;
+  color: #767676;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 5px;
+  font-family: 'SpoqaHanSansNeo-Regular';
+  background-image: url("../../assets/images/google-logo.svg");
+  background-repeat: no-repeat;
+  background-position: 17px center;
+  border: 1px solid #767676;
+  border-radius: 44px;
+}
+/*# sourceMappingURL=GoogleBtn.css.map */

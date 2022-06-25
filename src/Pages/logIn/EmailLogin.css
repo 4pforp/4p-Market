@@ -1,0 +1,113 @@
+@font-face {
+  font-family: 'SpoqaHanSansNeo-Regular';
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SpoqaHanSansNeo-Medium';
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Medium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SpoqaHanSansNeo-Bold';
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Bold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  text-decoration: none;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+.emaillogin-section {
+  padding: 30px 34px 0 34px;
+}
+
+.emaillogin-section .title-emaillogin {
+  margin-top: 0;
+  font-family: "SpoqaHanSansNeo-Medium";
+  font-size: 24px;
+  line-height: 30px;
+  color: #000000;
+  text-align: center;
+}
+
+.emaillogin-section .content-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 40px;
+}
+
+.emaillogin-section .content-form .label-email,
+.emaillogin-section .content-form .label-pw {
+  font-family: "SpoqaHanSansNeo-Medium";
+  font-size: 12px;
+  color: #767676;
+}
+
+.emaillogin-section .content-form input {
+  width: 100%;
+  margin-top: 10px;
+  border: none;
+  border-bottom: 1px solid #dbdbdb;
+  outline: 0;
+  font-family: "SpoqaHanSansNeo-Regular";
+}
+
+.emaillogin-section .content-form input:focus {
+  border-bottom: 1px solid #F26E22;
+}
+
+.emaillogin-section .content-form .input-email {
+  margin-bottom: 16px;
+}
+
+.emaillogin-section .link-login {
+  width: 100%;
+  height: 44px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-family: "SpoqaHanSansNeo-Medium";
+  color: #ffffff;
+  text-align: center;
+  line-height: 44px;
+}
+
+.emaillogin-section .link-login .true {
+  background-image: url("../../assets/images/L-disabled-button.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.emaillogin-section .link-login .false {
+  background-image: url("../../assets/images/L-button.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.emaillogin-section .link-signup {
+  display: block;
+  width: 92px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: "SpoqaHanSansNeo-Regular";
+  font-size: 12px;
+  line-height: 15px;
+  color: #767676;
+}
+/*# sourceMappingURL=EmailLogin.css.map */
