@@ -57,8 +57,8 @@ function EditInfo({ view, setView }) {
         ></input>
       </div>
       <Button
-        email="email"
-        password="password"
+        email={email}
+        password={password}
         type="button"
         isActive={isActive}
         view={view}

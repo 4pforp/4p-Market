@@ -1,8 +1,8 @@
 // import axios from "axios";
 import React, { useState } from "react";
 import "./signUp.scss";
-import ProfileSet from "../profileSet/ProfileSet";
-import EmailSignUp from "../emailSignUp/EmailSignUP";
+import ProfileSet from "./profileSet/ProfileSet";
+import EmailSignUp from "./emailSignUp/EmailSignUP";
 
 function SignUp() {
   const [view, setView] = useState(false);

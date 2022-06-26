@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./profileSet.scss";
-import PictureIcon from "../../assets/images/upload-file.svg";
+import PictureIcon from "../../../assets/images/upload-file.svg";
 import Button from "../button/Button";
 
 function ProfileSet() {
@@ -58,6 +58,7 @@ function EditInfo() {
       ? setIsActive(false)
       : setIsActive(true);
   }
+
   return (
     <>
       <div className="-container-input-info">
