@@ -1,7 +1,6 @@
-@import './SocialLoginBtn.scss';
-@import '../../Components/scss/default.scss';
-
+@import "./SocialLoginBtn.scss";
+@import "../../Components/scss/default.scss";
 
 .link-kakao {
-  @include snsBtn('../../assets/images/kakao-logo.svg', $kakao-color);
+  @include snsBtn("../../assets/images/kakao-logo.svg", $kakao-color);
 }

@@ -1,6 +1,6 @@
-@import './SocialLoginBtn.scss';
-@import '../../Components/scss/default.scss';
+@import "./SocialLoginBtn.scss";
+@import "../../Components/scss/default.scss";
 
-  .link-facebook {
-    @include snsBtn('../../assets/images/facebook-logo.svg', $facebook-color);
-  }
+.link-facebook {
+  @include snsBtn("../../assets/images/facebook-logo.svg", $facebook-color);
+}
