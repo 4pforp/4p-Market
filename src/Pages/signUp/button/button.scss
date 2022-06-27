@@ -1,4 +1,4 @@
-@import "../../Components/scss/default.scss";
+@import "../../../Components/scss/default.scss";
 
 .btn-signup {
   width: 100%;
@@ -7,14 +7,14 @@
   font-family: $medium-font;
   color: $white;
   &.true {
-    background-image: url("../../assets/images/L-disabled-button.svg");
+    background-image: url("../../../assets/images/L-disabled-button.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
   }
 
   &.false {
-    background-image: url("../../assets/images/L-button.svg");
+    background-image: url("../../../assets/images/L-button.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

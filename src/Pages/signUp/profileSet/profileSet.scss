@@ -1,4 +1,4 @@
-@import "../../Components/scss/default.scss";
+@import "../../../Components/scss/default.scss";
 
 h2 {
   margin-top: 12px;
@@ -13,7 +13,7 @@ div.show-pic {
   width: 110px;
   height: 110px;
   margin: 30px auto 0;
-  background-image: url("../../assets/images/L-profile.svg");
+  background-image: url("../../../assets/images/L-profile.svg");
   position: relative;
   .icon-img {
     width: 36px;
