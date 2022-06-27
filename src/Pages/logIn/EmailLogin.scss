@@ -1,4 +1,4 @@
-@import '../../Components/scss/default.scss';
+@import "../../Components/scss/default.scss";
 
 * {
   text-decoration: none;
@@ -48,6 +48,15 @@ body {
     .input-email {
       margin-bottom: 16px;
     }
+
+    .errorMsg {
+      display: none;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 14px;
+      color: red;
+      margin-top: 6px;
+    }
   }
 
   .link-login {
@@ -60,15 +69,15 @@ body {
     text-align: center;
     line-height: 44px;
 
-    .true {
-      background-image: url('../../assets/images/L-disabled-button.svg');
+    &.true {
+      background-image: url("../../assets/images/L-disabled-button.svg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
     }
 
-    .false {
-      background-image: url('../../assets/images/L-button.svg');
+    &.false {
+      background-image: url("../../assets/images/L-button.svg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
