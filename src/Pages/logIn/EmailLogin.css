@@ -1,18 +1,21 @@
 @font-face {
   font-family: "SpoqaHanSansNeo-Regular";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "SpoqaHanSansNeo-Medium";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Medium.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Medium.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "SpoqaHanSansNeo-Bold";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Bold.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Bold.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -41,8 +44,8 @@ body {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   margin-top: 40px;
 }
 .emaillogin-section .content-form .label-email,
@@ -60,7 +63,7 @@ body {
   font-family: "SpoqaHanSansNeo-Regular";
 }
 .emaillogin-section .content-form input:focus {
-  border-bottom: 1px solid #F26E22;
+  border-bottom: 1px solid #f26e22;
 }
 .emaillogin-section .content-form .input-email {
   margin-bottom: 16px;
@@ -104,4 +107,4 @@ body {
   font-size: 12px;
   line-height: 15px;
   color: #767676;
-}/*# sourceMappingURL=EmailLogin.css.map */
+} /*# sourceMappingURL=EmailLogin.css.map */

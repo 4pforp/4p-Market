@@ -1,16 +1,16 @@
-import FacebookBtn from './FacebookBtn';
-import GoogleBtn from './GoogleBtn';
-import KakaoBtn from './KakaoBtn';
-import './SocialLoginBtn.scss';
+import FacebookBtn from "./FacebookBtn";
+import GoogleBtn from "./GoogleBtn";
+import KakaoBtn from "./KakaoBtn";
+import "./SocialLoginBtn.scss";
 
-function SocialLoginBtn () {
+function SocialLoginBtn() {
   return (
     <ul className="list-socialbtn">
-      <KakaoBtn/>
-      <GoogleBtn/>
-      <FacebookBtn/>
+      <KakaoBtn />
+      <GoogleBtn />
+      <FacebookBtn />
     </ul>
-  )
+  );
 }
 
 export default SocialLoginBtn;

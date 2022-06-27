@@ -1,22 +1,14 @@
-import React, {
-  useState,
-  useContext,
-} from "react";
+import React, { useState, useContext } from "react";
 import "./profileSet.scss";
 import PictureIcon from "../../../assets/images/upload-file.svg";
 import Button from "../button/Button";
 import UserContext from "../contexts/UserContext";
 
 function ProfileSet() {
-  const [username, setUserName] =
-    useState("");
-  const [accountname, setAcountName] =
-    useState("");
-  const [intro, setIntro] =
-    useState("");
-  const { user, setUser } = useContext(
-    UserContext
-  );
+  const [username, setUserName] = useState("");
+  const [accountname, setAcountName] = useState("");
+  const [intro, setIntro] = useState("");
+  const { user, setUser } = useContext(UserContext);
   // 유저 정보 입력 함수
   function handleSubmit(e) {
     e.preventDefault();
@@ -32,31 +24,20 @@ function ProfileSet() {
   function submitUserInfo(e) {
     const userInfo = { user: "" };
     userInfo.user = user;
-    fetch(
-      "https://mandarin.api.weniv.co.kr/user",
-      {
-        method: "POST",
-        headers: {
-          "Content-type":
-            "application/json",
-        },
-        body: JSON.stringify(userInfo),
-      }
-    ).then((res) => {});
+    fetch("https://mandarin.api.weniv.co.kr/user", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(userInfo),
+    }).then((res) => {});
   }
 
   return (
     <>
-      <form
-        method="POST"
-        enctype="multipart/form-data"
-        onSubmit={handleSubmit}
-      >
+      <form method="POST" enctype="multipart/form-data" onSubmit={handleSubmit}>
         <h1>프로필 설정</h1>
-        <h2>
-          나중에 언제든지 변경할 수
-          있습니다.
-        </h2>
+        <h2>나중에 언제든지 변경할 수 있습니다.</h2>
         <EditInfo
           username={username}
           setUserName={setUserName}
@@ -78,8 +59,7 @@ function EditInfo({
   intro,
   setIntro,
 }) {
-  const [isActive, setIsActive] =
-    useState(true);
+  const [isActive, setIsActive] = useState(true);
 
   function handleUserNameInput(e) {
     setUserName(e.target.value);
@@ -94,8 +74,7 @@ function EditInfo({
   }
 
   function goodToJoin() {
-    return username.length >= 2 &&
-      accountname.length >= 3
+    return username.length >= 2 && accountname.length >= 3
       ? setIsActive(false)
       : setIsActive(true);
   }
@@ -104,9 +83,7 @@ function EditInfo({
     <>
       <UploadPic />
       <div className="-container-input-info">
-        <label for="input-name">
-          사용자 이름
-        </label>
+        <label for="input-name">사용자 이름</label>
         <input
           type="text"
           id="input-name"
@@ -116,22 +93,16 @@ function EditInfo({
           onKeyUp={goodToJoin}
           onChange={handleUserNameInput}
         ></input>
-        <label for="input-id">
-          계정 ID
-        </label>
+        <label for="input-id">계정 ID</label>
         <input
           type="text"
           id="input-id"
           name="user-id"
           placeholder="영문, 숫자, 특수문자(.),(_)만 사용 가능합니다. "
           onKeyUp={goodToJoin}
-          onChange={
-            handleAcountNameInput
-          }
+          onChange={handleAcountNameInput}
         ></input>
-        <label for="input-intro">
-          소개
-        </label>
+        <label for="input-intro">소개</label>
         <input
           type="text"
           id="input-intro"
@@ -140,10 +111,7 @@ function EditInfo({
           onChange={handleIntroInput}
         ></input>
       </div>
-      <Button
-        type="submit"
-        isActive={isActive}
-      >
+      <Button type="submit" isActive={isActive}>
         감귤마켓 시작하기
       </Button>
     </>
@@ -153,15 +121,8 @@ function EditInfo({
 function UploadPic() {
   return (
     <div className="show-pic">
-      <label
-        for="choose-img"
-        className="upload-icon"
-      >
-        <img
-          src={PictureIcon}
-          alt="upload"
-          className="icon-img"
-        />
+      <label for="choose-img" className="upload-icon">
+        <img src={PictureIcon} alt="upload" className="icon-img" />
       </label>
       <input
         type="file"

@@ -1,9 +1,9 @@
 {
-    "version": 3,
-    "mappings": "AAAA,AAAA,YAAY,CAAC;EACX,QAAQ,EAAE,QAAQ;EAClB,KAAK,EAAE,KAAK;EACZ,GAAG,EAAE,GAAG;EACR,IAAI,EAAE,GAAG;EACT,SAAS,EAAE,qBAAqB;CACjC",
-    "sources": [
-        "Splash.scss"
-    ],
-    "names": [],
-    "file": "Splash.css"
+  "version": 3,
+  "mappings": "AAAA,AAAA,YAAY,CAAC;EACX,QAAQ,EAAE,QAAQ;EAClB,KAAK,EAAE,KAAK;EACZ,GAAG,EAAE,GAAG;EACR,IAAI,EAAE,GAAG;EACT,SAAS,EAAE,qBAAqB;CACjC",
+  "sources": [
+    "Splash.scss"
+  ],
+  "names": [],
+  "file": "Splash.css"
 }

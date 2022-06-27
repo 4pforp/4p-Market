@@ -1,4 +1,4 @@
-@import '../../Components/scss/default.scss';
+@import "../../Components/scss/default.scss";
 
 @mixin snsBtn($url, $color) {
   display: block;
@@ -12,7 +12,7 @@
   color: $subtext-color;
   box-sizing: border-box;
   border-radius: 5px;
-  font-family: 'SpoqaHanSansNeo-Regular';
+  font-family: "SpoqaHanSansNeo-Regular";
   background-image: url($url);
   background-repeat: no-repeat;
   background-position: 17px center;
