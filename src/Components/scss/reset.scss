@@ -180,3 +180,14 @@ ol {
   white-space: nowrap;
   border: 0;
 }
+
+/* chrome input-box color reset */
+input:-webkit-autofill {
+  -webkit-text-fill-color: #000;
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
