@@ -31,4 +31,13 @@
       margin-bottom: 0px;
     }
   }
+  .link-kakao {
+    @include snsBtn("../../assets/images/kakao-logo.svg", $kakao-color);
+  }
+  .link-google {
+    @include snsBtn("../../assets/images/google-logo.svg", $subtext-color);
+  }
+  .link-facebook {
+    @include snsBtn("../../assets/images/facebook-logo.svg", $facebook-color);
+  }
 }
