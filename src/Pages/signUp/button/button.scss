@@ -8,16 +8,10 @@
   font-family: $medium-font;
   color: $white;
   &.true {
-    background-image: url("../../../assets/images/L-disabled-button.svg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: $disabled-color;
   }
 
   &.false {
-    background-image: url("../../../assets/images/L-button.svg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: $primary-color;
   }
 }

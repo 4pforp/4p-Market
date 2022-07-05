@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Button from "../button/Button";
-import "./emailSignUp.scss";
 
 function EmailSignUp({ view, setView }) {
   return (
