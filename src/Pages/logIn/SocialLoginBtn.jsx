@@ -1,15 +1,12 @@
-import FacebookBtn from "./FacebookBtn";
-import GoogleBtn from "./GoogleBtn";
-import KakaoBtn from "./KakaoBtn";
 import "./SocialLoginBtn.scss";
 
-function SocialLoginBtn() {
+function SocialLoginBtn({ name, style }) {
   return (
-    <ul className="list-socialbtn">
-      <KakaoBtn />
-      <GoogleBtn />
-      <FacebookBtn />
-    </ul>
+    <li>
+      <a href="#none" className={style}>
+        {name} 계정으로 로그인
+      </a>
+    </li>
   );
 }
 
