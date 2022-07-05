@@ -1,4 +1,4 @@
-@import "../../Components/scss/default.scss";
+@import "../../Components/style/default.scss";
 
 @mixin snsBtn($url, $color) {
   display: block;
@@ -32,12 +32,12 @@
     }
   }
   .link-kakao {
-    @include snsBtn("../../assets/images/kakao-logo.svg", $kakao-color);
+    @include snsBtn("../../assets/kakao-logo.svg", $kakao-color);
   }
   .link-google {
-    @include snsBtn("../../assets/images/google-logo.svg", $subtext-color);
+    @include snsBtn("../../assets/google-logo.svg", $subtext-color);
   }
   .link-facebook {
-    @include snsBtn("../../assets/images/facebook-logo.svg", $facebook-color);
+    @include snsBtn("../../assets/facebook-logo.svg", $facebook-color);
   }
 }

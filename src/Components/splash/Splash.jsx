@@ -1,4 +1,4 @@
-import fullLogo from "../../assets/images/full-logo.svg";
+import fullLogo from "../../assets/full-logo.svg";
 import "./Splash.scss";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
@@ -8,7 +8,7 @@ function Splash() {
   const history = useHistory();
   const timeout = () => {
     setTimeout(() => {
-      history.push("/login");
+      history.push("/home");
     }, 2000);
   };
 

@@ -1,19 +1,19 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
-import "../src/Components/scss/reset.scss";
+import "../src/Components/style/reset.scss";
 import "./App.scss";
-import Login from "./Pages/logIn/Login";
-import EmailLogin from "./Pages/logIn/EmailLogin";
-import Splash from "./Pages/logIn/Splash";
-import signUp from "./Pages/signUp/signUp";
+import EmailLogin from "./Pages/emailLogin/EmailLogin";
+import Splash from "./Components/splash/Splash";
+import signUp from "./Pages/signUp/SignUp";
+import HomePage from "./Pages/homePage/HomePage";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Route path="/" exact component={Splash}></Route>
-        <Route path="/login" exact component={Login}></Route>
-        <Route path="/emaillogin" exact component={EmailLogin}></Route>
+        <Route path="/home" exact component={HomePage}></Route>
+        <Route path="/login" exact component={EmailLogin}></Route>
         <Route path="/signup" exact component={signUp}></Route>
       </BrowserRouter>
     </div>

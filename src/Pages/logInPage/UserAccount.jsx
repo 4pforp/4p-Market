@@ -1,10 +1,10 @@
-import "./EmailLoginBtn.scss";
+import "./UserAccount.scss";
 import { Link } from "react-router-dom";
 
 function EmailLoginBtn() {
   return (
     <div className="wrap-linkmembership">
-      <Link to="/emaillogin" className="link-loginemail">
+      <Link to="/login" className="link-loginemail">
         이메일로 로그인
       </Link>
       <span className="line">|</span>

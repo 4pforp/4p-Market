@@ -67,32 +67,30 @@ function EmailLogin() {
     <section className="emaillogin-section">
       <h1 className="title-emaillogin">로그인</h1>
       <form method="get" className="content-form" onSubmit={handleLogin}>
-        <label className="label-email" htmlFor="email">
+        <label htmlFor="email" className="label-email">
           이메일
         </label>
         <input
           onKeyUp={loginActive}
-          id="email"
+          id="input-email"
           type="id"
-          className="input-email"
           onChange={onEmailHandler}
         />
-        <label className="label-pw" htmlFor="password">
+        <label htmlFor="password" className="label-password">
           비밀번호
         </label>
         <input
           onKeyUp={loginActive}
-          id="password"
+          id="input-password"
           type="password"
-          className="input-password"
           onChange={onPasswordHandler}
         />
         <strong className="errorMsg">
           *이메일 또는 비밀번호가 일치하지 않습니다.
         </strong>
 
-        <button className={`link-login ${isActive}`} disabled={isActive}>
-          로그인
+        <button className={`button-login ${isActive}`} disabled={isActive}>
+          <Link to="/">로그인</Link>
         </button>
       </form>
       <Link to="/signup" className="link-signup">

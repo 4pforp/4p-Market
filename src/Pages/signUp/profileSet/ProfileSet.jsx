@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import "./profileSet.scss";
-import PictureIcon from "../../../assets/images/upload-file.svg";
-import Button from "../button/Button";
-import UserContext from "../contexts/UserContext";
+import PictureIcon from "../../../assets/upload-file.svg";
+import Button from "../Button";
+import UserContext from "../UserContext";
 
 function ProfileSet() {
   const [username, setUserName] = useState("");

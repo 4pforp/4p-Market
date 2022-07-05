@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./signUp.scss";
+import "./SignUp.scss";
 import ProfileSet from "./profileSet/ProfileSet";
 import EmailSignUp from "./emailSignUp/EmailSignUP";
-import UserContext from "./contexts/UserContext";
+import UserContext from "./UserContext";
 
 function SignUp() {
   const userForm = {
@@ -17,13 +17,13 @@ function SignUp() {
   const [view, setView] = useState(false);
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      <main>
+      <section className="signup-section">
         {view === false ? (
           <EmailSignUp view={view} setView={setView} />
         ) : (
           <ProfileSet />
         )}
-      </main>
+      </section>
     </UserContext.Provider>
   );
 }

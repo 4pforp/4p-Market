@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import UserContext from "../contexts/UserContext";
-import "./button.scss";
+import UserContext from "./UserContext";
+import "./Button.scss";
 
 function Button({ children, email, password, type, isActive, view, setView }) {
   const { user, setUser } = useContext(UserContext);
@@ -24,7 +24,7 @@ function Button({ children, email, password, type, isActive, view, setView }) {
     <button
       type={type}
       formtarget="#none"
-      className={`btn-signup ${isActive}`}
+      className={`button-signup ${isActive}`}
       disabled={isActive}
       onClick={(e) => {
         checkButton(e);
