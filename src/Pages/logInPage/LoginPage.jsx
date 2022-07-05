@@ -1,6 +1,6 @@
 import LoginSection from "./LoginSection";
-import "./Login.scss";
-import symbolLogoW from "../../assets/images/symbol-logo-W.svg";
+import "./LoginPage.scss";
+import symbolLogoW from "../../assets/symbol-logo-W.svg";
 
 function Login() {
   return (

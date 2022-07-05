@@ -1,5 +1,5 @@
-import SocialLoginBtn from "./SocialLoginBtn";
-import EmailLoginBtn from "./EmailLoginBtn";
+import SocialLoginBtn from "../../Components/button/SocialLoginBtn";
+import EmailLoginBtn from "./UserAccount";
 import "./LoginSection.scss";
 
 const social = [
