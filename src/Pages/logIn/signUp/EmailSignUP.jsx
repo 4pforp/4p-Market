@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Button from "../Button";
+import Button from "./Button";
 
 function EmailSignUp({ view, setView }) {
   return (
     <>
-      <h1 className="title-eamilsignup">이메일로 회원가입</h1>
+      <h1 className="title-signup">이메일로 회원가입</h1>
       <form method="POST" className="content-form">
         <EditInfo view={view} setView={setView} />
       </form>

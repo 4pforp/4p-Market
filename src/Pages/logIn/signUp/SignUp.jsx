@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SignUp.scss";
-import ProfileSet from "./profileSet/ProfileSet";
-import EmailSignUp from "./emailSignUp/EmailSignUP";
+import ProfileSet from "./ProfileSet";
+import EmailSignUp from "./EmailSignUP";
 import UserContext from "./UserContext";
 
 function SignUp() {
@@ -18,11 +18,12 @@ function SignUp() {
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <section className="signup-section">
-        {view === false ? (
+        {/* {view === false ? (
           <EmailSignUp view={view} setView={setView} />
         ) : (
           <ProfileSet />
-        )}
+        )} */}
+        <ProfileSet />
       </section>
     </UserContext.Provider>
   );
