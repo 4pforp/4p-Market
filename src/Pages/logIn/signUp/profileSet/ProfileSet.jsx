@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import "./profileSet.scss";
-import PictureIcon from "../../../assets/upload-file.svg";
+import PictureIcon from "../../../../assets/upload-file.svg";
 import Button from "../Button";
 import UserContext from "../UserContext";
 
