@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext } from "react";
+import LoginContext from "../LoginContext";
 import MainHeader from "../../Components/header/MainHeader";
 import MainFooter from "../../Components/footer/MainFooter";
 import Login from "../logIn/Login";
 
 function Home() {
+  const { isLogin } = useContext(LoginContext);
+  console.log(isLogin);
   // 헤더푸터 작업하실 때 isLogin변수를 true로 바꾸고 작업하시면 됩니다~!
-  const [isLogin, setIsLogin] = useState(false);
   if (isLogin) {
     return (
       <>

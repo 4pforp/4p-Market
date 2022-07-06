@@ -1,4 +1,4 @@
-@import "../../../Components/style/default.scss";
+@import "../../../../Components/style/default.scss";
 
 .subtitle-signup {
   margin-top: 12px;
@@ -9,8 +9,8 @@
   text-align: center;
 }
 
-.label-name,
-.label-id,
+.label-accountname,
+.label-username,
 .label-intro {
   font-family: $medium-font;
   font-size: 12px;
@@ -42,7 +42,7 @@ input {
   width: 110px;
   height: 110px;
   margin: 30px auto 30px;
-  background-image: url("../../../assets/L-profile.svg");
+  background-image: url("../../../../assets/L-profile.svg");
   position: relative;
   .icon-img {
     width: 36px;
