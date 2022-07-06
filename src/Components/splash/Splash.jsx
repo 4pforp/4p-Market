@@ -3,7 +3,7 @@ import "./Splash.scss";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-//인트로 splash페이지에서 일정시간 이후 login페이지로 이동하는 기능
+// 인트로 splash 페이지에서 일정시간 이후 홈페이지로 이동하는 기능
 function Splash() {
   const history = useHistory();
   const timeout = () => {

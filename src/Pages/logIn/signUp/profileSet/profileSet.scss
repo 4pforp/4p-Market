@@ -8,6 +8,11 @@
   line-height: 14px;
   text-align: center;
 }
+.container-email,
+.container-password {
+  margin-top: 10px;
+  margin-bottom: 16px;
+}
 
 .label-accountname,
 .label-username,
@@ -18,8 +23,6 @@
 }
 input {
   width: 100%;
-  margin-top: 10px;
-  margin-bottom: 16px;
   padding-bottom: 8px;
   border: none;
   border-bottom: 1px solid $line-color;

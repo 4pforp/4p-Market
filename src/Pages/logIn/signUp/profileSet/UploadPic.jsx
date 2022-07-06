@@ -3,7 +3,7 @@ import PictureIcon from "../../../../assets/upload-file.svg";
 function UploadPic() {
   return (
     <div className="set-profile-image">
-      <label for="choose-img" className="upload-icon">
+      <label htmlFor="choose-img" className="upload-icon">
         <img src={PictureIcon} alt="upload" className="icon-img" />
       </label>
       <input
