@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./EmailLogin.scss";
 
@@ -9,7 +9,7 @@ function EmailLogin() {
   const [password, setPassword] = useState("");
   const [isActive, setIsActive] = useState(true);
 
-  const history = useHistory();
+  const history = useNavigate();
 
   const onEmailHandler = (event) => {
     setEmail(event.currentTarget.value);

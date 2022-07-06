@@ -1,10 +1,10 @@
 import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "../src/Components/style/reset.scss";
 import "./App.scss";
 import EmailLogin from "./Pages/logIn/emailLogin/EmailLogin";
 import Splash from "./Components/splash/Splash";
-import signUp from "./Pages/logIn/signUp/SignUp";
+import SignUp from "./Pages/logIn/signUp/SignUp";
 import Home from "./Pages/home/Home";
 import Profile from "./Pages/profile/Profile";
 import Chat from "./Pages/chat/Chat";
@@ -16,15 +16,17 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Route path="/" exact component={Splash}></Route>
-        <Route path="/home" exact component={Home}></Route>
-        <Route path="/login" exact component={EmailLogin}></Route>
-        <Route path="/signup" exact component={signUp}></Route>
-        <Route path="/chat" exact component={Chat}></Route>
-        <Route path="/profile" exact component={Profile}></Route>
-        <Route path="/post" exact component={Post}></Route>
-        <Route path="/product" exact component={Product}></Route>
-        <Route path="/profileedit" exact component={ProfileEdit}></Route>
+        <Routes>
+          <Route path="/" element={<Splash />}></Route>
+          <Route path="/home" element={<Home />}></Route>
+          <Route path="/login" element={<EmailLogin />}></Route>
+          <Route path="/signup" element={<SignUp />}></Route>
+          <Route path="/chat" element={<Chat />}></Route>
+          <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/post" element={<Post />}></Route>
+          <Route path="/product" element={<Product />}></Route>
+          <Route path="/profileedit" element={<ProfileEdit />}></Route>
+        </Routes>
       </BrowserRouter>
     </div>
   );
