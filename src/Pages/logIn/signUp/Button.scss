@@ -7,11 +7,13 @@
   border-radius: 44px;
   font-family: $medium-font;
   color: $white;
+  background-color: $disabled-color;
   &.true {
-    background-color: $disabled-color;
+    background-color: $primary-color;
   }
 
   &.false {
-    background-color: $primary-color;
+    background-color: $disabled-color;
+    cursor: default;
   }
 }

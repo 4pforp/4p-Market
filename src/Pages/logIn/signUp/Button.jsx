@@ -1,34 +1,28 @@
-import React, { useContext } from "react";
-import UserContext from "./UserContext";
+import React from "react";
 import "./Button.scss";
 
-function Button({ children, email, password, type, isActive, view, setView }) {
-  const { user, setUser } = useContext(UserContext);
-  // 유저 정보 입력 함수
-  function handleUser() {
-    setUser({ ...user, email: email, password: password });
-  }
+function Button({ children, type, setView, isActive, handleClick }) {
   // 버튼 활성화 함수
   function handleView() {
-    setView(true);
+    setView("ProfileSet");
   }
   // 버튼 타입 확인 함수
   function checkButton(e) {
     if (type === "button") {
       handleView();
-      handleUser();
+      handleClick();
+    } else {
+      handleClick();
     }
   }
 
   return (
     <button
       type={type}
-      formtarget="#none"
+      formTarget="#none"
       className={`button-signup ${isActive}`}
-      disabled={isActive}
-      onClick={(e) => {
-        checkButton(e);
-      }}
+      disabled={!isActive}
+      onClick={checkButton}
     >
       {children}
     </button>

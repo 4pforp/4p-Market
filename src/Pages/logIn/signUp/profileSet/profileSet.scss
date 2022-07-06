@@ -1,6 +1,6 @@
 @import "../../../../Components/style/default.scss";
 
-h2 {
+.subtitle-signup {
   margin-top: 12px;
   font-family: $basic-font;
   color: $subtext-color;
@@ -9,10 +9,39 @@ h2 {
   text-align: center;
 }
 
-div.show-pic {
+.label-accountname,
+.label-username,
+.label-intro {
+  font-family: $medium-font;
+  font-size: 12px;
+  color: $subtext-color;
+}
+input {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border: none;
+  border-bottom: 1px solid $line-color;
+  outline: 0;
+  font-family: $basic-font;
+  &:focus {
+    border-bottom: 1px solid $primary-color;
+  }
+  &::placeholder {
+    color: $line-color;
+    font-family: $basic-font;
+    font-size: 14px;
+  }
+}
+#input-intro {
+  margin-bottom: 0;
+}
+
+.set-profile-image {
   width: 110px;
   height: 110px;
-  margin: 30px auto 0;
+  margin: 30px auto 30px;
   background-image: url("../../../../assets/L-profile.svg");
   position: relative;
   .icon-img {
