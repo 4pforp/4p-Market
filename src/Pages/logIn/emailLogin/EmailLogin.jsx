@@ -9,7 +9,7 @@ function EmailLogin() {
   const [password, setPassword] = useState("");
   const [isActive, setIsActive] = useState(true);
 
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const onEmailHandler = (event) => {
     setEmail(event.currentTarget.value);
@@ -56,7 +56,7 @@ function EmailLogin() {
       if (res.data.message === "이메일 또는 비밀번호가 일치하지 않습니다.") {
         error.style.display = "block";
       } else {
-        history.push("/home");
+        navigate("/home");
       }
     } catch (err) {
       console.log(err);
