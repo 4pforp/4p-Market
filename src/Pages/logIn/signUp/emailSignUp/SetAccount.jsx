@@ -17,7 +17,7 @@ function SetAccount({ setIsActive, email, setEmail, password, setPassword }) {
 
   // 이메일 주소 유효성 검사
   const checkEmail =
-    /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+    /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,5}$/i;
 
   // 로그인버튼 활성화 검사
   function handleKeyUp() {

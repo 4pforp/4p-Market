@@ -35,7 +35,7 @@ function SignUp() {
           },
         }
       );
-      console.log(res);
+      // console.log(res);
       setIsLogin(true);
       navigate("/home");
     } catch (err) {
