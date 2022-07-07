@@ -48,13 +48,32 @@
     #input-password {
       margin-bottom: 0;
     }
-    .errorMsg {
-      display: none;
-      font-weight: 500;
-      font-size: 12px;
-      line-height: 14px;
+  }
+}
+
+.errorMsg {
+  display: none;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  margin-top: 6px;
+  &.email {
+    &.true {
+      color: green;
+      display: block;
+    }
+    &.false {
       color: red;
-      margin-top: 6px;
+      display: block;
+    }
+  }
+  &.password {
+    &.true {
+      display: none;
+    }
+    &.false {
+      color: red;
+      display: block;
     }
   }
 }
