@@ -1,45 +1,45 @@
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useRef, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./EmailLogin.scss";
+import "./Button.scss";
 
 function EmailLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isActive, setIsActive] = useState(true);
+  const [isActive, setIsActive] = useState(false);
+  const [isWrong, setIsWrong] = useState(false);
 
+  const inputRef = useRef();
   const navigate = useNavigate();
 
-  const onEmailHandler = (event) => {
-    setEmail(event.currentTarget.value);
-  };
+  function handleChangeEmail(e) {
+    setEmail(e.target.value);
+  }
 
-  const onPasswordHandler = (event) => {
-    setPassword(event.target.value);
-  };
+  function handleChangePassword(e) {
+    setPassword(e.target.value);
+  }
 
-  //이메일 주소 유효성 검사
+  //페이지 로딩됐을 때 이메일 인풋 포커스
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
+  //로그인버튼 활성화 검사
+  function handleKeyUp() {
+    return checkEmail.test(email) && password.length > 5
+      ? setIsActive(true)
+      : setIsActive(false);
+  }
+
+  //이메일 주소 유효성 검사 -> 라이브러리로 수정
   const checkEmail =
     /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 
-  //로그인버튼 활성화 검사
-  const loginActive = () => {
-    return checkEmail.test(email) && password.length > 5
-      ? setIsActive(false)
-      : setIsActive(true);
-  };
-
   // 로그인
-  let handleLogin = async function (event) {
-    event.preventDefault();
-
-    const email = document.querySelector("#email").value;
-    const password = document.querySelector("#password").value;
-    const error = document.querySelector(".errorMsg");
-
-    const mainUrl = "https://mandarin.api.weniv.co.kr";
-    const reqPath = "/user/login";
+  async function SubmitLoginForm(e) {
+    e.preventDefault();
     const loginData = {
       user: {
         email: email,
@@ -48,49 +48,56 @@ function EmailLogin() {
     };
 
     try {
-      let res = await axios({
-        method: "POST",
-        url: mainUrl + reqPath,
-        data: loginData,
-      });
+      const res = await axios.post(
+        "https://mandarin.api.weniv.co.kr/user/login",
+        loginData,
+        {
+          header: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
       if (res.data.message === "이메일 또는 비밀번호가 일치하지 않습니다.") {
-        error.style.display = "block";
+        setIsWrong(true);
+        console.log(res.data);
       } else {
-        navigate("/home");
+        console.log(res.data.user);
       }
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
-  };
+  }
 
   return (
     <section className="emaillogin-section">
       <h1 className="title-emaillogin">로그인</h1>
-      <form method="get" className="content-form" onSubmit={handleLogin}>
+      <form method="get" className="content-form" onSubmit={SubmitLoginForm}>
         <label htmlFor="email" className="label-email">
           이메일
         </label>
         <input
-          onKeyUp={loginActive}
+          onKeyUp={handleKeyUp}
           id="input-email"
           type="id"
-          onChange={onEmailHandler}
+          onChange={handleChangeEmail}
+          ref={inputRef}
         />
         <label htmlFor="password" className="label-password">
           비밀번호
         </label>
         <input
-          onKeyUp={loginActive}
+          onKeyUp={handleKeyUp}
           id="input-password"
           type="password"
-          onChange={onPasswordHandler}
+          onChange={handleChangePassword}
         />
-        <strong className="errorMsg">
-          *이메일 또는 비밀번호가 일치하지 않습니다.
+        <strong className={`errorMsg ${isWrong}`}>
+          * 이메일 또는 비밀번호가 일치하지 않습니다.
         </strong>
 
-        <button className={`button-login ${isActive}`} disabled={isActive}>
-          <Link to="/">로그인</Link>
+        <button className={`button-login ${isActive}`} disabled={!isActive}>
+          <p>로그인</p>
         </button>
       </form>
       <Link to="/signup" className="link-signup">
