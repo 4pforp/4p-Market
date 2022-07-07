@@ -1,5 +1,13 @@
 @import "../../../Components/style/default.scss";
 
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .emaillogin-section {
   font-family: $medium-font;
   color: $subtext-color;
@@ -41,32 +49,19 @@
     }
 
     .errorMsg {
-      display: none;
       font-weight: 500;
       font-size: 12px;
       line-height: 14px;
       color: red;
       margin-top: 6px;
+      &.true {
+        visibility: visible;
+      }
+      &.false {
+        visibility: hidden;
+      }
     }
   }
-
-  .button-login {
-    width: 100%;
-    height: 44px;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    border-radius: 44px;
-    font-family: $medium-font;
-    color: $white;
-    &.true {
-      background-color: $disabled-color;
-    }
-
-    &.false {
-      background-color: $primary-color;
-    }
-  }
-
   .link-signup {
     display: block;
     width: 92px;
