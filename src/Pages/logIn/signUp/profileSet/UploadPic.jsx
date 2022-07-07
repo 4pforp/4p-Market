@@ -23,7 +23,7 @@ function UploadPic({ image, setImage }) {
           "Content-Type": "multipart/form-data",
         }
       );
-      setImage(res.data.filename);
+      setImage("https://mandarin.api.weniv.co.kr/" + res.data.filename);
     } catch (err) {
       console.error(err);
     }

@@ -7,12 +7,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const userForm = {
-  username: "",
-  email: "",
-  password: "",
-  accountname: "",
-  intro: "",
-  image: "",
+  username: String,
+  email: String,
+  password: String,
+  accountname: String,
+  intro: String,
+  image: String,
 };
 
 function SignUp() {
@@ -35,7 +35,6 @@ function SignUp() {
           },
         }
       );
-      // console.log(res);
       setIsLogin(true);
       navigate("/home");
     } catch (err) {

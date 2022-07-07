@@ -34,7 +34,7 @@ function EditInfo({
   const checkAccountname = /^[a-zA-Z0-9_.]{4,}$/;
 
   // 계정 ID 중복 검사 요청
-  async function accountnameValid() {
+  async function reqAccountnameValid() {
     try {
       const res = await axios.post(
         "https://mandarin.api.weniv.co.kr/user/accountnamevalid",
@@ -49,7 +49,6 @@ function EditInfo({
           },
         }
       );
-      console.log(res);
     } catch (err) {
       console.error(err);
     }
@@ -78,7 +77,7 @@ function EditInfo({
           <input
             onKeyUp={handleKeyUp}
             onChange={handleChangeAccountname}
-            onBlur={accountnameValid}
+            onBlur={reqAccountnameValid}
             id="input-accountname"
             type="text"
             placeholder="영문, 숫자, 특수문자(.),(_)만 사용 가능합니다. "
