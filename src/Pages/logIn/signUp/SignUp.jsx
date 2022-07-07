@@ -4,7 +4,7 @@ import "./SignUp.scss";
 import ProfileSet from "./profileSet/ProfileSet";
 import EmailSignUp from "./emailSignUp/EmailSignUp";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const userForm = {
   username: "",
@@ -19,7 +19,7 @@ function SignUp() {
   const [user, setUser] = useState(userForm);
   const [view, setView] = useState("EmailSignUp");
   const { setIsLogin } = useContext(LoginContext);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   // 유저 정보 서버로 POST
   async function submitUserInfo() {
@@ -37,7 +37,7 @@ function SignUp() {
       );
       console.log(res);
       setIsLogin(true);
-      history.push("/home");
+      navigate("/home");
     } catch (err) {
       console.error(err);
     }

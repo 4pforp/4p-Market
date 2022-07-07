@@ -3,6 +3,7 @@ import LoginContext from "../LoginContext";
 import MainHeader from "../../Components/header/MainHeader";
 import MainFooter from "../../Components/footer/MainFooter";
 import Login from "../logIn/Login";
+import "./Home.scss";
 
 function Home() {
   const { isLogin } = useContext(LoginContext);
