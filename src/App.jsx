@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import LoginContext from "./Pages/LoginContext";
 import "../src/Components/style/reset.scss";
 import "./App.scss";
 import EmailLogin from "./Pages/logIn/emailLogin/EmailLogin";
@@ -13,8 +14,10 @@ import Product from "./Pages/product/Product";
 import ProfileEdit from "./Pages/profileEdit/ProfileEdit";
 
 function App() {
+  const [isLogin, setIsLogin] = useState(false);
   return (
     <div className="App">
+     <LoginContext.Provider value={{ isLogin, setIsLogin }}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Splash />}></Route>
@@ -28,6 +31,7 @@ function App() {
           <Route path="/profileedit" element={<ProfileEdit />}></Route>
         </Routes>
       </BrowserRouter>
+     </LoginContext.Provider>
     </div>
   );
 }
