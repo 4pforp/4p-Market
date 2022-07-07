@@ -1,5 +1,5 @@
-import { React, useState } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LoginContext from "./Pages/LoginContext";
 import "../src/Components/style/reset.scss";
 import "./App.scss";
@@ -17,19 +17,21 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   return (
     <div className="App">
-      <LoginContext.Provider value={{ isLogin, setIsLogin }}>
-        <BrowserRouter>
-          <Route path="/" exact component={Splash}></Route>
-          <Route path="/home" exact component={Home}></Route>
-          <Route path="/login" exact component={EmailLogin}></Route>
-          <Route path="/signup" exact component={SignUp}></Route>
-          <Route path="/chat" exact component={Chat}></Route>
-          <Route path="/profile" exact component={Profile}></Route>
-          <Route path="/post" exact component={Post}></Route>
-          <Route path="/product" exact component={Product}></Route>
-          <Route path="/profileedit" exact component={ProfileEdit}></Route>
-        </BrowserRouter>
-      </LoginContext.Provider>
+     <LoginContext.Provider value={{ isLogin, setIsLogin }}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Splash />}></Route>
+          <Route path="/home" element={<Home />}></Route>
+          <Route path="/login" element={<EmailLogin />}></Route>
+          <Route path="/signup" element={<SignUp />}></Route>
+          <Route path="/chat" element={<Chat />}></Route>
+          <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/post" element={<Post />}></Route>
+          <Route path="/product" element={<Product />}></Route>
+          <Route path="/profileedit" element={<ProfileEdit />}></Route>
+        </Routes>
+      </BrowserRouter>
+     </LoginContext.Provider>
     </div>
   );
 }
