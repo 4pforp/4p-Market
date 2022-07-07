@@ -27,8 +27,10 @@
       font-size: 12px;
       color: $subtext-color;
     }
-    input {
+    #input-email,
+    #input-password {
       width: 100%;
+      padding-top: 6px;
       padding-bottom: 8px;
       border: none;
       border-bottom: 1px solid $line-color;
