@@ -3,10 +3,10 @@ import Savebtn from '../button/SaveBtn';
 
 function UploadNav(){
   return(
-    <aside className="nav-layout">
+    <header className="nav-layout">
       <BackBtn/>
       <Savebtn text="업로드"/>
-    </aside>
+    </header>
   )
 }
 
