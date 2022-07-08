@@ -8,8 +8,6 @@ function Button({ children, type, from, setView, isActive, handleClick }) {
       handleClick();
     } else if (from === "profileSet") {
       handleClick();
-    } else if (from === "login") {
-      // 여기다가써!
     }
   }
 
