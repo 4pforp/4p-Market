@@ -1,14 +1,18 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import LoginContext from "../../LoginContext";
 import axios from "axios";
 import "./EmailLogin.scss";
-import "./Button.scss";
+import "../Button.scss";
+import Button from "../Button";
 
 function EmailLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isActive, setIsActive] = useState(false);
   const [isWrong, setIsWrong] = useState(false);
+
+  const { setIsLogin } = useContext(LoginContext);
 
   const inputRef = useRef();
   const navigate = useNavigate();
@@ -26,16 +30,16 @@ function EmailLogin() {
     inputRef.current.focus();
   }, []);
 
+  //이메일 주소 유효성 검사
+  const checkEmail =
+    /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,6}$/i;
+
   //로그인버튼 활성화 검사
   function handleKeyUp() {
     return checkEmail.test(email) && password.length > 5
       ? setIsActive(true)
       : setIsActive(false);
   }
-
-  //이메일 주소 유효성 검사 -> 라이브러리로 수정
-  const checkEmail =
-    /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 
   // 로그인
   async function SubmitLoginForm(e) {
@@ -57,11 +61,13 @@ function EmailLogin() {
           },
         }
       );
-
       if (res.data.message === "이메일 또는 비밀번호가 일치하지 않습니다.") {
         setIsWrong(true);
-        console.log(res.data);
       } else {
+        setIsWrong(false);
+        setIsLogin(true);
+        localStorage.setItem("email", email);
+        navigate("/home");
         console.log(res.data.user);
       }
     } catch (err) {
@@ -96,9 +102,14 @@ function EmailLogin() {
           * 이메일 또는 비밀번호가 일치하지 않습니다.
         </strong>
 
-        <button className={`button-login ${isActive}`} disabled={!isActive}>
-          <p>로그인</p>
-        </button>
+        <Button
+          type="submit"
+          from="login"
+          isActive={isActive}
+          className={`button ${isActive}`}
+        >
+          로그인
+        </Button>
       </form>
       <Link to="/signup" className="link-signup">
         이메일로 회원가입
