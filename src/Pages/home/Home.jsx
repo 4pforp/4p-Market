@@ -4,7 +4,7 @@ import Login from "../logIn/Login";
 import "./Home.scss";
 
 function Home() {
-  const isLogin = localStorage.getItem("email");
+  const isLogin = localStorage.getItem("token");
   if (isLogin) {
     return (
       <>
