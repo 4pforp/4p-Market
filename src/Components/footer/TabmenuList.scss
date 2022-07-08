@@ -1,0 +1,44 @@
+.link-home {
+  &::before {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    content: url("../../assets/icon-home.svg");
+  }
+}
+
+.link-chat {
+  &::before {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    content: url("../../assets/icon-message-circle.svg");
+  }
+}
+
+.link-chat .fill {
+  &::before {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    content: url("../../assets/icon-message-circle-fill.svg");
+  }
+}
+
+.link-post {
+  &::before {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    content: url("../../assets/icon-edit.svg");
+  }
+}
+
+.link-profile {
+  &::before {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    content: url("../../assets/icon-user.svg");
+  }
+}
