@@ -7,7 +7,6 @@ import "./Home.scss";
 
 function Home() {
   const { isLogin } = useContext(LoginContext);
-  console.log(isLogin);
   // 헤더푸터 작업하실 때 isLogin변수를 true로 바꾸고 작업하시면 됩니다~!
   if (true) {
     return (

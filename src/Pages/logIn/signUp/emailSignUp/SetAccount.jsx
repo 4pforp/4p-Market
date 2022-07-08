@@ -4,8 +4,8 @@ import { useState } from "react";
 function SetAccount({ setIsActive, email, setEmail, password, setPassword }) {
   const [resMessageEmail, setResMessageEmail] = useState("");
   const [resMessagePassword, setResMessagePassword] = useState("");
-  const messageEmail = document.querySelector(".errorMsg.email");
-  const messagePassword = document.querySelector(".errorMsg.password");
+  const [isValidEmail, setIsValidEmail] = useState(true);
+  const [isValidPassword, setIsValidPassword] = useState(true);
 
   function handleChangeEmail(e) {
     setEmail(e.target.value);
@@ -28,27 +28,26 @@ function SetAccount({ setIsActive, email, setEmail, password, setPassword }) {
 
   // 이메일 검증
   function handleBlurEmail() {
-    messageEmail.style.display = "block";
     if (checkEmail.test(email)) {
-      emailValid();
+      reqEmailValid();
     } else {
       setResMessageEmail("*이메일 형식이 올바르지 않습니다.");
-      messageEmail.style.color = "red";
+      setIsValidEmail(false);
     }
   }
 
   // 비밀번호 검증
   function handleBlurPassword() {
     if (password.length > 5) {
-      messagePassword.style.display = "none";
+      setIsValidPassword(true);
     } else {
       setResMessagePassword("*비밀번호는 6자 이상이어야 합니다.");
-      messagePassword.style.display = "block";
+      setIsValidPassword(false);
     }
   }
 
   // 이메일 중복 검사 요청
-  async function emailValid() {
+  async function reqEmailValid() {
     try {
       const res = await axios.post(
         "https://mandarin.api.weniv.co.kr/user/emailvalid",
@@ -66,10 +65,10 @@ function SetAccount({ setIsActive, email, setEmail, password, setPassword }) {
 
       if (res.data.message === "사용 가능한 이메일 입니다.") {
         setResMessageEmail(res.data.message);
-        messageEmail.style.color = "green";
+        setIsValidEmail(true);
       } else {
         setResMessageEmail("*" + res.data.message);
-        messageEmail.style.color = "red";
+        setIsValidEmail(false);
       }
     } catch (err) {
       console.error(err);
@@ -90,7 +89,9 @@ function SetAccount({ setIsActive, email, setEmail, password, setPassword }) {
           type="email"
           placeholder="이메일 주소를 입력해 주세요."
         ></input>
-        <strong className="errorMsg email">{resMessageEmail}</strong>
+        <strong className={`errorMsg email ${isValidEmail}`}>
+          {resMessageEmail}
+        </strong>
       </div>
       <div className="container-password">
         <label htmlFor="password" className="label-password">
@@ -105,7 +106,9 @@ function SetAccount({ setIsActive, email, setEmail, password, setPassword }) {
           maxLength="16"
           placeholder="비밀번호를 설정해 주세요."
         ></input>
-        <strong className="errorMsg password">{resMessagePassword}</strong>
+        <strong className={`errorMsg password ${isValidPassword}`}>
+          {resMessagePassword}
+        </strong>
       </div>
     </>
   );
