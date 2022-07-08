@@ -9,6 +9,7 @@ import SignUp from "./Pages/logIn/signUp/SignUp";
 import Home from "./Pages/home/Home";
 import Profile from "./Pages/profile/Profile";
 import Chat from "./Pages/chat/Chat";
+import ChatRoom from "./Pages/chat/ChatRoom";
 import Post from "./Pages/post/Post";
 import Product from "./Pages/product/Product";
 import ProfileEdit from "./Pages/profileEdit/ProfileEdit";
@@ -25,6 +26,7 @@ function App() {
             <Route path="/login" element={<EmailLogin />}></Route>
             <Route path="/signup" element={<SignUp />}></Route>
             <Route path="/chat" element={<Chat />}></Route>
+            <Route path="/chat/:chat1" element={<ChatRoom />}></Route>
             <Route path="/profile" element={<Profile />}></Route>
             <Route path="/post" element={<Post />}></Route>
             <Route path="/product" element={<Product />}></Route>
