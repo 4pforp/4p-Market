@@ -1,10 +1,10 @@
-import MainNav from "../../Components/navBar/MainNav";
+import BasicNav from "../../Components/navBar/BasicNav";
 import MainFooter from "../../Components/footer/MainFooter";
 
 function Profile() {
   return (
     <>
-      <MainNav />
+      <BasicNav />
       <h1>프로필페이지 </h1>
       <MainFooter />
     </>

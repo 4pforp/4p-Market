@@ -1,9 +1,9 @@
-import UploadNav from "../../Components/navBar/UploadNav";
+import SaveNav from "../../Components/navBar/SaveNav";
 
 function Product() {
   return (
     <>
-      <UploadNav />
+      <SaveNav />
       <h1>상품등록페이지</h1>
     </>
   );
