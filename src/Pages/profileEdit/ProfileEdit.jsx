@@ -1,9 +1,9 @@
-import PostHeader from "../../Components/header/PostHeader";
+import SaveNav from "../../Components/navBar/SaveNav";
 
 function ProfileEdit() {
   return (
     <>
-      <PostHeader />
+      <SaveNav />
       <h1>프로필수정페이지</h1>
     </>
   );

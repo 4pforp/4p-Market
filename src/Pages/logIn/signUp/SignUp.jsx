@@ -1,5 +1,4 @@
-import { useState, useContext } from "react";
-import LoginContext from "../../LoginContext";
+import { useState } from "react";
 import "./SignUp.scss";
 import ProfileSet from "./profileSet/ProfileSet";
 import EmailSignUp from "./emailSignUp/EmailSignUp";
@@ -7,18 +6,17 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const userForm = {
-  username: "",
-  email: "",
-  password: "",
-  accountname: "",
-  intro: "",
-  image: "",
+  username: String,
+  email: String,
+  password: String,
+  accountname: String,
+  intro: String,
+  image: String,
 };
 
 function SignUp() {
   const [user, setUser] = useState(userForm);
   const [view, setView] = useState("EmailSignUp");
-  const { setIsLogin } = useContext(LoginContext);
   const navigate = useNavigate();
 
   // 유저 정보 서버로 POST
@@ -35,11 +33,9 @@ function SignUp() {
           },
         }
       );
-      console.log(res);
-      setIsLogin(true);
       navigate("/home");
     } catch (err) {
-      console.error(err);
+      console.log(err.message);
     }
   }
 

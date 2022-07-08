@@ -1,9 +1,9 @@
-import PostHeader from "../../Components/header/PostHeader";
+import SaveNav from "../../Components/navBar/SaveNav";
 
 function Product() {
   return (
     <>
-      <PostHeader />
+      <SaveNav />
       <h1>상품등록페이지</h1>
     </>
   );

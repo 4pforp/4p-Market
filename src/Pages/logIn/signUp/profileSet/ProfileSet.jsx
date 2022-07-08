@@ -1,20 +1,24 @@
 import { React, useState } from "react";
 import "./profileSet.scss";
 import EditInfo from "./EditInfo";
-import Button from "../Button";
+import Button from "../../Button";
 
 function ProfileSet({ user, setUser, submitUserInfo }) {
-  const [userName, setUserName] = useState("");
-  const [accountName, setAcountName] = useState("");
+  const [username, setUsername] = useState("");
+  const [accountname, setAcountname] = useState("");
   const [intro, setIntro] = useState("");
   const [isActive, setIsActive] = useState(false);
+  const [image, setImage] = useState(
+    "https://mandarin.api.weniv.co.kr/1657268443649.png"
+  );
 
   function handleClick() {
     setUser({
       ...user,
-      username: userName,
-      accountname: accountName,
+      username: username,
+      accountname: accountname,
       intro: intro,
+      image: image,
     });
   }
 
@@ -35,20 +39,24 @@ function ProfileSet({ user, setUser, submitUserInfo }) {
       >
         <EditInfo
           setIsActive={setIsActive}
-          userName={userName}
-          setUserName={setUserName}
-          accountName={accountName}
-          setAcountName={setAcountName}
+          username={username}
+          setUsername={setUsername}
+          accountname={accountname}
+          setAcountName={setAcountname}
           intro={intro}
           setIntro={setIntro}
+          setImage={setImage}
+          image={image}
         />
         <Button
           type="submit"
           isActive={isActive}
-          userName={userName}
-          accountName={accountName}
+          username={username}
+          accountname={accountname}
           intro={intro}
+          image={image}
           handleClick={handleClick}
+          from="profileSet"
         >
           감귤마켓 시작하기
         </Button>
