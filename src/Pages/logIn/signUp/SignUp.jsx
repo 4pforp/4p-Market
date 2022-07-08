@@ -38,7 +38,7 @@ function SignUp() {
       setIsLogin(true);
       navigate("/home");
     } catch (err) {
-      console.error(err);
+      console.log(err.message);
     }
   }
 
