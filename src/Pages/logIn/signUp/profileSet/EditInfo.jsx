@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import axios from "axios";
 import UploadPic from "./UploadPic";
 
@@ -12,6 +13,10 @@ function EditInfo({
   setImage,
   image,
 }) {
+  const [resMessageAccountname, setResMessageAccountname] = useState("");
+  const [isValidAccountname, setIsValidAccountname] = useState(false);
+  const [isValidUsername, setIsValidUsername] = useState(false);
+
   function handleChangeUsername(e) {
     setUsername(e.target.value);
   }
@@ -22,38 +27,61 @@ function EditInfo({
     setIntro(e.target.value);
   }
 
-  // 시작하기 버튼 활성화 검사
-  function handleKeyUp() {
-    checkUsername.test(username) && checkAccountname.test(accountname)
-      ? setIsActive(true)
-      : setIsActive(false);
-  }
-
   // 계정 ID 유효성 검사
-  const checkUsername = /^[a-zA-Zㄱ-힣0-9_]{2,12}$/;
   const checkAccountname = /^[a-zA-Z0-9_.]{4,}$/;
 
-  // 계정 ID 중복 검사 요청
-  async function reqAccountnameValid() {
-    try {
-      const res = await axios.post(
-        "https://mandarin.api.weniv.co.kr/user/accountnamevalid",
-        {
-          user: {
-            accountname,
+  // 계정 ID 검증
+  async function handleBlurAccountname() {
+    if (checkAccountname.test(accountname)) {
+      try {
+        const res = await axios.post(
+          "https://mandarin.api.weniv.co.kr/user/accountnamevalid",
+          {
+            user: {
+              accountname,
+            },
           },
-        },
-        {
-          header: {
-            "Content-Type": "application/json",
-          },
+          {
+            header: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        if (res.data.message === "사용 가능한 계정ID 입니다.") {
+          setResMessageAccountname(res.data.message);
+          setIsValidAccountname(true);
+        } else {
+          setResMessageAccountname("*" + res.data.message);
+          setIsValidAccountname(false);
         }
+      } catch (err) {
+        console.error(err);
+      }
+    } else {
+      setResMessageAccountname(
+        "*영문, 숫자, 밑줄 및 마침표만 사용할 수 있습니다."
       );
-    } catch (err) {
-      console.error(err);
+      setIsValidAccountname(false);
     }
   }
 
+  // 사용자 이름 검증
+  useEffect(() => {
+    if (username.length > 1 && username.length < 10) {
+      setIsValidUsername(true);
+    } else {
+      setIsValidUsername(false);
+    }
+  }, [username]);
+
+  // 시작하기 버튼 활성화 검사
+  useEffect(() => {
+    if (isValidAccountname && isValidUsername) {
+      setIsActive(true);
+    } else {
+      setIsActive(false);
+    }
+  });
   return (
     <>
       <UploadPic setImage={setImage} image={image} />
@@ -63,7 +91,6 @@ function EditInfo({
             사용자 이름
           </label>
           <input
-            onKeyUp={handleKeyUp}
             onChange={handleChangeUsername}
             id="input-username"
             type="text"
@@ -75,13 +102,15 @@ function EditInfo({
             계정 ID
           </label>
           <input
-            onKeyUp={handleKeyUp}
             onChange={handleChangeAccountname}
-            onBlur={reqAccountnameValid}
+            onBlur={handleBlurAccountname}
             id="input-accountname"
             type="text"
             placeholder="영문, 숫자, 특수문자(.),(_)만 사용 가능합니다. "
           ></input>
+          <strong className={`errorMsg accountname ${isValidAccountname}`}>
+            {resMessageAccountname}
+          </strong>
         </div>
         <div className="container-intro">
           <label htmlFor="input-intro" className="label-intro">

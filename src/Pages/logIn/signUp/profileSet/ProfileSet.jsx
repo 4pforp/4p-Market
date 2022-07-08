@@ -8,7 +8,9 @@ function ProfileSet({ user, setUser, submitUserInfo }) {
   const [accountname, setAcountname] = useState("");
   const [intro, setIntro] = useState("");
   const [isActive, setIsActive] = useState(false);
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(
+    "https://mandarin.api.weniv.co.kr/1657268443649.png"
+  );
 
   function handleClick() {
     setUser({
@@ -54,6 +56,7 @@ function ProfileSet({ user, setUser, submitUserInfo }) {
           intro={intro}
           image={image}
           handleClick={handleClick}
+          from="profileSet"
         >
           감귤마켓 시작하기
         </Button>
