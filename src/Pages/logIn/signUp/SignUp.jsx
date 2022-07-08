@@ -1,5 +1,4 @@
-import { useState, useContext } from "react";
-import LoginContext from "../../LoginContext";
+import { useState } from "react";
 import "./SignUp.scss";
 import ProfileSet from "./profileSet/ProfileSet";
 import EmailSignUp from "./emailSignUp/EmailSignUp";
