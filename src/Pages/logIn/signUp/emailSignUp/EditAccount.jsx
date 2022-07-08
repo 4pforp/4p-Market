@@ -1,11 +1,20 @@
 import axios from "axios";
+import { useEffect } from "react";
 import { useState } from "react";
 
-function SetAccount({ setIsActive, email, setEmail, password, setPassword }) {
-  const [resMessageEmail, setResMessageEmail] = useState("");
+function EditAccount({
+  setIsActive,
+  email,
+  setEmail,
+  password,
+  setPassword,
+  resMessageEmail,
+  setResMessageEmail,
+  isValidEmail,
+  setIsValidEmail,
+}) {
   const [resMessagePassword, setResMessagePassword] = useState("");
-  const [isValidEmail, setIsValidEmail] = useState(true);
-  const [isValidPassword, setIsValidPassword] = useState(true);
+  const [isValidPassword, setIsValidPassword] = useState(false);
 
   function handleChangeEmail(e) {
     setEmail(e.target.value);
@@ -19,17 +28,33 @@ function SetAccount({ setIsActive, email, setEmail, password, setPassword }) {
   const checkEmail =
     /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,5}$/i;
 
-  // 로그인버튼 활성화 검사
-  function handleKeyUp() {
-    checkEmail.test(email) && password.length > 5
-      ? setIsActive(true)
-      : setIsActive(false);
-  }
-
   // 이메일 검증
-  function handleBlurEmail() {
+  async function handleBlurEmail() {
     if (checkEmail.test(email)) {
-      reqEmailValid();
+      try {
+        const res = await axios.post(
+          "https://mandarin.api.weniv.co.kr/user/emailvalid",
+          {
+            user: {
+              email,
+            },
+          },
+          {
+            header: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        if (res.data.message === "사용 가능한 이메일 입니다.") {
+          setResMessageEmail(res.data.message);
+          setIsValidEmail(true);
+        } else {
+          setResMessageEmail("*" + res.data.message);
+          setIsValidEmail(false);
+        }
+      } catch (err) {
+        console.error(err);
+      }
     } else {
       setResMessageEmail("*이메일 형식이 올바르지 않습니다.");
       setIsValidEmail(false);
@@ -38,42 +63,22 @@ function SetAccount({ setIsActive, email, setEmail, password, setPassword }) {
 
   // 비밀번호 검증
   function handleBlurPassword() {
-    if (password.length > 5) {
-      setIsValidPassword(true);
-    } else {
+    password.length > 5 ||
       setResMessagePassword("*비밀번호는 6자 이상이어야 합니다.");
-      setIsValidPassword(false);
-    }
   }
 
-  // 이메일 중복 검사 요청
-  async function reqEmailValid() {
-    try {
-      const res = await axios.post(
-        "https://mandarin.api.weniv.co.kr/user/emailvalid",
-        {
-          user: {
-            email,
-          },
-        },
-        {
-          header: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+  useEffect(() => {
+    password.length > 5 ? setIsValidPassword(true) : setIsValidPassword(false);
+  }, [password]);
 
-      if (res.data.message === "사용 가능한 이메일 입니다.") {
-        setResMessageEmail(res.data.message);
-        setIsValidEmail(true);
-      } else {
-        setResMessageEmail("*" + res.data.message);
-        setIsValidEmail(false);
-      }
-    } catch (err) {
-      console.error(err);
+  // 다음 버튼 활성화
+  useEffect(() => {
+    if (isValidEmail && isValidPassword) {
+      setIsActive(true);
+    } else {
+      setIsActive(false);
     }
-  }
+  });
 
   return (
     <>
@@ -82,7 +87,6 @@ function SetAccount({ setIsActive, email, setEmail, password, setPassword }) {
           이메일
         </label>
         <input
-          onKeyUp={handleKeyUp}
           onChange={handleChangeEmail}
           onBlur={handleBlurEmail}
           id="input-email"
@@ -98,7 +102,6 @@ function SetAccount({ setIsActive, email, setEmail, password, setPassword }) {
           비밀번호
         </label>
         <input
-          onKeyUp={handleKeyUp}
           onChange={handleChangePassword}
           onBlur={handleBlurPassword}
           id="input-password"
@@ -114,4 +117,4 @@ function SetAccount({ setIsActive, email, setEmail, password, setPassword }) {
   );
 }
 
-export default SetAccount;
+export default EditAccount;

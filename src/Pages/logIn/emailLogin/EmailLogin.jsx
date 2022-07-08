@@ -15,6 +15,7 @@ function EmailLogin() {
 
   function handleChangeEmail(e) {
     setEmail(e.target.value);
+    console.log(email);
   }
 
   function handleChangePassword(e) {
