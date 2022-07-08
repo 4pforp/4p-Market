@@ -1,10 +1,10 @@
-import MainHeader from "../../Components/header/MainHeader";
+import MainNav from "../../Components/navBar/MainNav";
 import MainFooter from "../../Components/footer/MainFooter";
 
 function ChatPage() {
   return (
     <>
-      <MainHeader />
+      <MainNav />
       <h1>채팅페이지</h1>
       <MainFooter />
     </>

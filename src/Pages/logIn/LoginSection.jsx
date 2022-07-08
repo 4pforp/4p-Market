@@ -23,7 +23,7 @@ const social = [
 function LoginSection() {
   return (
     <section className="section-login">
-      <h2 className="blind">로그인 섹션입니다.</h2>
+      <h2 className="a11y-hidden">로그인 섹션입니다.</h2>
       <ul className="list-socialbtn">
         {social.map((social) => (
           <SocialLoginBtn
