@@ -1,5 +1,4 @@
-import { useState, useContext } from "react";
-import LoginContext from "../../LoginContext";
+import { useState } from "react";
 import "./SignUp.scss";
 import ProfileSet from "./profileSet/ProfileSet";
 import EmailSignUp from "./emailSignUp/EmailSignUp";
@@ -18,7 +17,6 @@ const userForm = {
 function SignUp() {
   const [user, setUser] = useState(userForm);
   const [view, setView] = useState("EmailSignUp");
-  const { setIsLogin } = useContext(LoginContext);
   const navigate = useNavigate();
 
   // 유저 정보 서버로 POST
@@ -35,7 +33,6 @@ function SignUp() {
           },
         }
       );
-      setIsLogin(true);
       navigate("/home");
     } catch (err) {
       console.log(err.message);

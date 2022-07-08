@@ -26,7 +26,9 @@ function UploadPic({ image, setImage }) {
         setImage("https://mandarin.api.weniv.co.kr/" + res.data.filename);
         preview(loadImage);
       } else {
-        console.log("이미지 파일만 업로드 가능합니다");
+        alert(
+          ".jpg, .gif, .png, .jpeg, .bmp, .tif, .heic 파일만 업로드 가능합니다."
+        );
       }
     } catch (err) {
       console.error(err);
