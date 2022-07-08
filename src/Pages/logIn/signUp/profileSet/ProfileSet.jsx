@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import "./profileSet.scss";
 import EditInfo from "./EditInfo";
-import Button from "../Button";
+import Button from "../../Button";
 
 function ProfileSet({ user, setUser, submitUserInfo }) {
   const [username, setUsername] = useState("");
