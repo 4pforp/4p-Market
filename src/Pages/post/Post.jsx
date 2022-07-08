@@ -1,3 +1,4 @@
+import CommentFooter from "../../Components/footer/CommentFooter";
 import PostHeader from "../../Components/header/PostHeader";
 
 function Post() {
@@ -5,6 +6,7 @@ function Post() {
     <>
       <PostHeader />
       <h1>게시물작성페이지</h1>
+      <CommentFooter />
     </>
   );
 }
