@@ -15,13 +15,13 @@
     outline: none;
     resize: none;
     &::placeholder {
-      color: $textdisabled-color;
+      color: $search-placeholder-color;
       font-family: $basic-font;
       font-size: 14px;
     }
   }
   .btn-submit {
-    color: $textdisabled-color;
+    color: $search-placeholder-color;
     font-family: $medium-font;
     font-size: 14px;
   }
