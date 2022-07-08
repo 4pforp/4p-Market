@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import LoginContext from "../LoginContext";
-import MainHeader from "../../Components/header/MainHeader";
+import MainNav from "../../Components/navBar/MainNav";
 import MainFooter from "../../Components/footer/MainFooter";
 import Login from "../logIn/Login";
 import "./Home.scss";
@@ -8,10 +8,10 @@ import "./Home.scss";
 function Home() {
   const { isLogin } = useContext(LoginContext);
   // 헤더푸터 작업하실 때 isLogin변수를 true로 바꾸고 작업하시면 됩니다~!
-  if (isLogin) {
+  if (true) {
     return (
       <>
-        <MainHeader />
+        <MainNav />
         <h1>피드 페이지!</h1>
         <p>
           여기 메인 헤더는 채팅,프로필헤더랑 다르게 돋보기 버튼이 있어요! 메인

@@ -6,7 +6,7 @@ function Login() {
   return (
     <>
       <main className="content-loginhome">
-        <h1 className="blind">감귤마켓</h1>
+        <h1 className="a11y-hidden">감귤마켓</h1>
         <img className="img-loginlogo" src={symbolLogoW} alt="로고이미지" />
         <LoginSection />
       </main>
