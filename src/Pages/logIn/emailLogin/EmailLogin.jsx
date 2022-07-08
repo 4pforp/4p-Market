@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect, useContext } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import LoginContext from "../../LoginContext";
+
 import axios from "axios";
 import "./EmailLogin.scss";
 import "../Button.scss";
@@ -12,14 +12,11 @@ function EmailLogin() {
   const [isActive, setIsActive] = useState(false);
   const [isWrong, setIsWrong] = useState(false);
 
-  const { setIsLogin } = useContext(LoginContext);
-
   const inputRef = useRef();
   const navigate = useNavigate();
 
   function handleChangeEmail(e) {
     setEmail(e.target.value);
-    console.log(email);
   }
 
   function handleChangePassword(e) {
@@ -66,10 +63,8 @@ function EmailLogin() {
         setIsWrong(true);
       } else {
         setIsWrong(false);
-        setIsLogin(true);
         localStorage.setItem("email", email);
         navigate("/home");
-        console.log(res.data.user);
       }
     } catch (err) {
       console.error(err);
