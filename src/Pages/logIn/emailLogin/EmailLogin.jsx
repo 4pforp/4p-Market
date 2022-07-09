@@ -59,11 +59,14 @@ function EmailLogin() {
           },
         }
       );
-      if (res.data.message === "이메일 또는 비밀번호가 일치하지 않습니다.") {
+
+      const data = res.data;
+
+      if (data.message === "이메일 또는 비밀번호가 일치하지 않습니다.") {
         setIsWrong(true);
       } else {
+        localStorage.setItem("token", data.user.token);
         setIsWrong(false);
-        localStorage.setItem("email", email);
         navigate("/home");
       }
     } catch (err) {
