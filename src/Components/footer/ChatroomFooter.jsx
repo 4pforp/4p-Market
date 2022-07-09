@@ -11,7 +11,7 @@ function ChatroomFooter() {
             className="textarea-comment"
             placeholder="메시지 입력하기"
           />
-          <button type="submit" className="btn-submit">
+          <button type="submit" className="btn-send">
             전송
           </button>
         </form>

@@ -1,14 +1,11 @@
 @import "../../Components/style/default.scss";
 
-@mixin name {
-}
-
 footer {
   position: fixed;
-  min-width: 390px;
   left: 0;
   bottom: 0;
   width: 100%;
+  min-width: 390px;
   border-top: 0.5px solid $line-color;
 
   .tabmenu-list {
@@ -18,9 +15,8 @@ footer {
     padding: 15px 34px 6px 39px;
 
     li {
-      text-align: center;
-
       .menu-name {
+        text-align: center;
         margin-top: 7px;
         font-size: 10px;
         font-family: $basic-font;
