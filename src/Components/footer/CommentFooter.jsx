@@ -8,7 +8,7 @@ function CommentFooter() {
         <form method="post" className="form-comment">
           <img src={profileimg} alt="프로필사진입니다." />
           <textarea className="textarea-comment" placeholder="댓글 입력하기" />
-          <button type="submit" className="btn-postcomment">
+          <button type="submit" className="btn-send">
             게시
           </button>
         </form>
