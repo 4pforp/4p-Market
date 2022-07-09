@@ -67,7 +67,7 @@ function EmailLogin() {
       } else {
         localStorage.setItem("token", data.user.token);
         setIsWrong(false);
-        navigate("/home");
+        navigate("/");
       }
     } catch (err) {
       console.error(err);
@@ -103,7 +103,7 @@ function EmailLogin() {
 
         <Button
           type="submit"
-          from="login"
+          name="login"
           isActive={isActive}
           className={`button ${isActive}`}
         >
