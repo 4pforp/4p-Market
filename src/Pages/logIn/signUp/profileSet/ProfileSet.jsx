@@ -56,7 +56,7 @@ function ProfileSet({ user, setUser, submitUserInfo }) {
           intro={intro}
           image={image}
           handleClick={handleClick}
-          from="profileSet"
+          name="profileSet"
         >
           감귤마켓 시작하기
         </Button>

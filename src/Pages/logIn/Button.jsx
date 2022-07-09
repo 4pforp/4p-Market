@@ -1,12 +1,12 @@
 import React from "react";
 import "./Button.scss";
 
-function Button({ children, type, from, setView, isActive, handleClick }) {
+function Button({ children, type, setview, name, isActive, handleClick }) {
   // 버튼 타입 확인 함수
   function checkButton() {
-    if (from === "emailSingUp") {
+    if (name === "emailSingUp") {
       handleClick();
-    } else if (from === "profileSet") {
+    } else if (name === "profileSet") {
       handleClick();
     }
   }
@@ -14,7 +14,7 @@ function Button({ children, type, from, setView, isActive, handleClick }) {
   return (
     <button
       type={type}
-      from={from}
+      name={name}
       formTarget="#none"
       className={`button ${isActive}`}
       disabled={!isActive}

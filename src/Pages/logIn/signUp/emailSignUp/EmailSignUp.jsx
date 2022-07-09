@@ -77,7 +77,7 @@ function EmailSignUp({ setView, user, setUser }) {
           email={email}
           password={password}
           handleClick={handleClick}
-          from="emailSingUp"
+          name="emailSingUp"
         >
           다음
         </Button>
