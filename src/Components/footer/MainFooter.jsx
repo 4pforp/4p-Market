@@ -17,8 +17,8 @@ function MainFooter() {
     },
     {
       id: 3,
-      style: "link-post",
-      path: "/post",
+      style: "link-upload",
+      path: "/upload",
       name: "게시물 작성",
     },
     {
