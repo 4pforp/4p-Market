@@ -1,4 +1,4 @@
-import ChatRoomNav from "../../../Components/navBar/ChatRoomNav";
+import ChatRoomHeader from "../../../Components/header/ChatRoomHeader";
 import ChatroomFooter from "../../../Components/footer/ChatroomFooter";
 import Chatting from "./Chatting";
 import "./ChatRoom.scss";
@@ -8,7 +8,7 @@ import "./ChatRoom.scss";
 function ChatRoom() {
   return (
     <>
-      <ChatRoomNav userName="수삐뽀삐" />
+      <ChatRoomHeader userName="수삐뽀삐" />
       <main className="chatting-room-main">
         <h2 className="visually-hidden">채팅창</h2>
         <Chatting />
