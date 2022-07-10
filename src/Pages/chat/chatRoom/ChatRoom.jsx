@@ -10,7 +10,7 @@ function ChatRoom() {
     <>
       <ChatRoomHeader userName="수삐뽀삐" />
       <main className="chatting-room-main">
-        <h2 className="visually-hidden">채팅창</h2>
+        <h2 className="a11y-hidden">채팅창</h2>
         <Chatting />
       </main>
       <ChatroomFooter />
