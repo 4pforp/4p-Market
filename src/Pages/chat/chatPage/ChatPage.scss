@@ -1,0 +1,17 @@
+@import "../../../Components/style/default.scss";
+
+// 컨벤션 순서 지키기
+
+.main {
+  min-width: 390px;
+  padding-bottom: 10%;
+  height: 100%;
+  background-color: #fff;
+
+  &.chat-list-main {
+    display: flex;
+    justify-content: center;
+    padding: 24px 16px;
+    overflow-y: scroll;
+  }
+}
