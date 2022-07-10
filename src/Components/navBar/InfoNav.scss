@@ -1,0 +1,43 @@
+@import "../../Components/style/default.scss";
+
+.header-layout {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  z-index: 10;
+  background-color: #fff;
+
+  .top-bar {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 48px;
+    padding: 0 19px 0 19px;
+    border-bottom: 1px solid $line-color;
+    font-family: $medium-font;
+
+    .chat-user {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+      margin-left: 10px;
+      color: $text-color;
+    }
+    .title {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+      margin-left: 10px;
+      color: $text-color;
+    }
+  }
+  .btn-more {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+  }
+}
