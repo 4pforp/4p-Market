@@ -1,12 +1,13 @@
 import './UserSearch.scss';
 import SearchNav from '../../../Components/navBar/SearchNav';
+import SearchResult from './SearchResult';
 
 function UserSearch(){
   return(
     <>
     <SearchNav/>
-    <main className="main-home">
-      <h1>유저 검색 결과 화면</h1>
+    <main className="main-search">
+      <SearchResult/>
     </main>
     </>
   )
