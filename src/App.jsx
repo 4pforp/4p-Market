@@ -12,24 +12,27 @@ import ChatRoom from "./Pages/chat/ChatRoom";
 import Post from "./Pages/post/Post";
 import Product from "./Pages/product/Product";
 import ProfileEdit from "./Pages/profileEdit/ProfileEdit";
+import UserSearch from "./Pages/home/userSearch/UserSearch";
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Splash />}></Route>
-          <Route path="/home" element={<Home />}></Route>
-          <Route path="/login" element={<EmailLogin />}></Route>
-          <Route path="/signup" element={<SignUp />}></Route>
-          <Route path="/chat" element={<Chat />}></Route>
-          <Route path="/chat/:chat1" element={<ChatRoom />}></Route>
-          <Route path="/profile" element={<Profile />}></Route>
-          <Route path="/post" element={<Post />}></Route>
-          <Route path="/product" element={<Product />}></Route>
-          <Route path="/profileedit" element={<ProfileEdit />}></Route>
-        </Routes>
-      </BrowserRouter>
+      <LoginContext.Provider value={{ isLogin, setIsLogin }}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Splash />}></Route>
+            <Route path="/home" element={<Home />}></Route>
+            <Route path="/search" element={<UserSearch/>}></Route>
+            <Route path="/login" element={<EmailLogin />}></Route>
+            <Route path="/signup" element={<SignUp />}></Route>
+            <Route path="/chat" element={<Chat />}></Route>
+            <Route path="/profile" element={<Profile />}></Route>
+            <Route path="/post" element={<Post />}></Route>
+            <Route path="/product" element={<Product />}></Route>
+            <Route path="/profileedit" element={<ProfileEdit />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </LoginContext.Provider>
     </div>
   );
 }

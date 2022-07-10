@@ -3,10 +3,10 @@ import './SearchNav.scss';
 
 function SearchNav(){
   return(
-  <aside className="nav-layout">
+  <header className="nav-layout">
     <BackBtn/>
-    <input type="text" className="search-input" placeholder="계정 검색" autoFocus></input>
-  </aside>
+    <input type="text" className="search-input" placeholder="계정 검색" autoFocus/>
+  </header>
   )
 }
 
