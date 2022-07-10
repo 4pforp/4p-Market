@@ -1,9 +1,8 @@
 @import "../style/default.scss";
 
-
 @import "../../Components/style/default.scss";
 
-.nav-layout{
+.nav-layout {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,7 +13,7 @@
   font-family: $medium-font;
 }
 
-.header-title{
+.header-title {
   display: inline-block;
   color: $text-color;
   font-size: 18px;

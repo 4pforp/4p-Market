@@ -1,8 +1,10 @@
+import "./ProfileButton.scss";
+
 function PostProductBtn() {
   // 상품 등록
   return (
     <>
-      <button className="button-post-product">상품 등록</button>
+      <button className="button-profile post">상품 등록</button>
     </>
   );
 }

@@ -1,13 +1,13 @@
-import BackBtn from '../button/BackBtn';
-import MoreBtn from '../button/MoreBtn';
+import BackBtn from "../button/BackBtn";
+import MoreBtn from "../button/MoreBtn";
 
 function BasicNav() {
-  return(
+  return (
     <header className="nav-layout">
-    <BackBtn/>
-    <MoreBtn/>
+      <BackBtn />
+      <MoreBtn />
     </header>
-  )
+  );
 }
 
 export default BasicNav;

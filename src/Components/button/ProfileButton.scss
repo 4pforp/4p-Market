@@ -1,0 +1,15 @@
+@import "../../Components/style/default.scss";
+
+.button-profile {
+  width: 120px;
+  padding: 8px 0;
+  color: $subtext-color;
+  background-color: $white;
+  border: 1px solid $line-color;
+  border-radius: 30px;
+  font-size: 14px;
+  font-family: $medium-font;
+  &.edit {
+    margin-right: 12px;
+  }
+}

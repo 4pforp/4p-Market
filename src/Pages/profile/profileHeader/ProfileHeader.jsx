@@ -1,6 +1,7 @@
 import EditProfileBtn from "../../../Components/button/EditProfileBtn";
 import FollowBtn from "../../../Components/button/FollowBtn";
 import PostProductBtn from "../../../Components/button/PostProductBtn";
+import "./ProfileHeader.scss";
 
 function ProfileHeader({ from }) {
   let button = [];
@@ -13,14 +14,16 @@ function ProfileHeader({ from }) {
   return (
     <>
       <header className="header-mypage">
-        <div className="image-myprofile"></div>
-        <div className="text-follow">
-          <span className="text-follow-number">2950</span>
-          followers
-        </div>
-        <div className="text-follow">
-          <span className="text-follow-number">128</span>
-          follwings
+        <div className="container-image-profile">
+          <div className="image-myprofile"></div>
+          <div className="text-follow follower">
+            <span className="text-follow-number">2950</span>
+            followers
+          </div>
+          <div className="text-follow followings">
+            <span className="text-follow-number">128</span>
+            follwings
+          </div>
         </div>
         <h2 className="text-username">애월읍 위니브 감귤농장</h2>
         <span className="text-accountname">@weniv_Mandarin</span>

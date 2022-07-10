@@ -1,8 +1,10 @@
+import "./ProfileButton.scss";
+
 function FollowBtn() {
   // 팔로우, 언팔로우
   return (
     <>
-      <button className="button-post-product">팔로우</button>
+      <button className="button-profile follow">팔로우</button>
     </>
   );
 }
