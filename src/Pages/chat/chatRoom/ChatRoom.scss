@@ -1,0 +1,18 @@
+@import "../../../Components/style/default.scss";
+
+.chatting-room-main {
+  position: fixed;
+  min-width: 100%;
+  height: calc(100% - 106px);
+  background-color: rgb(230, 230, 230);
+  overflow-y: scroll;
+  margin-top: 48px;
+
+  .chatting-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px 16px;
+    min-height: 100%;
+  }
+}
