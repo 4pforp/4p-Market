@@ -1,0 +1,16 @@
+.image-myprofile {
+  width: 110px;
+  height: 110px;
+  margin: 30px auto 30px;
+  background-image: url("../../assets/L-profile.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  border-radius: 9999px;
+  &.post {
+    width: 42px;
+    height: 42px;
+    margin: 0;
+  }
+}
