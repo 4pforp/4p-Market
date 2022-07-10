@@ -1,0 +1,26 @@
+@import "../../Components/style/default.scss";
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  min-width: 390px;
+  border-top: 0.5px solid $line-color;
+
+  .tabmenu-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 34px 6px 39px;
+
+    li {
+      .menu-name {
+        text-align: center;
+        margin-top: 7px;
+        font-size: 10px;
+        font-family: $basic-font;
+      }
+    }
+  }
+}

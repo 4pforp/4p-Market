@@ -4,17 +4,16 @@ import PictureIcon from "../../../../assets/upload-file.svg";
 
 function UploadPic({ image, setImage }) {
   const previewImage = useRef();
-  // 이미지 filename 응답 받기
 
+  // 이미지 filename 응답 받기
   function handleChange(e) {
     const loadImage = e.target.files;
     const formData = new FormData();
     formData.append("image", loadImage[0]);
-    onLoadImage(formData);
-    preview(loadImage);
+    onLoadImage(formData, loadImage);
   }
 
-  async function onLoadImage(formData) {
+  async function onLoadImage(formData, loadImage) {
     try {
       const res = await axios.post(
         "https://mandarin.api.weniv.co.kr/image/uploadfile",
@@ -23,7 +22,14 @@ function UploadPic({ image, setImage }) {
           "Content-Type": "multipart/form-data",
         }
       );
-      setImage("https://mandarin.api.weniv.co.kr/" + res.data.filename);
+      if (res.data.filename) {
+        setImage("https://mandarin.api.weniv.co.kr/" + res.data.filename);
+        preview(loadImage);
+      } else {
+        alert(
+          ".jpg, .gif, .png, .jpeg, .bmp, .tif, .heic 파일만 업로드 가능합니다."
+        );
+      }
     } catch (err) {
       console.error(err);
     }

@@ -1,27 +1,20 @@
 import React from "react";
 import "./Button.scss";
 
-function Button({ children, type, from, setView, isActive, handleClick }) {
-  // 버튼 활성화 함수
-  function handleView() {
-    setView("ProfileSet");
-  }
+function Button({ children, type, setview, name, isActive, handleClick }) {
   // 버튼 타입 확인 함수
-  function checkButton(e) {
-    if (type === "button") {
-      handleView();
+  function checkButton() {
+    if (name === "emailSingUp") {
       handleClick();
-    } else if (type === "submit") {
+    } else if (name === "profileSet") {
       handleClick();
-    } else if (from === "login") {
-      // 여기다가써!
     }
   }
 
   return (
     <button
       type={type}
-      from={from}
+      name={name}
       formTarget="#none"
       className={`button ${isActive}`}
       disabled={!isActive}

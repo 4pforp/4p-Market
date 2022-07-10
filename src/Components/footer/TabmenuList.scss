@@ -1,0 +1,69 @@
+@mixin linkFlex() {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin linkIcon() {
+  display: inline-block;
+  content: "";
+  width: 26px;
+  height: 26px;
+  background-size: cover;
+}
+
+.link-home {
+  @include linkFlex;
+  &::before {
+    @include linkIcon;
+    background: url("../../assets/icon-home.svg") no-repeat;
+  }
+}
+
+.link-homefocus {
+  @include linkFlex;
+  &::before {
+    @include linkIcon;
+    background: url("../../assets/icon-home-fill.svg") no-repeat;
+  }
+}
+
+.link-chat {
+  @include linkFlex;
+  &::before {
+    @include linkIcon;
+    background: url("../../assets/icon-message-circle.svg") no-repeat;
+  }
+}
+
+.link-chatfocus {
+  @include linkFlex;
+  &::before {
+    @include linkIcon;
+    background: url("../../assets/icon-message-circle-fill.svg") no-repeat;
+  }
+}
+
+.link-post {
+  @include linkFlex;
+  &::before {
+    @include linkIcon;
+    background: url("../../assets/icon-edit.svg") no-repeat;
+  }
+}
+
+.link-profile {
+  @include linkFlex;
+  &::before {
+    @include linkIcon;
+    background: url("../../assets/icon-user.svg") no-repeat;
+  }
+}
+
+.link-profilefocus {
+  @include linkFlex;
+  &::before {
+    @include linkIcon;
+    background: url("../../assets/icon-user-fill.svg") no-repeat;
+  }
+}

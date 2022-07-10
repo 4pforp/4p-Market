@@ -74,6 +74,16 @@
         display: block;
       }
     }
+    &.accountname {
+      &.true {
+        color: green;
+        display: block;
+      }
+      &.false {
+        color: red;
+        display: block;
+      }
+    }
   }
 }
 

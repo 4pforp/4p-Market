@@ -6,7 +6,7 @@ function ChatPage() {
     <>
       <BasicNav />
       <h1>채팅페이지</h1>
-      <MainFooter />
+      <MainFooter img="icon-message-circle-fill.svg" />
     </>
   );
 }

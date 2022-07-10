@@ -1,6 +1,5 @@
-import { React, useState } from "react";
+import { React } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import LoginContext from "./Pages/LoginContext";
 import "../src/Components/style/reset.scss";
 import "./App.scss";
 import EmailLogin from "./Pages/logIn/emailLogin/EmailLogin";
@@ -9,13 +8,13 @@ import SignUp from "./Pages/logIn/signUp/SignUp";
 import Home from "./Pages/home/Home";
 import Profile from "./Pages/profile/Profile";
 import Chat from "./Pages/chat/Chat";
+import ChatRoom from "./Pages/chat/ChatRoom";
 import Post from "./Pages/post/Post";
 import Product from "./Pages/product/Product";
 import ProfileEdit from "./Pages/profileEdit/ProfileEdit";
 import UserSearch from "./Pages/home/userSearch/UserSearch";
 
 function App() {
-  const [isLogin, setIsLogin] = useState(false);
   return (
     <div className="App">
       <LoginContext.Provider value={{ isLogin, setIsLogin }}>
