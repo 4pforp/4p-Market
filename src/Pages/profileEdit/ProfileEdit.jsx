@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 
-import SaveNav from "../../Components/navBar/SaveNav";
+import SaveHeader from "../../Components/header/SaveHeader";
 import EditInfo from "../logIn/signUp/profileSet/EditInfo";
 import "../profileEdit/ProfileEdit.scss";
 
@@ -15,7 +15,7 @@ function ProfileEdit() {
 
   return (
     <>
-      <SaveNav />
+      <SaveHeader />
       <h1 className="a11y-hidden">프로필수정</h1>
       <form
         method="POST"

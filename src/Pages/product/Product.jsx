@@ -1,11 +1,11 @@
-import SaveNav from "../../Components/navBar/SaveNav";
+import SaveHeader from "../../Components/header/SaveHeader";
 import PictureIcon from "../../assets/upload-file-gray.svg";
 import "./Product.scss";
 
 function Product() {
   return (
     <>
-      <SaveNav />
+      <SaveHeader />
       <h1 className="a11y-hidden">상품등록페이지</h1>
       <form
         method="POST"
