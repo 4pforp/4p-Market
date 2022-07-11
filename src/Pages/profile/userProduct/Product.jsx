@@ -6,9 +6,9 @@ function Product() {
     <>
       <Link to="">
         <li className="item-product">
-          <img src={examplePicture} alt="" className="image-product" />
-          <strong className="text-product">애월읍 한라봉 10kg 1box</strong>
-          <strong className="text-product-price">45,000원</strong>
+          <img src={examplePicture} alt="" className="img-product" />
+          <strong className="txt-product">애월읍 한라봉 10kg 1box</strong>
+          <strong className="txt-product-price">45,000원</strong>
         </li>
       </Link>
     </>

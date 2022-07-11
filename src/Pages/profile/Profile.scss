@@ -5,15 +5,15 @@
   background-color: $profile-background-color;
 }
 
-.image-author {
+.img-author {
   width: 110px;
   height: 110px;
   margin: 0 auto;
+  border-radius: 9999px;
   background-image: url("../../assets/L-profile.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  border-radius: 9999px;
   &.post {
     width: 42px;
     height: 42px;
