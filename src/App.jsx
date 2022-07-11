@@ -13,7 +13,6 @@ import ChatPage from "./Pages/chat/chatPage/ChatPage";
 import ChatRoom from "./Pages/chat/chatRoom/ChatRoom";
 import Followers from "./Pages/follow/Followers";
 import Followings from "./Pages/follow/Followings";
-import Post from "./Pages/post/Post";
 import Product from "./Pages/product/Product";
 import ProfileEdit from "./Pages/profileEdit/ProfileEdit";
 import UserSearch from "./Pages/home/userSearch/UserSearch";
@@ -37,7 +36,6 @@ function App() {
           <Route path="/profile/usernum" element={<UserProfile />}></Route>
           <Route path="/followers" element={<Followers />}></Route>
           <Route path="/followings" element={<Followings />}></Route>
-          <Route path="/post" element={<Post />}></Route>
           <Route path="/comment" element={<CommentPage />}></Route>
           <Route path="/product" element={<Product />}></Route>
           <Route path="/profileedit" element={<ProfileEdit />}></Route>
