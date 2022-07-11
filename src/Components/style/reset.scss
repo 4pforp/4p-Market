@@ -146,6 +146,7 @@ input,
 select,
 textarea {
   background-color: transparent;
+  padding: 0;
   border: 0;
 }
 
@@ -169,18 +170,6 @@ ol {
   list-style: none;
 }
 
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
 /* chrome input-box color reset */
 input:-webkit-autofill {
   -webkit-text-fill-color: #000;
@@ -190,4 +179,8 @@ input:-webkit-autofill {
   &:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
   }
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

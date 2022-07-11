@@ -1,9 +1,10 @@
 @import "../../Components/style/variables";
 
 .content-wrap-upload {
+  width: 100%;
+  padding-top: 48px;
   .form-upload {
     display: flex;
-    vertical-align: top;
     padding: 16px;
   }
   .proifleimage-upload {

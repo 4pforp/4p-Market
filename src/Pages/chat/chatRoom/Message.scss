@@ -1,0 +1,59 @@
+@import "../../../Components/style/default.scss";
+
+.msg-wrap {
+  position: relative;
+  display: flex;
+  margin-bottom: 9px;
+
+  &.send-msg {
+    display: inline;
+    align-self: flex-end;
+
+    & .msg-items {
+      flex-direction: row-reverse;
+    }
+    & .msg-chat {
+      background-color: #559fff;
+      border: none;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 0;
+      color: #fff;
+    }
+  }
+
+  .user-profile {
+    width: 42px;
+    height: 42px;
+    border: 0.5px solid #dbdbdb;
+    border-radius: 50%;
+    margin-right: 12px;
+    background-color: #fff;
+    overflow: hidden;
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .msg-items {
+    display: flex;
+    gap: 6px;
+  }
+  .msg-chat {
+    max-width: 240px;
+    padding: 12px;
+    background-color: #fff;
+    border: 1px solid #c4c4c4;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .msg-time {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 13px;
+    color: #6c6c6c;
+    align-self: flex-end;
+  }
+}

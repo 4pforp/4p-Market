@@ -1,5 +1,5 @@
 import { useRef, useCallback } from "react";
-import UploadNav from "../../Components/navBar/UploadNav";
+import UploadHeader from "../../Components/header/UploadHeader";
 import UploadIconBtn from "../../Components/button/UploadIconBtn";
 import profileimg from "../../assets/icon-profile-small.svg";
 import "./Upload.scss";
@@ -12,8 +12,8 @@ function Upload() {
 
   return (
     <>
+      <UploadHeader />
       <div className="content-wrap-upload">
-        <UploadNav />
         <form method="post" className="form-upload">
           <img
             src={profileimg}

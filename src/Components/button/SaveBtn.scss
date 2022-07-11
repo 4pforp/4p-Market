@@ -1,13 +1,12 @@
 @import "../../Components/style/default.scss";
 
-.btn-save{
-  width: 90px;
+.btn-save {
+  width: $btn-ms;
   height: 32px;
   border-radius: 32px;
   color: $white;
   font-family: $medium-font;
   font-size: 14px;
-  line-height: 17px;
   &.true {
     background-color: $primary-color;
   }
@@ -16,3 +15,4 @@
     cursor: default;
   }
 }
+

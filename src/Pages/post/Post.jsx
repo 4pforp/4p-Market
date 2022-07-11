@@ -1,10 +1,10 @@
-import BasicNav from "../../Components/navBar/BasicNav";
+import UploadHeader from "../../Components/header/UploadHeader";
 import CommentFooter from "../../Components/footer/CommentFooter";
 
 function Post() {
   return (
     <>
-      <BasicNav />
+      <UploadHeader />
       <h1>게시물작성페이지</h1>
       <CommentFooter />
     </>

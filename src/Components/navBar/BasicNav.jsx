@@ -3,10 +3,10 @@ import MoreBtn from '../button/MoreBtn';
 
 function BasicNav() {
   return(
-    <aside className="nav-layout">
+    <header className="nav-layout">
     <BackBtn/>
     <MoreBtn/>
-    </aside>
+    </header>
   )
 }
 

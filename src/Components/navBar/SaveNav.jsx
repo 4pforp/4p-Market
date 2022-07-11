@@ -3,10 +3,10 @@ import Savebtn from '../button/SaveBtn';
 
 function SaveNav(){
   return(
-    <aside className="nav-layout">
+    <header className="nav-layout">
       <BackBtn/>
       <Savebtn text="저장"/>
-    </aside>
+    </header>
   )
 }
 
