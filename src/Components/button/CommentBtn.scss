@@ -1,6 +1,6 @@
 @import "../../Components/style/default.scss";
 
-.btn-comment-box{
+.btn-comment-wrapper{
   display: inline-block;
   
   .btn-comment{
@@ -12,7 +12,7 @@
     background-size: cover;
   }
   
-  .comment-number{
+  .text-comment-num{
     font-family: $basic-font;
     font-size: 12px;
     line-height: 12px;
