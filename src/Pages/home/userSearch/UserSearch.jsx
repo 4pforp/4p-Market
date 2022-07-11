@@ -1,16 +1,18 @@
-import './UserSearch.scss';
-import SearchNav from '../../../Components/navBar/SearchNav';
+
+import "./UserSearch.scss";
+import SearchHeader from "../../../Components/header/SearchHeader";
 import SearchResult from './SearchResult';
 
-function UserSearch(){
-  return(
+
+function UserSearch() {
+  return (
     <>
-    <SearchNav/>
+    <SearchHeader />
     <main className="main-search">
       <SearchResult/>
     </main>
     </>
-  )
+  );
 }
 
 export default UserSearch;

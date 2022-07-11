@@ -1,7 +1,7 @@
-import MainNav from "../../Components/navBar/MainNav";
+import MainHeader from "../../Components/header/MainHeader";
 import MainFooter from "../../Components/footer/MainFooter";
 import Login from "../logIn/Login";
-import HomeSearch from './homeSearch/HomeSearch';
+import HomeSearch from "./homeSearch/HomeSearch";
 import "./Home.scss";
 
 function Home() {
@@ -9,9 +9,9 @@ function Home() {
   if (isLogin) {
     return (
       <>
-        <MainNav />
+        <MainHeader />
         <main className="main-home">
-          <HomeSearch/>
+          <HomeSearch />
         </main>
         <MainFooter />
       </>

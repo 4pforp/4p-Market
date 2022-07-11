@@ -1,0 +1,57 @@
+@import "../../Components/style/default.scss";
+@import "../../Components/style/reset.scss";
+
+.content-form-product {
+  min-width: 322px;
+  margin-top: 30px;
+  .content-product-image {
+    margin-top: 18px;
+    position: relative;
+    background-color: $search-input-color;
+    height: 204px;
+    border: 0.5px solid $line-color;
+    border-radius: 10px;
+    .upload-icon {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      padding: 0 12px 8px 0;
+    }
+  }
+  .container-productname {
+    margin-top: 30px;
+  }
+  .container-price,
+  .container-salelink {
+    margin-top: 16px;
+  }
+  .par-imgupload,
+  .label-productname,
+  .label-price,
+  .label-salelink {
+    font-family: $basic-font;
+    font-size: 12px;
+    line-height: 15px;
+    color: $subtext-color;
+  }
+}
+
+#input-productname,
+#input-price,
+#input-salelink {
+  width: 100%;
+  padding-top: 6px;
+  padding-bottom: 8px;
+  border: none;
+  border-bottom: 1px solid $line-color;
+  outline: 0;
+  font-family: $basic-font;
+  &:focus {
+    border-bottom: 1px solid $primary-color;
+  }
+  &::placeholder {
+    color: $line-color;
+    font-family: $basic-font;
+    font-size: 14px;
+  }
+}
