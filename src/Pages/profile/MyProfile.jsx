@@ -9,7 +9,7 @@ function MyProfile() {
   return (
     <>
       <CommonHeader />
-      <main class="container-profile-page">
+      <main className="container-profile-page">
         <h1 className="a11y-hidden">나의 프로필</h1>
         <ProfileHeader from="myProfile" />
         <UserProducts />

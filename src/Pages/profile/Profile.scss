@@ -1,6 +1,11 @@
 @import "../../Components//style/default.scss";
 
-.image-myprofile {
+.container-profile-page {
+  width: 100%;
+  background-color: $profile-background-color;
+}
+
+.image-author {
   width: 110px;
   height: 110px;
   margin: 0 auto;
@@ -14,9 +19,4 @@
     height: 42px;
     margin: 0;
   }
-}
-
-.container-profile-page {
-  width: 100%;
-  background-color: $profile-background-color;
 }

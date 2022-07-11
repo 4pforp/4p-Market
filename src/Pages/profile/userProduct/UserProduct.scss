@@ -3,21 +3,29 @@
 .container-product {
   background-color: $white;
   margin-top: 6px;
-  padding: 20px 0 10px 21px;
-  overflow-x: scroll;
-  &::-webkit-scrollbar {
-    display: block;
-    width: 10px;
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+  padding-bottom: 10px;
+  .wrapper-product {
+    width: 390px;
+    overflow-x: scroll;
+    padding: 20px 0 2px 16px;
+    margin: auto;
+    &::-webkit-scrollbar {
+      display: block;
+      width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      height: 79px;
+      border-radius: 10px;
+      box-shadow: inset 0 0 10px 10px $line-color;
+      border: solid 3px transparent;
+    }
+    ::-webkit-scrollbar-track {
+      background-color: rgba(0, 0, 0, 0);
+    }
   }
-  &::-webkit-scrollbar-thumb {
-    height: 79px;
-    border-radius: 10px;
-    box-shadow: inset 0 0 10px 10px $line-color;
-    border: solid 3px transparent;
-  }
-  ::-webkit-scrollbar-track {
-    background-color: rgba(0, 0, 0, 0);
-  }
+
   h3 {
     color: $text-color;
     font-size: 16px;
