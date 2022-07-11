@@ -13,7 +13,7 @@ function LikeBtn(){
   }
 
   return(
-    <div className="btn-like-wrapper">
+    <div className="wrapper-btn-like">
     <button type="button" className={liked.heart ? "btn-liked" : "btn-like"} onClick={handleLikeClick}>
        <span className="a11y-hidden">좋아요</span>
     </button>
