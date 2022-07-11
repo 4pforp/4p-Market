@@ -1,0 +1,21 @@
+@import "../../../Components//style/default.scss";
+
+.container-post {
+  background-color: $white;
+  margin-top: 6px;
+  .container-view-button {
+    display: flex;
+    justify-content: flex-end;
+    gap: 22.5px;
+    border-bottom: 1px solid #dbdbdb;
+    padding: 12.25px 19.25px;
+    .button-view {
+      width: 26px;
+      height: 26px;
+      background-color: #dbdbdb;
+    }
+  }
+  .list-posts {
+    padding: 16px 21px 70px;
+  }
+}

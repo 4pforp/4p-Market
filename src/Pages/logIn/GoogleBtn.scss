@@ -1,6 +1,0 @@
-@import './SocialLoginBtn.scss';
-@import '../../Components/scss/default.scss';
-
-.link-google {
-  @include snsBtn('../../assets/images/google-logo.svg', $subtext-color);
-}

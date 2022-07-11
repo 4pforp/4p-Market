@@ -1,0 +1,75 @@
+@import "../../../Components/style/default.scss";
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.emaillogin-section {
+  font-family: $medium-font;
+  color: $subtext-color;
+  .title-emaillogin {
+    margin-top: 30px;
+    font-family: $medium-font;
+    color: $text-color;
+    font-size: 24px;
+    text-align: center;
+    line-height: 1;
+  }
+
+  .content-form {
+    width: 322px;
+    margin-top: 40px;
+    .label-email,
+    .label-password {
+      font-family: $medium-font;
+      font-size: 12px;
+      color: $subtext-color;
+    }
+    input {
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border: none;
+      border-bottom: 1px solid $line-color;
+      outline: 0;
+      font-family: $basic-font;
+
+      &:focus {
+        border-bottom: 1px solid $primary-color;
+      }
+    }
+
+    #input-password {
+      margin-bottom: 0;
+    }
+
+    .errorMsg {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 14px;
+      color: red;
+      margin-top: 6px;
+      &.true {
+        visibility: visible;
+      }
+      &.false {
+        visibility: hidden;
+      }
+    }
+  }
+  .link-signup {
+    display: block;
+    width: 92px;
+    margin: 20px auto 0;
+    text-align: center;
+    font-family: $basic-font;
+    font-size: 12px;
+    line-height: 15px;
+    color: $subtext-color;
+  }
+}
