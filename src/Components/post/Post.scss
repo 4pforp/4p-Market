@@ -1,0 +1,63 @@
+@import "../style/default.scss";
+
+.article-post {
+  padding: 4px 0 0 54px;
+  position: relative;
+  .image-myprofile.post {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .header-post {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 16px;
+    .text-username {
+      font-size: 14px;
+      font-family: $medium-font;
+    }
+    .text-accountname {
+      font-size: 12px;
+      font-family: $basic-font;
+    }
+  }
+  .contents-post {
+    .text-post {
+      font-size: 14px;
+      font-family: $basic-font;
+      margin-bottom: 16px;
+    }
+    .container-post-image {
+      width: 100%;
+      padding-top: 200px;
+      background-color: #c4c4c4;
+      overflow: hidden;
+      border-radius: 10px;
+      margin-bottom: 14.5px;
+    }
+    .container-button-post {
+      display: flex;
+      gap: 18.5px;
+      margin-bottom: 18.5px;
+    }
+    .button-post {
+      display: flex;
+      gap: 8.5px;
+      button {
+        background-color: #767676;
+        width: 15px;
+        height: 15px;
+      }
+    }
+    .text-post-date {
+      display: block;
+      margin-bottom: 15px;
+    }
+  }
+  .button-delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}

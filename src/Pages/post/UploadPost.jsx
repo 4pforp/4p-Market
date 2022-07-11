@@ -2,7 +2,7 @@ import { useRef, useCallback } from "react";
 import UploadHeader from "../../Components/header/UploadHeader";
 import UploadIconBtn from "../../Components/button/UploadIconBtn";
 import profileimg from "../../assets/icon-profile-small.svg";
-import "./Upload.scss";
+import "./UploadPost.scss";
 
 function Upload() {
   const textRef = useRef();

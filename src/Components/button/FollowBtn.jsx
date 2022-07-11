@@ -9,4 +9,3 @@ function FollowBtn({ text, size }) {
 }
 
 export default FollowBtn;
-
