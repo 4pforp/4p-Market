@@ -1,7 +1,5 @@
 @import "../../../Components/style/default.scss";
 
-// 컨벤션 순서 지키기
-
 .chat-list {
   font-family: $basic-font;
   width: 100%;
@@ -70,7 +68,7 @@
   }
   .chat-date {
     position: absolute;
-    right: 0px;
+    right: 0;
     bottom: 3px;
     font-size: 10px;
     line-height: 12.52px;
