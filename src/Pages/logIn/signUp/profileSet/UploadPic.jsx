@@ -43,9 +43,9 @@ function UploadPic({ image, setImage }) {
   }
 
   return (
-    <div ref={previewImage} className="set-profile-image">
-      <label htmlFor="choose-img" className="upload-icon">
-        <img src={PictureIcon} alt="upload" className="icon-img" />
+    <div ref={previewImage} className="wrapper-upload-pic">
+      <label htmlFor="choose-img">
+        <img src={PictureIcon} alt="upload" className="img-upload-icon" />
       </label>
       <input
         type="file"

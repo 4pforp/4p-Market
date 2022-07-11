@@ -12,12 +12,11 @@
     line-height: 1;
   }
 
-  .content-form {
+  .container-form {
     width: 322px;
     margin-top: 40px;
-    .container-username,
-    .container-accountname,
-    .container-intro {
+    .wrapper-email,
+    .wrapper-password {
       margin-top: 10px;
       margin-bottom: 16px;
     }
@@ -30,8 +29,7 @@
     #input-email,
     #input-password {
       width: 100%;
-      padding-top: 6px;
-      padding-bottom: 8px;
+      padding: 8px 0 8px;
       border: none;
       border-bottom: 1px solid $line-color;
       outline: 0;

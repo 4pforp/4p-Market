@@ -75,38 +75,37 @@ function EmailLogin() {
   }
 
   return (
-    <section className="emaillogin-section">
-      <h1 className="title-emaillogin">로그인</h1>
-      <form method="get" className="content-form" onSubmit={SubmitLoginForm}>
-        <label htmlFor="email" className="label-email">
-          이메일
-        </label>
-        <input
-          onKeyUp={handleKeyUp}
-          id="input-email"
-          type="id"
-          onChange={handleChangeEmail}
-          ref={inputRef}
-        />
-        <label htmlFor="password" className="label-password">
-          비밀번호
-        </label>
-        <input
-          onKeyUp={handleKeyUp}
-          id="input-password"
-          type="password"
-          onChange={handleChangePassword}
-        />
-        <strong className={`errorMsg ${isWrong}`}>
-          * 이메일 또는 비밀번호가 일치하지 않습니다.
-        </strong>
+    <section className="container-login-email">
+      <h1 className="title-login-email">로그인</h1>
+      <form method="get" className="container-form" onSubmit={SubmitLoginForm}>
+        <div className="wrapper-email">
+          <label htmlFor="email" className="label-email">
+            이메일
+          </label>
+          <input
+            onKeyUp={handleKeyUp}
+            id="input-email"
+            type="id"
+            onChange={handleChangeEmail}
+            ref={inputRef}
+          />
+        </div>
+        <div className="wrapper-password">
+          <label htmlFor="password" className="label-password">
+            비밀번호
+          </label>
+          <input
+            onKeyUp={handleKeyUp}
+            id="input-password"
+            type="password"
+            onChange={handleChangePassword}
+          />
+          <strong className={`errorMsg ${isWrong}`}>
+            * 이메일 또는 비밀번호가 일치하지 않습니다.
+          </strong>
+        </div>
 
-        <Button
-          type="submit"
-          name="login"
-          isActive={isActive}
-          className={`button ${isActive}`}
-        >
+        <Button type="submit" name="login" isActive={isActive}>
           로그인
         </Button>
       </form>

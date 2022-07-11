@@ -1,19 +1,19 @@
 @import "../../Components/style/default.scss";
 
-.wrap-linkmembership {
+.wrapper-link-account {
   margin-top: 20px;
   text-align: center;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
 
-  a {
+  .link-login {
     font-family: "SpoqaHanSansNeo-Regular";
     color: $subtext-color;
     text-decoration: none;
   }
 
-  .line {
+  .line-vertical {
     margin: 0 12px 0 12px;
     color: #c4c4c4;
     font-weight: 400;

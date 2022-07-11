@@ -34,7 +34,7 @@ function ProfileSet({ user, setUser, submitUserInfo }) {
       <form
         method="POST"
         encType="multipart/form-data"
-        className="content-form"
+        className="container-form"
         onSubmit={handleSubmit}
       >
         <EditInfo
