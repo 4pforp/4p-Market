@@ -1,12 +1,12 @@
 @import "../../Components/style/default.scss";
 
-.button-profile {
+.btn-profile {
   width: 120px;
   padding: 8px 0;
-  color: $subtext-color;
-  background-color: $white;
   border: 1px solid $line-color;
+  background-color: $white;
   border-radius: 30px;
+  color: $subtext-color;
   font-size: 14px;
   font-family: $medium-font;
   &.edit {

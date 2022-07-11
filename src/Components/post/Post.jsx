@@ -10,7 +10,7 @@ function Post() {
     <>
       <article className="article-post">
         <h3 className="a11y-hidden">user의 post</h3>
-        <div className="image-author post"></div>
+        <div className="img-author post"></div>
         <header className="wrapper-author">
           <strong className="text-username post">애월읍 위니브 감귤농장</strong>
           <strong className="text-accountname post">@weniv_Mandarin</strong>

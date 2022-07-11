@@ -1,24 +1,24 @@
 @import "../../../Components//style/default.scss";
 
 .container-post {
-  background-color: $white;
   margin-top: 6px;
   border-top: 1px solid #dbdbdb;
+  background-color: $white;
   .wrapper-post {
     width: 390px;
     margin: auto;
   }
-  .container-view-button {
+  .container-view-btn {
     border-bottom: 1px solid #dbdbdb;
   }
-  .wrapper-view-button {
+  .wrapper-view-btn {
     display: flex;
     justify-content: flex-end;
-    width: 390px;
-    margin: auto;
     gap: 22.5px;
+    width: 390px;
     padding: 9px 16px;
-    .button-view {
+    margin: auto;
+    .btn-view {
       width: 26px;
       height: 26px;
       background-size: cover;
@@ -36,20 +36,20 @@
   }
 }
 
-// 앨범 view
+// 앨범 view 스타일
 .list-posts.album {
   display: flex;
-  gap: 8px;
   flex-wrap: wrap;
+  gap: 8px;
   .article-post {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
   }
-  .image-author,
+  .img-author,
   .wrapper-author,
   .text-post,
-  .container-button-post,
+  .container-btn-post,
   .text-post-date,
   .btn-user-more {
     display: none;
@@ -57,9 +57,7 @@
   .container-post-image {
     width: 114px;
     height: 114px;
-    border-radius: 0;
     margin-bottom: 0;
-    .img-post {
-    }
+    border-radius: 0;
   }
 }
