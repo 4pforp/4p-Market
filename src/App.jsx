@@ -35,6 +35,11 @@ function App() {
           <Route path="/followings" element={<Followings />}></Route> */}
           <Route path="/post" element={<Post />}></Route>
           <Route path="/comment" element={<CommentPage />}></Route>
+          <Route path="/profile" element={<Profile />}></Route>
+          {/* <Route path="/followers" element={<Followers />}></Route>
+          <Route path="/followings" element={<Followings />}></Route> */}
+          <Route path="/post" element={<Post />}></Route>
+          <Route path="/comment" element={<CommentPage />}></Route>
           <Route path="/product" element={<Product />}></Route>
           <Route path="/profileedit" element={<ProfileEdit />}></Route>
           <Route path="/profile/usernum" element={<UserProfile />}></Route>

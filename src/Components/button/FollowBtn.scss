@@ -1,0 +1,27 @@
+@import "../../Components/style/default.scss";
+
+.btn {
+  height: 28px;
+  border-radius: 32px;
+  font-family: $medium-font;
+  font-size: 12px;
+  line-height: 17px;
+  &.follow {
+    color: $white;
+    background-color: $primary-color;
+  }
+  &.unfollow {
+    color: #767676;
+    background-color: $white;
+    border: 1px solid #dbdbdb;
+  }
+  &.btn-s {
+    width: $btn-s;
+  }
+  &.btn-ms {
+    width: $btn-ms;
+  }
+  &.btn-m {
+    width: $btn-m;
+  }
+}

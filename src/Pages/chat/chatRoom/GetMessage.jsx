@@ -6,7 +6,7 @@ function GetMessage({ userProfileImg, chat, time }) {
   return (
     <>
       <section className="msg-wrap">
-        <h2 className="visually-hidden">메세지</h2>
+        <h2 className="a11y-hidden">메세지</h2>
         <Link to="/profile" className="user-profile">
           <img src={userProfileImg} alt="username님의 프로필 사진" />
         </Link>
