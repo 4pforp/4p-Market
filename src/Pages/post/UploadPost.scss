@@ -1,0 +1,30 @@
+@import "../../Components/style/variables";
+
+.content-wrap-upload {
+  width: 100%;
+  padding-top: 48px;
+  .form-upload {
+    display: flex;
+    padding: 16px;
+  }
+  .proifleimage-upload {
+    width: 42px;
+    height: 42px;
+  }
+  .textarea-upload {
+    flex-grow: 1;
+    padding-top: 12px;
+    margin: 0 13px;
+    height: 100px;
+    vertical-align: middle;
+    line-height: 18px;
+    font-family: $basic-font;
+    font-size: 14px;
+  }
+  .upload-icon {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 0 16px 16px 0;
+  }
+}

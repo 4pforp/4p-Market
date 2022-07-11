@@ -6,6 +6,7 @@ import EmailLogin from "./Pages/logIn/emailLogin/EmailLogin";
 import Splash from "./Components/splash/Splash";
 import SignUp from "./Pages/logIn/signUp/SignUp";
 import Home from "./Pages/home/Home";
+import UploadPost from "./Pages/post/UploadPost";
 import MyProfile from "./Pages/profile/MyProfile";
 import UserProfile from "./Pages/profile/UserProfile";
 import ChatPage from "./Pages/chat/chatPage/ChatPage";
@@ -24,11 +25,13 @@ function App() {
         <Routes>
           <Route path="/" element={<Splash />}></Route>
           <Route path="/home" element={<Home />}></Route>
+          <Route path="/search" element={<UserSearch />}></Route>
           <Route path="/login" element={<EmailLogin />}></Route>
           <Route path="/search" element={<UserSearch />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
           <Route path="/chat" element={<ChatPage />}></Route>
           <Route path="/chatroom/:id" element={<ChatRoom />}></Route>
+          <Route path="/upload" element={<UploadPost />}></Route>
           <Route path="/profile" element={<MyProfile />}></Route>
           <Route path="/profile/usernum" element={<UserProfile />}></Route>
           <Route path="/followers" element={<Followers />}></Route>

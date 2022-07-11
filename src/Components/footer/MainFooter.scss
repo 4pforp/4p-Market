@@ -6,7 +6,6 @@ footer {
   bottom: 0;
   width: 100%;
   min-width: 390px;
-  border-top: 0.5px solid $line-color;
   background-color: $white;
 
   .tabmenu-list {
@@ -14,6 +13,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     padding: 15px 34px 6px 39px;
+    border-top: 0.5px solid $line-color;
 
     li {
       .menu-name {
