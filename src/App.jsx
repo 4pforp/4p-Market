@@ -10,8 +10,8 @@ import MyProfile from "./Pages/profile/MyProfile";
 import UserProfile from "./Pages/profile/UserProfile";
 import ChatPage from "./Pages/chat/chatPage/ChatPage";
 import ChatRoom from "./Pages/chat/chatRoom/ChatRoom";
-// import Followers from "./Pages/follow/Followers";
-// import Followings from "./Pages/follow/Followings";
+import Followers from "./Pages/follow/Followers";
+import Followings from "./Pages/follow/Followings";
 import Post from "./Pages/post/Post";
 import Product from "./Pages/product/Product";
 import ProfileEdit from "./Pages/profileEdit/ProfileEdit";
@@ -31,18 +31,13 @@ function App() {
           <Route path="/chat" element={<ChatPage />}></Route>
           <Route path="/chatroom/:id" element={<ChatRoom />}></Route>
           <Route path="/profile" element={<MyProfile />}></Route>
-          {/* <Route path="/followers" element={<Followers />}></Route>
-          <Route path="/followings" element={<Followings />}></Route> */}
-          <Route path="/post" element={<Post />}></Route>
-          <Route path="/comment" element={<CommentPage />}></Route>
-          <Route path="/profile" element={<Profile />}></Route>
-          {/* <Route path="/followers" element={<Followers />}></Route>
-          <Route path="/followings" element={<Followings />}></Route> */}
+          <Route path="/profile/usernum" element={<UserProfile />}></Route>
+          <Route path="/followers" element={<Followers />}></Route>
+          <Route path="/followings" element={<Followings />}></Route>
           <Route path="/post" element={<Post />}></Route>
           <Route path="/comment" element={<CommentPage />}></Route>
           <Route path="/product" element={<Product />}></Route>
           <Route path="/profileedit" element={<ProfileEdit />}></Route>
-          <Route path="/profile/usernum" element={<UserProfile />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
