@@ -5,14 +5,12 @@ function UserProduct() {
   return (
     <>
       <section className="container-product">
-        <h3>판매 중인 상품</h3>
-        <ol className="list-products">
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-        </ol>
+        <div className="wrapper-product">
+          <h3>판매 중인 상품</h3>
+          <ol className="list-products">
+            <Product />
+          </ol>
+        </div>
       </section>
     </>
   );

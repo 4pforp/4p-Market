@@ -1,88 +1,11 @@
-@import '../../../Components/style/default.scss';
+@import "../../../Components/style/default.scss";
 
-.main-comment{
+.container-comment-page {
   width: 100%;
-}
-.post-wrapper{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  border-bottom: 1px solid $line-color;
-  
-  .post-article{
-    margin-top: 20px;
-    width: 358px;
-    
-    .author{
-      height: 42px;
-    
-      .post-author-profile{
-        width: 42px;
-        height: 42px;
-        vertical-align: top;
-      }        
-      .author-info{
-        display: inline-block;
-        width: 70px;
-        margin: 4px 0 0 12px;
-      } 
-      .author-name{
-        display: block;
-        margin-bottom: 2px;
-        font-family: $medium-font;
-        font-size: 14px;
-        line-height: 17px;
-        color: $text-color;
-      }
-      .author-id{
-        display: block;
-        font-family: $basic-font;
-        font-size: 12px;
-        line-height: 14px;
-        color:$subtext-color;
-      }
-      .btn-user-more{
-        float: right;
-        margin-top: 12px;
-      }
-    }
+  margin-top: 48px;
+  .wrapper-comment-post {
+    width: 390px;
+    padding: 20px 16px 0;
+    margin: auto;
   }
-}
-
-.post-content{
-  margin-top: 16px;
-  margin-left: 54px;
-  font-family: $basic-font;
-  font-size: 14px;
-  line-height: 17px;  
-
-  .post-content-text{
-    margin-bottom: 16px;
-    font-family: $basic-font;
-    font-size: 14px;
-    line-height: 17px;
-  }
-  .post-content-img{
-    width: 304px;
-    height: 228px;
-    border: 0.5px solid $line-color;
-    border-radius: 10px;
-  }
-}
-
-.post-info{
-  margin: 16px 0 24px 54px;
-}
-
-.btn-like-box{
-  margin-right: 18px;
-}
-
-.post-date{
-  margin-top: 18px;
-  font-family: $basic-font;
-  font-size: 10px;
-  line-height: 12px;
-  color: $subtext-color;
 }

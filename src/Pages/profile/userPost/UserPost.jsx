@@ -7,17 +7,31 @@ function UserPost() {
       <section className="container-post">
         <h3 className="a11y-hidden">포스트 목록</h3>
         <div className="container-view-button">
-          <div className="button-view post">
-            <button className=" a11y-hidden">post view</button>
-          </div>
-          <div className="button-view gallery">
-            <button className=" a11y-hidden">gallery view</button>
+          <div className="wrapper-view-button">
+            <button className="button-view post">
+              <strong className=" a11y-hidden">post view</strong>
+            </button>
+            <button className="button-view album">
+              <strong className=" a11y-hidden">album view</strong>
+            </button>
           </div>
         </div>
-        <ol className="list-posts">
-          <Post />
-          <Post />
-        </ol>
+        <div className="wrapper-post ">
+          <ol className="list-posts">
+            <li className="item-post">
+              <Post />
+            </li>
+            <li className="item-post">
+              <Post />
+            </li>
+            <li className="item-post">
+              <Post />
+            </li>
+            <li className="item-post">
+              <Post />
+            </li>
+          </ol>
+        </div>
       </section>
     </>
   );

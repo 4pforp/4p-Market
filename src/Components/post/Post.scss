@@ -3,12 +3,13 @@
 .article-post {
   padding: 4px 0 0 54px;
   position: relative;
-  .image-myprofile.post {
+  margin-bottom: 30px;
+  .image-author.post {
     position: absolute;
     top: 0;
     left: 0;
   }
-  .header-post {
+  .wrapper-author {
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -30,11 +31,14 @@
     }
     .container-post-image {
       width: 100%;
-      padding-top: 200px;
+      padding-top: auto;
       background-color: #c4c4c4;
       overflow: hidden;
       border-radius: 10px;
       margin-bottom: 14.5px;
+      .img-post {
+        width: 100%;
+      }
     }
     .container-button-post {
       display: flex;
@@ -52,12 +56,8 @@
     }
     .text-post-date {
       display: block;
-      margin-bottom: 15px;
+      font-size: 10px;
+      font-family: $basic-font;
     }
-  }
-  .button-delete {
-    position: absolute;
-    top: 0;
-    right: 0;
   }
 }

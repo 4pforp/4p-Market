@@ -1,23 +1,23 @@
 @import "../../Components/style/default.scss";
 
-.btn-like-box{
+.wrapper-btn-like {
   display: inline-block;
-  
-  .btn-like{
+
+  .btn-like {
     width: 20px;
     height: 20px;
     margin-right: 7px;
     vertical-align: middle;
-    background-image:url(../../assets/icon-heart.svg);
+    background-image: url(../../assets/icon-heart.svg);
   }
-  .btn-liked{
+  .btn-liked {
     width: 20px;
     height: 20px;
     margin-right: 7px;
     vertical-align: middle;
     background-image: url(../../assets/icon-heart-fill.svg);
   }
-  .text-like-num{
+  .text-like-num {
     font-family: $basic-font;
     font-size: 12px;
     line-height: 12px;
