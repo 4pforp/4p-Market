@@ -8,20 +8,11 @@ footer {
   min-width: 390px;
   background-color: $white;
 
-  .tabmenu-list {
+  .wrapper-list-tabmenu {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 34px 6px 39px;
     border-top: 0.5px solid $line-color;
-
-    li {
-      .menu-name {
-        text-align: center;
-        margin-top: 7px;
-        font-size: 10px;
-        font-family: $basic-font;
-      }
-    }
   }
 }

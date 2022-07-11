@@ -32,7 +32,7 @@ function MainFooter() {
     <>
       <footer>
         <nav>
-          <ul className="tabmenu-list">
+          <ul className="wrapper-list-tabmenu">
             {tabmenu.map((i) => (
               <TabmenuList
                 key={i.id}

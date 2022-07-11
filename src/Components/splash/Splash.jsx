@@ -20,7 +20,7 @@ function Splash() {
   });
 
   return (
-    <img src={fullLogo} alt="로고 이미지입니다." className="logo-splash" />
+    <img src={fullLogo} alt="로고 이미지입니다." className="img-logo-splash" />
   );
 }
 
