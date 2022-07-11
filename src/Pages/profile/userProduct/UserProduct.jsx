@@ -8,7 +8,7 @@ function UserProduct() {
         <div className="wrapper-product">
           <h3>판매 중인 상품</h3>
           <ol className="list-products">
-            <Product />
+            <Product id="product1" />
           </ol>
         </div>
       </section>
