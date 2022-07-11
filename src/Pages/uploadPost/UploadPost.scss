@@ -1,17 +1,17 @@
 @import "../../Components/style/variables";
 
-.content-wrap-upload {
+.container-uploadpost {
   width: 100%;
   padding-top: 48px;
-  .form-upload {
+  .wraper-form-uploadpost {
     display: flex;
     padding: 16px;
   }
-  .proifleimage-upload {
+  .img-profile-uploadpost {
     width: 42px;
     height: 42px;
   }
-  .textarea-upload {
+  .textarea-uploadpost {
     flex-grow: 1;
     padding-top: 12px;
     margin: 0 13px;
@@ -21,7 +21,7 @@
     font-family: $basic-font;
     font-size: 14px;
   }
-  .upload-icon {
+  .label-upload-icon {
     position: fixed;
     bottom: 0;
     right: 0;

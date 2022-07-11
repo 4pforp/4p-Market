@@ -6,7 +6,7 @@ import EmailLogin from "./Pages/logIn/emailLogin/EmailLogin";
 import Splash from "./Components/splash/Splash";
 import SignUp from "./Pages/logIn/signUp/SignUp";
 import Home from "./Pages/home/Home";
-import UploadPost from "./Pages/post/UploadPost";
+import UploadPost from "./Pages/uploadPost/UploadPost";
 import MyProfile from "./Pages/profile/MyProfile";
 import UserProfile from "./Pages/profile/UserProfile";
 import ChatPage from "./Pages/chat/chatPage/ChatPage";
