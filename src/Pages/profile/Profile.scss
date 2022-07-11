@@ -1,0 +1,22 @@
+@import "../../Components//style/default.scss";
+
+.image-myprofile {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto;
+  background-image: url("../../assets/L-profile.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 9999px;
+  &.post {
+    width: 42px;
+    height: 42px;
+    margin: 0;
+  }
+}
+
+.container-profile-page {
+  width: 100%;
+  background-color: $profile-background-color;
+}

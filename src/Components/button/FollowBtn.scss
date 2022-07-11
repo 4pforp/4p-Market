@@ -1,11 +1,8 @@
 @import "../../Components/style/default.scss";
 
 .btn {
-  height: 28px;
   border-radius: 32px;
   font-family: $medium-font;
-  font-size: 12px;
-  line-height: 17px;
   &.follow {
     color: $white;
     background-color: $primary-color;
@@ -17,11 +14,14 @@
   }
   &.btn-s {
     width: $btn-s;
+    font-size: 12px;
   }
   &.btn-ms {
     width: $btn-ms;
   }
   &.btn-m {
     width: $btn-m;
+    padding: 8px 0;
+    font-size: 14px;
   }
 }
