@@ -6,14 +6,15 @@ body {
 
 .container-login-home {
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
+  overflow: hidden;
   background-color: $background-color;
   .img-logo {
+    width: 180px;
     position: absolute;
-    top: 20%;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
