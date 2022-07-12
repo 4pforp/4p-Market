@@ -7,6 +7,9 @@
   height: fit-content;
   margin-bottom: 16px;
   cursor: pointer;
+  &.message{
+    width: auto;
+  }
   .img-author {
     display: inline-block;
     margin: 0;

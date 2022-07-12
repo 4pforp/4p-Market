@@ -2,7 +2,7 @@ import './UserInfoBox.scss';
 
 function UserInfoBox({type, name, id, subtext, children}){
   return(
-    <header className="wrapper-author">
+    <div className={`wrapper-author ${type}`}>
           <div className={`img-author ${type}`}></div>
           <div className="wrapper-author-info">
           <strong className={`text-username ${type}`}>{name}</strong>
@@ -10,7 +10,7 @@ function UserInfoBox({type, name, id, subtext, children}){
           <strong className={`text-subtext ${type}`}>{subtext}</strong>
           </div>
           {children}
-    </header>
+    </div>
   )
 }
 
