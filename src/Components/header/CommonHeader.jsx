@@ -3,7 +3,7 @@ import MoreBtn from "../button/MoreBtn";
 
 function CommonHeader() {
   return (
-    <header className="header-layout">
+    <header className="container-header">
       <section className="top-bar">
         <BackBtn />
         <MoreBtn />

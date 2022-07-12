@@ -8,7 +8,7 @@ function UserSearch() {
   return (
     <>
     <SearchHeader />
-    <main className="main-search">
+    <main className="container-main-search">
       <SearchResult/>
     </main>
     </>

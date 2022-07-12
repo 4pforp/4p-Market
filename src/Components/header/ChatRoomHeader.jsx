@@ -4,7 +4,7 @@ import MoreBtn from "../button/MoreBtn";
 
 function ChatRoomHeader({ userName }) {
   return (
-    <header className="header-layout">
+    <header className="container-header">
       <section className="top-bar chat-room">
         <BackBtn />
         <h2 className="chat-user">{userName}</h2>

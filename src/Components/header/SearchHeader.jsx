@@ -3,12 +3,12 @@ import "./SearchHeader.scss";
 
 function SearchHeader() {
   return (
-    <header className="header-layout">
+    <header className="container-header">
       <section className="top-bar">
         <BackBtn />
         <input
           type="text"
-          className="search-input"
+          className="input-search"
           placeholder="계정 검색"
           autoFocus
         />
