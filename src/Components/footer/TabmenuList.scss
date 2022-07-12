@@ -1,3 +1,5 @@
+@import "../../Components/style/default.scss";
+
 @mixin linkFlex() {
   display: flex;
   flex-direction: column;
@@ -44,7 +46,7 @@
   }
 }
 
-.link-post {
+.link-upload {
   @include linkFlex;
   &::before {
     @include linkIcon;
@@ -66,4 +68,11 @@
     @include linkIcon;
     background: url("../../assets/icon-user-fill.svg") no-repeat;
   }
+}
+
+.text-menu-name {
+  text-align: center;
+  margin-top: 7px;
+  font-size: 10px;
+  font-family: $basic-font;
 }

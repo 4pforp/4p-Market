@@ -17,8 +17,8 @@ function MainFooter() {
     },
     {
       id: 3,
-      style: "link-post",
-      path: "/post",
+      style: "link-upload",
+      path: "/upload",
       name: "게시물 작성",
     },
     {
@@ -32,7 +32,7 @@ function MainFooter() {
     <>
       <footer>
         <nav>
-          <ul className="tabmenu-list">
+          <ul className="wrapper-list-tabmenu">
             {tabmenu.map((i) => (
               <TabmenuList
                 key={i.id}

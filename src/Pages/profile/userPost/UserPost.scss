@@ -1,21 +1,63 @@
 @import "../../../Components//style/default.scss";
 
 .container-post {
-  background-color: $white;
   margin-top: 6px;
-  .container-view-button {
+  border-top: 1px solid #dbdbdb;
+  background-color: $white;
+  .wrapper-post {
+    width: 390px;
+    margin: auto;
+  }
+  .container-view-btn {
+    border-bottom: 1px solid #dbdbdb;
+  }
+  .wrapper-view-btn {
     display: flex;
     justify-content: flex-end;
     gap: 22.5px;
-    border-bottom: 1px solid #dbdbdb;
-    padding: 12.25px 19.25px;
-    .button-view {
+    width: 390px;
+    padding: 9px 16px;
+    margin: auto;
+    .btn-view {
       width: 26px;
       height: 26px;
-      background-color: #dbdbdb;
+      background-size: cover;
+      background-position: center;
+      &.post {
+        background-image: url(../../../assets/icon-post-list-on.svg);
+      }
+      &.album {
+        background-image: url(../../../assets/icon-post-album-off.svg);
+      }
     }
   }
   .list-posts {
-    padding: 16px 21px 70px;
+    padding: 16px 16px 70px;
+  }
+}
+
+// 앨범 view 스타일
+.list-posts.album {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  .article-post {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .img-author,
+  .wrapper-author,
+  .text-post,
+  .container-btn-post,
+  .text-post-date,
+  .btn-user-more {
+    display: none;
+  }
+  .container-post-image {
+    width: 114px;
+    height: 114px;
+    margin-bottom: 0;
+    border-radius: 0;
   }
 }
