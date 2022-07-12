@@ -3,23 +3,21 @@ import { Link } from "react-router-dom";
 import FollowBtn from "../../Components/button/FollowBtn";
 import "./Follow.scss";
 
-function UserFollow({ userProfileImg, userName, userIntro, btnText, size }) {
+function FollowUser({ userName, userIntro, text, style, size }) {
   return (
     <>
-      <li className="user-item">
-        <Link to="/profile" className="user-profile">
-          <img src={userProfileImg} alt="username님의 프로필사진" />
-        </Link>
-        <Link to="/profile">
-          <div className="user-info">
-            <strong className="user-name">{userName}</strong>
-            <strong className="user-intro">{userIntro}</strong>
+      <li className="wrapper-item-follow">
+        <Link to="/profile" className="wrapper-follow-info">
+          <div className="img-author follow"></div>
+          <div className="wrapper-text-follow">
+            <strong className="text-username">{userName}</strong>
+            <strong className="text-intro">{userIntro}</strong>
           </div>
         </Link>
-        <FollowBtn text={btnText} size={size} />
+        <FollowBtn text={text} style={style} size={size} />
       </li>
     </>
   );
 }
 
-export default UserFollow;
+export default FollowUser;

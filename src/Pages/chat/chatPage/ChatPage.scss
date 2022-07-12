@@ -1,18 +1,15 @@
 @import "../../../Components/style/default.scss";
 
-// 컨벤션 순서 지키기
-
-.main {
-  min-width: 390px;
-  padding-bottom: 10%;
-  height: 100%;
+.container-chatpage {
+  padding-bottom: 48px;
   margin-top: 48px;
   background-color: #fff;
 
-  &.chat-list-main {
+  .wrapper-chatpage {
+    width: 390px;
+    margin: auto;
     display: flex;
-    justify-content: center;
-    padding: 24px 16px;
     overflow-y: scroll;
+    padding: 24px 16px;
   }
 }
