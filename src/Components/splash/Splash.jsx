@@ -1,7 +1,7 @@
-import fullLogo from "../../assets/full-logo.svg";
 import "./Splash.scss";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Logo from "./Logo";
 
 // 인트로 splash 페이지에서 일정시간 이후 홈페이지로 이동하는 기능
 function Splash() {
@@ -9,7 +9,7 @@ function Splash() {
   const timeout = () => {
     setTimeout(() => {
       navigate("/home");
-    }, 2000);
+    }, 4000);
   };
 
   useEffect(() => {
@@ -19,9 +19,7 @@ function Splash() {
     };
   });
 
-  return (
-    <img src={fullLogo} alt="로고 이미지입니다." className="img-logo-splash" />
-  );
+  return <Logo />;
 }
 
 export default Splash;

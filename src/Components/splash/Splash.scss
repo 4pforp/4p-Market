@@ -1,19 +1,95 @@
-@keyframes animationsplash {
-  for {
+:root {
+  --animation-delay: 3s;
+}
+.splash svg {
+  width: 180px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.st0 {
+  fill: none;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+}
+.st1 {
+  stroke: #000000;
+  stroke-miterlimit: 10;
+}
+
+#left-eye,
+#right-eye,
+#nose,
+#left-ear-only-stroke,
+#right-ear-only-stroke {
+  transform: translateY(33%);
+  animation: logo-up ease-in-out var(--animation-delay) forwards;
+}
+
+#left-ear,
+#right-ear,
+#body {
+  opacity: 0;
+  fill: black;
+  // fill: #9986f7;
+
+  transform-origin: center center;
+  animation: logo-fade-in ease-in-out var(--animation-delay) forwards;
+}
+
+#text {
+  opacity: 1;
+  animation: logo-fade-out var(--animation-delay) forwards;
+}
+
+@keyframes logo-up {
+  40% {
+    transform: translateY(0);
     opacity: 1;
   }
-  to {
+  75% {
+    transform: translateY(0);
     opacity: 0;
-    visibility: hidden;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
   }
 }
 
-.img-logo-splash {
-  position: absolute;
-  width: 200px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: animationsplash 0.3s ease-in-out forwards;
-  animation-delay: 1.5s;
+@keyframes logo-fade-in {
+  25% {
+    opacity: 0;
+  }
+  50% {
+    fill: black;
+    stroke: transparent;
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(10deg);
+  }
+  100% {
+    opacity: 1;
+    fill: #9986f7;
+    /* fill: black; */
+    stroke: transparent;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes logo-fade-out {
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

@@ -1,9 +1,15 @@
 @import "../../../Components/style/default.scss";
-.logo-home{
-  margin-bottom: 20px;
+
+.logo-home {
+  width: 180px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.text-home-search{
+.text-home-search {
+  margin-top: 100px;
   font-family: $basic-font;
   font-size: 14px;
   line-height: 14px;
@@ -11,7 +17,7 @@
   margin-bottom: 20px;
 }
 
-.btn-home-search{
+.btn-home-search {
   width: 120px;
   height: 44px;
   border-radius: 44px;
