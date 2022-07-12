@@ -28,7 +28,6 @@ function App() {
       <Route path="/login" element={<EmailLogin />}></Route>,
       <Route path="/signup" element={<SignUp />}></Route>,
       <Route path="/search" element={<UserSearch />}></Route>,
-      <Route path="/search" element={<UserSearch />}></Route>,
       <Route path="/chat" element={<ChatPage />}></Route>,
       <Route path="/chatroom/:id" element={<ChatRoom />}></Route>,
       <Route path="/upload" element={<UploadPost />}></Route>,
