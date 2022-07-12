@@ -82,7 +82,7 @@ function EditAccount({
 
   return (
     <>
-      <div className="container-email">
+      <div className="wrapper-email">
         <label htmlFor="email" className="label-email">
           이메일
         </label>
@@ -97,7 +97,7 @@ function EditAccount({
           {resMessageEmail}
         </strong>
       </div>
-      <div className="container-password">
+      <div className="wrapper-password">
         <label htmlFor="password" className="label-password">
           비밀번호
         </label>

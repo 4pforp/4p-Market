@@ -58,7 +58,7 @@ function EmailSignUp({ setView, user, setUser }) {
   return (
     <>
       <h1 className="title-signup">이메일로 회원가입</h1>
-      <form className="content-form" onSubmit={handleSubmit}>
+      <form className="container-form" onSubmit={handleSubmit}>
         <EditAccount
           setIsActive={setIsActive}
           email={email}

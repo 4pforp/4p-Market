@@ -20,11 +20,11 @@
   border-radius: 44px;
 }
 
-.list-socialbtn {
+.wrapper-social-btn {
   display: flex;
   align-items: center;
   flex-direction: column;
-  li {
+  .list-social-btn {
     width: 322px;
     margin-bottom: 10px;
     &:last-child {

@@ -8,11 +8,6 @@
   line-height: 14px;
   text-align: center;
 }
-.container-email,
-.container-password {
-  margin-top: 10px;
-  margin-bottom: 16px;
-}
 
 .label-accountname,
 .label-username,
@@ -21,11 +16,17 @@
   font-size: 12px;
   color: $subtext-color;
 }
+.wrapper-username,
+.wrapper-accountname,
+.wrapper-intro {
+  margin-top: 10px;
+  margin-bottom: 16px;
+}
 #input-username,
 #input-accountname,
 #input-intro {
   width: 100%;
-  padding-bottom: 8px;
+  padding: 8px 0 8px;
   border: none;
   border-bottom: 1px solid $line-color;
   outline: 0;
@@ -43,7 +44,7 @@
   margin-bottom: 0;
 }
 
-.set-profile-image {
+.wrapper-upload-pic {
   width: 110px;
   height: 110px;
   margin: 30px auto 30px;
@@ -53,7 +54,7 @@
   background-size: cover;
   position: relative;
   border-radius: 9999px;
-  .icon-img {
+  .img-upload-icon {
     width: 36px;
     height: 36px;
     position: absolute;

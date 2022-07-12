@@ -86,7 +86,7 @@ function EditInfo({
     <>
       <UploadPic setImage={setImage} image={image} />
       <div className="-container-input-info">
-        <div className="container-username">
+        <div className="wrapper-username">
           <label htmlFor="input-username" className="label-username">
             사용자 이름
           </label>
@@ -97,7 +97,7 @@ function EditInfo({
             placeholder="2~10자 이내여야 합니다."
           ></input>
         </div>
-        <div className="container-accountname">
+        <div className="wrapper-accountname">
           <label htmlFor="id" className="label-accountname">
             계정 ID
           </label>

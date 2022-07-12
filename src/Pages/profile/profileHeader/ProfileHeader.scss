@@ -13,7 +13,7 @@
   }
   .container-img-profile {
     position: relative;
-    .txt-follow {
+    .text-follow {
       display: flex;
       flex-direction: column;
       gap: 6px;
@@ -22,7 +22,7 @@
       transform: translateY(-50%);
       font-family: $basic-font;
       font-size: 10px;
-      .txt-follow-num {
+      .text-follow-num {
         font-family: $medium-font;
         font-size: 18px;
       }
@@ -36,18 +36,18 @@
     }
   }
 
-  .txt-username {
+  .text-username {
     padding-top: 16px;
     font-family: $bold-font;
     font-size: 16px;
   }
-  .txt-accountname {
+  .text-accountname {
     display: block;
     padding-top: 6px;
     font-family: $basic-font;
     font-size: 12px;
   }
-  .txt-profile-info {
+  .text-profile-info {
     padding: 16px 0 24px;
     font-family: $basic-font;
     font-size: 14px;

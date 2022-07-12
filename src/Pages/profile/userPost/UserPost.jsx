@@ -18,16 +18,7 @@ function UserPost() {
         </div>
         <div className="wrapper-post ">
           <ol className="list-posts">
-            <li className="item-post">
-              <Post />
-            </li>
-            <li className="item-post">
-              <Post />
-            </li>
-            <li className="item-post">
-              <Post />
-            </li>
-            <li className="item-post">
+            <li key="post1" className="item-post">
               <Post />
             </li>
           </ol>
