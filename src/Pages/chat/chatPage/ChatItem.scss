@@ -9,54 +9,11 @@
     .item-chatpage {
       display: flex;
       align-items: center;
-      margin-bottom: 20px;
-
-      .img-author {
-        margin: 0;
-
-        &.chatpage {
-          position: relative;
-          margin-right: 12px;
-        }
-
-        &::before {
-          content: "";
-          position: absolute;
-          left: 2px;
-          top: 0;
-          width: 12px;
-          height: 12px;
-          border-radius: 9999px;
-          background-color: $primary-color;
-        }
-      }
-      .wrapper-text-chat {
-        display: flex;
-        flex-direction: column;
-
-        .text-username {
-          font-size: 14px;
-          line-height: 17.53px;
-          margin-bottom: 6px;
-          color: black;
-        }
-
-        .text-chat {
-          max-width: 238px;
-          font-size: 12px;
-          line-height: 15px;
-          font-weight: 400;
-          color: $subtext-color;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-        }
-      }
     }
     .text-chat-date {
       position: absolute;
       right: 0;
-      bottom: 6px;
+      bottom: 26px;
       font-size: 10px;
       line-height: 12.52px;
       color: $line-color;
