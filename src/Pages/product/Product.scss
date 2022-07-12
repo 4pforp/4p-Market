@@ -1,31 +1,31 @@
 @import "../../Components/style/default.scss";
 @import "../../Components/style/reset.scss";
 
-.content-form-product {
+.container-form-product {
   min-width: 322px;
-  margin-top: 30px;
-  .content-product-image {
-    margin-top: 18px;
+  padding-top: 78px;
+  .wrapper-productimg {
     position: relative;
-    background-color: $search-input-color;
     height: 204px;
+    margin-top: 18px;
     border: 0.5px solid $line-color;
     border-radius: 10px;
-    .upload-icon {
+    background-color: $search-input-color;
+    .label-upload-icon {
       position: absolute;
       right: 0;
       bottom: 0;
       padding: 0 12px 8px 0;
     }
   }
-  .container-productname {
+  .wrapper-productname {
     margin-top: 30px;
   }
-  .container-price,
-  .container-salelink {
+  .wrapper-price,
+  .wrapper-salelink {
     margin-top: 16px;
   }
-  .par-imgupload,
+  .text-upload-img,
   .label-productname,
   .label-price,
   .label-salelink {
@@ -40,8 +40,7 @@
 #input-price,
 #input-salelink {
   width: 100%;
-  padding-top: 6px;
-  padding-bottom: 8px;
+  padding: 6px 0 8px;
   border: none;
   border-bottom: 1px solid $line-color;
   outline: 0;

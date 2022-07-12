@@ -1,12 +1,12 @@
 @import "../style/default.scss";
 
-.form-comment {
+.container-form-pagefooter {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 16px 16px 12px 16px;
 
-  .textarea-comment {
+  .textarea-pagefooter {
     flex-grow: 1;
     margin: 0 18px;
     height: 18px;
@@ -20,7 +20,7 @@
       font-size: 14px;
     }
   }
-  .btn-send {
+  .btn-send-footer {
     color: $search-placeholder-color;
     font-family: $medium-font;
     font-size: 14px;
