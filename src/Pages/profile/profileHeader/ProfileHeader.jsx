@@ -6,7 +6,7 @@ import "./ProfileHeader.scss";
 function ProfileHeader({ from }) {
   let button = [];
   if (from === "userProfile") {
-    button = [<FollowBtn text="follow" size="btn-m" />];
+    button = [<FollowBtn text="팔로우" style="follow" size="btn-m" />];
   } else {
     button = [
       <EditProfileBtn key="button1" />,
