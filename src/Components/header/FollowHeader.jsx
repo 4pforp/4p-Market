@@ -4,7 +4,7 @@ import "./Header.scss";
 function FollowHeader({ title }) {
   return (
     <>
-      <header className="header-layout">
+      <header className="container-header">
         <section className="top-bar follow">
           <BackBtn />
           <h2 className="title">{title}</h2>

@@ -1,6 +1,6 @@
 @import "../../Components/style/default.scss";
 
-.search-input{
+.input-search{
   width: 100%;
   height: 32px;
   padding-left: 16px;
@@ -10,8 +10,8 @@
   outline: none;
   background-color: $search-input-color;
   &::placeholder {
-    color: $search-placeholder-color;
     font-family: $basic-font;
     font-size: 14px;
+    color: $search-placeholder-color;
   }
 }
