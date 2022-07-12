@@ -26,14 +26,20 @@
 #right-ear-only-stroke {
   transform: translateY(33%);
   animation: logo-up ease-in-out var(--animation-delay) forwards;
+  fill: #9986f7;
+}
+
+#left-ear-only-stroke,
+#right-ear-only-stroke {
+  stroke: #9986f7;
+  fill: transparent;
 }
 
 #left-ear,
 #right-ear,
 #body {
   opacity: 0;
-  fill: black;
-  // fill: #9986f7;
+  fill: #9986f7;
 
   transform-origin: center center;
   animation: logo-fade-in ease-in-out var(--animation-delay) forwards;
@@ -42,6 +48,9 @@
 #text {
   opacity: 1;
   animation: logo-fade-out var(--animation-delay) forwards;
+}
+#text path {
+  fill: #9986f7;
 }
 
 @keyframes logo-up {
@@ -64,7 +73,6 @@
     opacity: 0;
   }
   50% {
-    fill: black;
     stroke: transparent;
   }
   60% {
@@ -75,8 +83,6 @@
   }
   100% {
     opacity: 1;
-    fill: #9986f7;
-    /* fill: black; */
     stroke: transparent;
     transform: rotate(0deg);
   }
