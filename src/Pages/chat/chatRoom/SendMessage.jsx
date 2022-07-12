@@ -4,11 +4,11 @@ import "./Message.scss";
 function SendMessage({ chat, time }) {
   return (
     <>
-      <section className="msg-wrap send-msg">
+      <section className="wrapper-message send">
         <h2 className="a11y-hidden">메세지</h2>
-        <div className="msg-items">
-          <p className="msg-chat">{chat}</p>
-          <strong className="msg-time">{time}</strong>
+        <div className="wrapper-text-message">
+          <p className="text-message">{chat}</p>
+          <strong className="text-message-time">{time}</strong>
         </div>
       </section>
     </>

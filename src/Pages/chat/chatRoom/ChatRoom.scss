@@ -1,18 +1,18 @@
 @import "../../../Components/style/default.scss";
 
-.chatting-room-main {
-  position: fixed;
-  min-width: 100%;
+.container-chatroom {
   height: calc(100% - 106px);
-  background-color: rgb(230, 230, 230);
   overflow-y: scroll;
+  position: fixed;
+  width: 100%;
   margin-top: 48px;
+  background-color: $chatroom-background-color;
 
-  .chatting-wrap {
+  .wrapper-chatroom {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    height: 100%;
     padding: 20px 16px;
-    min-height: 100%;
   }
 }

@@ -1,4 +1,4 @@
-import { useRef, useCallback } from "react";
+import { useRef } from "react";
 import UploadHeader from "../../Components/header/UploadHeader";
 import UploadIconBtn from "../../Components/button/UploadIconBtn";
 import profileimg from "../../assets/icon-profile-small.svg";
@@ -6,9 +6,10 @@ import "./UploadPost.scss";
 
 function Upload() {
   const textRef = useRef();
-  const handleResizeHeight = useCallback(async () => {
+  const handleResizeHeight = () => {
+    textRef.current.style.height = "auto";
     textRef.current.style.height = textRef.current.scrollHeight + "px";
-  });
+  };
 
   return (
     <>

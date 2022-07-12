@@ -1,77 +1,65 @@
 @import "../../../Components/style/default.scss";
 
-.chat-list {
-  font-family: $basic-font;
+.list-chatpage {
   width: 100%;
-  height: fit-content;
-  &:first-of-type {
-    margin-top: 8px;
-  }
-  &:last-of-type {
-    margin-bottom: 40px;
-  }
-  .chat-item {
-    position: relative;
-    margin-bottom: 20px;
-  }
-  .chat-item-link {
-    display: flex;
-    align-items: center;
-  }
-  .user-profile-img {
-    position: relative;
-    width: 42px;
-    height: 42px;
-    border: 0.5px solid #dbdbdb;
-    border-radius: 50%;
-    margin-right: 12px;
+  font-family: $basic-font;
 
-    &::before {
-      content: "";
+  .wrapper-chatitem {
+    position: relative;
+    .item-chatpage {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+      .img-author {
+        margin: 0;
+
+        &.chatpage {
+          position: relative;
+          margin-right: 12px;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 2px;
+          top: 0;
+          width: 12px;
+          height: 12px;
+          border-radius: 9999px;
+          background-color: $primary-color;
+        }
+      }
+      .wrapper-text-chat {
+        display: flex;
+        flex-direction: column;
+
+        .text-username {
+          font-size: 14px;
+          line-height: 17.53px;
+          margin-bottom: 6px;
+          color: black;
+        }
+
+        .text-chat {
+          max-width: 238px;
+          font-size: 12px;
+          line-height: 15px;
+          font-weight: 400;
+          color: $subtext-color;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+    .text-chat-date {
       position: absolute;
-      left: 0;
-      top: 0;
-      width: 12px;
-      height: 12px;
-      background-color: $primary-color;
-      border-radius: 50%;
+      right: 0;
+      bottom: 6px;
+      font-size: 10px;
+      line-height: 12.52px;
+      color: $line-color;
     }
-
-    img {
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
-    }
-  }
-  .chat-info {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-
-    .user-name {
-      font-size: 14px;
-      line-height: 17.53px;
-      color: black;
-      margin-bottom: 6px;
-    }
-
-    .chat-content {
-      max-width: 238px;
-      font-size: 12px;
-      line-height: 15px;
-      font-weight: 400;
-      color: #767676;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-  }
-  .chat-date {
-    position: absolute;
-    right: 0;
-    bottom: 3px;
-    font-size: 10px;
-    line-height: 12.52px;
-    color: #dbdbdb;
   }
 }
