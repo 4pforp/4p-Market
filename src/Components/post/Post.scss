@@ -1,33 +1,17 @@
 @import "../style/default.scss";
 
 .article-post {
-  padding: 4px 0 0 54px;
+  padding-top: 4px;
   position: relative;
   margin-bottom: 30px;
-  .img-author.post {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .wrapper-author {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    margin-bottom: 16px;
-    .text-username {
-      font-size: 14px;
-      font-family: $medium-font;
-    }
-    .text-accountname {
-      font-size: 12px;
-      font-family: $basic-font;
-    }
-  }
   .contents-post {
+    padding-left: 54px;
     .text-post {
       font-size: 14px;
       font-family: $basic-font;
       margin-bottom: 16px;
+      line-height: 17px;
+      color: $text-color;
     }
     .container-post-image {
       width: 100%;
