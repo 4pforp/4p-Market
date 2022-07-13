@@ -1,7 +1,7 @@
 function Logo() {
   return (
     <>
-      <div class="splash">
+      <div className="splash">
         <svg
           version="1.1"
           id="레이어_1"
