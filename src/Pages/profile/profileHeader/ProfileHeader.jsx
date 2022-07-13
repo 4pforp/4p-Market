@@ -2,18 +2,9 @@ import EditProfileBtn from "../../../Components/button/EditProfileBtn";
 import FollowBtn from "../../../Components/button/FollowBtn";
 import PostProductBtn from "../../../Components/button/UploadProductBtn";
 import "./ProfileHeader.scss";
+import UserInfoBox from "../../../Components/user/UserInfoBox";
 
 function ProfileHeader({ from }) {
-  let button = [];
-  if (from === "userProfile") {
-    button = [<FollowBtn text="팔로우" style="follow" size="btn-m" />];
-  } else {
-    button = [
-      <EditProfileBtn key="button1" />,
-      <PostProductBtn key="button2" />,
-    ];
-  }
-
   return (
     <>
       <header className="header-mypage">
@@ -34,7 +25,14 @@ function ProfileHeader({ from }) {
           <p className="text-profile-info">
             애월읍 감귤 전국 배송, 귤따기 체험, 감귤농장
           </p>
-          {button}
+          {from === "userProfile" ? (
+            <FollowBtn text="팔로우" style="follow" size="btn-m" />
+          ) : (
+            <>
+              <EditProfileBtn key="button1" />
+              <PostProductBtn key="button2" />
+            </>
+          )}
         </div>
       </header>
     </>

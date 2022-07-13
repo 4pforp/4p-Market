@@ -9,7 +9,7 @@ function Splash() {
   const timeout = () => {
     setTimeout(() => {
       navigate("/home");
-    }, 4000);
+    }, 3000);
   };
 
   useEffect(() => {
