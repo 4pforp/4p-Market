@@ -1,0 +1,17 @@
+@import "../../components/style/default.scss";
+
+.form-profileeddit {
+  padding-top: 48px;
+  width: 322px;
+
+  .container-accountname,
+  .container-intro {
+    margin-top: 16px;
+  }
+
+  #input-username,
+  #input-accountname,
+  #input-intro {
+    padding-top: 6px;
+  }
+}

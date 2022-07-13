@@ -1,0 +1,80 @@
+@import "../../components/style/default.scss";
+
+@mixin linkFlex() {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin linkIcon() {
+  display: inline-block;
+  content: "";
+  width: 26px;
+  height: 26px;
+  background-size: cover;
+}
+
+.link-home {
+  @include linkFlex;
+
+  &::before {
+    @include linkIcon;
+    background: url("../../assets/icon-home.svg") no-repeat center;
+  }
+}
+
+.link-homefocus {
+  @include linkFlex;
+  &::before {
+    @include linkIcon;
+    background: url("../../assets/icon-home-fill.svg") no-repeat center;
+  }
+}
+
+.link-chat {
+  @include linkFlex;
+  &::before {
+    @include linkIcon;
+    background: url("../../assets/icon-message-circle.svg") no-repeat center;
+  }
+}
+
+.link-chatfocus {
+  @include linkFlex;
+  &::before {
+    @include linkIcon;
+    background: url("../../assets/icon-message-circle-fill.svg") no-repeat
+      center;
+  }
+}
+
+.link-upload {
+  @include linkFlex;
+  &::before {
+    @include linkIcon;
+    background: url("../../assets/icon-edit.svg") no-repeat center;
+  }
+}
+
+.link-profile {
+  @include linkFlex;
+  &::before {
+    @include linkIcon;
+    background: url("../../assets/icon-user.svg") no-repeat center;
+  }
+}
+
+.link-profilefocus {
+  @include linkFlex;
+  &::before {
+    @include linkIcon;
+    background: url("../../assets/icon-user-fill.svg") no-repeat center;
+  }
+}
+
+.text-menu-name {
+  text-align: center;
+  margin-top: 7px;
+  font-size: 10px;
+  font-family: $basic-font;
+}
