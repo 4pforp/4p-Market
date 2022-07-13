@@ -1,5 +1,9 @@
 import './SearchResult.scss';
+<<<<<<< HEAD
 import UserInfoBox from '../../../Components/user/UserInfoBox';
+=======
+import UserInfoBox from '../../../components/user/UserInfoBox';
+>>>>>>> 3cd4e47fb65543d6e2449a4ed1fb9b52ed322e8e
 
 function SearchResult(){
   return(
