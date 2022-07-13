@@ -1,8 +1,8 @@
 import "./FollowBtn.scss";
 
-function FollowBtn({ text, style, size }) {
+function FollowBtn({ text, name, size }) {
   return (
-    <button type="Button" className={`btn ${style} ${size}`}>
+    <button type="Button" className={`btn ${name} ${size}`}>
       {text}
     </button>
   );

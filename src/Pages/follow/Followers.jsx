@@ -2,7 +2,6 @@ import React from "react";
 import FollowHeader from "../../Components/header/FollowHeader";
 import FollowUser from "./FollowUser";
 import "./Follow.scss";
-import LogoImg from "../../assets/L-profile.svg";
 
 function Followers() {
   return (
@@ -13,20 +12,18 @@ function Followers() {
           <ul className="wrapper-list-follow">
             <FollowUser
               key="follower1"
-              userProfileImg={LogoImg}
               userName="수삐뽀삐"
               userIntro="뽀삐뽀삐뽀삐아"
               text="팔로우"
-              style="follow"
+              name="follow"
               size="btn-s"
             />
             <FollowUser
               key="follower2"
-              userProfileImg={LogoImg}
               userName="삐뽀뽀삐"
               userIntro="삐리뽐빼리뽐"
-              text="언팔로우"
-              style="unfollow"
+              text="취소"
+              name="unfollow"
               size="btn-s"
             />
           </ul>
