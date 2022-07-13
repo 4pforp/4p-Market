@@ -16,9 +16,10 @@
 
 .link-home {
   @include linkFlex;
+
   &::before {
     @include linkIcon;
-    background: url("../../assets/icon-home.svg") no-repeat;
+    background: url("../../assets/icon-home.svg") no-repeat center;
   }
 }
 
@@ -26,7 +27,7 @@
   @include linkFlex;
   &::before {
     @include linkIcon;
-    background: url("../../assets/icon-home-fill.svg") no-repeat;
+    background: url("../../assets/icon-home-fill.svg") no-repeat center;
   }
 }
 
@@ -34,7 +35,7 @@
   @include linkFlex;
   &::before {
     @include linkIcon;
-    background: url("../../assets/icon-message-circle.svg") no-repeat;
+    background: url("../../assets/icon-message-circle.svg") no-repeat center;
   }
 }
 
@@ -42,7 +43,8 @@
   @include linkFlex;
   &::before {
     @include linkIcon;
-    background: url("../../assets/icon-message-circle-fill.svg") no-repeat;
+    background: url("../../assets/icon-message-circle-fill.svg") no-repeat
+      center;
   }
 }
 
@@ -50,7 +52,7 @@
   @include linkFlex;
   &::before {
     @include linkIcon;
-    background: url("../../assets/icon-edit.svg") no-repeat;
+    background: url("../../assets/icon-edit.svg") no-repeat center;
   }
 }
 
@@ -58,7 +60,7 @@
   @include linkFlex;
   &::before {
     @include linkIcon;
-    background: url("../../assets/icon-user.svg") no-repeat;
+    background: url("../../assets/icon-user.svg") no-repeat center;
   }
 }
 
@@ -66,7 +68,7 @@
   @include linkFlex;
   &::before {
     @include linkIcon;
-    background: url("../../assets/icon-user-fill.svg") no-repeat;
+    background: url("../../assets/icon-user-fill.svg") no-repeat center;
   }
 }
 
