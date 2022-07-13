@@ -3,9 +3,12 @@ import MainFooter from "../../Components/footer/MainFooter";
 import Login from "../logIn/Login";
 import HomeSearch from "./homeSearch/HomeSearch";
 import "./Home.scss";
+import LoginContext from "../../Context/LoginContext";
+import { useContext } from "react";
 
 function Home() {
-  const isLogin = localStorage.getItem("token");
+  const { isLogin } = useContext(LoginContext);
+
   if (isLogin) {
     return (
       <>
