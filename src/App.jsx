@@ -17,6 +17,7 @@ import Product from "./Pages/product/Product";
 import ProfileEdit from "./Pages/profileEdit/ProfileEdit";
 import UserSearch from "./Pages/home/userSearch/UserSearch";
 import CommentPage from "./Pages/profile/commentPage/CommentPage";
+import NotFound from "./Pages/notFound/NotFound";
 import LoginContext from "./Context/LoginContext";
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
                 <Route path="/comment" element={<CommentPage />}></Route>
                 <Route path="/product" element={<Product />}></Route>
                 <Route path="/profileedit" element={<ProfileEdit />}></Route>
+                <Route path={"*"} element={<NotFound />}></Route>
               </>
             ) : (
               // 만약 url로 접근하려고 할 때 로그인 창으로 넘어가도록 추가
