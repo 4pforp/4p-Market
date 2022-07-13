@@ -26,7 +26,7 @@ function ProfileHeader({ from }) {
             애월읍 감귤 전국 배송, 귤따기 체험, 감귤농장
           </p>
           {from === "userProfile" ? (
-            <FollowBtn text="팔로우" style="follow" size="btn-m" />
+            <FollowBtn text="팔로우" name="follow" size="btn-m" />
           ) : (
             <>
               <EditProfileBtn key="button1" />
