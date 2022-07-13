@@ -1,4 +1,4 @@
-import profileimg from "../../assets/icon-profile-small.svg";
+import profileimg from "../../assets/4p_profile.png";
 import "./PageFooter.scss";
 
 function CommentFooter() {
@@ -6,7 +6,11 @@ function CommentFooter() {
     <>
       <footer>
         <form method="post" className="container-form-pagefooter">
-          <img src={profileimg} alt="프로필사진입니다." />
+          <img
+            src={profileimg}
+            alt="프로필사진입니다."
+            className="img-profile-footer"
+          />
           <textarea
             className="textarea-pagefooter"
             placeholder="댓글 입력하기"

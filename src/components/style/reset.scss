@@ -150,6 +150,12 @@ textarea {
   border: 0;
 }
 
+textarea {
+  border: none;
+  outline: none;
+  resize: none;
+}
+
 textarea:focus {
   outline: none;
   box-shadow: none;

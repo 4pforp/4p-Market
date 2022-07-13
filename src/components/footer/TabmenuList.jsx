@@ -11,7 +11,15 @@ function TabmenuList({ path, style, name }) {
           //현재경로와 path값이 일치하면 focus 스타일 적용
           className={location.pathname === path ? `${style}focus` : `${style}`}
         >
-          <div className="text-menu-name">{name}</div>
+          <div
+            className={
+              location.pathname === path
+                ? "text-menu-namefocus"
+                : "text-menu-name"
+            }
+          >
+            {name}
+          </div>
         </Link>
       </li>
     </>
