@@ -26,6 +26,14 @@ function Followers() {
               name="unfollow"
               size="btn-s"
             />
+            <FollowUser
+              key="follower3"
+              userName="삐삐뽀뽀"
+              userIntro="삐리뽐"
+              text="취소"
+              name="unfollow"
+              size="btn-s"
+            />
           </ul>
         </div>
       </main>
