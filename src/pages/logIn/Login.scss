@@ -1,0 +1,20 @@
+@import "../../components/style/default.scss";
+
+body {
+  min-width: 350px;
+}
+
+.container-login-home {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: $background-color;
+  .img-logo {
+    width: 180px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

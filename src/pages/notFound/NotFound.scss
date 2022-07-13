@@ -1,0 +1,30 @@
+@import "../../components/style/default.scss";
+
+.container-error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: 100%;
+
+  .text-error {
+    margin-top: 16px;
+    font-family: $basic-font;
+    font-size: 14px;
+    line-height: 14px;
+    color: $subtext-color;
+    margin-bottom: 20px;
+  }
+
+  .btn-error {
+    width: 120px;
+    height: 44px;
+    border-radius: 44px;
+    background-color: $primary-color;
+    font-family: $medium-font;
+    font-size: 14px;
+    line-height: 17px;
+    color: $white;
+  }
+}

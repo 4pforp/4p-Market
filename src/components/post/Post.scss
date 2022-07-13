@@ -1,0 +1,47 @@
+@import "../style/default.scss";
+
+.article-post {
+  padding-top: 4px;
+  position: relative;
+  margin-bottom: 30px;
+  .contents-post {
+    padding-left: 54px;
+    .text-post {
+      font-size: 14px;
+      font-family: $basic-font;
+      margin-bottom: 16px;
+      line-height: 17px;
+      color: $text-color;
+    }
+    .container-post-image {
+      width: 100%;
+      padding-top: auto;
+      background-color: #c4c4c4;
+      overflow: hidden;
+      border-radius: 10px;
+      margin-bottom: 14.5px;
+      .img-post {
+        width: 100%;
+      }
+    }
+    .container-button-post {
+      display: flex;
+      gap: 18.5px;
+      margin-bottom: 18.5px;
+    }
+    .button-post {
+      display: flex;
+      gap: 8.5px;
+      button {
+        background-color: #767676;
+        width: 15px;
+        height: 15px;
+      }
+    }
+    .text-post-date {
+      display: block;
+      font-size: 10px;
+      font-family: $basic-font;
+    }
+  }
+}
