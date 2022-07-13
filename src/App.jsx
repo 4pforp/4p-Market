@@ -17,6 +17,7 @@ import Product from "./Pages/product/Product";
 import ProfileEdit from "./Pages/profileEdit/ProfileEdit";
 import UserSearch from "./Pages/home/userSearch/UserSearch";
 import CommentPage from "./Pages/profile/commentPage/CommentPage";
+import NotFound from "./Pages/notFound/NotFound";
 import LoginContext from "./Context/LoginContext";
 
 function App() {
