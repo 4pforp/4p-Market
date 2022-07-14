@@ -5,15 +5,15 @@ import "./ProfileHeader.scss";
 
 function ProfileHeader({
   from,
-  myAccountname,
-  myUsername,
-  myIntro,
-  myFollowers,
-  myFollowings,
-  myImage,
+  accountname,
+  username,
+  intro,
+  followers,
+  followings,
+  image,
 }) {
   const imgStyle = {
-    backgroundImage: `url(${myImage})`,
+    backgroundImage: `url(${image})`,
   };
   return (
     <>
@@ -22,17 +22,17 @@ function ProfileHeader({
           <div className="wrapper-follow">
             <div className="img-author-m" style={imgStyle}></div>
             <div className="text-follow follower">
-              <span className="text-follow-num">{myFollowers}</span>
+              <span className="text-follow-num">{followers}</span>
               followers
             </div>
             <div className="text-follow followings">
-              <span className="text-follow-num">{myFollowings}</span>
+              <span className="text-follow-num">{followings}</span>
               follwings
             </div>
           </div>
-          <h2 className="text-username">{myUsername}</h2>
-          <span className="text-accountname">@{myAccountname}</span>
-          <p className="text-profile-info">{myIntro}</p>
+          <h2 className="text-username">{username}</h2>
+          <span className="text-accountname">@{accountname}</span>
+          <p className="text-profile-info">{intro}</p>
         </div>
         {from === "userProfile" ? (
           <FollowBtn text="팔로우" name="follow" size="btn-m" />

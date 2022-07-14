@@ -31,7 +31,6 @@ function App() {
   const [myImage, setMyImage] = useState(localStorage.getItem("image"));
   const [myIntro, setMyIntro] = useState(localStorage.getItem("intro"));
   const [myEmail, setMyEmail] = useState(localStorage.getItem("email"));
-
   return (
     <div className="App">
       <UserContext.Provider
@@ -64,7 +63,7 @@ function App() {
                 <Route path="/upload" element={<UploadPost />}></Route>
                 <Route path="/profile" element={<MyProfile />}></Route>
                 <Route
-                  path="/profile/usernum"
+                  path="/profile/:accountname"
                   element={<UserProfile />}
                 ></Route>
                 <Route path="/followers" element={<Followers />}></Route>

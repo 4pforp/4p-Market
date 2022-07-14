@@ -5,43 +5,79 @@ import UserProducts from "./userProduct/UserProduct";
 import UserPost from "./userPost/UserPost";
 import "./Profile.scss";
 import UserContext from "../../context/UserContext";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
+import NotFound from "../notFound/NotFound";
 
 function UserProfile() {
-  const { token } = useContext(UserContext);
-  const accountname = "";
-  const authToken = "Bearer " + token;
+  const { token, myAccountname } = useContext(UserContext);
+  const params = useParams();
+  const navigate = useNavigate();
+  const [view, setView] = useState(true);
 
-  // 유저 정보 받아오기
-  async function getUserInfo() {
-    const url = "https://mandarin.api.weniv.co.kr/profile/" + accountname;
-    try {
-      const res = await axios.get(url, {
+  // 유저 프로필 정보 받아오기
+  const accountname = params.accountname;
+  const authToken = "Bearer " + token;
+  const url = "https://mandarin.api.weniv.co.kr/profile/" + accountname;
+
+  const [user, setUser] = useState({
+    accountname: "",
+    username: "",
+    image: "",
+    intro: "",
+    followings: "",
+    followers: "",
+  });
+
+  useEffect(() => {
+    if (accountname === myAccountname) {
+      navigate("/profile/");
+    }
+    axios
+      .get(url, {
         headers: {
           Authorization: authToken,
           "Content-type": "application/json",
         },
+      })
+      .then((res) => {
+        setUser({
+          ...user,
+          accountname: res.data.profile.accountname,
+          username: res.data.profile.username,
+          image: res.data.profile.image,
+          intro: res.data.profile.intro,
+          followings: res.data.profile.followingCount,
+          followers: res.data.profile.followerCount,
+        });
+        setView(true);
+      })
+      .catch((err) => {
+        setView(false);
       });
-      console.log(res.data.profile.username);
-      console.log(res.data.profile.accountname);
-      console.log(res.data.profile.image);
-      console.log(res.data.profile.intro);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-  return (
+  }, []);
+  return view ? (
     <>
       <CommonHeader />
       <main className="container-profile-page">
         <h1 className="a11y-hidden">'유저'의 프로필</h1>
-        <ProfileHeader from="userProfile" />
+        <ProfileHeader
+          from="userProfile"
+          accountname={user.accountname}
+          username={user.username}
+          intro={user.intro}
+          image={user.image}
+          followers={user.followers}
+          followings={user.followings}
+        />
         <UserProducts />
         <UserPost />
       </main>
       <MainFooter />
     </>
+  ) : (
+    <NotFound />
   );
 }
 
