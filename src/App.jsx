@@ -18,16 +18,40 @@ import ProfileEdit from "./pages/profileEdit/ProfileEdit";
 import UserSearch from "./pages/home/userSearch/UserSearch";
 import CommentPage from "./pages/profile/commentPage/CommentPage";
 import NotFound from "./pages/notFound/NotFound";
-import LoginContext from "./context/LoginContext";
+import UserContext from "./context/UserContext";
 
 function App() {
-  const [isLogin, setIsLogin] = useState(localStorage.getItem("token"));
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [myAccountname, setMyAccountname] = useState(
+    localStorage.getItem("accountname")
+  );
+  const [myUsername, setMyUsername] = useState(
+    localStorage.getItem("username")
+  );
+  const [myImage, setMyImage] = useState(localStorage.getItem("image"));
+  const [myIntro, setMyIntro] = useState(localStorage.getItem("intro"));
+  const [myEmail, setMyEmail] = useState(localStorage.getItem("email"));
   return (
     <div className="App">
-      <LoginContext.Provider value={{ isLogin, setIsLogin }}>
+      <UserContext.Provider
+        value={{
+          token,
+          setToken,
+          myAccountname,
+          setMyAccountname,
+          myUsername,
+          setMyUsername,
+          myIntro,
+          setMyIntro,
+          myEmail,
+          setMyEmail,
+          myImage,
+          setMyImage,
+        }}
+      >
         <BrowserRouter>
           <Routes>
-            {isLogin ? (
+            {token ? (
               <>
                 <Route path="/" element={<Splash />}></Route>
                 <Route path="/home" element={<Home />}></Route>
@@ -39,7 +63,7 @@ function App() {
                 <Route path="/upload" element={<UploadPost />}></Route>
                 <Route path="/profile" element={<MyProfile />}></Route>
                 <Route
-                  path="/profile/usernum"
+                  path="/profile/:accountname"
                   element={<UserProfile />}
                 ></Route>
                 <Route path="/followers" element={<Followers />}></Route>
@@ -50,7 +74,7 @@ function App() {
                 <Route path={"*"} element={<NotFound />}></Route>
               </>
             ) : (
-              // 만약 url로 접근하려고 할 때 로그인 창으로 넘어가도록 추가
+              // TODO 만약 url로 접근하려고 할 때 로그인 창으로 넘어가도록 추가
               <>
                 <Route path="/" element={<Splash />}></Route>
                 <Route path="/home" element={<Home />}></Route>
@@ -60,7 +84,7 @@ function App() {
             )}
           </Routes>
         </BrowserRouter>
-      </LoginContext.Provider>
+      </UserContext.Provider>
     </div>
   );
 }

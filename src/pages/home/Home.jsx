@@ -3,13 +3,13 @@ import MainFooter from "../../components/footer/MainFooter";
 import Login from "../logIn/Login";
 import HomeSearch from "./homeSearch/HomeSearch";
 import "./Home.scss";
-import LoginContext from "../../context/LoginContext";
+import UserContext from "../../context/UserContext";
 import { useContext } from "react";
 
 function Home() {
-  const { isLogin } = useContext(LoginContext);
+  const { token } = useContext(UserContext);
 
-  if (isLogin) {
+  if (token) {
     return (
       <>
         <MainHeader />

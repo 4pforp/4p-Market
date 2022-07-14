@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import errorLogo from "../../assets/icon-404.svg";
+import errorLogo from "../../assets/logo_404.svg";
+import MainFooter from "../../components/footer/MainFooter";
+import CommonHeader from "../../components/header/CommonHeader";
 import "./NotFound.scss";
 
 function NotFound() {
@@ -7,6 +9,7 @@ function NotFound() {
 
   return (
     <>
+      <CommonHeader />
       <main className="container-error">
         <img src={errorLogo} className="img-error" alt="error" />
         <span className="text-error">페이지를 찾을 수 없습니다. </span>
@@ -19,6 +22,7 @@ function NotFound() {
           이전페이지
         </button>
       </main>
+      <MainFooter />
     </>
   );
 }
