@@ -19,6 +19,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
     &.post {
       width: 42px;
       height: 42px;
@@ -61,7 +62,7 @@
       font-size: 14px;
       line-height: 14px;
       color: $text-color;
-      &.comment{
+      &.comment {
         margin-bottom: 0;
       }
     }
