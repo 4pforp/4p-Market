@@ -14,14 +14,15 @@ function MyProfile() {
     useContext(UserContext);
   const authToken = "Bearer " + token;
   const url = "https://mandarin.api.weniv.co.kr/profile/" + myAccountname;
+
   // 나의 프로필 정보 받아오기
   const [user, setUser] = useState({
     accountname: myAccountname,
     username: myUsername,
     image: myImage,
     intro: myIntro,
-    followings: "",
-    followers: "",
+    followings: "-",
+    followers: "-",
   });
 
   useEffect(() => {

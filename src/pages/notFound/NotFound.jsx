@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import errorLogo from "../../assets/icon-404.svg";
+import errorLogo from "../../assets/logo_404.svg";
 import "./NotFound.scss";
 
 function NotFound() {
