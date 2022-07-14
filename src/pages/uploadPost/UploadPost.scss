@@ -1,32 +1,35 @@
 @import "../../components/style/variables";
 
 .container-uploadpost {
+  display: flex;
   width: 100%;
-  padding-top: 48px;
-  .wraper-form-uploadpost {
+  margin-top: 68px;
+  padding: 0 16px;
+
+  .wrapper-write-section {
     display: flex;
-    margin: 0 auto;
-    width: 390px;
-    padding: 16px;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-wrap: nowrap;
+    padding-left: 12px;
   }
   .img-profile-uploadpost {
     width: 42px;
     height: 42px;
   }
   .textarea-uploadpost {
-    flex-grow: 1;
-    padding-top: 12px;
-    margin: 0 13px;
-    height: 100px;
-    vertical-align: middle;
+    width: 100%;
+    margin: 12px 0 8px 0;
     line-height: 18px;
     font-family: $basic-font;
     font-size: 14px;
+    word-break: keep-all;
   }
   .label-upload-icon {
     position: fixed;
     bottom: 0;
     right: 0;
     padding: 0 16px 16px 0;
+    cursor: pointer;
   }
 }

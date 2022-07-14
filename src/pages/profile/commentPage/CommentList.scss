@@ -5,46 +5,28 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin-bottom: 64px;
   padding-top: 20px;
   border-top: 1px solid #dbdbdb;
-
-  .list-comments {
-    width: 358px;
-    .comment {
+  .item-comment{
+    max-width: 358px;
+    &:not(:last-child){
       margin-bottom: 16px;
     }
   }
 }
 
-.wrapper-comment-author {
-  .img-comment-author {
-    vertical-align: middle;
-    width: 36px;
-    height: 36px;
-  }
-  .text-comment-author-name {
-    vertical-align: middle;
-    margin: 0 6px 0 12px;
-    font-family: $medium-font;
-    font-size: 14px;
-    line-height: 17px;
-    color: $text-color;
-  }
-  .text-comment-time {
-    vertical-align: middle;
-    font-family: $basic-font;
-    font-size: 10px;
-    line-height: 12px;
-    color: $subtext-color;
-  }
-  .btn-user-more {
-    float: right;
-    margin-top: 9px;
-  }
+.text-comment-time {
+  vertical-align: middle;
+  margin: auto 0 auto 6px;
+  font-family: $basic-font;
+  font-size: 10px;
+  line-height: 12px;
+  color: $subtext-color;
 }
 
 .content-comment {
-  margin: 16px 0 0 48px;
+  margin-left: 48px;
   font-family: $basic-font;
   font-size: 14px;
   line-height: 17px;
