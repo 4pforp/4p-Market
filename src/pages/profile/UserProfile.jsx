@@ -4,12 +4,12 @@ import ProfileHeader from "./profileHeader/ProfileHeader";
 import UserProducts from "./userProduct/UserProduct";
 import UserPost from "./userPost/UserPost";
 import "./Profile.scss";
-import LoginContext from "../../context/LoginContext";
+import UserContext from "../../context/UserContext";
 import { useContext } from "react";
 import axios from "axios";
 
 function UserProfile() {
-  const { token } = useContext(LoginContext);
+  const { token } = useContext(UserContext);
   const accountname = "";
   const authToken = "Bearer " + token;
 

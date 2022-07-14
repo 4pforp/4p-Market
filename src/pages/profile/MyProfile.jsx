@@ -5,13 +5,13 @@ import ProfileHeader from "./profileHeader/ProfileHeader";
 import UserProducts from "./userProduct/UserProduct";
 import UserPost from "./userPost/UserPost";
 import "./Profile.scss";
-import LoginContext from "../../context/LoginContext";
+import UserContext from "../../context/UserContext";
 import { useContext, useEffect } from "react";
 import { useState } from "react";
 
 function MyProfile() {
   const { token, myAccountname, myUsername, myImage, myIntro } =
-    useContext(LoginContext);
+    useContext(UserContext);
   const authToken = "Bearer " + token;
   const url = "https://mandarin.api.weniv.co.kr/profile/" + myAccountname;
   // 나의 프로필 정보 받아오기

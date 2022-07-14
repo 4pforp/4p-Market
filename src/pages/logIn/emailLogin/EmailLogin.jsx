@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import LoginContext from "../../../context/LoginContext";
+import UserContext from "../../../context/UserContext";
 import axios from "axios";
 import "./EmailLogin.scss";
 import "../Button.scss";
@@ -18,7 +18,7 @@ function EmailLogin() {
     setMyImage,
     setMyIntro,
     setMyEmail,
-  } = useContext(LoginContext);
+  } = useContext(UserContext);
 
   const inputRef = useRef();
   const navigate = useNavigate();

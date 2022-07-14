@@ -18,7 +18,7 @@ import ProfileEdit from "./pages/profileEdit/ProfileEdit";
 import UserSearch from "./pages/home/userSearch/UserSearch";
 import CommentPage from "./pages/profile/commentPage/CommentPage";
 import NotFound from "./pages/notFound/NotFound";
-import LoginContext from "./context/LoginContext";
+import UserContext from "./context/UserContext";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -34,7 +34,7 @@ function App() {
 
   return (
     <div className="App">
-      <LoginContext.Provider
+      <UserContext.Provider
         value={{
           token,
           setToken,
@@ -85,7 +85,7 @@ function App() {
             )}
           </Routes>
         </BrowserRouter>
-      </LoginContext.Provider>
+      </UserContext.Provider>
     </div>
   );
 }
