@@ -21,13 +21,38 @@ import NotFound from "./pages/notFound/NotFound";
 import LoginContext from "./context/LoginContext";
 
 function App() {
-  const [isLogin, setIsLogin] = useState(localStorage.getItem("token"));
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [myAccountname, setMyAccountname] = useState(
+    localStorage.getItem("accountname")
+  );
+  const [myUsername, setMyUsername] = useState(
+    localStorage.getItem("username")
+  );
+  const [myImage, setMyImage] = useState(localStorage.getItem("image"));
+  const [myIntro, setMyIntro] = useState(localStorage.getItem("intro"));
+  const [myEmail, setMyEmail] = useState(localStorage.getItem("email"));
+
   return (
     <div className="App">
-      <LoginContext.Provider value={{ isLogin, setIsLogin }}>
+      <LoginContext.Provider
+        value={{
+          token,
+          setToken,
+          myAccountname,
+          setMyAccountname,
+          myUsername,
+          setMyUsername,
+          myIntro,
+          setMyIntro,
+          myEmail,
+          setMyEmail,
+          myImage,
+          setMyImage,
+        }}
+      >
         <BrowserRouter>
           <Routes>
-            {isLogin ? (
+            {token ? (
               <>
                 <Route path="/" element={<Splash />}></Route>
                 <Route path="/home" element={<Home />}></Route>
@@ -50,7 +75,7 @@ function App() {
                 <Route path={"*"} element={<NotFound />}></Route>
               </>
             ) : (
-              // 만약 url로 접근하려고 할 때 로그인 창으로 넘어가도록 추가
+              // TODO 만약 url로 접근하려고 할 때 로그인 창으로 넘어가도록 추가
               <>
                 <Route path="/" element={<Splash />}></Route>
                 <Route path="/home" element={<Home />}></Route>

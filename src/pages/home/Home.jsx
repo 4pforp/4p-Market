@@ -7,9 +7,9 @@ import LoginContext from "../../context/LoginContext";
 import { useContext } from "react";
 
 function Home() {
-  const { isLogin } = useContext(LoginContext);
+  const { token } = useContext(LoginContext);
 
-  if (isLogin) {
+  if (token) {
     return (
       <>
         <MainHeader />

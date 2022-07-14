@@ -7,12 +7,24 @@
   background-color: $white;
   text-align: center;
 
-  .wrapper-header-mypage {
+  .wrapper-author-m {
     width: 390px;
     margin: auto;
   }
-  .container-img-profile {
+  .wrapper-follow {
     position: relative;
+    .img-author-m {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto;
+      border-radius: 9999px;
+      background-image: url("../../../assets/4p_profile.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      overflow: hidden;
+    }
+
     .text-follow {
       display: flex;
       flex-direction: column;
