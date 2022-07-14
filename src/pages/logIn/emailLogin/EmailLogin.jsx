@@ -85,7 +85,6 @@ function EmailLogin() {
         setMyImage(localStorage.getItem("image"));
         setMyIntro(localStorage.getItem("intro"));
         setMyEmail(localStorage.getItem("email"));
-
         setIsWrong(false);
         navigate("/");
       }
