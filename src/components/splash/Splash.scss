@@ -1,6 +1,22 @@
+@import "../../components/style/default.scss";
+
 :root {
   --animation-delay: 2.5s;
 }
+
+.splash {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-color: $white;
+  z-index: 99999;
+  opacity: 1;
+  animation: splash-finish ease-in-out 0.5s var(--animation-delay) forwards;
+}
+
 .splash svg {
   width: 180px;
   position: absolute;
@@ -96,6 +112,15 @@
     opacity: 1;
   }
   100% {
+    opacity: 0;
+  }
+}
+
+@keyframes splash-finish {
+  from {
+    opacity: 1;
+  }
+  to {
     opacity: 0;
   }
 }

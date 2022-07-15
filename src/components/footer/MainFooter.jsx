@@ -6,7 +6,7 @@ function MainFooter() {
     {
       id: 1,
       style: "link-home",
-      path: "/home",
+      path: "/",
       name: "홈",
     },
     {

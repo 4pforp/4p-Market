@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./components/style/reset.scss";
 import "./App.scss";
 import EmailLogin from "./pages/logIn/emailLogin/EmailLogin";
-import Splash from "./components/splash/Splash";
 import SignUp from "./pages/logIn/signUp/SignUp";
 import Home from "./pages/home/Home";
 import UploadPost from "./pages/uploadPost/UploadPost";
@@ -53,8 +52,7 @@ function App() {
           <Routes>
             {token ? (
               <>
-                <Route path="/" element={<Splash />}></Route>
-                <Route path="/home" element={<Home />}></Route>
+                <Route path="/" element={<Home />}></Route>
                 <Route path="/login" element={<EmailLogin />}></Route>
                 <Route path="/signup" element={<SignUp />}></Route>
                 <Route path="/search" element={<UserSearch />}></Route>
@@ -76,8 +74,7 @@ function App() {
             ) : (
               // TODO 만약 url로 접근하려고 할 때 로그인 창으로 넘어가도록 추가
               <>
-                <Route path="/" element={<Splash />}></Route>
-                <Route path="/home" element={<Home />}></Route>
+                <Route path="/" element={<Home />}></Route>
                 <Route path="/login" element={<EmailLogin />}></Route>
                 <Route path="/signup" element={<SignUp />}></Route>
               </>

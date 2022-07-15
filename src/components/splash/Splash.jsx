@@ -1,25 +1,31 @@
 import "./Splash.scss";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import Logo from "./Logo";
+import { useState } from "react";
 
-// 인트로 splash 페이지에서 일정시간 이후 홈페이지로 이동하는 기능
+// 인트로 Splash 컴포넌트 사용 후 일정 시간 이후 랜더링 중단, 세션스토리지에 저장
 function Splash() {
-  const navigate = useNavigate();
+  const [blindSplash, setBlindSplash] = useState(false);
   const timeout = () => {
     setTimeout(() => {
-      navigate("/home");
+      setBlindSplash(!blindSplash);
+      return null;
     }, 3000);
   };
 
   useEffect(() => {
-    timeout();
     return () => {
       clearTimeout(timeout);
     };
   });
 
-  return <Logo />;
+  if (blindSplash === false) {
+    timeout();
+    sessionStorage.setItem("splash", true);
+    return <Logo />;
+  } else {
+    return null;
+  }
 }
 
 export default Splash;
