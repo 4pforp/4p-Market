@@ -10,24 +10,24 @@ import Splash from "../../components/splash/Splash";
 function Home() {
   const { token } = useContext(UserContext);
 
-  if (token) {
-    return (
-      <>
-        <Splash />
-        <MainHeader />
-        <main className="main-home">
-          <HomeSearch />
-        </main>
-        <MainFooter />
-      </>
-    );
-  } else {
-    return (
-      <>
-        <Splash />
-        <Login />
-      </>
-    );
-  }
+  return (
+    <>
+      {sessionStorage.getItem("splash") ? null : <Splash />}
+      {token ? (
+        <>
+          <MainHeader />
+          <main className="main-home">
+            <HomeSearch />
+          </main>
+          <MainFooter />
+        </>
+      ) : (
+        <>
+          <Login />
+        </>
+      )}
+    </>
+  );
 }
+
 export default Home;
