@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext} from "react";
 import axios from "axios";
-//import UserContext from "../../../context/UserContext";
+import UserContext from "../../../context/UserContext";
 import SearchHeader from "../../../components/header/SearchHeader";
 import SearchResult from "./SearchResult";
 import "./UserSearch.scss";
@@ -8,10 +8,10 @@ import "./UserSearch.scss";
 function UserSearch() {
   const [searchResult, setSearchResult] = useState([]);
   const [keyword, setKeyword] = useState("");
+  const { token } = useContext(UserContext);
 
   function handleKeyword(e){
     setKeyword(e.target.value)
-    console.log(keyword)
     if(e.target.value == ""){
       setSearchResult([]);
     }
@@ -24,12 +24,12 @@ function UserSearch() {
           const response = await axios('https://mandarin.api.weniv.co.kr/user/searchuser/?keyword='+keyword,
           { method : 'Get',
             headers : {
-              "Authorization" : `Bearer ${window.localStorage.getItem('token')}`,
+              "Authorization" : `Bearer ${token}`,
               "Content-type" : "application/json"
             }
           }
           )
-          const getData = await response
+          const getData = response
           console.log(getData.data);
           setSearchResult(getData.data);  
         }
@@ -37,8 +37,6 @@ function UserSearch() {
       }
     },[keyword]
   )
-
-    //let myData = searchResult;
 
   return (
     <>
