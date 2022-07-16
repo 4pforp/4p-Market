@@ -37,12 +37,12 @@ function Followings() {
             {followingList.map((user) => {
               return (
                 <FollowUser
-                  key={user.id}
-                  userName={user.username}
-                  userIntro={user.intro}
-                  text={user.isfollow ? "취소" : "팔로우"}
-                  isFollow={user.isfollow}
-                  img={user.image}
+                  key={user._id}
+                  accountname={user.accountname}
+                  username={user.username}
+                  intro={user.intro}
+                  isfollow={user.isfollow}
+                  image={user.image}
                   size="btn-s"
                 />
               );

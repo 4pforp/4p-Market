@@ -41,7 +41,6 @@ function UserProfile() {
       })
       .then((res) => {
         setUser({
-          ...user,
           accountname: res.data.profile.accountname,
           username: res.data.profile.username,
           image: res.data.profile.image,
@@ -55,7 +54,7 @@ function UserProfile() {
       .catch((err) => {
         setView("false");
       });
-  }, []);
+  }, [authToken, url]);
   return (
     <>
       <CommonHeader />
@@ -63,16 +62,7 @@ function UserProfile() {
         <h1 className="a11y-hidden">'유저'의 프로필</h1>
         {view === "true" && (
           <>
-            <ProfileHeader
-              from="userProfile"
-              accountname={user.accountname}
-              username={user.username}
-              intro={user.intro}
-              image={user.image}
-              followers={user.followers}
-              followings={user.followings}
-              isfollow={user.isfollow}
-            />
+            <ProfileHeader from="userProfile" user={user} setUser={setUser} />
             <UserProducts />
             <UserPost />
           </>

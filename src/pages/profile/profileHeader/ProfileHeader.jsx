@@ -4,18 +4,9 @@ import PostProductBtn from "../../../components/button/UploadProductBtn";
 import "./ProfileHeader.scss";
 import { Link } from "react-router-dom";
 
-function ProfileHeader({
-  from,
-  accountname,
-  username,
-  intro,
-  followers,
-  followings,
-  image,
-  isfollow,
-}) {
+function ProfileHeader({ from, setUser, user }) {
   const imgStyle = {
-    backgroundImage: `url(${image})`,
+    backgroundImage: `url(${user.image})`,
   };
 
   return (
@@ -27,28 +18,29 @@ function ProfileHeader({
             <Link
               to="followers"
               className="text-follow follower"
-              state={{ accountname: accountname }}
+              state={{ accountname: user.accountname }}
             >
-              <span className="text-follow-num">{followers}</span>
+              <span className="text-follow-num">{user.followers}</span>
               followers
             </Link>
             <Link
               to="followings"
               className="text-follow followings"
-              state={{ accountname: accountname }}
+              state={{ accountname: user.accountname }}
             >
-              <span className="text-follow-num">{followings}</span>
+              <span className="text-follow-num">{user.followings}</span>
               follwings
             </Link>
           </div>
-          <h2 className="text-username">{username}</h2>
-          <span className="text-accountname">@{accountname}</span>
-          <p className="text-profile-info">{intro}</p>
+          <h2 className="text-username">{user.username}</h2>
+          <span className="text-accountname">@{user.accountname}</span>
+          <p className="text-profile-info">{user.intro}</p>
         </div>
         {from === "userProfile" ? (
           <FollowBtn
-            text={isfollow ? "취소" : "팔로우"}
-            isFollow={isfollow}
+            text={user.isfollow ? "취소" : "팔로우"}
+            setUser={setUser}
+            user={user}
             size="btn-m"
           />
         ) : (

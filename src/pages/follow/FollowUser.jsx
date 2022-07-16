@@ -1,23 +1,41 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import FollowBtn from "../../components/button/FollowBtn";
 import UserInfoBox from "../../components/user/UserInfoBox";
 import "./Follow.scss";
+import UserContext from "../../context/UserContext";
 
-function FollowUser({ userName, userIntro, text, isFollow, size, img }) {
+function FollowUser({ accountname, username, intro, isfollow, size, image }) {
+  const { token, myAccountname } = useContext(UserContext);
+
+  const [user, setUser] = useState({
+    accountname: accountname,
+    username: username,
+    image: image,
+    intro: intro,
+    followings: "",
+    followers: "",
+    isfollow: isfollow,
+  });
   return (
     <>
       <li className="wrapper-item-follow">
-        {/* 유저 accountname 받아오기 */}
-        <Link to="/accountname" className="wrapper-follow-info">
+        <Link to={"/" + accountname} className="wrapper-follow-info">
           <UserInfoBox
             type="follow"
-            name={userName}
-            subtext={userIntro}
-            img={img}
+            name={username}
+            subtext={intro}
+            img={image}
           />
         </Link>
-        <FollowBtn text={text} isFollow={isFollow} size={size} />
+        {accountname === myAccountname ? null : (
+          <FollowBtn
+            text={user.isfollow ? "취소" : "팔로우"}
+            size={size}
+            user={user}
+            setUser={setUser}
+          />
+        )}
       </li>
     </>
   );
