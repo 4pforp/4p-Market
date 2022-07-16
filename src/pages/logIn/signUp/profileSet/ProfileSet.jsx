@@ -9,7 +9,7 @@ function ProfileSet({ user, setUser, submitUserInfo }) {
   const [intro, setIntro] = useState("");
   const [isActive, setIsActive] = useState(false);
   const [image, setImage] = useState(
-    "https://mandarin.api.weniv.co.kr/1657642316665.png"
+    "https://mandarin.api.weniv.co.kr/1657959866076.png"
   );
 
   function handleClick() {

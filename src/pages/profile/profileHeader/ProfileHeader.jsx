@@ -2,6 +2,7 @@ import EditProfileBtn from "../../../components/button/EditProfileBtn";
 import FollowBtn from "../../../components/button/FollowBtn";
 import PostProductBtn from "../../../components/button/UploadProductBtn";
 import "./ProfileHeader.scss";
+import { Link } from "react-router-dom";
 
 function ProfileHeader({
   from,
@@ -21,14 +22,14 @@ function ProfileHeader({
         <div className="wrapper-author-m">
           <div className="wrapper-follow">
             <div className="img-author-m" style={imgStyle}></div>
-            <div className="text-follow follower">
+            <Link to="/followers" className="text-follow follower">
               <span className="text-follow-num">{followers}</span>
               followers
-            </div>
-            <div className="text-follow followings">
+            </Link>
+            <Link to="/followings" className="text-follow followings">
               <span className="text-follow-num">{followings}</span>
               follwings
-            </div>
+            </Link>
           </div>
           <h2 className="text-username">{username}</h2>
           <span className="text-accountname">@{accountname}</span>
