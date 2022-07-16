@@ -1,6 +1,7 @@
 @import "../../components/style/default.scss";
 
 .btn {
+  box-sizing: border-box;
   font-family: $medium-font;
   padding: 7px 11px;
   border-radius: 32px;
@@ -11,7 +12,7 @@
   &.true {
     color: $subtext-color;
     background-color: $white;
-    border: 1px solid #dbdbdb;
+    outline: 1px solid #dbdbdb;
   }
   &.btn-s {
     width: $btn-s;
