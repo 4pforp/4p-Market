@@ -40,8 +40,9 @@ function Followings() {
                   key={user.id}
                   userName={user.username}
                   userIntro={user.intro}
-                  text={user.isfollow ? "언팔로우" : "팔로우"}
+                  text={user.isfollow ? "취소" : "팔로우"}
                   isFollow={user.isfollow}
+                  img={user.image}
                   size="btn-s"
                 />
               );

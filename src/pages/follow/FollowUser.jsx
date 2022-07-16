@@ -4,17 +4,18 @@ import FollowBtn from "../../components/button/FollowBtn";
 import UserInfoBox from "../../components/user/UserInfoBox";
 import "./Follow.scss";
 
-function FollowUser({ userName, userIntro, text, isFollow, size }) {
+function FollowUser({ userName, userIntro, text, isFollow, size, img }) {
   return (
     <>
       <li className="wrapper-item-follow">
         {/* 유저 accountname 받아오기 */}
         <Link to="/accountname" className="wrapper-follow-info">
-          <UserInfoBox type="follow" />
-          <div className="wrapper-text-follow">
-            <strong className="text-username">{userName}</strong>
-            <strong className="text-intro">{userIntro}</strong>
-          </div>
+          <UserInfoBox
+            type="follow"
+            name={userName}
+            subtext={userIntro}
+            img={img}
+          />
         </Link>
         <FollowBtn text={text} isFollow={isFollow} size={size} />
       </li>

@@ -7,14 +7,13 @@ import "./Profile.scss";
 import UserContext from "../../context/UserContext";
 import { useContext, useState, useEffect } from "react";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import NotFound from "../notFound/NotFound";
 import pendingImg from "../../assets/logo_loading.svg";
 
 function UserProfile() {
-  const { token, myAccountname } = useContext(UserContext);
+  const { token } = useContext(UserContext);
   const params = useParams();
-  const navigate = useNavigate();
   const [view, setView] = useState("pending");
 
   // 유저 프로필 정보 받아오기
@@ -29,6 +28,7 @@ function UserProfile() {
     intro: "",
     followings: "",
     followers: "",
+    isfollow: "",
   });
 
   useEffect(() => {
@@ -48,6 +48,7 @@ function UserProfile() {
           intro: res.data.profile.intro,
           followings: res.data.profile.followingCount,
           followers: res.data.profile.followerCount,
+          isfollow: res.data.profile.isfollow,
         });
         setView("true");
       })
@@ -70,6 +71,7 @@ function UserProfile() {
               image={user.image}
               followers={user.followers}
               followings={user.followings}
+              isfollow={user.isfollow}
             />
             <UserProducts />
             <UserPost />

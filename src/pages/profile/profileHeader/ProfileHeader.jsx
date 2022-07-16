@@ -12,10 +12,12 @@ function ProfileHeader({
   followers,
   followings,
   image,
+  isfollow,
 }) {
   const imgStyle = {
     backgroundImage: `url(${image})`,
   };
+
   return (
     <>
       <header className="header-mypage">
@@ -44,7 +46,11 @@ function ProfileHeader({
           <p className="text-profile-info">{intro}</p>
         </div>
         {from === "userProfile" ? (
-          <FollowBtn text="팔로우" name="follow" size="btn-m" />
+          <FollowBtn
+            text={isfollow ? "취소" : "팔로우"}
+            isFollow={isfollow}
+            size="btn-m"
+          />
         ) : (
           <>
             <EditProfileBtn key="button1" />
