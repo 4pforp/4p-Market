@@ -20,26 +20,6 @@
 
     .wrapper-follow-info {
       display: flex;
-
-      .wrapper-text-follow {
-        align-self: flex-start;
-        width: 220px;
-        height: 100%;
-
-        .text-username {
-          display: block;
-          margin: 5px 0 6px;
-          font-size: 14px;
-          line-height: 18px;
-          font-weight: 500;
-        }
-
-        .text-intro {
-          font-size: 12px;
-          line-height: 15px;
-          color: #767676;
-        }
-      }
     }
   }
   .btn {

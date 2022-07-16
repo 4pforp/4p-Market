@@ -73,7 +73,6 @@ function EmailLogin() {
       if (data.message === "이메일 또는 비밀번호가 일치하지 않습니다.") {
         setIsWrong(true);
       } else {
-        console.log(res);
         localStorage.setItem("token", data.user.token);
         localStorage.setItem("accountname", data.user.accountname);
         localStorage.setItem("username", data.user.username);
@@ -88,6 +87,7 @@ function EmailLogin() {
         setMyEmail(localStorage.getItem("email"));
         setIsWrong(false);
         navigate("/");
+        console.log(res);
       }
     } catch (err) {
       console.error(err);

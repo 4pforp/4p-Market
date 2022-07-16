@@ -1,21 +1,41 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import FollowBtn from "../../components/button/FollowBtn";
 import UserInfoBox from "../../components/user/UserInfoBox";
 import "./Follow.scss";
+import UserContext from "../../context/UserContext";
 
-function FollowUser({ userName, userIntro, text, name, size }) {
+function FollowUser({ accountname, username, intro, isfollow, size, image }) {
+  const { token, myAccountname } = useContext(UserContext);
+
+  const [user, setUser] = useState({
+    accountname: accountname,
+    username: username,
+    image: image,
+    intro: intro,
+    followings: "",
+    followers: "",
+    isfollow: isfollow,
+  });
   return (
     <>
       <li className="wrapper-item-follow">
-        <Link to="/profile/usernum" className="wrapper-follow-info">
-          <UserInfoBox type="follow" />
-          <div className="wrapper-text-follow">
-            <strong className="text-username">{userName}</strong>
-            <strong className="text-intro">{userIntro}</strong>
-          </div>
+        <Link to={"/" + accountname} className="wrapper-follow-info">
+          <UserInfoBox
+            type="follow"
+            name={username}
+            subtext={intro}
+            img={image}
+          />
         </Link>
-        <FollowBtn text={text} name={name} size={size} />
+        {accountname === myAccountname ? null : (
+          <FollowBtn
+            text={user.isfollow ? "팔로잉" : "팔로우"}
+            size={size}
+            user={user}
+            setUser={setUser}
+          />
+        )}
       </li>
     </>
   );
