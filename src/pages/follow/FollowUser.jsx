@@ -30,7 +30,7 @@ function FollowUser({ accountname, username, intro, isfollow, size, image }) {
         </Link>
         {accountname === myAccountname ? null : (
           <FollowBtn
-            text={user.isfollow ? "취소" : "팔로우"}
+            text={user.isfollow ? "팔로잉" : "팔로우"}
             size={size}
             user={user}
             setUser={setUser}

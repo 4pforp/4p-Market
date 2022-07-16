@@ -38,7 +38,7 @@ function ProfileHeader({ from, setUser, user }) {
         </div>
         {from === "userProfile" ? (
           <FollowBtn
-            text={user.isfollow ? "취소" : "팔로우"}
+            text={user.isfollow ? "팔로잉" : "팔로우"}
             setUser={setUser}
             user={user}
             size="btn-m"
