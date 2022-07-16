@@ -22,11 +22,19 @@ function ProfileHeader({
         <div className="wrapper-author-m">
           <div className="wrapper-follow">
             <div className="img-author-m" style={imgStyle}></div>
-            <Link to="followers" className="text-follow follower">
+            <Link
+              to="followers"
+              className="text-follow follower"
+              state={{ accountname: accountname }}
+            >
               <span className="text-follow-num">{followers}</span>
               followers
             </Link>
-            <Link to="followings" className="text-follow followings">
+            <Link
+              to="followings"
+              className="text-follow followings"
+              state={{ accountname: accountname }}
+            >
               <span className="text-follow-num">{followings}</span>
               follwings
             </Link>

@@ -4,11 +4,11 @@
   font-family: $medium-font;
   padding: 7px 11px;
   border-radius: 32px;
-  &.follow {
+  &.false {
     color: $white;
     background-color: $primary-color;
   }
-  &.unfollow {
+  &.true {
     color: $subtext-color;
     background-color: $white;
     border: 1px solid #dbdbdb;

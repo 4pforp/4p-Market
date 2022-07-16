@@ -4,7 +4,7 @@ import FollowBtn from "../../components/button/FollowBtn";
 import UserInfoBox from "../../components/user/UserInfoBox";
 import "./Follow.scss";
 
-function FollowUser({ userName, userIntro, text, name, size }) {
+function FollowUser({ userName, userIntro, text, isFollow, size }) {
   return (
     <>
       <li className="wrapper-item-follow">
@@ -16,7 +16,7 @@ function FollowUser({ userName, userIntro, text, name, size }) {
             <strong className="text-intro">{userIntro}</strong>
           </div>
         </Link>
-        <FollowBtn text={text} name={name} size={size} />
+        <FollowBtn text={text} isFollow={isFollow} size={size} />
       </li>
     </>
   );
