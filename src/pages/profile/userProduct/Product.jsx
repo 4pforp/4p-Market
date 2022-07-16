@@ -1,16 +1,17 @@
-import { Link } from "react-router-dom";
-import examplePicture from "../../../assets/example-picture.jpg";
-
-function Product({ id }) {
+function Product({ id, mapdata }) {
   return (
     <>
-      <Link to="">
-        <li key={id} className="item-product">
-          <img src={examplePicture} alt="" className="img-product" />
-          <strong className="text-product">애월읍 한라봉 10kg 1box</strong>
-          <strong className="text-product-price">45,000원</strong>
-        </li>
-      </Link>
+      {mapdata.map((product) => {
+        return (
+          <li key={product._id} className="item-product">
+            <img src={product.itemImage} alt="" className="img-product" />
+            <strong className="text-product">{product.itemName}</strong>
+            <strong className="text-product-price">{`${product.price
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원`}</strong>
+          </li>
+        );
+      })}
     </>
   );
 }
