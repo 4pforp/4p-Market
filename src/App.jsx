@@ -59,13 +59,19 @@ function App() {
                 <Route path="/chat" element={<ChatPage />}></Route>
                 <Route path="/chatroom/:id" element={<ChatRoom />}></Route>
                 <Route path="/upload" element={<UploadPost />}></Route>
-                <Route path="/profile" element={<MyProfile />}></Route>
                 <Route
-                  path="/profile/:accountname"
-                  element={<UserProfile />}
+                  path={"/" + myAccountname}
+                  element={<MyProfile />}
                 ></Route>
-                <Route path="/followers" element={<Followers />}></Route>
-                <Route path="/followings" element={<Followings />}></Route>
+                <Route path="/:accountname" element={<UserProfile />}></Route>
+                <Route
+                  path="/:accountname/followers"
+                  element={<Followers />}
+                ></Route>
+                <Route
+                  path="/:accountname/followings"
+                  element={<Followings />}
+                ></Route>
                 <Route path="/comment" element={<CommentPage />}></Route>
                 <Route path="/product" element={<Product />}></Route>
                 <Route path="/profileedit" element={<ProfileEdit />}></Route>

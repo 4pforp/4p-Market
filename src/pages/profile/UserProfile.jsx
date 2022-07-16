@@ -30,11 +30,8 @@ function UserProfile() {
     followings: "",
     followers: "",
   });
-  // 본인 accountname일 경우 마이페이지로 이동
+
   useEffect(() => {
-    if (accountname === myAccountname) {
-      navigate("/profile/");
-    }
     axios
       .get(url, {
         headers: {

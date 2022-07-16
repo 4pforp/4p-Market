@@ -8,7 +8,8 @@ function GetMessage({ chat, time }) {
     <>
       <section className="wrapper-message">
         <h2 className="a11y-hidden">메세지</h2>
-        <Link to="/profile">
+        {/* 유저 accountname 받아오기 */}
+        <Link to="/accountname">
           <UserInfoBox type="message" />
         </Link>
         <div className="wrapper-text-message">

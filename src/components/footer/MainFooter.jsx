@@ -1,7 +1,11 @@
 import TabmenuList from "./TabmenuList";
 import "./MainFooter.scss";
+import UserContext from "../../context/UserContext";
+import { useContext } from "react";
 
 function MainFooter() {
+  const { myAccountname } = useContext(UserContext);
+
   const tabmenu = [
     {
       id: 1,
@@ -24,7 +28,7 @@ function MainFooter() {
     {
       id: 4,
       style: "link-profile",
-      path: "/profile",
+      path: `/${myAccountname}`,
       name: "프로필",
     },
   ];

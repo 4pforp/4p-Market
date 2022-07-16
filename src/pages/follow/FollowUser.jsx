@@ -8,7 +8,8 @@ function FollowUser({ userName, userIntro, text, name, size }) {
   return (
     <>
       <li className="wrapper-item-follow">
-        <Link to="/profile/usernum" className="wrapper-follow-info">
+        {/* 유저 accountname 받아오기 */}
+        <Link to="/accountname" className="wrapper-follow-info">
           <UserInfoBox type="follow" />
           <div className="wrapper-text-follow">
             <strong className="text-username">{userName}</strong>

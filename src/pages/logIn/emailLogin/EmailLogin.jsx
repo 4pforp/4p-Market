@@ -87,6 +87,7 @@ function EmailLogin() {
         setMyEmail(localStorage.getItem("email"));
         setIsWrong(false);
         navigate("/");
+        console.log(res);
       }
     } catch (err) {
       console.error(err);
