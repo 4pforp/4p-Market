@@ -3,10 +3,21 @@ import FollowBtn from "../../../components/button/FollowBtn";
 import PostProductBtn from "../../../components/button/UploadProductBtn";
 import "./ProfileHeader.scss";
 import { Link } from "react-router-dom";
+import defaultProfile from "../../../assets/4p_profile.png";
 
 function ProfileHeader({ from, setUser, user }) {
+  console.log(user.image);
+  const img =
+    /Ellipse/.test(user.image) ||
+    /heroku/.test(user.image) ||
+    (!/mandarin/.test(user.image) && !/base64/.test(user.image)) ||
+    /kr\/https/.test(user.image) ||
+    /1657268443649/.test(user.image)
+      ? defaultProfile
+      : user.image;
+
   const imgStyle = {
-    backgroundImage: `url(${user.image})`,
+    backgroundImage: `url(${img})`,
   };
 
   return (

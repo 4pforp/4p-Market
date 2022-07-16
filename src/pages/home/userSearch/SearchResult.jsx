@@ -7,9 +7,10 @@ function SearchResult({ mapdata }) {
   return (
     <ul className="search-result">
       {mapdata.map((user) => {
+        console.log(user.image);
         return (
           <li key={user._id} className="list-search-user">
-            <Link to={`/profile/${user.accountname}`}>
+            <Link to={"/" + user.accountname}>
               <UserInfoBox
                 type="search"
                 name={user.username}
@@ -18,7 +19,8 @@ function SearchResult({ mapdata }) {
                 img={
                   /Ellipse/.test(user.image) ||
                   /heroku/.test(user.image) ||
-                  !/mandarin/.test(user.image) ||
+                  (!/mandarin/.test(user.image) &&
+                    !/base64/.test(user.image)) ||
                   /kr\/https/.test(user.image) ||
                   /1657268443649/.test(user.image)
                     ? defaultProfile
