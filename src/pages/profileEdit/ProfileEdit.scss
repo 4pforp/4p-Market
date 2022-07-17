@@ -14,4 +14,39 @@
   #input-intro {
     padding-top: 6px;
   }
+
+  .img-user-profileedit {
+    width: 110px;
+    height: 110px;
+    margin: 30px auto 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    border-radius: 9999px;
+    .img-upload-icon {
+      width: 36px;
+      height: 36px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      cursor: pointer;
+    }
+  }
+
+  .msg-error-profileedit {
+    display: none;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    margin-top: 6px;
+    &.true {
+      color: green;
+      display: block;
+    }
+    &.false {
+      color: red;
+      display: block;
+    }
+  }
 }
