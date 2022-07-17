@@ -15,4 +15,8 @@
   align-items: center;
   width: fit-content;
   height: 100%;
+  &.feed {
+    justify-content: flex-start;
+    margin-top: 48px;
+  }
 }

@@ -1,5 +1,40 @@
 @import "../style/default.scss";
 
+.container-post {
+  margin-top: 6px;
+  background-color: $white;
+  .wrapper-post {
+    width: 390px;
+    margin: auto;
+  }
+  .container-view-btn {
+    border-bottom: 1px solid #dbdbdb;
+  }
+  .wrapper-view-btn {
+    display: flex;
+    justify-content: flex-end;
+    gap: 22.5px;
+    width: 390px;
+    padding: 9px 16px;
+    margin: auto;
+    .btn-view {
+      width: 26px;
+      height: 26px;
+      background-size: cover;
+      background-position: center;
+      &.post {
+        background-image: url(../../assets/icon-post-list-on.svg);
+      }
+      &.album {
+        background-image: url(../../assets/icon-post-list-off.svg);
+      }
+    }
+  }
+  .list-posts {
+    padding: 16px 16px 70px;
+  }
+}
+
 .article-post {
   padding-top: 4px;
   position: relative;
@@ -14,14 +49,12 @@
       color: $text-color;
     }
     .container-post-image {
-      width: 100%;
-      padding-top: auto;
-      background-color: #c4c4c4;
       overflow: hidden;
       border-radius: 10px;
       margin-bottom: 14.5px;
       .img-post {
         width: 100%;
+        display: block;
       }
     }
     .container-button-post {

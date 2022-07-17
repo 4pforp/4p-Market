@@ -2,7 +2,7 @@ import "./UserPost.scss";
 import axios from "axios";
 import { useEffect, useContext, useState } from "react";
 import UserContext from "../../../context/UserContext";
-import PostList from "./PostList";
+import PostList from "../../../components/post/PostList";
 
 function UserPost({ accountname, from }) {
   const { token } = useContext(UserContext);
@@ -41,7 +41,7 @@ function UserPost({ accountname, from }) {
             </button>
           </div>
         </div>
-        <div className="wrapper-post ">
+        <div className="wrapper-post">
           <ol className="list-posts">
             <PostList post={post} from={from} />
           </ol>

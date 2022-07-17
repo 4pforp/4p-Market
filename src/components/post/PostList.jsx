@@ -1,4 +1,4 @@
-import Post from "../../../components/post/Post";
+import Post from "./Post";
 
 function PostList({ post, from }) {
   return (
