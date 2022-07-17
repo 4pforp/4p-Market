@@ -5,14 +5,12 @@ import HomeSearch from "./homeSearch/HomeSearch";
 import "./Home.scss";
 import UserContext from "../../context/UserContext";
 import { useContext } from "react";
-import Splash from "../../components/splash/Splash";
 
 function Home() {
   const { token } = useContext(UserContext);
 
   return (
     <>
-      {sessionStorage.getItem("splash") ? null : <Splash />}
       {token ? (
         <>
           <MainHeader />

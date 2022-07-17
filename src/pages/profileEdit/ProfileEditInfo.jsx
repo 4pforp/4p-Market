@@ -1,8 +1,8 @@
+import ProfileEditUpload from "./ProfileEditUpload";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import UploadPic from "./UploadPic";
 
-function EditInfo({
+function ProfileEditInfo({
   setIsActive,
   username,
   setUsername,
@@ -27,10 +27,8 @@ function EditInfo({
     setIntro(e.target.value);
   }
 
-  // 계정 ID 유효성 검사
   const checkAccountname = /^[a-zA-Z0-9_.]{4,}$/;
 
-  // 계정 ID 검증
   async function handleBlurAccountname() {
     if (checkAccountname.test(accountname)) {
       try {
@@ -38,15 +36,11 @@ function EditInfo({
           "https://mandarin.api.weniv.co.kr/user/accountnamevalid",
           {
             user: {
-              username,
               accountname,
-              intro,
-              image,
             },
           },
           {
             header: {
-              Authorization: "Bearer {token}",
               "Content-Type": "application/json",
             },
           }
@@ -69,7 +63,6 @@ function EditInfo({
     }
   }
 
-  // 사용자 이름 검증
   useEffect(() => {
     if (username.length > 1 && username.length < 10) {
       setIsValidUsername(true);
@@ -78,7 +71,6 @@ function EditInfo({
     }
   }, [username]);
 
-  // 시작하기 버튼 활성화 검사
   useEffect(() => {
     if (isValidAccountname && isValidUsername) {
       setIsActive(true);
@@ -86,9 +78,10 @@ function EditInfo({
       setIsActive(false);
     }
   });
+
   return (
     <>
-      <UploadPic setImage={setImage} image={image} />
+      <ProfileEditUpload image={image} setImage={setImage} />
       <div className="-container-input-info">
         <div className="wrapper-username">
           <label htmlFor="input-username" className="label-username">
@@ -112,7 +105,7 @@ function EditInfo({
             type="text"
             placeholder="영문, 숫자, 특수문자(.),(_)만 사용 가능합니다. "
           ></input>
-          <strong className={`errorMsg accountname ${isValidAccountname}`}>
+          <strong className={`msg-error-profileedit ${isValidAccountname}`}>
             {resMessageAccountname}
           </strong>
         </div>
@@ -132,4 +125,4 @@ function EditInfo({
   );
 }
 
-export default EditInfo;
+export default ProfileEditInfo;
