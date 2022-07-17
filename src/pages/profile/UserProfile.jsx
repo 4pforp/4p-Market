@@ -63,7 +63,7 @@ function UserProfile() {
         {view === "true" && (
           <>
             <ProfileHeader from="userProfile" user={user} setUser={setUser} />
-            <UserProducts />
+            <UserProducts accountname={accountname} />
             <UserPost />
           </>
         )}
