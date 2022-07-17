@@ -1,31 +1,40 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import FollowBtn from "../../components/button/FollowBtn";
 import UserInfoBox from "../../components/user/UserInfoBox";
-import "./Follow.scss";
 import UserContext from "../../context/UserContext";
 
-function FollowUser({ accountname, username, intro, isfollow, size, image }) {
-  const { token, myAccountname } = useContext(UserContext);
+function User({
+  size,
+  accountname,
+  username,
+  image,
+  intro,
+  followings,
+  followers,
+  isfollow,
+}) {
+  const { myAccountname } = useContext(UserContext);
 
   const [user, setUser] = useState({
     accountname: accountname,
     username: username,
     image: image,
     intro: intro,
-    followings: "",
-    followers: "",
+    followings: followings,
+    followers: followers,
     isfollow: isfollow,
   });
+
   return (
     <>
       <li className="wrapper-item-follow">
         <Link to={"/" + accountname} className="wrapper-follow-info">
           <UserInfoBox
             type="follow"
-            name={username}
-            subtext={intro}
-            img={image}
+            name={user.username}
+            subtext={user.intro}
+            img={user.image}
           />
         </Link>
         {accountname === myAccountname ? null : (
@@ -41,4 +50,4 @@ function FollowUser({ accountname, username, intro, isfollow, size, image }) {
   );
 }
 
-export default FollowUser;
+export default User;
