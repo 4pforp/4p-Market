@@ -7,10 +7,14 @@ import UserContext from "../../context/UserContext";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import PostList from "../../components/post/PostList";
+import NotFound from "../notFound/NotFound";
+import pendingImg from "../../assets/logo_loading.svg";
 
 function Home() {
   const { token } = useContext(UserContext);
   const [posts, setPosts] = useState();
+  const [view, setView] = useState("pending");
+
   useEffect(() => {
     const authToken = "Bearer " + token;
     const url = "https://mandarin.api.weniv.co.kr/post/feed";
@@ -23,11 +27,13 @@ function Home() {
           },
         });
         setPosts(res.data.posts);
+        setView("true");
       } catch (err) {
         console.error(err);
+        setView("false");
       }
     }
-    getPost();
+    token && getPost();
   }, [token]);
 
   return (
@@ -35,7 +41,7 @@ function Home() {
       {token ? (
         <>
           <MainHeader />
-          {posts && posts.length > 0 ? (
+          {view === "true" && posts && posts.length > 0 && (
             <>
               <main className="main-home feed">
                 <section className="container-post feed">
@@ -47,11 +53,22 @@ function Home() {
                 </section>
               </main>
             </>
-          ) : (
+          )}
+          {view === "true" && posts.length === 0 && (
             <>
               <main className="main-home">
                 <HomeSearch />
               </main>
+            </>
+          )}
+          {view === "pending" && (
+            <>
+              <img src={pendingImg} className="img-pending" alt="error" />
+            </>
+          )}
+          {view === "false" && (
+            <>
+              <NotFound />
             </>
           )}
           <MainFooter />
