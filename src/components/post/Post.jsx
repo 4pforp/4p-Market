@@ -1,20 +1,15 @@
 import CommentBtn from "../button/CommentBtn";
 import LikeBtn from "../button/LikeBtn";
 import UserMoreBtn from "../button/UserMoreBtn";
-import examplePicture from "../../assets/example-picture.jpg";
 import UserInfoBox from "../user/UserInfoBox";
 import "./Post.scss";
 import { Link } from "react-router-dom";
-import UserContext from "../../context/UserContext";
-import { useContext, useState, useEffect } from "react";
 
 function Post({ content, from }) {
-  const { myAccountname } = useContext(UserContext);
   const post = content;
   const author = content.author;
   const accountname = author.accountname;
   const createAt = new Date(content.createdAt);
-
   return (
     <>
       <li className="item-post">
@@ -27,9 +22,7 @@ function Post({ content, from }) {
                 name={author.username}
                 id={"@" + author.accountname}
                 img={author.image}
-              >
-                <UserMoreBtn />
-              </UserInfoBox>
+              ></UserInfoBox>
             </>
           ) : (
             <>
@@ -39,9 +32,7 @@ function Post({ content, from }) {
                   name={author.username}
                   id={"@" + author.accountname}
                   img={author.image}
-                >
-                  <UserMoreBtn />
-                </UserInfoBox>
+                ></UserInfoBox>
               </Link>
             </>
           )}
@@ -53,7 +44,7 @@ function Post({ content, from }) {
                 <img src={post.image} alt="게시글 사진" className="img-post" />
               )}
             </div>
-            <div className="container-button-post">
+            <div className="container-btn-post">
               <LikeBtn heartcount={post.heartcount} postid={post.id} />
               <CommentBtn commentcount={post.commentcount} postid={post.id} />
             </div>
@@ -66,6 +57,7 @@ function Post({ content, from }) {
                 "일"}
             </strong>
           </main>
+          <UserMoreBtn />
         </article>
       </li>
     </>
