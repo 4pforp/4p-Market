@@ -1,9 +1,32 @@
-import Post from "../../../components/post/Post";
 import "./UserPost.scss";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useContext, useState } from "react";
+import UserContext from "../../../context/UserContext";
+import PostList from "./PostList";
 
-function UserPost({ accountname }) {
+function UserPost({ accountname, from }) {
+  const { token } = useContext(UserContext);
+  const [post, setPost] = useState();
+  useEffect(() => {
+    const authToken = "Bearer " + token;
+    const url =
+      "https://mandarin.api.weniv.co.kr/post/" + accountname + "/userpost";
+    async function getPost() {
+      try {
+        const res = await axios.get(url, {
+          headers: {
+            Authorization: authToken,
+            "Content-type": "application/json",
+          },
+        });
+        setPost(res.data.post);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    getPost();
+  }, [accountname, token]);
+
   return (
     <>
       <section className="container-post">
@@ -20,9 +43,7 @@ function UserPost({ accountname }) {
         </div>
         <div className="wrapper-post ">
           <ol className="list-posts">
-            <li key="post1" className="item-post">
-              <Post />
-            </li>
+            <PostList post={post} from={from} />
           </ol>
         </div>
       </section>

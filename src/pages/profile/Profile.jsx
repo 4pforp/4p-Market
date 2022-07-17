@@ -66,7 +66,7 @@ function Profile() {
           <>
             <ProfileHeader from={from} user={user} setUser={setUser} />
             <UserProducts accountname={accountname} />
-            <UserPost accountname={accountname} />
+            <UserPost accountname={accountname} from="profile" />
           </>
         )}
         {view === "pending" && (
