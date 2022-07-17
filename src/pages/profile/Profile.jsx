@@ -1,3 +1,4 @@
+import axios from "axios";
 import CommonHeader from "../../components/header/CommonHeader";
 import MainFooter from "../../components/footer/MainFooter";
 import ProfileHeader from "./profileHeader/ProfileHeader";
@@ -6,20 +7,16 @@ import UserPost from "./userPost/UserPost";
 import "./Profile.scss";
 import UserContext from "../../context/UserContext";
 import { useContext, useState, useEffect } from "react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import NotFound from "../notFound/NotFound";
 import pendingImg from "../../assets/logo_loading.svg";
 
-function UserProfile() {
-  const { token } = useContext(UserContext);
+function Profile() {
+  const { token, myAccountname } = useContext(UserContext);
   const params = useParams();
-  const [view, setView] = useState("pending");
-
-  // 유저 프로필 정보 받아오기
   const accountname = params.accountname;
-  const authToken = "Bearer " + token;
-  const url = "https://mandarin.api.weniv.co.kr/profile/" + accountname;
+  const [view, setView] = useState("pending");
+  const from = accountname === myAccountname ? "myAccountname" : "userProfile";
 
   const [user, setUser] = useState({
     accountname: "",
@@ -31,15 +28,18 @@ function UserProfile() {
     isfollow: "",
   });
 
+  // 유저 프로필 정보 받아오기
   useEffect(() => {
-    axios
-      .get(url, {
-        headers: {
-          Authorization: authToken,
-          "Content-type": "application/json",
-        },
-      })
-      .then((res) => {
+    const authToken = "Bearer " + token;
+    const url = "https://mandarin.api.weniv.co.kr/profile/" + accountname;
+    async function getUser() {
+      try {
+        const res = await axios.get(url, {
+          headers: {
+            Authorization: authToken,
+            "Content-type": "application/json",
+          },
+        });
         setUser({
           accountname: res.data.profile.accountname,
           username: res.data.profile.username,
@@ -50,21 +50,24 @@ function UserProfile() {
           isfollow: res.data.profile.isfollow,
         });
         setView("true");
-      })
-      .catch((err) => {
+      } catch (err) {
+        console.error(err);
         setView("false");
-      });
-  }, [authToken, url]);
+      }
+    }
+    getUser();
+  }, [accountname, token]);
+
   return (
     <>
       <CommonHeader />
       <main className="container-profile-page">
-        <h1 className="a11y-hidden">'유저'의 프로필</h1>
+        <h1 className="a11y-hidden">{accountname}의 프로필</h1>
         {view === "true" && (
           <>
-            <ProfileHeader from="userProfile" user={user} setUser={setUser} />
+            <ProfileHeader from={from} user={user} setUser={setUser} />
             <UserProducts accountname={accountname} />
-            <UserPost />
+            <UserPost accountname={accountname} />
           </>
         )}
         {view === "pending" && (
@@ -83,4 +86,4 @@ function UserProfile() {
   );
 }
 
-export default UserProfile;
+export default Profile;

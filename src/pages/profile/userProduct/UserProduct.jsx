@@ -21,7 +21,6 @@ function UserProduct({ accountname }) {
         }
       );
       const userProduct = response;
-      console.log(userProduct.data.product);
       setProductResult(userProduct.data.product);
     };
     getProduct();

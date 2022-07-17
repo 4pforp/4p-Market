@@ -6,8 +6,7 @@ import EmailLogin from "./pages/logIn/emailLogin/EmailLogin";
 import SignUp from "./pages/logIn/signUp/SignUp";
 import Home from "./pages/home/Home";
 import UploadPost from "./pages/uploadPost/UploadPost";
-import MyProfile from "./pages/profile/MyProfile";
-import UserProfile from "./pages/profile/UserProfile";
+import Profile from "./pages/profile/Profile";
 import ChatPage from "./pages/chat/chatPage/ChatPage";
 import ChatRoom from "./pages/chat/chatRoom/ChatRoom";
 import Followers from "./pages/follow/Followers";
@@ -21,8 +20,9 @@ import UserContext, { UserContextProvider } from "./context/UserContext";
 import SplashContext, { SplashContextProvider } from "./context/SplashContext";
 import Splash from "./components/splash/Splash";
 import { useContext } from "react";
-const Main = () => {
-  const { token, myAccountname } = useContext(UserContext);
+
+function Main() {
+  const { token } = useContext(UserContext);
   const { splash } = useContext(SplashContext);
   return (
     <div className="App">
@@ -38,8 +38,7 @@ const Main = () => {
               <Route path="/chat" element={<ChatPage />}></Route>
               <Route path="/chatroom/:id" element={<ChatRoom />}></Route>
               <Route path="/upload" element={<UploadPost />}></Route>
-              <Route path={"/" + myAccountname} element={<MyProfile />}></Route>
-              <Route path="/:accountname" element={<UserProfile />}></Route>
+              <Route path="/:accountname" element={<Profile />}></Route>
               <Route
                 path="/:accountname/followers"
                 element={<Followers />}
@@ -66,7 +65,7 @@ const Main = () => {
       </BrowserRouter>
     </div>
   );
-};
+}
 
 function App() {
   return (

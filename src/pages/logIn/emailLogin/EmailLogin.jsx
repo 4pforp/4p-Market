@@ -11,14 +11,7 @@ function EmailLogin() {
   const [password, setPassword] = useState("");
   const [isActive, setIsActive] = useState(false);
   const [isWrong, setIsWrong] = useState(false);
-  const {
-    setToken,
-    setMyAccountname,
-    setMyUsername,
-    setMyImage,
-    setMyIntro,
-    setMyEmail,
-  } = useContext(UserContext);
+  const { setToken, setMyAccountname } = useContext(UserContext);
 
   const inputRef = useRef();
   const navigate = useNavigate();
@@ -73,21 +66,13 @@ function EmailLogin() {
       if (data.message === "이메일 또는 비밀번호가 일치하지 않습니다.") {
         setIsWrong(true);
       } else {
+        // 로그인 유지 기능
         localStorage.setItem("token", data.user.token);
         localStorage.setItem("accountname", data.user.accountname);
-        localStorage.setItem("username", data.user.username);
-        localStorage.setItem("intro", data.user.intro);
-        localStorage.setItem("email", data.user.email);
-        localStorage.setItem("image", data.user.image);
         setToken(localStorage.getItem("token"));
         setMyAccountname(localStorage.getItem("accountname"));
-        setMyUsername(localStorage.getItem("username"));
-        setMyImage(localStorage.getItem("image"));
-        setMyIntro(localStorage.getItem("intro"));
-        setMyEmail(localStorage.getItem("email"));
         setIsWrong(false);
         navigate("/");
-        console.log(res);
       }
     } catch (err) {
       console.error(err);

@@ -23,7 +23,6 @@ function UploadPic({ image, setImage }) {
         }
       );
       if (res.data.filename) {
-        console.log(res);
         setImage("https://mandarin.api.weniv.co.kr/" + res.data.filename);
         preview(loadImage);
       } else {

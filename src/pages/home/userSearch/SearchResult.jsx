@@ -7,7 +7,6 @@ function SearchResult({ mapdata }) {
   return (
     <ul className="search-result">
       {mapdata.map((user) => {
-        console.log(user.image);
         return (
           <li key={user._id} className="list-search-user">
             <Link to={"/" + user.accountname}>
