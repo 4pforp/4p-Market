@@ -32,7 +32,6 @@ function UserSearch() {
           }
         );
         const getData = response;
-        console.log(getData.data);
         setSearchResult(getData.data);
       };
       search();

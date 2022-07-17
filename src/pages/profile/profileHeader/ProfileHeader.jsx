@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import defaultProfile from "../../../assets/4p_profile.png";
 
 function ProfileHeader({ from, setUser, user }) {
-  console.log(user.image);
   const img =
     /Ellipse/.test(user.image) ||
     /heroku/.test(user.image) ||

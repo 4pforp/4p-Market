@@ -1,7 +1,9 @@
 import Post from "../../../components/post/Post";
 import "./UserPost.scss";
+import axios from "axios";
+import { useEffect } from "react";
 
-function UserPost() {
+function UserPost({ accountname }) {
   return (
     <>
       <section className="container-post">
