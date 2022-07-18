@@ -1,9 +1,9 @@
 function Product({ id, mapdata }) {
   return (
     <>
-      {mapdata.map((product) => {
+      {mapdata.map((product, idx) => {
         return (
-          <li key={product._id} className="item-product">
+          <li key={product.author._id} className="item-product">
             <img src={product.itemImage} alt="" className="img-product" />
             <strong className="text-product">{product.itemName}</strong>
             <strong className="text-product-price">{`${product.price
