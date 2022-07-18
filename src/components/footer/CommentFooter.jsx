@@ -3,7 +3,7 @@ import UserContext from "../../context/UserContext";
 import "./PageFooter.scss";
 import axios from "axios";
 
-function CommentFooter({ postid, post }) {
+function CommentFooter({ postid, post, setNewComment, newComment }) {
   const { token } = useContext(UserContext);
   const [comment, setComment] = useState();
   const commentinput = useRef();
@@ -23,6 +23,7 @@ function CommentFooter({ postid, post }) {
           "Content-type": "application/json",
         },
       });
+      setNewComment(!newComment);
     } catch (err) {}
   }
 

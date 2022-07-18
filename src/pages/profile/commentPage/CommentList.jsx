@@ -8,6 +8,7 @@ import CommentFooter from "../../../components/footer/CommentFooter";
 function CommentList({ postid, post }) {
   const { token } = useContext(UserContext);
   const [comments, setComments] = useState();
+  const [newComment, setNewComment] = useState(true);
 
   useEffect(() => {
     const authToken = "Bearer " + token;
@@ -24,7 +25,7 @@ function CommentList({ postid, post }) {
       } catch (err) {}
     }
     getUser();
-  }, [postid, token]);
+  }, [postid, token, newComment]);
 
   return (
     <>
@@ -33,7 +34,12 @@ function CommentList({ postid, post }) {
           <Comment comments={comments} />
         </ul>
       </div>
-      <CommentFooter postid={postid} post={post} />
+      <CommentFooter
+        postid={postid}
+        post={post}
+        setNewComment={setNewComment}
+        newComment={newComment}
+      />
     </>
   );
 }

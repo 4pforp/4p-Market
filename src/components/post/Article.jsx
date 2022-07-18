@@ -10,11 +10,12 @@ function Article({ content, from }) {
   const author = content.author;
   const accountname = author.accountname;
   const createAt = new Date(content.createdAt);
+
   return (
     <>
       <article className="article-post">
         <h3 className="a11y-hidden">user의 post</h3>
-        {from === "profile" || "comment" ? (
+        {from === "profile" && (
           <>
             <UserInfoBox
               type="post"
@@ -23,7 +24,18 @@ function Article({ content, from }) {
               img={author.image}
             ></UserInfoBox>
           </>
-        ) : (
+        )}
+        {from === "comment" && (
+          <>
+            <UserInfoBox
+              type="post"
+              name={author.username}
+              id={"@" + author.accountname}
+              img={author.image}
+            ></UserInfoBox>
+          </>
+        )}
+        {from === "home" && (
           <>
             <Link to={"/" + accountname}>
               <UserInfoBox
