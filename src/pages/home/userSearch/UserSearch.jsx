@@ -12,7 +12,7 @@ function UserSearch() {
 
   function handleKeyword(e) {
     setKeyword(e.target.value);
-    if (e.target.value == "") {
+    if (e.target.value === "") {
       setSearchResult([]);
     }
   }

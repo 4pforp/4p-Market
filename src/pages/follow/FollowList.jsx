@@ -6,7 +6,7 @@ import UserContext from "../../context/UserContext";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import NotFound from "../notFound/NotFound";
-import pendingImg from "../../assets/logo_loading.svg";
+import pendingImg from "../../assets/logo_loading_purple.svg";
 
 function FollowList() {
   const { token } = useContext(UserContext);
@@ -35,7 +35,7 @@ function FollowList() {
       }
     }
     getFollowList();
-  }, [token, accountname]);
+  }, [token, accountname, type]);
 
   return (
     <>
@@ -50,7 +50,7 @@ function FollowList() {
         )}
         {view === "pending" && (
           <>
-            <img src={pendingImg} className="img-pending" alt="error" />
+            <img src={pendingImg} className="img-pending" alt="loading" />
           </>
         )}
         {view === "false" && (

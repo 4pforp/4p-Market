@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./LikeBtn.scss";
 
 function LikeBtn({ heartcount, postid }) {

@@ -25,6 +25,7 @@ function Splash() {
 
   if (blindSplash === false) {
     timeout();
+    sessionStorage.setItem("splash", true);
     return <Logo />;
   } else {
     return null;

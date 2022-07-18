@@ -8,7 +8,7 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import PostList from "../../components/post/PostList";
 import NotFound from "../notFound/NotFound";
-import pendingImg from "../../assets/logo_loading.svg";
+import pendingImg from "../../assets/logo_loading_purple.svg";
 
 function Home() {
   const { token } = useContext(UserContext);
@@ -63,7 +63,7 @@ function Home() {
           )}
           {view === "pending" && (
             <>
-              <img src={pendingImg} className="img-pending" alt="error" />
+              <img src={pendingImg} className="img-pending" alt="loading" />
             </>
           )}
           {view === "false" && (
