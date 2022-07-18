@@ -9,7 +9,7 @@ import UserContext from "../../context/UserContext";
 import { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import NotFound from "../notFound/NotFound";
-import pendingImg from "../../assets/logo_loading.svg";
+import pendingImg from "../../assets/logo_loading_purple.svg";
 
 function Profile() {
   const { token, myAccountname } = useContext(UserContext);
@@ -61,7 +61,7 @@ function Profile() {
     <>
       <CommonHeader />
       <main className="container-profile-page">
-        <h1 className="a11y-hidden">{accountname}의 프로필</h1>
+        <h1 className="a11y-hidden">{user.username}의 프로필</h1>
         {view === "true" && (
           <>
             <ProfileHeader from={from} user={user} setUser={setUser} />
@@ -71,7 +71,7 @@ function Profile() {
         )}
         {view === "pending" && (
           <>
-            <img src={pendingImg} className="img-pending" alt="error" />
+            <img src={pendingImg} className="img-pending" alt="loading" />
           </>
         )}
         {view === "false" && (
