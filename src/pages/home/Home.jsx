@@ -9,6 +9,7 @@ import axios from "axios";
 import PostList from "../../components/post/PostList";
 import NotFound from "../notFound/NotFound";
 import pendingImg from "../../assets/logo_loading_purple.svg";
+import Splash from "../../components/splash/Splash";
 
 function Home() {
   const { token } = useContext(UserContext);
@@ -38,6 +39,7 @@ function Home() {
 
   return (
     <>
+      {sessionStorage.getItem("splash") ? null : <Splash />}
       {token ? (
         <>
           <MainHeader />

@@ -2,7 +2,7 @@ import EditProfileBtn from "../../../components/button/EditProfileBtn";
 import FollowBtn from "../../../components/button/FollowBtn";
 import UploadProductBtn from "../../../components/button/UploadProductBtn";
 import "./ProfileHeader.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import defaultProfile from "../../../assets/4p_profile.png";
 
 function ProfileHeader({ from, setUser, user }) {
@@ -55,7 +55,17 @@ function ProfileHeader({ from, setUser, user }) {
           />
         ) : (
           <>
-            <EditProfileBtn key="editProfile" />
+            <Link
+              to={`/profileedit`}
+              state={{
+                username: user.username,
+                accountname: user.accountname,
+                intro: user.intro,
+                image: user.image,
+              }}
+            >
+              <EditProfileBtn key="editProfile" />
+            </Link>
             <UploadProductBtn key="uploadProduct" />
           </>
         )}
