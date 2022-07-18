@@ -22,7 +22,9 @@
     margin: 0 18px;
     height: 18px;
     line-height: 18px;
-
+    &:focus {
+      outline: none;
+    }
     &::placeholder {
       color: $search-placeholder-color;
       font-family: $basic-font;

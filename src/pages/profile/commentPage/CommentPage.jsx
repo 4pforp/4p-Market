@@ -13,11 +13,10 @@ function CommentPage() {
   const params = useParams();
   const postid = params.postid;
   const [post, setPost] = useState();
-
   useEffect(() => {
     const authToken = "Bearer " + token;
     const url = "https://mandarin.api.weniv.co.kr/post/" + postid;
-    async function getUser() {
+    async function getComment() {
       try {
         const res = await axios.get(url, {
           headers: {
@@ -28,7 +27,7 @@ function CommentPage() {
         setPost(res.data.post);
       } catch (err) {}
     }
-    getUser();
+    getComment();
   }, [postid, token]);
 
   return (
@@ -40,7 +39,6 @@ function CommentPage() {
         </div>
         <CommentList postid={postid} post={post} />
       </main>
-      <CommentFooter />
     </>
   );
 }
