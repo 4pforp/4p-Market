@@ -61,7 +61,7 @@ function Profile() {
     <>
       <CommonHeader />
       <main className="container-profile-page">
-        <h1 className="a11y-hidden">{accountname}의 프로필</h1>
+        <h1 className="a11y-hidden">{user.username}의 프로필</h1>
         {view === "true" && (
           <>
             <ProfileHeader from={from} user={user} setUser={setUser} />

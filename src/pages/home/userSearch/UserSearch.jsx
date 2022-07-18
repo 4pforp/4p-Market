@@ -24,7 +24,7 @@ function UserSearch() {
           "https://mandarin.api.weniv.co.kr/user/searchuser/?keyword=" +
             keyword,
           {
-            method: "Get",
+            method: "get",
             headers: {
               Authorization: `Bearer ${token}`,
               "Content-type": "application/json",
