@@ -16,7 +16,7 @@ function Profile() {
   const params = useParams();
   const accountname = params.accountname;
   const [view, setView] = useState("pending");
-  const from = accountname === myAccountname ? "myAccountname" : "userProfile";
+  const from = accountname === myAccountname ? "myProfile" : "userProfile";
 
   const [user, setUser] = useState({
     accountname: "",
@@ -51,7 +51,6 @@ function Profile() {
         });
         setView("true");
       } catch (err) {
-        console.error(err);
         setView("false");
       }
     }
@@ -67,7 +66,7 @@ function Profile() {
           <>
             <ProfileHeader from={from} user={user} setUser={setUser} />
             <UserProducts accountname={accountname} />
-            <UserPost accountname={accountname} />
+            <UserPost accountname={accountname} from="profile" />
           </>
         )}
         {view === "pending" && (

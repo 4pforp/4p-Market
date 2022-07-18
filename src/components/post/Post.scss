@@ -14,22 +14,20 @@
       color: $text-color;
     }
     .container-post-image {
-      width: 100%;
-      padding-top: auto;
-      background-color: #c4c4c4;
       overflow: hidden;
       border-radius: 10px;
       margin-bottom: 14.5px;
       .img-post {
         width: 100%;
+        display: block;
       }
     }
-    .container-button-post {
+    .container-btn-post {
       display: flex;
       gap: 18.5px;
       margin-bottom: 18.5px;
     }
-    .button-post {
+    .btn-post {
       display: flex;
       gap: 8.5px;
       button {

@@ -9,8 +9,7 @@ import UploadPost from "./pages/uploadPost/UploadPost";
 import Profile from "./pages/profile/Profile";
 import ChatPage from "./pages/chat/chatPage/ChatPage";
 import ChatRoom from "./pages/chat/chatRoom/ChatRoom";
-import Followers from "./pages/follow/Followers";
-import Followings from "./pages/follow/Followings";
+import FollowList from "./pages/follow/FollowList";
 import Product from "./pages/product/Product";
 import ProfileEdit from "./pages/profileEdit/ProfileEdit";
 import UserSearch from "./pages/home/userSearch/UserSearch";
@@ -41,11 +40,11 @@ function Main() {
               <Route path="/:accountname" element={<Profile />}></Route>
               <Route
                 path="/:accountname/followers"
-                element={<Followers />}
+                element={<FollowList />}
               ></Route>
               <Route
                 path="/:accountname/followings"
-                element={<Followings />}
+                element={<FollowList />}
               ></Route>
               <Route path="/comment" element={<CommentPage />}></Route>
               <Route path="/product" element={<Product />}></Route>

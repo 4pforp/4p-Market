@@ -1,6 +1,6 @@
 import EditProfileBtn from "../../../components/button/EditProfileBtn";
 import FollowBtn from "../../../components/button/FollowBtn";
-import PostProductBtn from "../../../components/button/UploadProductBtn";
+import UploadProductBtn from "../../../components/button/UploadProductBtn";
 import "./ProfileHeader.scss";
 import { Link } from "react-router-dom";
 import defaultProfile from "../../../assets/4p_profile.png";
@@ -28,7 +28,7 @@ function ProfileHeader({ from, setUser, user }) {
             <Link
               to="followers"
               className="text-follow follower"
-              state={{ accountname: user.accountname }}
+              state={{ accountname: user.accountname, type: "follower" }}
             >
               <span className="text-follow-num">{user.followers}</span>
               followers
@@ -36,7 +36,7 @@ function ProfileHeader({ from, setUser, user }) {
             <Link
               to="followings"
               className="text-follow followings"
-              state={{ accountname: user.accountname }}
+              state={{ accountname: user.accountname, type: "following" }}
             >
               <span className="text-follow-num">{user.followings}</span>
               follwings
@@ -55,8 +55,8 @@ function ProfileHeader({ from, setUser, user }) {
           />
         ) : (
           <>
-            <EditProfileBtn key="button1" />
-            <PostProductBtn key="button2" />
+            <EditProfileBtn key="editProfile" />
+            <UploadProductBtn key="uploadProduct" />
           </>
         )}
       </header>
