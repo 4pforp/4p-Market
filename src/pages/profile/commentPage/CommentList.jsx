@@ -1,41 +1,36 @@
-import './CommentList.scss';
-import UserMoreBtn from '../../../components/button/UserMoreBtn';
-import UserInfoBox from '../../../components/user/UserInfoBox';
+import "./CommentList.scss";
+import { useContext, useState, useEffect } from "react";
+import UserContext from "../../../context/UserContext";
+import axios from "axios";
+import Comment from "./Comment";
 
-function CommentList(){
-  return(
+function CommentList({ postid }) {
+  const { token } = useContext(UserContext);
+  const [comments, setComments] = useState();
+  useEffect(() => {
+    const authToken = "Bearer " + token;
+    const url = "https://mandarin.api.weniv.co.kr/post/" + postid + "/comments";
+    async function getUser() {
+      try {
+        const res = await axios.get(url, {
+          headers: {
+            Authorization: authToken,
+            "Content-type": "application/json",
+          },
+        });
+        setComments(res.data.comments);
+      } catch (err) {}
+    }
+    getUser();
+  }, [postid, token]);
+
+  return (
     <div className="container-comments">
       <ul className="list-comments">
-        <li className="item-comment">
-        <UserInfoBox type="comment" name="나는유저소현">
-          <span className="text-comment-time">· 4분전</span>
-          <UserMoreBtn/>
-        </UserInfoBox>
-        <p className="content-comment">
-          댓글남기고 갑니다. 덩기덕
-        </p>
-        </li>
-        <li className="item-comment">
-        <UserInfoBox type="comment" name="아무개">
-          <span className="text-comment-time">· 11분전</span>
-          <UserMoreBtn/>
-        </UserInfoBox>
-        <p className="content-comment">
-          knock knock knock knock knock knock knock knock anybody there? 
-        </p>
-        </li>
-        <li className="item-comment">
-        <UserInfoBox type="comment" name="엄궁동">
-          <span className="text-comment-time">· 12분전</span>
-          <UserMoreBtn/>
-        </UserInfoBox>
-        <p className="content-comment">
-          비치비치 다비치~
-        </p>
-        </li>
+        <Comment comments={comments} />
       </ul>
     </div>
-  )
+  );
 }
 
 export default CommentList;

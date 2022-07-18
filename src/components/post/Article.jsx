@@ -14,7 +14,7 @@ function Article({ content, from }) {
     <>
       <article className="article-post">
         <h3 className="a11y-hidden">user의 post</h3>
-        {from === "profile" ? (
+        {from === "profile" || "comment" ? (
           <>
             <UserInfoBox
               type="post"
@@ -46,7 +46,7 @@ function Article({ content, from }) {
           <div className="container-btn-post">
             <LikeBtn heartcount={post.heartcount} postid={post.id} />
             <CommentBtn
-              commentcount={post.commentcount}
+              commentcount={post.commentCount}
               postid={post.id}
               post={post}
               from={from}

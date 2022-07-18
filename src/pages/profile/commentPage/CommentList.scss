@@ -8,9 +8,10 @@
   margin-bottom: 64px;
   padding-top: 20px;
   border-top: 1px solid #dbdbdb;
-  .item-comment{
+  .item-comment {
+    position: relative;
     max-width: 358px;
-    &:not(:last-child){
+    &:not(:last-child) {
       margin-bottom: 16px;
     }
   }
