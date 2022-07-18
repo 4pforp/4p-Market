@@ -38,7 +38,7 @@ function CommentPage() {
         <div className="wrapper-comment-post">
           {post && <Article content={post} from="comment" />}
         </div>
-        <CommentList />
+        <CommentList postid={postid} post={post} />
       </main>
       <CommentFooter />
     </>
