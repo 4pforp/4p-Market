@@ -1,6 +1,6 @@
 import { React, useContext } from "react";
-import ImageTestContext from "../../../context/ImageTestContext";
 import { Link } from "react-router-dom";
+import ImageTestContext from "../../../context/ImageTestContext";
 import UserInfoBox from "../../../components/user/UserInfoBox";
 import defaultProfile from "../../../assets/4p_profile.png";
 import "./SearchResult.scss";
