@@ -1,7 +1,7 @@
 import { useContext, useState, useRef } from "react";
 import UserContext from "../../context/UserContext";
-import ImageTestContext from "../../context/ImageTestContext";
 import axios from "axios";
+import ImageTestContext from "../../context/ImageTestContext";
 import "./PageFooter.scss";
 
 function CommentFooter({ postid, post, setNewComment, newComment }) {
