@@ -12,9 +12,9 @@ import PostDetailPage from "./pages/postDetailPage/PostDetailPage";
 import FollowPage from "./pages/followPage/FollowPage";
 import UploadPost from "./pages/uploadPost/UploadPost";
 import UploadProductPage from "./pages/uploadProductPage/UploadProductPage";
-import ChatPage from "./pages/chat/chatPage/ChatPage";
-import ChatRoom from "./pages/chat/chatRoom/ChatRoom";
-import NotFound from "./pages/notFound/NotFound";
+import ChatPage from "./pages/chatPage/ChatPage";
+import ChatRoom from "./pages/chatRoomPage/ChatRoom";
+import NotFound from "./components/notFound/NotFound";
 import "./components/style/reset.scss";
 import "./App.scss";
 

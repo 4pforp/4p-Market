@@ -4,7 +4,7 @@ import UserContext from "../../context/UserContext";
 import axios from "axios";
 import FollowHeader from "../../components/header/FollowHeader";
 import UserList from "./followList/UserList";
-import NotFound from "../notFound/NotFound";
+import NotFound from "../../components/notFound/NotFound";
 import pendingImg from "../../assets/logo_loading_purple.svg";
 import "./FollowPage.scss";
 

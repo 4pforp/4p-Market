@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import ModalBtn from "../common/ModalBtn";
 import ModalFrame from "../common/ModalFrame";
-import ModalButton from "../common/ModalButton";
 
 function PostModal({ setOnModal }) {
   const navigate = useNavigate();
@@ -14,10 +14,10 @@ function PostModal({ setOnModal }) {
   return (
     <>
       <ModalFrame setOnModal={setOnModal}>
-        <ModalButton handleClick={handleDelete}>삭제</ModalButton>
-        <ModalButton handleClick={() => navigate("/postedit")}>
+        <ModalBtn handleClick={handleDelete}>삭제</ModalBtn>
+        <ModalBtn handleClick={() => navigate("/postedit")}>
           수정
-        </ModalButton>
+        </ModalBtn>
       </ModalFrame>
     </>
     // <>
