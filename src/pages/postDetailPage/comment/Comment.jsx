@@ -2,11 +2,16 @@ import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import UserMoreBtn from "../../../components/button/UserMoreBtn";
 import UserInfoBox from "../../../components/user/UserInfoBox";
-import CommentModal from "../../../components/modal/contents/CommentModal";
+import CommentModal from "../../../components/modal/modals/CommentModal";
 
 function Comment({ comments }) {
   const [onModal, setOnModal] = useState(false);
-
+  function handleModal() {
+    setOnModal(!onModal);
+  }
+  function openModal() {
+    setOnModal(true);
+  }
   return (
     <>
       {comments &&
@@ -33,14 +38,14 @@ function Comment({ comments }) {
                 </UserInfoBox>
               </Link>
               <p className="content-comment">{comment.content}</p>
-              <UserMoreBtn handleClick={() => setOnModal(true)} />
+              <UserMoreBtn handleClick={openModal} />
             </li>
           );
         })}
       {
         <>
           {/* 모달 조건부렌더링 위한 함수 */}
-          {onModal && <CommentModal setOnModal={(bool) => setOnModal(bool)} />}
+          {onModal && <CommentModal setOnModal={handleModal} />}
         </>
       }
     </>
