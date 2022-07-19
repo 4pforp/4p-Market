@@ -9,7 +9,7 @@ import ProfileEditInfo from "./ProfileEditInfo";
 function ProfileEdit() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { token } = useContext(UserContext);
+  const { token, myAccountname, setMyAccountname } = useContext(UserContext);
   const authToken = "Bearer " + token;
   const [user, setUser] = useState("");
   const [username, setUsername] = useState(location.state.username);
@@ -53,6 +53,7 @@ function ProfileEdit() {
       intro: intro,
       image: image,
     });
+    setMyAccountname(accountname);
   }
 
   function handleSubmit(e) {
