@@ -2,12 +2,13 @@ import { React, useEffect, useContext, useState } from "react";
 import UserContext from "../../../context/UserContext";
 import axios from "axios";
 import PostList from "../../../components/post/PostList";
+import NotFound from "../../../components/notFound/NotFound";
 import "./UserPost.scss";
 
 function UserPost({ accountname, from }) {
   const { token } = useContext(UserContext);
   const [post, setPost] = useState();
-  const [view, setView] = useState("list");
+  const [postView, setPostView] = useState("list");
   const [listClicked, setListClicked] = useState("on");
   const [albumClicked, setAlbumClicked] = useState("off");
 
@@ -33,11 +34,11 @@ function UserPost({ accountname, from }) {
 
   function handleClick(e) {
     if (e.target.classList.contains("list")) {
-      setView("list");
+      setPostView("list");
       setListClicked("on");
       setAlbumClicked("off");
     } else {
-      setView("album");
+      setPostView("album");
       setListClicked("off");
       setAlbumClicked("on");
     }
@@ -64,7 +65,7 @@ function UserPost({ accountname, from }) {
           </div>
         </div>
         <div className="wrapper-post">
-          <ol className={`list-posts ${view}`}>
+          <ol className={`list-posts ${postView}`}>
             <PostList post={post} from={from} />
           </ol>
         </div>
