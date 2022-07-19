@@ -1,4 +1,4 @@
-function UploadIconBtn({ img, name }) {
+function UploadIconBtn({ img, name, onChange }) {
   return (
     <>
       <label htmlFor="choose-img" className="label-upload-icon">
@@ -8,7 +8,13 @@ function UploadIconBtn({ img, name }) {
           className="img-icon-upload"
         />
       </label>
-      <input type="file" name={name} id="choose-img" accept="image/*"></input>
+      <input
+        type="file"
+        name={name}
+        id="choose-img"
+        accept="image/*"
+        onChange={onChange}
+      ></input>
     </>
   );
 }
