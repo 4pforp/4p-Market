@@ -1,15 +1,15 @@
-import MainHeader from "../../components/header/MainHeader";
-import MainFooter from "../../components/footer/MainFooter";
-import Login from "../logIn/Login";
-import HomeSearch from "./homeSearch/HomeSearch";
-import "./Home.scss";
+import { React, useContext, useEffect, useState } from "react";
 import UserContext from "../../context/UserContext";
-import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import PostList from "../../components/post/PostList";
-import NotFound from "../notFound/NotFound";
-import pendingImg from "../../assets/logo_loading_purple.svg";
+import MainHeader from "../../components/header/MainHeader";
+import MainFooter from "../../components/footer/MainFooter";
 import Splash from "../../components/splash/Splash";
+import NotFound from "../notFound/NotFound";
+import HomeSearch from "./homeSearch/HomeSearch";
+import Login from "../logIn/Login";
+import pendingImg from "../../assets/logo_loading_purple.svg";
+import "./Home.scss";
 
 function Home() {
   const { token } = useContext(UserContext);

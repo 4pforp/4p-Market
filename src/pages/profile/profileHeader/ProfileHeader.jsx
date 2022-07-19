@@ -1,20 +1,15 @@
+import { React, useContext } from "react";
+import { Link } from "react-router-dom";
+import ImageTestContext from "../../../context/ImageTestContext";
 import EditProfileBtn from "../../../components/button/EditProfileBtn";
 import FollowBtn from "../../../components/button/FollowBtn";
 import UploadProductBtn from "../../../components/button/UploadProductBtn";
 import "./ProfileHeader.scss";
-import { Link, useNavigate } from "react-router-dom";
-import defaultProfile from "../../../assets/4p_profile.png";
 
 function ProfileHeader({ from, setUser, user }) {
-  const img =
-    /Ellipse/.test(user.image) ||
-    /heroku/.test(user.image) ||
-    (!/mandarin/.test(user.image) && !/base64/.test(user.image)) ||
-    /kr\/https/.test(user.image) ||
-    /1657268443649/.test(user.image)
-      ? defaultProfile
-      : user.image;
+  const { ImageTest } = useContext(ImageTestContext);
 
+  const img = ImageTest(user.image);
   const imgStyle = {
     backgroundImage: `url(${img})`,
   };

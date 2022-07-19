@@ -1,12 +1,20 @@
 import { useContext, useState, useRef } from "react";
 import UserContext from "../../context/UserContext";
-import "./PageFooter.scss";
+import ImageTestContext from "../../context/ImageTestContext";
 import axios from "axios";
+import "./PageFooter.scss";
 
 function CommentFooter({ postid, post, setNewComment, newComment }) {
   const { token } = useContext(UserContext);
+  const { ImageTest } = useContext(ImageTestContext);
   const [comment, setComment] = useState();
   const commentinput = useRef();
+
+  // TODO token API 요청 수정되면 post.author.image 말고 내 이미지 넣기! by 현지
+  const img = post && ImageTest(post.author.image);
+  const imgStyle = {
+    backgroundImage: `url(${img})`,
+  };
 
   function handleChange(e) {
     setComment(e.target.value);
@@ -43,11 +51,7 @@ function CommentFooter({ postid, post, setNewComment, newComment }) {
           className="container-form-pagefooter"
           onSubmit={handleSubmit}
         >
-          <img
-            src={post && post.author.image}
-            alt="프로필사진입니다."
-            className="img-profile-footer"
-          />
+          <div className="img-profile-footer" style={imgStyle}></div>
           <input
             className="textarea-pagefooter"
             placeholder="댓글 입력하기"

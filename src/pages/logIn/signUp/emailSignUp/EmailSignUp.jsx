@@ -1,5 +1,5 @@
+import { React, useState } from "react";
 import axios from "axios";
-import { useState } from "react";
 import Button from "../../Button";
 import EditAccount from "./EditAccount";
 

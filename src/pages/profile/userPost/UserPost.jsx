@@ -1,8 +1,8 @@
-import "./UserPost.scss";
-import axios from "axios";
-import { useEffect, useContext, useState } from "react";
+import { React, useEffect, useContext, useState } from "react";
 import UserContext from "../../../context/UserContext";
+import axios from "axios";
 import PostList from "../../../components/post/PostList";
+import "./UserPost.scss";
 
 function UserPost({ accountname, from }) {
   const { token } = useContext(UserContext);

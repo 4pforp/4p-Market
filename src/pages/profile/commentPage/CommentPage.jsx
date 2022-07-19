@@ -1,13 +1,12 @@
-import "./CommentPage.scss";
-import CommonHeader from "../../../components/header/CommonHeader";
-import CommentFooter from "../../../components/footer/CommentFooter";
-import CommentList from "./CommentList";
+import { React, useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useContext, useState, useEffect } from "react";
 import UserContext from "../../../context/UserContext";
 import axios from "axios";
-import Article from "../../../components/post/Article";
+import CommonHeader from "../../../components/header/CommonHeader";
 import DefaultModal from "../../../components/modal/contents/DefaultModal";
+import Article from "../../../components/post/Article";
+import CommentList from "./CommentList";
+import "./CommentPage.scss";
 
 function CommentPage() {
   const { token } = useContext(UserContext);

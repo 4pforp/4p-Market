@@ -1,12 +1,12 @@
-import { useState, useContext, useEffect } from "react";
+import { React, useState, useContext, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import UserContext from "../../context/UserContext";
+import axios from "axios";
 import FollowHeader from "../../components/header/FollowHeader";
 import UserList from "./UserList";
-import "./Follow.scss";
-import UserContext from "../../context/UserContext";
-import { useLocation } from "react-router-dom";
-import axios from "axios";
 import NotFound from "../notFound/NotFound";
 import pendingImg from "../../assets/logo_loading_purple.svg";
+import "./Follow.scss";
 
 function FollowList() {
   const { token } = useContext(UserContext);

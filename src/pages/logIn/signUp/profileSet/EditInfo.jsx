@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { React, useState, useEffect } from "react";
 import axios from "axios";
 import UploadPic from "./UploadPic";
 
@@ -60,6 +60,7 @@ function EditInfo({
         }
       } catch (err) {
         console.error(err);
+        alert("잘못된 접근입니다.");
       }
     } else {
       setResMessageAccountname(
@@ -86,6 +87,7 @@ function EditInfo({
       setIsActive(false);
     }
   });
+
   return (
     <>
       <UploadPic setImage={setImage} image={image} />

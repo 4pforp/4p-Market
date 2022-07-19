@@ -1,6 +1,5 @@
-// import React, { useState, useContext, useEffect } from "react";
-import "./Follow.scss";
 import User from "./User";
+import "./Follow.scss";
 
 function UserList({ size, followList }) {
   const list = followList.map((user) => {

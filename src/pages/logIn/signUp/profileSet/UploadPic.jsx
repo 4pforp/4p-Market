@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { React, useRef } from "react";
 import axios from "axios";
 import PictureIcon from "../../../../assets/upload-file.svg";
 
@@ -32,6 +32,7 @@ function UploadPic({ image, setImage }) {
       }
     } catch (err) {
       console.error(err);
+      alert("잘못된 접근입니다.");
     }
   }
 

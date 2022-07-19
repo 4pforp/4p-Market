@@ -1,9 +1,8 @@
+import { React, useState } from "react";
+import { Link } from "react-router-dom";
 import UserMoreBtn from "../../../components/button/UserMoreBtn";
 import UserInfoBox from "../../../components/user/UserInfoBox";
 import CommentModal from "../../../components/modal/contents/CommentModal";
-
-import { useState } from "react";
-import { Link } from "react-router-dom";
 
 function Comment({ comments }) {
   const [onModal, setOnModal] = useState(false);
@@ -21,7 +20,7 @@ function Comment({ comments }) {
                   name={comment.author.username}
                   img={comment.author.image}
                 >
-                  {/* -분 전으로 수정 */}
+                  {/* TODO -분 전으로 수정 by 현지*/}
                   <span className="text-comment-time">
                     {"· " +
                       createAt.getFullYear() +
