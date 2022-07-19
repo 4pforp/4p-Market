@@ -7,12 +7,15 @@ import { useContext, useState, useEffect } from "react";
 import UserContext from "../../../context/UserContext";
 import axios from "axios";
 import Article from "../../../components/post/Article";
+import DefaultModal from "../../../components/modal/contents/DefaultModal";
 
 function CommentPage() {
   const { token } = useContext(UserContext);
   const params = useParams();
   const postid = params.postid;
   const [post, setPost] = useState();
+  const [onModal, setOnModal] = useState(false);
+
   useEffect(() => {
     const authToken = "Bearer " + token;
     const url = "https://mandarin.api.weniv.co.kr/post/" + postid;
@@ -32,7 +35,8 @@ function CommentPage() {
 
   return (
     <>
-      <CommonHeader />
+      {onModal && <DefaultModal setOnModal={(bool) => setOnModal(bool)} />}
+      <CommonHeader handleClick={() => setOnModal(true)} />
       <main className="container-comment-page">
         <div className="wrapper-comment-post">
           {post && <Article content={post} from="comment" />}

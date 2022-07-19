@@ -10,12 +10,14 @@ import { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import NotFound from "../notFound/NotFound";
 import pendingImg from "../../assets/logo_loading_purple.svg";
+import DefaultModal from "../../components/modal/contents/DefaultModal";
 
 function Profile() {
   const { token, myAccountname } = useContext(UserContext);
   const params = useParams();
   const accountname = params.accountname;
   const [view, setView] = useState("pending");
+  const [onModal, setOnModal] = useState(false);
   const from = accountname === myAccountname ? "myProfile" : "userProfile";
 
   const [user, setUser] = useState({
@@ -59,7 +61,11 @@ function Profile() {
 
   return (
     <>
-      <CommonHeader />
+      {/* 조건부 렌더링 */}
+      {onModal && <DefaultModal setOnModal={(bool) => setOnModal(bool)} />}
+
+      <CommonHeader handleClick={() => setOnModal(true)} />
+
       <main className="container-profile-page">
         <h1 className="a11y-hidden">{user.username}의 프로필</h1>
         {view === "true" && (

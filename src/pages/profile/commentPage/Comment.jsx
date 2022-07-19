@@ -1,8 +1,13 @@
 import UserMoreBtn from "../../../components/button/UserMoreBtn";
 import UserInfoBox from "../../../components/user/UserInfoBox";
+import CommentModal from "../../../components/modal/contents/CommentModal";
+
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Comment({ comments }) {
+  const [onModal, setOnModal] = useState(false);
+
   return (
     <>
       {comments &&
@@ -29,10 +34,16 @@ function Comment({ comments }) {
                 </UserInfoBox>
               </Link>
               <p className="content-comment">{comment.content}</p>
-              <UserMoreBtn />
+              <UserMoreBtn handleClick={() => setOnModal(true)} />
             </li>
           );
         })}
+      {
+        <>
+          {/* 모달 조건부렌더링 위한 함수 */}
+          {onModal && <CommentModal setOnModal={(bool) => setOnModal(bool)} />}
+        </>
+      }
     </>
   );
 }

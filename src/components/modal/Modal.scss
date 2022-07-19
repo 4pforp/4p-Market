@@ -1,0 +1,64 @@
+@import "../../Components/style/default.scss";
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.container-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  font-style: $basic-font;
+  background-color: rgba(0, 0, 0, 0.3);
+
+  .wrapper-list-modal {
+    position: absolute;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    background: #fff;
+    z-index: 10;
+    height: auto;
+    width: 100%;
+    padding: 26px 0 16px;
+    animation: slideUp 0.3s ease-in-out;
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 16px;
+      left: 50%;
+      width: 50px;
+      height: 4px;
+      border-radius: 5px;
+      background-color: $line-color;
+      transform: translateX(-50%);
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 11px;
+      width: 100%;
+      height: 46px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+      > button {
+        width: 100%;
+        display: inline-flex;
+        padding: 15px;
+      }
+    }
+  }
+}

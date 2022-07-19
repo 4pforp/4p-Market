@@ -1,12 +1,17 @@
+import { useState } from "react";
+
 import CommonHeader from "../../../components/header/CommonHeader";
 import MainFooter from "../../../components/footer/MainFooter";
 import ChatItem from "./ChatItem";
 import "./ChatPage.scss";
+import DefaultModal from "../../../components/modal/contents/DefaultModal";
 
 function ChatPage() {
+  const [onModal, setOnModal] = useState(false);
   return (
     <>
-      <CommonHeader />
+      {onModal && <DefaultModal setOnModal={(bool) => setOnModal(bool)} />}
+      <CommonHeader handleClick={() => setOnModal(true)} />
       <main className="container-chatpage">
         <div className="wrapper-chatpage">
           <ul className="list-chatpage">
