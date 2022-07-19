@@ -5,7 +5,7 @@ import axios from "axios";
 import CommonHeader from "../../components/header/CommonHeader";
 import MainFooter from "../../components/footer/MainFooter";
 import DefaultModal from "../../components/modal/contents/DefaultModal";
-import NotFound from "../notFound/NotFound";
+import NotFound from "../../components/notFound/NotFound";
 import UserHeader from "./userHeader/UserHeader";
 import UserProducts from "./userProduct/UserProduct";
 import UserPost from "./userPost/UserPost";

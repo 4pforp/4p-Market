@@ -1,5 +1,5 @@
-import "./Header.scss";
 import SearchBtn from "../button/SearchBtn";
+import "./Header.scss";
 
 function MainHeader() {
   return (

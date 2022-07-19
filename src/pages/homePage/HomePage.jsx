@@ -5,7 +5,7 @@ import PostList from "../../components/post/PostList";
 import MainHeader from "../../components/header/MainHeader";
 import MainFooter from "../../components/footer/MainFooter";
 import Splash from "../../components/splash/Splash";
-import NotFound from "../notFound/NotFound";
+import NotFound from "../../components/notFound/NotFound";
 import InitialFeed from "./initialFeed/InitialFeed";
 import LoginPage from "../logInPage/LoginPage";
 import pendingImg from "../../assets/logo_loading_purple.svg";
