@@ -1,6 +1,6 @@
-import ProfileEditUpload from "./ProfileEditUpload";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import ProfileEditUpload from "../profileEditImg/ProfileEditImg";
 
 function ProfileEditInfo({
   setIsActive,
