@@ -1,7 +1,7 @@
-import { React } from "react";
+import { React, useContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./components/style/reset.scss";
-import "./App.scss";
+import UserContext, { UserContextProvider } from "./context/UserContext";
+import { ImageTestContextProvider } from "./context/ImageTestContext";
 import EmailLogin from "./pages/logIn/emailLogin/EmailLogin";
 import SignUp from "./pages/logIn/signUp/SignUp";
 import Home from "./pages/home/Home";
@@ -15,8 +15,8 @@ import ProfileEdit from "./pages/profileEdit/ProfileEdit";
 import UserSearch from "./pages/home/userSearch/UserSearch";
 import CommentPage from "./pages/profile/commentPage/CommentPage";
 import NotFound from "./pages/notFound/NotFound";
-import UserContext, { UserContextProvider } from "./context/UserContext";
-import { useContext } from "react";
+import "./components/style/reset.scss";
+import "./App.scss";
 
 function Main() {
   const { token } = useContext(UserContext);
@@ -50,10 +50,9 @@ function Main() {
                 path="/:accountname/:postid"
                 element={<CommentPage />}
               ></Route>
-              {/* <Route path="/:postid" element={<CommentPage />}></Route> */}
             </>
           ) : (
-            // TODO 만약 url로 접근하려고 할 때 로그인 창으로 넘어가도록 추가
+            // TODO url로 비정상 접근시 로그인 창으로 넘어가도록 추가 (token 검증!) by 현지
             <>
               <Route path="/" element={<Home />}></Route>
               <Route path="/login" element={<EmailLogin />}></Route>
@@ -70,7 +69,9 @@ function Main() {
 function App() {
   return (
     <UserContextProvider>
-      <Main />
+      <ImageTestContextProvider>
+        <Main />
+      </ImageTestContextProvider>
     </UserContextProvider>
   );
 }

@@ -1,20 +1,20 @@
-import { useState } from "react";
-import "./SignUp.scss";
+import { React, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import ProfileSet from "./profileSet/ProfileSet";
 import EmailSignUp from "./emailSignUp/EmailSignUp";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-
-const userForm = {
-  username: String,
-  email: String,
-  password: String,
-  accountname: String,
-  intro: String,
-  image: String,
-};
+import "./SignUp.scss";
 
 function SignUp() {
+  const userForm = {
+    username: String,
+    email: String,
+    password: String,
+    accountname: String,
+    intro: String,
+    image: String,
+  };
+
   const [user, setUser] = useState(userForm);
   const [view, setView] = useState("EmailSignUp");
   const navigate = useNavigate();

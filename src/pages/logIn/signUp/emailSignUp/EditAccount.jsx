@@ -1,6 +1,5 @@
+import { React, useEffect, useState } from "react";
 import axios from "axios";
-import { useEffect } from "react";
-import { useState } from "react";
 
 function EditAccount({
   setIsActive,

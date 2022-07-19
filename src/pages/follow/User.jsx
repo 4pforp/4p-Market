@@ -1,8 +1,8 @@
-import React, { useState, useContext } from "react";
+import { React, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../../context/UserContext";
 import FollowBtn from "../../components/button/FollowBtn";
 import UserInfoBox from "../../components/user/UserInfoBox";
-import UserContext from "../../context/UserContext";
 
 function User({
   size,

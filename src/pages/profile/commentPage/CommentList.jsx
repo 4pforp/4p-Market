@@ -1,9 +1,9 @@
-import "./CommentList.scss";
-import { useContext, useState, useEffect } from "react";
+import { React, useContext, useState, useEffect } from "react";
 import UserContext from "../../../context/UserContext";
 import axios from "axios";
-import Comment from "./Comment";
 import CommentFooter from "../../../components/footer/CommentFooter";
+import Comment from "./Comment";
+import "./CommentList.scss";
 
 function CommentList({ postid, post }) {
   const { token } = useContext(UserContext);
