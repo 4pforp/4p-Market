@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Logo from "./Logo";
+import Logo from "./logo/Logo";
 import "./Splash.scss";
 
 // 인트로 Splash 컴포넌트 사용 후 일정 시간 이후 랜더링 중단, 세션스토리지에 저장
