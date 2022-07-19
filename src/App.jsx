@@ -16,16 +16,12 @@ import UserSearch from "./pages/home/userSearch/UserSearch";
 import CommentPage from "./pages/profile/commentPage/CommentPage";
 import NotFound from "./pages/notFound/NotFound";
 import UserContext, { UserContextProvider } from "./context/UserContext";
-import SplashContext, { SplashContextProvider } from "./context/SplashContext";
-import Splash from "./components/splash/Splash";
 import { useContext } from "react";
 
 function Main() {
   const { token } = useContext(UserContext);
-  const { splash } = useContext(SplashContext);
   return (
     <div className="App">
-      {splash ? null : <Splash />}
       <BrowserRouter>
         <Routes>
           {token ? (
@@ -73,11 +69,9 @@ function Main() {
 
 function App() {
   return (
-    <SplashContextProvider>
-      <UserContextProvider>
-        <Main />
-      </UserContextProvider>
-    </SplashContextProvider>
+    <UserContextProvider>
+      <Main />
+    </UserContextProvider>
   );
 }
 

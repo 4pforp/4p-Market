@@ -1,28 +1,74 @@
 import { useState, useContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 import UserContext from "../../context/UserContext";
 import SaveHeader from "../../components/header/SaveHeader";
 import "./ProfileEdit.scss";
 import ProfileEditInfo from "./ProfileEditInfo";
 
 function ProfileEdit() {
-  const { token, myImage, myAccountname } = useContext(UserContext);
-  const url = "https://mandarin.api.weniv.co.kr/profile/" + myAccountname;
-  const authToken = "Bearer" + token;
-  const [username, setUsername] = useState("");
-  const [accountname, setAcountname] = useState("");
-  const [intro, setIntro] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { token } = useContext(UserContext);
+  const authToken = "Bearer " + token;
+  const [user, setUser] = useState("");
+  const [username, setUsername] = useState(location.state.username);
+  const [accountname, setAcountname] = useState(location.state.accountname);
+  const [intro, setIntro] = useState(location.state.intro);
   const [isActive, setIsActive] = useState(false);
-  const [image, setImage] = useState(myImage);
+  const [image, setImage] = useState(location.state.image);
+
+  const updatedProfile = {
+    user: {
+      username: username,
+      accountname: accountname,
+      intro: intro,
+      image: image,
+    },
+  };
+
+  async function submitProfileEdit() {
+    try {
+      const res = await axios.put(
+        "https://mandarin.api.weniv.co.kr/user",
+        updatedProfile,
+        {
+          headers: {
+            Authorization: authToken,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      navigate("/" + accountname);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  function handleClick() {
+    setUser({
+      username: username,
+      accountname: accountname,
+      intro: intro,
+      image: image,
+    });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    submitProfileEdit();
+  }
 
   return (
     <>
-      <SaveHeader isActive={isActive} />
       <h1 className="a11y-hidden">프로필수정</h1>
       <form
-        method="POST"
+        method="GET"
         encType="multipart/form-data"
         className="form-profileeddit"
+        onSubmit={handleSubmit}
       >
+        <SaveHeader isActive={isActive} handleClick={handleClick} />
         <ProfileEditInfo
           setIsActive={setIsActive}
           username={username}
