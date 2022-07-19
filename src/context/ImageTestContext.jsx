@@ -1,9 +1,10 @@
+import { createContext } from "react";
 import defaultProfile from "../assets/4p_profile.png";
 
-import { createContext } from "react";
-
 const ImageTestContext = createContext();
+
 export default ImageTestContext;
+
 const ImageTestContextProvider = ({ children }) => {
   const ImageTest = (img) => {
     const testedImg =
