@@ -1,5 +1,5 @@
-import "./Post.scss";
 import Article from "./Article";
+import "./Post.scss";
 
 function Post({ content, from }) {
   return (

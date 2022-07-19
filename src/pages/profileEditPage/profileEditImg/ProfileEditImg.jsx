@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import axios from "axios";
-import PictureIcon from "../../assets/upload-file.svg";
+import PictureIcon from "../../../assets/upload-file.svg";
 
 function ProfileEditUpload({ image, setImage }) {
   const imgStyle = {
