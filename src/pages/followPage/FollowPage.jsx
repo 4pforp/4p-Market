@@ -1,5 +1,5 @@
 import { React, useState, useContext, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import axios from "axios";
 import FollowHeader from "../../components/header/FollowHeader";
@@ -10,9 +10,9 @@ import "./FollowPage.scss";
 
 function FollowPage() {
   const { token } = useContext(UserContext);
-  const location = useLocation();
-  const accountname = location.state.accountname;
-  const type = location.state.type;
+  const params = useParams();
+  const accountname = params.accountname;
+  const type = params.type;
   const [followList, setFollowList] = useState([]);
   const [view, setView] = useState("pending");
 
@@ -31,10 +31,16 @@ function FollowPage() {
         setFollowList(res.data);
         setView("true");
       } catch (err) {
+        console.error(err);
         setView("false");
       }
     }
-    getFollowList();
+    // 잘못된 url 예외처리
+    if (type === "follower" || type === "following") {
+      getFollowList();
+    } else {
+      setView("false");
+    }
   }, [token, accountname, type]);
 
   return (

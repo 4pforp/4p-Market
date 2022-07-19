@@ -5,7 +5,9 @@ import axios from "axios";
 import CommonHeader from "../../components/header/CommonHeader";
 import DefaultModal from "../../components/modal/contents/DefaultModal";
 import Article from "../../components/post/Article";
+import NotFound from "../../components/notFound/NotFound";
 import CommentList from "./comment/CommentList";
+import pendingImg from "../../assets/logo_loading_purple.svg";
 import "./PostDetailPage.scss";
 
 function PostDetailPage() {
@@ -14,6 +16,7 @@ function PostDetailPage() {
   const postid = params.postid;
   const [post, setPost] = useState();
   const [onModal, setOnModal] = useState(false);
+  const [view, setView] = useState("pending");
 
   useEffect(() => {
     const authToken = "Bearer " + token;
@@ -27,7 +30,11 @@ function PostDetailPage() {
           },
         });
         setPost(res.data.post);
-      } catch (err) {}
+        setView("true");
+      } catch (err) {
+        console.error(err);
+        setView("false");
+      }
     }
     getComment();
   }, [postid, token]);
@@ -36,12 +43,26 @@ function PostDetailPage() {
     <>
       {onModal && <DefaultModal setOnModal={(bool) => setOnModal(bool)} />}
       <CommonHeader handleClick={() => setOnModal(true)} />
-      <main className="container-comment-page">
-        <div className="wrapper-comment-post">
-          {post && <Article content={post} from="comment" />}
-        </div>
-        <CommentList postid={postid} post={post} />
-      </main>
+      {view === "true" && (
+        <>
+          <main className="container-comment-page">
+            <div className="wrapper-comment-post">
+              {post && <Article content={post} from="comment" />}
+            </div>
+            <CommentList postid={postid} post={post} />
+          </main>
+        </>
+      )}
+      {view === "pending" && (
+        <>
+          <img src={pendingImg} className="img-pending" alt="loading" />
+        </>
+      )}
+      {view === "false" && (
+        <>
+          <NotFound />
+        </>
+      )}
     </>
   );
 }
