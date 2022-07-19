@@ -1,5 +1,5 @@
 import { React, useState, useContext, useEffect } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import axios from "axios";
 import FollowHeader from "../../components/header/FollowHeader";
@@ -12,14 +12,17 @@ function FollowPage() {
   const { token } = useContext(UserContext);
   const params = useParams();
   const accountname = params.accountname;
-  const type = params.type;
+  const followtype = params.followtype;
   const [followList, setFollowList] = useState([]);
   const [view, setView] = useState("pending");
 
   useEffect(() => {
     const authToken = "Bearer " + token;
     const url =
-      "https://mandarin.api.weniv.co.kr/profile/" + accountname + "/" + type;
+      "https://mandarin.api.weniv.co.kr/profile/" +
+      accountname +
+      "/" +
+      followtype;
     async function getFollowList() {
       try {
         const res = await axios.get(url, {
@@ -36,12 +39,12 @@ function FollowPage() {
       }
     }
     // 잘못된 url 예외처리
-    if (type === "follower" || type === "following") {
+    if (followtype === "follower" || followtype === "following") {
       getFollowList();
     } else {
       setView("false");
     }
-  }, [token, accountname, type]);
+  }, [token, accountname, followtype]);
 
   return (
     <>

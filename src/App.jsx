@@ -37,7 +37,7 @@ function Main() {
                 element={<PostDetailPage />}
               ></Route>
               <Route
-                path="/:accountname/follow/:type"
+                path="/:accountname/follow/:followtype"
                 element={<FollowPage />}
               ></Route>
               <Route path="/upload" element={<UploadPost />}></Route>
