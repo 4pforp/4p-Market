@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import ModalFrame from "../common/ModalFrame";
-import ModalButton from "../common/ModalButton";
+import ModalBtn from "../common/ModalBtn";
 
 function ProductModal({ setOnModal }) {
   const navigate = useNavigate();
@@ -14,11 +14,11 @@ function ProductModal({ setOnModal }) {
   return (
     <>
       <ModalFrame setOnModal={setOnModal}>
-        <ModalButton handleClick={handleDelete}>삭제</ModalButton>
-        <ModalButton handleClick={() => navigate("/postedit")}>
+        <ModalBtn handleClick={handleDelete}>삭제</ModalBtn>
+        <ModalBtn handleClick={() => navigate("/postedit")}>
           수정
-        </ModalButton>
-        <ModalButton>웹사이트에서 상품보기</ModalButton>
+        </ModalBtn>
+        <ModalBtn>웹사이트에서 상품보기</ModalBtn>
       </ModalFrame>
     </>
     // <>
@@ -26,17 +26,17 @@ function ProductModal({ setOnModal }) {
     //   {myAccount === "true" && (
     //     <>
     //       <ModalFrame setOnModal={setOnModal}>
-    //         <ModalButton handleClick={handleDelete}>삭제</ModalButton>
-    //         <ModalButton handleClick={() => navigate("/postedit")}>
+    //         <ModalBtn handleClick={handleDelete}>삭제</ModalBtn>
+    //         <ModalBtn handleClick={() => navigate("/postedit")}>
     //           수정
-    //         </ModalButton>
+    //         </ModalBtn>
     //       </ModalFrame>
     //     </>
     //   )}
     //   <>
     //     {/* 다른 사람 게시글  */}
     //     <ModalFrame setOnModal={setOnModal}>
-    //       <ModalButton>신고</ModalButton>
+    //       <ModalBtn>신고</ModalBtn>
     //     </ModalFrame>
     //   </>
     // </>

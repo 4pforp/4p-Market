@@ -8,25 +8,33 @@
     transform: translateY(0px);
   }
 }
-
-.container-modal {
+.background-modal {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.container-modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
   z-index: 100;
-  font-style: $basic-font;
   background-color: rgba(0, 0, 0, 0.3);
 
   .wrapper-list-modal {
+    font-style: $basic-font;
     position: absolute;
     bottom: 0;
     height: 0;
     width: 100%;
     border-radius: 10px 10px 0 0;
     background: #fff;
-    z-index: 10;
     height: auto;
     width: 100%;
     padding: 26px 0 16px;

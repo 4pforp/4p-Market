@@ -1,6 +1,6 @@
 import React from "react";
+import ModalBtn from "../common/ModalBtn";
 import ModalFrame from "../common/ModalFrame";
-import ModalButton from "../common/ModalButton";
 
 function QuitChatModal({ setOnModal }) {
   function handleQuitChat() {
@@ -10,7 +10,7 @@ function QuitChatModal({ setOnModal }) {
   return (
     <>
       <ModalFrame setOnModal={setOnModal}>
-        <ModalButton handleClick={handleQuitChat}>채팅방 나가기</ModalButton>
+        <ModalBtn handleClick={handleQuitChat}>채팅방 나가기</ModalBtn>
       </ModalFrame>
     </>
   );

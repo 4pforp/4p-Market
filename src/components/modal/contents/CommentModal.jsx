@@ -1,9 +1,8 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import ModalFrame from "../common/ModalFrame";
-import ModalButton from "../common/ModalButton";
-import UserContext from "../../../context/UserContext";
 import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import UserContext from "../../../context/UserContext";
+import ModalFrame from "../common/ModalFrame";
+import ModalBtn from "../common/ModalBtn";
 
 function CommentModal({ setOnModal, comment }) {
   const { myAccountname } = useContext(UserContext);
@@ -19,7 +18,7 @@ function CommentModal({ setOnModal, comment }) {
   return (
     <>
       <ModalFrame setOnModal={setOnModal}>
-        <ModalButton handleClick={handleDelete}>삭제</ModalButton>
+        <ModalBtn handleClick={handleDelete}>삭제</ModalBtn>
       </ModalFrame>
     </>
     // <>

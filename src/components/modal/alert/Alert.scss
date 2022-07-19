@@ -1,0 +1,67 @@
+@import "../../../components/style/default.scss";
+
+@keyframes showAlert {
+  0% {
+    opacity: 50%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+.container-alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  font-family: $medium-font;
+
+  .wrapper-alert {
+    width: 252px;
+    border-radius: 10px;
+    background: #fff;
+    animation: showAlert 0.1s ease-in-out;
+  }
+
+  .text-alert {
+    display: block;
+    padding: 25px 0;
+    margin-top: 7px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 30px;
+    text-align: center;
+  }
+
+  .list-alert {
+    display: flex;
+    width: 100%;
+    border-top: 0.5px solid $line-color;
+    button {
+      width: 100%;
+      height: 46px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    li {
+      width: 50%;
+    }
+  }
+
+  .btn-do {
+    border-left: 0.5px solid $line-color;
+    color: $primary-color;
+  }
+
+  &.true {
+    display: flex;
+  }
+  &.false {
+    display: none;
+  }
+}
