@@ -1,10 +1,10 @@
 import { useState, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
 import UserContext from "../../context/UserContext";
+import axios from "axios";
 import SaveHeader from "../../components/header/SaveHeader";
+import ProfileEditInfo from "./profileEditInfo/ProfileEditInfo";
 import "./ProfileEdit.scss";
-import ProfileEditInfo from "./ProfileEditInfo";
 
 function ProfileEdit() {
   const location = useLocation();

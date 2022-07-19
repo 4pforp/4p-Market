@@ -7,7 +7,7 @@ import EmailLoginPage from "./pages/emailLoginPage/EmailLoginPage";
 import SignUpPage from "./pages/signUpPage/SignUpPage";
 import SearchUserPage from "./pages/searchUserPage/SearchUserPage";
 import ProfilePage from "./pages/profilePage/ProfilePage";
-import ProfileEdit from "./pages/profileEdit/ProfileEdit";
+import ProfileEdit from "./pages/profileEditPage/ProfileEdit";
 import PostDetailPage from "./pages/postDetailPage/PostDetailPage";
 import FollowPage from "./pages/followPage/FollowPage";
 import UploadPostPage from "./pages/uploadPostPage/UploadPostPage";
