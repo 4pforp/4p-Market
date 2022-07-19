@@ -12,6 +12,8 @@ function ProfileEditInfo({
   setIntro,
   setImage,
   image,
+  disabled,
+  setDisabled,
 }) {
   const [resMessageAccountname, setResMessageAccountname] = useState("");
   const [isValidAccountname, setIsValidAccountname] = useState(false);
@@ -74,8 +76,10 @@ function ProfileEditInfo({
   useEffect(() => {
     if (isValidAccountname && isValidUsername) {
       setIsActive(true);
+      setDisabled(false);
     } else {
       setIsActive(false);
+      setDisabled(true);
     }
   });
 

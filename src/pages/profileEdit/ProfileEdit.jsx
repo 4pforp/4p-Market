@@ -15,8 +15,9 @@ function ProfileEdit() {
   const [username, setUsername] = useState(location.state.username);
   const [accountname, setAcountname] = useState(location.state.accountname);
   const [intro, setIntro] = useState(location.state.intro);
-  const [isActive, setIsActive] = useState(false);
   const [image, setImage] = useState(location.state.image);
+  const [isActive, setIsActive] = useState(false);
+  const [disabled, setDisabled] = useState(true);
 
   const updatedProfile = {
     user: {
@@ -68,7 +69,11 @@ function ProfileEdit() {
         className="form-profileeddit"
         onSubmit={handleSubmit}
       >
-        <SaveHeader isActive={isActive} handleClick={handleClick} />
+        <SaveHeader
+          isActive={isActive}
+          handleClick={handleClick}
+          disabled={disabled}
+        />
         <ProfileEditInfo
           setIsActive={setIsActive}
           username={username}
@@ -79,6 +84,8 @@ function ProfileEdit() {
           setIntro={setIntro}
           setImage={setImage}
           image={image}
+          disabled={disabled}
+          setDisabled={setDisabled}
         />
       </form>
     </>
