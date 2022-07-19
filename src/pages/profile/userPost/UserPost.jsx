@@ -7,6 +7,10 @@ import PostList from "../../../components/post/PostList";
 function UserPost({ accountname, from }) {
   const { token } = useContext(UserContext);
   const [post, setPost] = useState();
+  const [view, setView] = useState("list");
+  const [listClicked, setListClicked] = useState("on");
+  const [albumClicked, setAlbumClicked] = useState("off");
+
   useEffect(() => {
     const authToken = "Bearer " + token;
     const url =
@@ -27,22 +31,40 @@ function UserPost({ accountname, from }) {
     getPost();
   }, [accountname, token]);
 
+  function handleClick(e) {
+    if (e.target.classList.contains("list")) {
+      setView("list");
+      setListClicked("on");
+      setAlbumClicked("off");
+    } else {
+      setView("album");
+      setListClicked("off");
+      setAlbumClicked("on");
+    }
+  }
+
   return (
     <>
       <section className="container-post">
         <h3 className="a11y-hidden">포스트 목록</h3>
         <div className="container-view-btn">
           <div className="wrapper-view-btn">
-            <button className="btn-view post">
+            <button
+              className={`btn-view list ${listClicked}`}
+              onClick={handleClick}
+            >
               <strong className=" a11y-hidden">post view</strong>
             </button>
-            <button className="btn-view album">
+            <button
+              className={`btn-view album ${albumClicked}`}
+              onClick={handleClick}
+            >
               <strong className=" a11y-hidden">album view</strong>
             </button>
           </div>
         </div>
         <div className="wrapper-post">
-          <ol className="list-posts">
+          <ol className={`list-posts ${view}`}>
             <PostList post={post} from={from} />
           </ol>
         </div>

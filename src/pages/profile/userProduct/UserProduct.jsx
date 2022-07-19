@@ -9,22 +9,25 @@ function UserProduct({ accountname }) {
   const [productResult, setProductResult] = useState([]);
 
   useEffect(() => {
-    const getProduct = async () => {
-      const response = await axios(
-        "https://mandarin.api.weniv.co.kr/product/" + accountname,
-        {
-          method: "get",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-type": "application/json",
-          },
-        }
-      );
-      const userProduct = response;
-      setProductResult(userProduct.data.product);
-    };
+    async function getProduct() {
+      try {
+        const response = await axios.get(
+          "https://mandarin.api.weniv.co.kr/product/" + accountname,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-type": "application/json",
+            },
+          }
+        );
+        const userProduct = response;
+        setProductResult(userProduct.data.product);
+      } catch (err) {
+        console.log(err);
+      }
+    }
     getProduct();
-  }, []);
+  }, [accountname]);
 
   if (productResult.length > 0) {
     return (

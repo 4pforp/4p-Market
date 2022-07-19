@@ -5,8 +5,9 @@ function SaveBtn(props) {
     <button
       type="submit"
       className={`btn-save ${props.isActive}`}
-      disabled={!props.isActive}
+      disabled={props.disabled}
       onClick={props.handleClick}
+      form={props.form}
     >
       {props.text}
     </button>

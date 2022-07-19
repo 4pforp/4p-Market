@@ -46,6 +46,11 @@ function Main() {
               <Route path="/product" element={<Product />}></Route>
               <Route path="/profileedit" element={<ProfileEdit />}></Route>
               <Route path={"*"} element={<NotFound />}></Route>
+              <Route
+                path="/:accountname/:postid"
+                element={<CommentPage />}
+              ></Route>
+              {/* <Route path="/:postid" element={<CommentPage />}></Route> */}
             </>
           ) : (
             // TODO 만약 url로 접근하려고 할 때 로그인 창으로 넘어가도록 추가
