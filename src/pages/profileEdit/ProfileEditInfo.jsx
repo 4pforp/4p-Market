@@ -12,8 +12,8 @@ function ProfileEditInfo({
   setIntro,
   setImage,
   image,
-  disabled,
   setDisabled,
+  myAccountname,
 }) {
   const [resMessageAccountname, setResMessageAccountname] = useState("");
   const [isValidAccountname, setIsValidAccountname] = useState(false);
@@ -50,6 +50,8 @@ function ProfileEditInfo({
         if (res.data.message === "사용 가능한 계정ID 입니다.") {
           setResMessageAccountname(res.data.message);
           setIsValidAccountname(true);
+        } else if (myAccountname === accountname) {
+          return null;
         } else {
           setResMessageAccountname("*" + res.data.message);
           setIsValidAccountname(false);
@@ -75,6 +77,9 @@ function ProfileEditInfo({
 
   useEffect(() => {
     if (isValidAccountname && isValidUsername) {
+      setIsActive(true);
+      setDisabled(false);
+    } else if (myAccountname === accountname) {
       setIsActive(true);
       setDisabled(false);
     } else {
