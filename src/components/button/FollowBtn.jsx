@@ -1,7 +1,7 @@
-import "./FollowBtn.scss";
-import UserContext from "../../context/UserContext";
 import { useContext } from "react";
+import UserContext from "../../context/UserContext";
 import axios from "axios";
+import "./FollowBtn.scss";
 
 function FollowBtn({ text, size, setUser, user }) {
   const { token } = useContext(UserContext);

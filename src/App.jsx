@@ -10,7 +10,7 @@ import ProfilePage from "./pages/profilePage/ProfilePage";
 import ProfileEdit from "./pages/profileEdit/ProfileEdit";
 import PostDetailPage from "./pages/postDetailPage/PostDetailPage";
 import FollowPage from "./pages/followPage/FollowPage";
-import UploadPost from "./pages/uploadPost/UploadPost";
+import UploadPostPage from "./pages/uploadPostPage/UploadPostPage";
 import UploadProductPage from "./pages/uploadProductPage/UploadProductPage";
 import ChatPage from "./pages/chatPage/ChatPage";
 import ChatRoom from "./pages/chatRoomPage/ChatRoom";
@@ -44,7 +44,7 @@ function Main() {
                 path="/:accountname/followers"
                 element={<FollowPage />}
               ></Route>
-              <Route path="/upload" element={<UploadPost />}></Route>
+              <Route path="/upload" element={<UploadPostPage />}></Route>
               <Route path="/product" element={<UploadProductPage />}></Route>
               <Route path="/chat" element={<ChatPage />}></Route>
               <Route path="/chatroom/:id" element={<ChatRoom />}></Route>
