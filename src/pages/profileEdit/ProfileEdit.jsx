@@ -54,6 +54,7 @@ function ProfileEdit() {
       image: image,
     });
     setMyAccountname(accountname);
+    localStorage.setItem("accountname", accountname);
   }
 
   function handleSubmit(e) {
@@ -87,6 +88,7 @@ function ProfileEdit() {
           image={image}
           disabled={disabled}
           setDisabled={setDisabled}
+          myAccountname={myAccountname}
         />
       </form>
     </>
