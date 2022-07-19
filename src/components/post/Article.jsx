@@ -1,18 +1,26 @@
+import { React, useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import ImageTestContext from "../../context/ImageTestContext";
 import CommentBtn from "../button/CommentBtn";
 import LikeBtn from "../button/LikeBtn";
 import UserMoreBtn from "../button/UserMoreBtn";
 import UserInfoBox from "../user/UserInfoBox";
 import PostModal from "../modal/contents/PostModal";
+import errorImage from "../../assets/image_error.png";
 import "./Post.scss";
-import { Link } from "react-router-dom";
-import { useState } from "react";
 
 function Article({ content, from }) {
+  const { ImageTest } = useContext(ImageTestContext);
   const post = content;
   const author = content.author;
   const accountname = author.accountname;
   const createAt = new Date(content.createdAt);
   const [onModal, setOnModal] = useState(false);
+  const img = ImageTest(post.image);
+
+  function handleImageError(e) {
+    e.target.src = errorImage;
+  }
 
   return (
     <>
@@ -55,7 +63,12 @@ function Article({ content, from }) {
           <p className="text-post">{post.content}</p>
           <div className="container-post-image">
             {post.image === "" ? null : (
-              <img src={post.image} alt="게시글 사진" className="img-post" />
+              <img
+                src={img}
+                alt="게시글 사진"
+                onError={handleImageError}
+                className="img-post"
+              />
             )}
           </div>
           <div className="container-btn-post">
