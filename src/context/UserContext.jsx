@@ -7,6 +7,7 @@ const UserContextProvider = ({ children }) => {
   const [myAccountname, setMyAccountname] = useState(
     localStorage.getItem("accountname")
   );
+  const [myImage, setMyImage] = useState();
   return (
     <UserContext.Provider
       value={{
@@ -14,6 +15,8 @@ const UserContextProvider = ({ children }) => {
         setToken,
         myAccountname,
         setMyAccountname,
+        myImage,
+        setMyImage,
       }}
     >
       {children}
