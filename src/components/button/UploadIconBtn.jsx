@@ -1,4 +1,4 @@
-function UploadIconBtn({ img, name, onChange }) {
+function UploadIconBtn({ img, name, onChange, multiple }) {
   return (
     <>
       <label htmlFor="choose-img" className="label-upload-icon">
