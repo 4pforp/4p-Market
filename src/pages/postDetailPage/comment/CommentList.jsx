@@ -52,7 +52,6 @@ function CommentList({ postid, post }) {
       const currentScrollY = Math.floor(
         window.scrollY + window.innerHeight - 60
       );
-      console.log(targetHeight, currentScrollY);
       targetHeight < currentScrollY && setReloadNeed(true);
     }
 
