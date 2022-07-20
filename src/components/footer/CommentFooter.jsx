@@ -20,6 +20,8 @@ function CommentFooter({ postid, post, setNewComment }) {
   function handleChange(e) {
     setComment(e.target.value);
   }
+
+  // 댓글 빈 값 요청할 수 없도록 상태 변경
   useEffect(() => {
     comment && comment.length > 0 ? setValid(true) : setValid(false);
   }, [comment]);
@@ -36,7 +38,9 @@ function CommentFooter({ postid, post, setNewComment }) {
         },
       });
       setNewComment(false);
-    } catch (err) {}
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   function handleSubmit(e) {
