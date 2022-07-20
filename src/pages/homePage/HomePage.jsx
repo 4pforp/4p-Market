@@ -78,7 +78,9 @@ function HomePage() {
 
   return (
     <>
-      {sessionStorage.getItem("splash") ? null : <Splash />}
+      {sessionStorage.getItem("splash") || <Splash />}
+      {sessionStorage.getItem("splash") && null}
+
       {token ? (
         <>
           <MainHeader />

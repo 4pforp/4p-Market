@@ -14,7 +14,6 @@ function CommentList({ postid, post }) {
   const updateLimitCount = Math.ceil(post.commentCount / 10);
   const [updatedCount, setUpdatedCount] = useState(0);
   const [skip, setSkip] = useState(0);
-
   useEffect(() => {
     // 실시간 업로드 댓글 반영 함수
     async function getNewComments() {
@@ -43,8 +42,12 @@ function CommentList({ postid, post }) {
   useEffect(() => {
     // 화면 마지막에 도달하면 ReloadNeed!
     function infinitScoll() {
+      const postHeight =
+        document.querySelector(".wrapper-comment-post").getBoundingClientRect()
+          .height + 30;
+
       const targetHeight = Math.floor(
-        Container.current.getBoundingClientRect().height + 256
+        Container.current.getBoundingClientRect().height + postHeight
       );
       const currentScrollY = Math.floor(
         window.scrollY + window.innerHeight - 60

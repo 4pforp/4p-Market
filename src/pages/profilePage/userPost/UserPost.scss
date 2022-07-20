@@ -3,7 +3,9 @@
 .container-post {
   margin-top: 6px;
   background-color: $white;
+  height: auto;
   .wrapper-post {
+    overflow: hidden;
     width: 390px;
     margin: auto;
   }
@@ -47,13 +49,15 @@
 
 // 앨범 view 스타일
 .list-posts.album {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
   .article-post {
+    background-color: $white;
+    float: left;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+  .contents-post {
+    padding: 0;
   }
   .img-author,
   .wrapper-author,
@@ -64,9 +68,16 @@
     display: none;
   }
   .container-post-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
     width: 114px;
     height: 114px;
     margin-bottom: 0;
     border-radius: 0;
+    .img-post {
+      display: block;
+    }
   }
 }
