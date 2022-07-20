@@ -3,20 +3,19 @@ import { useNavigate } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import axios from "axios";
 import UploadHeader from "../../components/header/UploadHeader";
-import ImgFilePreview from "./ImgFilePreview";
+import PreviewImgList from "./previewImgList/PreviewImgList";
 import UploadIconBtn from "../../components/button/UploadIconBtn";
 import "./UploadPostPage.scss";
 
 function Upload() {
   const { token, myAccountname } = useContext(UserContext);
-  const [postText, setPostText] = useState("");
-  const [isActive, setisActive] = useState(false);
   const [profileImg, setProfileImg] = useState(null);
-  const [fileName, setFileName] = useState([]);
-  const [imgFileList, setImgFileList] = useState([]);
+  const [isActive, setIsActive] = useState(false);
+  const [postText, setPostText] = useState("");
+  const [fileName, setFileName] = useState([]); //api에서 인코딩한 파일이름
+  const [previewImgUrl, setPreviewImgUrl] = useState([]); //미리보기 이미지 src
 
   const navigate = useNavigate();
-  const previewImg = useRef();
   const textRef = useRef();
 
   function handleResizeHeight() {
@@ -27,9 +26,9 @@ function Upload() {
   function handleText(e) {
     setPostText(e.target.value);
     if (e.target.value.length > 0) {
-      setisActive(true);
-    } else {
-      setisActive(false);
+      setIsActive(true);
+    } else if (e.target.value.length == 0 && fileName.length == 0) {
+      setIsActive(false);
     }
   }
 
@@ -48,7 +47,7 @@ function Upload() {
         );
         setProfileImg(response.data.profile.image);
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     }
     getImg();
@@ -59,36 +58,49 @@ function Upload() {
     const loadImg = e.target.files;
     const formData = new FormData();
     formData.append("image", loadImg[0]);
-
     if (fileName.length < 3) {
-      setImgFileList([...imgFileList, loadImg[0]]);
       getImgUrl(formData, loadImg);
     } else {
       alert("3개 이하의 파일을 업로드 해주세요.");
     }
   }
 
-  console.log(imgFileList);
-
+  //이미지 파일 인코딩된 스트링 데이터 얻기
   async function getImgUrl(formData, loadImg) {
     try {
       const res = await axios.post(
         "https://mandarin.api.weniv.co.kr/image/uploadfiles",
         formData
       );
-      setFileName([...fileName, res.data[0].filename]);
+      setFileName([
+        ...fileName,
+        "https://mandarin.api.weniv.co.kr/" + res.data[0].filename,
+      ]);
       preview(loadImg);
     } catch (err) {
       console.error(err);
     }
-    return fileName;
   }
 
+  //이미지 파일 미리보기
   function preview(loadImg) {
     const reader = new FileReader();
-    reader.onload = () =>
-      (previewImg.current.style.backgroundImage = `url(${reader.result})`);
     reader.readAsDataURL(loadImg[0]);
+    reader.onload = () => {
+      setPreviewImgUrl([...previewImgUrl, reader.result]);
+    };
+    setIsActive(true);
+  }
+
+  //이미지 미리보기 및 파일 삭제
+  function deletePreview(e) {
+    setPreviewImgUrl(
+      previewImgUrl.filter((el, idx) => e.target.id !== String(idx))
+    );
+    setFileName(fileName.filter((el, idx) => e.target.id !== String(idx)));
+    if (postText.length == 0 && fileName.length <= 1) {
+      setIsActive(false);
+    }
   }
 
   //게시글 업로드 버튼 클릭 시 POST
@@ -97,7 +109,7 @@ function Upload() {
     const postData = {
       post: {
         content: postText,
-        image: "",
+        image: fileName.join(","),
       },
     };
     async function sendPost() {
@@ -147,7 +159,7 @@ function Upload() {
               onChange={handleImgInput}
             />
           </form>
-          <ImgFilePreview ref={previewImg} mapdata={imgFileList} />
+          <PreviewImgList mapdata={previewImgUrl} onClick={deletePreview} />
         </div>
       </div>
     </>
