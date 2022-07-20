@@ -3,11 +3,13 @@ import UserContext from "../../context/UserContext";
 import axios from "axios";
 import ImageTestContext from "../../context/ImageTestContext";
 import "./PageFooter.scss";
+import { useEffect } from "react";
 
 function CommentFooter({ postid, post, setNewComment }) {
   const { token, myImage } = useContext(UserContext);
   const { ImageTest } = useContext(ImageTestContext);
   const [comment, setComment] = useState();
+  const [valid, setValid] = useState(false);
   const commentinput = useRef();
 
   const img = post && ImageTest(myImage);
@@ -18,6 +20,9 @@ function CommentFooter({ postid, post, setNewComment }) {
   function handleChange(e) {
     setComment(e.target.value);
   }
+  useEffect(() => {
+    comment && comment.length > 0 ? setValid(true) : setValid(false);
+  }, [comment]);
 
   async function UploadComment() {
     const authToken = "Bearer " + token;
@@ -36,7 +41,7 @@ function CommentFooter({ postid, post, setNewComment }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    UploadComment();
+    valid && UploadComment();
     setComment("");
     commentinput.current.value = "";
   }
@@ -57,7 +62,7 @@ function CommentFooter({ postid, post, setNewComment }) {
             onChange={handleChange}
             ref={commentinput}
           />
-          <button type="submit" className="btn-send-footer">
+          <button type="submit" className={`btn-send-footer ${valid}`}>
             게시
           </button>
         </form>

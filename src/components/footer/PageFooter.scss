@@ -35,9 +35,16 @@
     }
   }
   .btn-send-footer {
-    color: $search-placeholder-color;
     font-family: $medium-font;
     font-size: 14px;
-    cursor: pointer;
+    &.false {
+      color: $search-placeholder-color;
+      pointer-events: none;
+    }
+    &.true {
+      color: $primary-color;
+      cursor: pointer;
+      pointer-events: all;
+    }
   }
 }
