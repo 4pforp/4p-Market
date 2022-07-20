@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 import axios from "axios";
-import UploadPic from "./UploadPic";
+import UploadImg from "./UploadImg";
 
 function EditInfo({
   setIsActive,
@@ -90,7 +90,7 @@ function EditInfo({
 
   return (
     <>
-      <UploadPic setImage={setImage} image={image} />
+      <UploadImg setImage={setImage} image={image} />
       <div className="-container-input-info">
         <div className="wrapper-username">
           <label htmlFor="input-username" className="label-username">

@@ -2,7 +2,7 @@ import { React, useRef } from "react";
 import axios from "axios";
 import PictureIcon from "../../../assets/upload-file.svg";
 
-function UploadPic({ image, setImage }) {
+function UploadImg({ image, setImage }) {
   const previewImage = useRef();
 
   // 이미지 filename 응답 받기
@@ -19,7 +19,9 @@ function UploadPic({ image, setImage }) {
         "https://mandarin.api.weniv.co.kr/image/uploadfile",
         formData,
         {
-          "Content-Type": "multipart/form-data",
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
         }
       );
       if (res.data.filename) {
@@ -59,4 +61,4 @@ function UploadPic({ image, setImage }) {
   );
 }
 
-export default UploadPic;
+export default UploadImg;

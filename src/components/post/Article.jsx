@@ -68,16 +68,19 @@ function Article({ content, from }) {
 
         <main className="contents-post">
           <p className="text-post">{post.content}</p>
-          <div className="container-post-image">
-            {post.image === "" ? null : (
-              <img
-                src={img}
-                alt="게시글 사진"
-                onError={handleImageError}
-                className="img-post"
-              />
-            )}
-          </div>
+          {post.image === "" ? null : (
+            <Link to={"/" + accountname + "/" + post.id}>
+              <div className="container-post-image">
+                <img
+                  src={img}
+                  alt="게시글 사진"
+                  onError={handleImageError}
+                  className="img-post"
+                />
+              </div>
+            </Link>
+          )}
+
           <div className="container-btn-post">
             <LikeBtn heartcount={post.heartcount} postid={post.id} />
             <CommentBtn

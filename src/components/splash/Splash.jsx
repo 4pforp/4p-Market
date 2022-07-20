@@ -8,6 +8,7 @@ function Splash() {
   const timeout = () => {
     setTimeout(() => {
       setBlindSplash(!blindSplash);
+      sessionStorage.setItem("splash", true);
       return null;
     }, 3000);
   };
@@ -20,7 +21,6 @@ function Splash() {
 
   if (blindSplash === false) {
     timeout();
-    sessionStorage.setItem("splash", true);
     return <Logo />;
   } else {
     return null;
