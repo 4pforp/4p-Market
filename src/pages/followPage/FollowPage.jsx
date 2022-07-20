@@ -17,7 +17,6 @@ function FollowPage() {
   const [view, setView] = useState("pending");
 
   useEffect(() => {
-    const authToken = "Bearer " + token;
     const url =
       "https://mandarin.api.weniv.co.kr/profile/" +
       accountname +
@@ -27,7 +26,7 @@ function FollowPage() {
       try {
         const res = await axios.get(url, {
           headers: {
-            Authorization: authToken,
+            Authorization: token,
             "Content-type": "application/json",
           },
         });
@@ -39,7 +38,7 @@ function FollowPage() {
     }
     // 잘못된 url 예외처리
     if (followtype === "follower" || followtype === "following") {
-      getFollowList();
+      accountname && getFollowList();
     } else {
       setView("false");
     }
