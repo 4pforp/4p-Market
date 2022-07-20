@@ -67,7 +67,7 @@ function EmailLoginPage() {
       } else {
         // 로그인 유지 기능
         localStorage.setItem("token", data.user.token);
-        setToken(localStorage.getItem("token"));
+        setToken("Bearer " + localStorage.getItem("token"));
         setIsWrong(false);
         navigate("/");
       }

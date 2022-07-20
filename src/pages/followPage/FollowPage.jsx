@@ -34,7 +34,6 @@ function FollowPage() {
         setFollowList(res.data);
         setView("true");
       } catch (err) {
-        console.error(err);
         setView("false");
       }
     }

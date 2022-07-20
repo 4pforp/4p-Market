@@ -40,7 +40,7 @@ function Upload() {
           "https://mandarin.api.weniv.co.kr/profile/" + myAccountname,
           {
             headers: {
-              Authorization: `Bearer ${token}`,
+              Authorization: token,
               "Content-type": "application/json",
             },
           }
@@ -119,7 +119,7 @@ function Upload() {
           postData,
           {
             headers: {
-              Authorization: `Bearer ${token}`,
+              Authorization: token,
               "Content-type": "application/json",
             },
           }

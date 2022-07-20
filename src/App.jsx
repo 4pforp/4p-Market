@@ -1,5 +1,6 @@
-import { React, useContext } from "react";
+import { React, useContext, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import axios from "axios";
 import UserContext, { UserContextProvider } from "./context/UserContext";
 import { ImageTestContextProvider } from "./context/ImageTestContext";
 import HomePage from "./pages/homePage/HomePage";
@@ -19,7 +20,44 @@ import "./components/style/reset.scss";
 import "./App.scss";
 
 function Main() {
-  const { token } = useContext(UserContext);
+  const { token, setToken, setMyAccountname, setMyImage } =
+    useContext(UserContext);
+  useEffect(() => {
+    // 1. 토큰 유효 확인
+    async function getTokenIsValid() {
+      const url = "https://mandarin.api.weniv.co.kr/user/checktoken";
+      try {
+        const res = await axios.get(url, {
+          headers: {
+            Authorization: token,
+            "Content-type": "application/json",
+          },
+        });
+        getAccountname();
+      } catch (err) {
+        setToken(null);
+      }
+    }
+    // 2. 나의 accountname 요청
+    async function getAccountname() {
+      const url = "https://mandarin.api.weniv.co.kr/user/myinfo";
+      try {
+        const res = await axios.get(url, {
+          headers: {
+            Authorization: token,
+            "Content-type": "application/json",
+          },
+        });
+        // 3. 나의 image, accountname 전역변수 지정
+        setMyImage(res.data.user.image);
+        setMyAccountname(res.data.user.accountname);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    token && getTokenIsValid();
+  }, [token]);
+
   return (
     <div className="App">
       <BrowserRouter>

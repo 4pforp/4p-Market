@@ -15,7 +15,7 @@ function UserProduct({ accountname }) {
           "https://mandarin.api.weniv.co.kr/product/" + accountname,
           {
             headers: {
-              Authorization: `Bearer ${token}`,
+              Authorization: token,
               "Content-type": "application/json",
             },
           }
