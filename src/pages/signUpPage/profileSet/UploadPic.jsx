@@ -19,7 +19,9 @@ function UploadPic({ image, setImage }) {
         "https://mandarin.api.weniv.co.kr/image/uploadfile",
         formData,
         {
-          "Content-Type": "multipart/form-data",
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
         }
       );
       if (res.data.filename) {
