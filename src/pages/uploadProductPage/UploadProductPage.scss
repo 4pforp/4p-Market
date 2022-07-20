@@ -11,11 +11,15 @@
     border: 0.5px solid $line-color;
     border-radius: 10px;
     background-color: $search-input-color;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     .label-upload-icon {
       position: absolute;
       right: 0;
       bottom: 0;
       padding: 0 12px 8px 0;
+      cursor: pointer;
     }
   }
   .wrapper-productname {
