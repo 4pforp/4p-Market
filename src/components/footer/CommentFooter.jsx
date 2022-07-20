@@ -4,14 +4,13 @@ import axios from "axios";
 import ImageTestContext from "../../context/ImageTestContext";
 import "./PageFooter.scss";
 
-function CommentFooter({ postid, post, setNewComment, newComment }) {
-  const { token } = useContext(UserContext);
+function CommentFooter({ postid, post, setNewComment }) {
+  const { token, myImage } = useContext(UserContext);
   const { ImageTest } = useContext(ImageTestContext);
   const [comment, setComment] = useState();
   const commentinput = useRef();
 
-  // TODO token API 요청 수정되면 post.author.image 말고 내 이미지 넣기! by 현지
-  const img = post && ImageTest(post.author.image);
+  const img = post && ImageTest(myImage);
   const imgStyle = {
     backgroundImage: `url(${img})`,
   };

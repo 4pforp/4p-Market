@@ -12,7 +12,7 @@ import pendingImg from "../../assets/logo_loading_purple.svg";
 import "./HomePage.scss";
 
 function HomePage() {
-  const { token, setMyAccountname } = useContext(UserContext);
+  const { token, setMyAccountname, setMyImage } = useContext(UserContext);
   const [posts, setPosts] = useState();
   const [view, setView] = useState("pending");
   const [tokenIsValid, setTokenIsValid] = useState();
@@ -29,6 +29,7 @@ function HomePage() {
             "Content-type": "application/json",
           },
         });
+        setMyImage(res.data.user.image);
         setMyAccountname(res.data.user.accountname);
         getPost();
       } catch (err) {
@@ -37,7 +38,8 @@ function HomePage() {
     }
     token && getTokenIsValid();
     tokenIsValid && getAccountname();
-  });
+  }, [token, setMyAccountname, setMyImage, tokenIsValid]);
+
   async function getTokenIsValid() {
     const authToken = "Bearer " + token;
     const url = "https://mandarin.api.weniv.co.kr/user/checktoken";
