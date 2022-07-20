@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import axios from "axios";
 import CommonHeader from "../../components/header/CommonHeader";
-import DefaultModal from "../../components/modal/contents/DefaultModal";
 import Article from "../../components/post/Article";
 import NotFound from "../../components/notFound/NotFound";
 import CommentList from "./comment/CommentList";
@@ -41,8 +40,7 @@ function PostDetailPage() {
 
   return (
     <>
-      {onModal && <DefaultModal setOnModal={(bool) => setOnModal(bool)} />}
-      <CommonHeader handleClick={() => setOnModal(true)} />
+      <CommonHeader />
       {view === "true" && (
         <>
           <main className="container-comment-page">
