@@ -4,7 +4,6 @@ import UserContext from "../../context/UserContext";
 import axios from "axios";
 import CommonHeader from "../../components/header/CommonHeader";
 import MainFooter from "../../components/footer/MainFooter";
-import DefaultModal from "../../components/modal/contents/DefaultModal";
 import NotFound from "../../components/notFound/NotFound";
 import UserHeader from "./userHeader/UserHeader";
 import UserProducts from "./userProduct/UserProduct";
@@ -61,11 +60,7 @@ function ProfilePage() {
 
   return (
     <>
-      {/* 조건부 렌더링 */}
-      {onModal && <DefaultModal setOnModal={(bool) => setOnModal(bool)} />}
-
-      <CommonHeader handleClick={() => setOnModal(true)} />
-
+      <CommonHeader />
       <main className="container-profile-page">
         <h1 className="a11y-hidden">{user.username + "의 프로필"}</h1>
         {view === "true" && (

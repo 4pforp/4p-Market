@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import ModalPortal from "../../common/ModalPortal";
+import ModalPortal from "../../modalBase/ModalPortal";
 import "../Alert.scss";
 
 function AlertFrame({ children, text }) {

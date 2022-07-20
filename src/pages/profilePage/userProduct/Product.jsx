@@ -1,19 +1,28 @@
 import { useState } from "react";
-import ProductModal from "../../../components/modal/contents/ProductModal";
+import ProductModal from "../../../components/modal/modals/ProductModal";
 
 function Product({ id, mapdata }) {
   const [onModal, setOnModal] = useState(false);
 
+  function handleModal() {
+    setOnModal(!onModal);
+  }
+  function openModal() {
+    setOnModal(true);
+  }
+
   return (
     <>
-      {/* 모달 조건부렌더링 위한 함수 */}
-      {onModal && <ProductModal setOnModal={(bool) => setOnModal(bool)} />}
+      {onModal && (
+        <ProductModal setOnModal={handleModal} />
+      )}
+
       {mapdata.map((product, idx) => {
         return (
           <li
             key={product.author._id}
             className="item-product"
-            onClick={() => setOnModal(true)}
+            onClick={openModal}
           >
             <img src={product.itemImage} alt="" className="img-product" />
             <strong className="text-product">{product.itemName}</strong>
@@ -28,3 +37,4 @@ function Product({ id, mapdata }) {
 }
 
 export default Product;
+

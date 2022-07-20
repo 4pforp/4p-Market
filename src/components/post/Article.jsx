@@ -5,7 +5,7 @@ import CommentBtn from "../button/CommentBtn";
 import LikeBtn from "../button/LikeBtn";
 import UserMoreBtn from "../button/UserMoreBtn";
 import UserInfoBox from "../user/UserInfoBox";
-import PostModal from "../modal/contents/PostModal";
+import PostModal from "../modal/modals/PostModal";
 import errorImage from "../../assets/image_error.png";
 import "./Post.scss";
 
@@ -16,10 +16,17 @@ function Article({ content, from }) {
   const accountname = author.accountname;
   const createAt = new Date(content.createdAt);
   const [onModal, setOnModal] = useState(false);
+
   const img = ImageTest(post.image);
 
   function handleImageError(e) {
     e.target.src = errorImage;
+  }
+  function handleModal() {
+    setOnModal(!onModal);
+  }
+  function openModal() {
+    setOnModal(true);
   }
 
   return (
@@ -90,10 +97,8 @@ function Article({ content, from }) {
               "일"}
           </strong>
         </main>
-        {/* 모달 조건부렌더링 위한 함수 */}
-        {onModal && <PostModal setOnModal={(bool) => setOnModal(bool)} />}
-
-        <UserMoreBtn handleClick={() => setOnModal(true)} />
+        {onModal && <PostModal setOnModal={handleModal} content={content} />}
+        <UserMoreBtn handleClick={openModal} />
       </article>
     </>
   );
