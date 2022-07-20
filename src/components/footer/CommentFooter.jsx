@@ -31,7 +31,7 @@ function CommentFooter({ postid, post, setNewComment, newComment }) {
           "Content-type": "application/json",
         },
       });
-      setNewComment(!newComment);
+      setNewComment(false);
     } catch (err) {}
   }
 
