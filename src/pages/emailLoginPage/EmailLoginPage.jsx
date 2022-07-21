@@ -10,7 +10,7 @@ function EmailLoginPage() {
   const [password, setPassword] = useState("");
   const [isActive, setIsActive] = useState(false);
   const [isWrong, setIsWrong] = useState(false);
-  const { setToken, setMyAccountname } = useContext(UserContext);
+  const { setToken, setInitialToken } = useContext(UserContext);
 
   const inputRef = useRef();
   const navigate = useNavigate();
@@ -67,7 +67,8 @@ function EmailLoginPage() {
       } else {
         // 로그인 유지 기능
         localStorage.setItem("token", data.user.token);
-        setToken(localStorage.getItem("token"));
+        setInitialToken(localStorage.getItem("token"));
+        setToken("Bearer " + localStorage.getItem("token"));
         setIsWrong(false);
         navigate("/");
       }

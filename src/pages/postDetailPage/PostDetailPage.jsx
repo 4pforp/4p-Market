@@ -18,13 +18,12 @@ function PostDetailPage() {
   const [view, setView] = useState("pending");
 
   useEffect(() => {
-    const authToken = "Bearer " + token;
     const url = "https://mandarin.api.weniv.co.kr/post/" + postid;
     async function getComment() {
       try {
         const res = await axios.get(url, {
           headers: {
-            Authorization: authToken,
+            Authorization: token,
             "Content-type": "application/json",
           },
         });

@@ -6,6 +6,8 @@ import "./UserProduct.scss";
 
 function UserProduct({ accountname }) {
   const { token } = useContext(UserContext);
+  const { myAccountname } = useContext(UserContext);
+
   const [productResult, setProductResult] = useState([]);
 
   useEffect(() => {
@@ -15,7 +17,7 @@ function UserProduct({ accountname }) {
           "https://mandarin.api.weniv.co.kr/product/" + accountname,
           {
             headers: {
-              Authorization: `Bearer ${token}`,
+              Authorization: token,
               "Content-type": "application/json",
             },
           }
@@ -36,7 +38,11 @@ function UserProduct({ accountname }) {
           <div className="wrapper-product">
             <h3>판매 중인 상품</h3>
             <ol className="list-products">
-              <Product id="product1" mapdata={productResult} />
+              <Product
+                id="product1"
+                mapdata={productResult}
+                accountname={accountname}
+              />
             </ol>
           </div>
         </section>

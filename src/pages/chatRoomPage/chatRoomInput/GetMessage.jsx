@@ -8,9 +8,11 @@ function GetMessage({ chat, time }) {
     <>
       <section className="wrapper-message">
         <h2 className="a11y-hidden">메세지</h2>
-        {/* 유저 accountname 받아오기 */}
-        <Link to="/accountname">
-          <UserInfoBox type="message" />
+        <Link to="/4p_waterbin">
+          <UserInfoBox
+            type="message"
+            img="https://bunny.jjalbot.com/2022/02/d8RfM5c0g.jpeg"
+          />
         </Link>
         <div className="wrapper-text-message">
           <p className="text-message">{chat}</p>

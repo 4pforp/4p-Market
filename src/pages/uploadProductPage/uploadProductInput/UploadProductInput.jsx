@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { useEffect } from "react";
 
 function ProdcutInput({
@@ -10,6 +11,7 @@ function ProdcutInput({
   setIsActive,
   setIsDisabled,
 }) {
+
   // 저장 버튼활성화 기능
   useEffect(() => {
     if (itemName.length > 1 && price.length !== 0 && link.length !== 0) {
@@ -43,6 +45,8 @@ function ProdcutInput({
   function handleChangeSaleLink(e) {
     setLink(e.target.value);
   }
+
+  
   return (
     <>
       <div className="container-input-product">

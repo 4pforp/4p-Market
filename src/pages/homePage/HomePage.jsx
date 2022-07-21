@@ -12,76 +12,36 @@ import pendingImg from "../../assets/logo_loading_purple.svg";
 import "./HomePage.scss";
 
 function HomePage() {
-  const { token, setMyAccountname, setMyImage } = useContext(UserContext);
+  const { token, initialToken } = useContext(UserContext);
   const [posts, setPosts] = useState();
   const [view, setView] = useState("pending");
-  const [tokenIsValid, setTokenIsValid] = useState();
 
   useEffect(() => {
-    // 나의 accountname 받아오기
-    async function getAccountname() {
-      const authToken = "Bearer " + token;
-      const url = "https://mandarin.api.weniv.co.kr/user/myinfo";
+    async function getPost() {
+      // 팔로잉 유저의 포스트 받아오기
+      const url = "https://mandarin.api.weniv.co.kr/post/feed";
+
       try {
         const res = await axios.get(url, {
           headers: {
-            Authorization: authToken,
+            Authorization: token,
             "Content-type": "application/json",
           },
         });
-        setMyImage(res.data.user.image);
-        setMyAccountname(res.data.user.accountname);
-        getPost();
+        setPosts(res.data.posts);
+        setView("true");
       } catch (err) {
         console.error(err);
+        setView("false");
       }
     }
-    token && getTokenIsValid();
-    tokenIsValid && getAccountname();
-  }, [token, setMyAccountname, setMyImage, tokenIsValid]);
-
-  async function getTokenIsValid() {
-    const authToken = "Bearer " + token;
-    const url = "https://mandarin.api.weniv.co.kr/user/checktoken";
-    try {
-      const res = await axios.get(url, {
-        headers: {
-          Authorization: authToken,
-          "Content-type": "application/json",
-        },
-      });
-      setTokenIsValid(res.data.isValid);
-    } catch (err) {
-      console.error(err);
-    }
-  }
-
-  async function getPost() {
-    // 팔로잉 유저의 포스트 받아오기
-    const url = "https://mandarin.api.weniv.co.kr/post/feed";
-    const authToken = "Bearer " + token;
-
-    try {
-      const res = await axios.get(url, {
-        headers: {
-          Authorization: authToken,
-          "Content-type": "application/json",
-        },
-      });
-      setPosts(res.data.posts);
-      setView("true");
-    } catch (err) {
-      console.error(err);
-      setView("false");
-    }
-  }
-
+    initialToken && getPost();
+  }, [initialToken]);
   return (
     <>
-      {sessionStorage.getItem("splash") || <Splash />}
-      {sessionStorage.getItem("splash") && null}
+      {sessionStorage.getItem("splash") ? null : <Splash />}
 
-      {token ? (
+      {initialToken ? (
         <>
           <MainHeader />
           {view === "true" && posts && posts.length > 0 && (

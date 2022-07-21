@@ -17,7 +17,7 @@ function QuitChatModal({ setOnModal }) {
     <>
       {onAlert && (
         <>
-          <QuitChatAlert handleClick={handleCancel} />
+          <QuitChatAlert handleCancel={handleCancel} />
         </>
       )}
       <ModalFrame setOnModal={setOnModal}>

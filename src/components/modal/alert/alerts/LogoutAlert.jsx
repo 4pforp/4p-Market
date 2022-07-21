@@ -1,17 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import CancelBtn from "../alertBase/CancelBtn";
 import AlertBtn from "../alertBase/AlertBtn";
 import AlertFrame from "../alertBase/AlertFrame";
 
-function LogoutAlert({ handleClick }) {
-  const [onAlert, setOnAlert] = useState(false);
-
+function LogoutAlert({ handleCancel }) {
   const navigate = useNavigate();
 
-  function closeAlert() {
-    setOnAlert(false);
-  }
+  //로그아웃 기능 함수
   function handleLogout() {
     window.localStorage.clear();
     navigate("/login");
@@ -20,7 +16,7 @@ function LogoutAlert({ handleClick }) {
   return (
     <>
       <AlertFrame text="로그아웃 하시겠어요?">
-        <CancelBtn handleClick={handleClick} />
+        <CancelBtn handleCancel={handleCancel} />
         <AlertBtn handleClick={handleLogout}>로그아웃</AlertBtn>
       </AlertFrame>
     </>

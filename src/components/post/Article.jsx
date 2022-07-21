@@ -18,6 +18,7 @@ function Article({ content, from }) {
   const [onModal, setOnModal] = useState(false);
 
   const img = ImageTest(post.image);
+  const imgArray = img.split(",");
 
   function handleImageError(e) {
     e.target.src = errorImage;
@@ -71,18 +72,25 @@ function Article({ content, from }) {
           {post.image === "" ? null : (
             <Link to={"/" + accountname + "/" + post.id}>
               <div className="container-post-image">
-                <img
-                  src={img}
-                  alt="게시글 사진"
-                  onError={handleImageError}
-                  className="img-post"
-                />
+                {imgArray.map((img, i) => (
+                  <img
+                    key={i}
+                    src={img}
+                    alt="게시글 사진"
+                    onError={handleImageError}
+                    className="img-post"
+                  />
+                ))}
               </div>
             </Link>
           )}
 
           <div className="container-btn-post">
-            <LikeBtn heartcount={post.heartcount} postid={post.id} />
+            <LikeBtn
+              heartcount={post.heartCount}
+              hearted={post.hearted}
+              postid={post.id}
+            />
             <CommentBtn
               commentcount={post.commentCount}
               postid={post.id}

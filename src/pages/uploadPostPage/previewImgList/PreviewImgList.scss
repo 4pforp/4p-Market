@@ -3,20 +3,23 @@
 .container-photo-upload {
   display: flex;
   gap: 8px;
-  overflow: hidden;
+  max-width: 520px;
   .list-photo-upload {
     position: relative;
-    width: 304px;
-    height: 228px;
+    flex-shrink: 0;
+    width: 32.433%;
+    height: 126px;
     border: 0.5px solid $line-color;
     border-radius: 10px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    &:only-child {
+      width: 304px;
+      height: 228px;
+    }
   }
-  .list-photo-upload.blind {
-    display: none;
-  }
+
   .btn-remove-img {
     position: absolute;
     top: 0;

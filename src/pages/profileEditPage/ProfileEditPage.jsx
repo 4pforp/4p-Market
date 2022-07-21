@@ -60,7 +60,7 @@ function ProfileEditPage() {
         updatedProfile,
         {
           headers: {
-            Authorization: authToken,
+            Authorization: token,
             "Content-Type": "application/json",
           },
         }

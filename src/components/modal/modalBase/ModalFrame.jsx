@@ -3,6 +3,7 @@ import ModalPortal from "./ModalPortal";
 import "../Modal.scss";
 
 function ModalFrame({ setOnModal, children }) {
+
   function handleCloseModal() {
     setOnModal(false);
   }

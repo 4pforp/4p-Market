@@ -8,19 +8,19 @@ import "./UserPost.scss";
 function UserPost({ accountname, from }) {
   const { token } = useContext(UserContext);
   const [post, setPost] = useState();
+  const [reloadePost, setReloadPost] = useState(true);
   const [postView, setPostView] = useState("list");
   const [listClicked, setListClicked] = useState("on");
   const [albumClicked, setAlbumClicked] = useState("off");
 
   useEffect(() => {
-    const authToken = "Bearer " + token;
     const url =
       "https://mandarin.api.weniv.co.kr/post/" + accountname + "/userpost";
     async function getPost() {
       try {
         const res = await axios.get(url, {
           headers: {
-            Authorization: authToken,
+            Authorization: token,
             "Content-type": "application/json",
           },
         });
@@ -30,7 +30,7 @@ function UserPost({ accountname, from }) {
       }
     }
     getPost();
-  }, [accountname, token]);
+  }, [accountname, token, setReloadPost]);
 
   function handleClick(e) {
     if (e.target.classList.contains("list")) {

@@ -5,7 +5,6 @@ import "./FollowBtn.scss";
 
 function FollowBtn({ text, size, setUser, user }) {
   const { token } = useContext(UserContext);
-  const authToken = "Bearer " + token;
 
   function handleClick() {
     if (user.isfollow) {
@@ -16,7 +15,7 @@ function FollowBtn({ text, size, setUser, user }) {
       axios
         .delete(url, {
           headers: {
-            Authorization: authToken,
+            Authorization: token,
             "Content-type": "application/json",
           },
         })
@@ -38,7 +37,7 @@ function FollowBtn({ text, size, setUser, user }) {
       axios
         .post(url, [], {
           headers: {
-            Authorization: authToken,
+            Authorization: token,
             "Content-type": "application/json",
           },
         })

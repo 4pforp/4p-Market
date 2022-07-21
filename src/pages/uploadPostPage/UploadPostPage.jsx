@@ -5,11 +5,12 @@ import axios from "axios";
 import UploadHeader from "../../components/header/UploadHeader";
 import PreviewImgList from "./previewImgList/PreviewImgList";
 import UploadIconBtn from "../../components/button/UploadIconBtn";
+import defaultProfile from "../../assets/4p_profile.png";
 import "./UploadPostPage.scss";
 
 function Upload() {
   const { token, myAccountname } = useContext(UserContext);
-  const [profileImg, setProfileImg] = useState(null);
+  const [profileImg, setProfileImg] = useState(defaultProfile);
   const [isActive, setIsActive] = useState(false);
   const [postText, setPostText] = useState("");
   const [fileName, setFileName] = useState([]); //api에서 인코딩한 파일이름
@@ -27,7 +28,7 @@ function Upload() {
     setPostText(e.target.value);
     if (e.target.value.length > 0) {
       setIsActive(true);
-    } else if (e.target.value.length == 0 && fileName.length == 0) {
+    } else if (e.target.value.length === 0 && fileName.length === 0) {
       setIsActive(false);
     }
   }
@@ -40,7 +41,7 @@ function Upload() {
           "https://mandarin.api.weniv.co.kr/profile/" + myAccountname,
           {
             headers: {
-              Authorization: `Bearer ${token}`,
+              Authorization: token,
               "Content-type": "application/json",
             },
           }
@@ -50,8 +51,8 @@ function Upload() {
         console.error(err);
       }
     }
-    getImg();
-  }, []);
+    myAccountname && getImg();
+  }, [myAccountname]);
 
   //이미지 파일 업로드
   function handleImgInput(e) {
@@ -98,7 +99,7 @@ function Upload() {
       previewImgUrl.filter((el, idx) => e.target.id !== String(idx))
     );
     setFileName(fileName.filter((el, idx) => e.target.id !== String(idx)));
-    if (postText.length == 0 && fileName.length <= 1) {
+    if (postText.length === 0 && fileName.length <= 1) {
       setIsActive(false);
     }
   }
@@ -119,7 +120,7 @@ function Upload() {
           postData,
           {
             headers: {
-              Authorization: `Bearer ${token}`,
+              Authorization: token,
               "Content-type": "application/json",
             },
           }

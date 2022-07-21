@@ -1,17 +1,22 @@
 import React from "react";
+import useReport from "../../../../hooks/useReport";
 import CancelBtn from "../alertBase/CancelBtn";
 import AlertBtn from "../alertBase/AlertBtn";
 import AlertFrame from "../alertBase/AlertFrame";
 
-function ReportAlert({ handleClick }) {
+function ReportAlert({ handleCancel, backUrl }) {
+  //신고기능 구현 메서드
+  const { report } = useReport();
   function handleReport() {
-    console.log("신고하기");
+    //report :  useReport hook 의 매개변수 받는 함수
+    report(backUrl);
+    handleCancel();
   }
 
   return (
     <>
       <AlertFrame text="신고하시겠어요?">
-        <CancelBtn handleClick={handleClick} />
+        <CancelBtn handleCancel={handleCancel} />
         <AlertBtn handleClick={handleReport}>신고</AlertBtn>
       </AlertFrame>
     </>

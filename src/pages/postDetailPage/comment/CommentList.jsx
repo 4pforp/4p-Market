@@ -17,7 +17,6 @@ function CommentList({ postid, post }) {
   useEffect(() => {
     // 실시간 업로드 댓글 반영 함수
     async function getNewComments() {
-      const authToken = "Bearer " + token;
       const url =
         "https://mandarin.api.weniv.co.kr/post/" +
         postid +
@@ -27,7 +26,7 @@ function CommentList({ postid, post }) {
       try {
         const res = await axios.get(url, {
           headers: {
-            Authorization: authToken,
+            Authorization: token,
             "Content-type": "application/json",
           },
         });
@@ -59,7 +58,6 @@ function CommentList({ postid, post }) {
 
     // 스크롤시 데이터 추가 요청 함수
     async function getComments() {
-      const authToken = "Bearer " + token;
       const url =
         "https://mandarin.api.weniv.co.kr/post/" +
         postid +
@@ -69,7 +67,7 @@ function CommentList({ postid, post }) {
       try {
         const res = await axios.get(url, {
           headers: {
-            Authorization: authToken,
+            Authorization: token,
             "Content-type": "application/json",
           },
         });
@@ -110,7 +108,11 @@ function CommentList({ postid, post }) {
     <>
       <div className="container-comments" ref={Container}>
         <ul className="list-comments">
-          <Comment comments={comments} />
+          <Comment
+            comments={comments}
+            postid={postid}
+            setNewComment={setNewComment}
+          />
         </ul>
       </div>
       <CommentFooter
