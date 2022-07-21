@@ -20,7 +20,7 @@ import "./components/style/reset.scss";
 import "./App.scss";
 
 function Main() {
-  const { token, setToken, setMyAccountname, setMyImage } =
+  const { initialToken, token, setToken, setMyAccountname, setMyImage } =
     useContext(UserContext);
   useEffect(() => {
     // 1. 토큰 유효 확인
@@ -55,8 +55,8 @@ function Main() {
         console.error(err);
       }
     }
-    token && getTokenIsValid();
-  }, [token]);
+    initialToken && getTokenIsValid();
+  }, [initialToken]);
 
   return (
     <div className="App">
