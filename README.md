@@ -1,9 +1,6 @@
 <h1>📌 개요</h1>
 
-## 뽀삐뽀삐
-
-<br>
-배포 Url:
+### 뽀삐뽀삐
 
 ```
 🐤 '뽀삐뽀삐'란 저희 팀이름인 '4P(뽀피)'와 사람들이 흔히 이름짓는 강아지 이름인 '뽀삐'의 의미를 가지고 있습니다.
@@ -23,27 +20,25 @@
 ```
 
 </br>
-</br>
 
 <h1> 팀원 소개 👩🏻👩🏻👨🏻👩🏻 💖 </h1>
 
-|                                                                **FE 김세훈**                                                                 |                                                               **FE 박소현**                                                                |                                                                  **FE 이수빈**                                                                  |                                                              **FE 임현지**                                                              |
-| :------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------: |
-|                            <img src="https://avatars.githubusercontent.com/u/70246174?v=4" height=180 width=180>                             |                           <img src="https://avatars.githubusercontent.com/u/100866731?v=4" height=180 width=180>                           |                              <img src="https://avatars.githubusercontent.com/u/96714788?v=4" height=180 width=180>                              | <img src="https://user-images.githubusercontent.com/70246174/180105374-342eea71-d346-4aa8-ad64-6385f84d8a10.jpeg" height=180 width=180> |
-|              **blog**: [for-it-study](https://for-it-study.tistory.com/) </br> **github**: [Hun-Se](https://github.com/Hun-Se)               |   **blog**: [doridori-samsam](https://doridori-samsam.tistory.com/) </br> **github**: [Sohyun Park](https://github.com/doridori-samsam)    |               **blog**: [waterbin.log](https://velog.io/@ewaterbin) </br> **github**: [Subin Lee](https://github.com/waterbinnn)                |       **blog**: [usablepaper.log](https://velog.io/@usablepaper) </br> **github**: [Hyeonji Lim](https://github.com/usablepaper)        |
-| ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb) ![WorkManagement](https://img.shields.io/badge/-Work%20Management%20leader-f67280) | ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb) ![Development%20Leader](https://img.shields.io/badge/-Develoment%20leader-green) | ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb) ![Communication%20Leader](https://img.shields.io/badge/-Comunication%20Leader-orange) |    ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb) ![Development](https://img.shields.io/badge/-Develoment%20leader-green)    |
+|                                                                   **FE 김세훈**                                                                   |                                                                  **FE 박소현**                                                                   |                                                                    **FE 이수빈**                                                                     |                                                              **FE 임현지**                                                              |
+| :-----------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------: |
+|                               <img src="https://avatars.githubusercontent.com/u/70246174?v=4" height=180 width=180>                               |     <img src="https://user-images.githubusercontent.com/70246174/180110026-d0d334b0-cfb8-4fc3-9224-1edfe5139e96.jpeg" height=180 width=180>      |                                <img src="https://avatars.githubusercontent.com/u/96714788?v=4" height=180 width=180>                                 | <img src="https://user-images.githubusercontent.com/70246174/180105374-342eea71-d346-4aa8-ad64-6385f84d8a10.jpeg" height=180 width=180> |
+|                 **blog**: [for-it-study](https://for-it-study.tistory.com/) </br> **github**: [Hun-Se](https://github.com/Hun-Se)                 |      **blog**: [doridori-samsam](https://doridori-samsam.tistory.com/) </br> **github**: [Sohyun Park](https://github.com/doridori-samsam)       |                  **blog**: [waterbin.log](https://velog.io/@ewaterbin) </br> **github**: [Subin Lee](https://github.com/waterbinnn)                  |       **blog**: [usablepaper.log](https://velog.io/@usablepaper) </br> **github**: [Hyeonji Lim](https://github.com/usablepaper)        |
+| ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb)</br> ![WorkManagement](https://img.shields.io/badge/-Work%20Management%20leader-f67280) | ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb)</br> ![Development%20Leader](https://img.shields.io/badge/-Development%20leader-green) | ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb)</br> ![Communication%20Leader](https://img.shields.io/badge/-Comunication%20Leader-orange) | ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb)</br> ![Development](https://img.shields.io/badge/-Development%20leader-green) |
 
-<br>
 <br>
 
 <h1>⚙️ 기술 및 개발환경</h1>
 
 ### [기술]
 
-</br>
-  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black"> 
+<div align=left>
+ <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black"> 
  <img src="https://img.shields.io/badge/SASS-CC6699?style=for-the-badge&logo=SASS&logoColor=white">
-</br>
+</div>
 </br>
 
 📌 FrontEnd: React, SASS
@@ -52,22 +47,23 @@
 <br/>
 📌 Version:
 
-- react: `18.2.0`
-- react-router-dom: `6.3.0`
-- node-sass: `7.0.1`
-- scss-reset: `1.2.2`
-- axios: `0.27.2`
-  </br>
-  </br>
+```
+react: `18.2.0`
+react-router-dom: `6.3.0`
+node-sass: `7.0.1`
+scss-reset: `1.2.2`
+axios: `0.27.2`
+```
 
 ### [개발 환경]
 
-</br>
+<div align=left>
 <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white">
 <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white">
 <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white">
 <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=Figma&logoColor=white">
 <img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=Discord&logoColor=white">
+<div/>
 </br>
 
 📍 GitHub : [뽀삐뽀삐 GitHub](https://github.com/4pforp/4p-Market) / [뽀삐뽀삐 Project Log](https://github.com/orgs/4pforp/projects/1)
@@ -85,7 +81,7 @@
 - Coding Convention: [코딩 컨벤션](https://doridori-samsam.notion.site/c425ab2cc91d493ca19e835261cd7eb2)
 
 </br>
-</br>
+
 <h1> 🗂 폴더트리</h1>
 
 ```
@@ -145,7 +141,6 @@
 
 ```
 
-</br>
 </br>
 
 <h1>📄 요구사항</h1>
@@ -213,7 +208,7 @@
 
 ## 👩🏻‍💻 이수빈 - `커뮤니케이션 리더`
 
--UI: 모달, 로그인, 채팅, 채팅팝업, 팔로잉,팔로우목록, 모달 alert창, 에러페이지
+- UI: 모달, 로그인, 채팅, 채팅팝업, 팔로잉,팔로우목록, 모달 alert창, 에러페이지
 
 - 기능: 로그인, 로그아웃, 상품등록, 채팅목록, 에러페이지
 
@@ -224,7 +219,6 @@
 - UI: Spalsh, 회원가입, 프로필(내프로필,상대프로필), 피드, 검색, 댓글 보이는 포스트
 - 기능 구현: 회원가입, 감귤마켓 피드(홈화면), 게시글 댓글 페이지, 채팅방, 팔로우, 댓글
 
-</br>
 </br>
 
 <h1>🔧 구현 기능</h1>
