@@ -9,7 +9,6 @@ import "./ProfileEditPage.scss";
 function ProfileEditPage() {
   const navigate = useNavigate();
   const { token, myAccountname, setMyAccountname } = useContext(UserContext);
-  const authToken = "Bearer " + token;
   const [user, setUser] = useState();
   const [username, setUsername] = useState("");
   const [accountname, setAcountname] = useState("");
@@ -36,7 +35,7 @@ function ProfileEditPage() {
           "https://mandarin.api.weniv.co.kr/user/myinfo",
           {
             headers: {
-              Authorization: authToken,
+              Authorization: token,
               "Content-Type": "application/json",
             },
           }
