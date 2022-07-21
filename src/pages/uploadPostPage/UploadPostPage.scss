@@ -16,10 +16,11 @@
   .img-profile-uploadpost {
     width: 42px;
     height: 42px;
+    border-radius: 50%;
   }
   .textarea-uploadpost {
     width: 100%;
-    margin: 12px 0 8px 0;
+    margin: 12px 0 16px 0;
     line-height: 18px;
     font-family: $basic-font;
     font-size: 14px;
