@@ -4,9 +4,9 @@ import UserContext from "../../context/UserContext";
 import axios from "axios";
 import SaveHeader from "../../components/header/SaveHeader";
 import ProfileEditInfo from "./profileEditInfo/ProfileEditInfo";
-import "./ProfileEdit.scss";
+import "./ProfileEditPage.scss";
 
-function ProfileEdit() {
+function ProfileEditPage() {
   const location = useLocation();
   const navigate = useNavigate();
   const { token, myAccountname, setMyAccountname } = useContext(UserContext);
@@ -94,4 +94,4 @@ function ProfileEdit() {
   );
 }
 
-export default ProfileEdit;
+export default ProfileEditPage;
