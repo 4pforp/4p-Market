@@ -53,7 +53,9 @@ function ProfileHeader({ from, setUser, user }) {
             >
               <EditProfileBtn key="editProfile" />
             </Link>
-            <UploadProductBtn key="uploadProduct" />
+            <Link to="/product">
+              <UploadProductBtn key="uploadProduct" />
+            </Link>
           </>
         )}
       </header>

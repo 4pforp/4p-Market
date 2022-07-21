@@ -7,7 +7,7 @@ import EmailLoginPage from "./pages/emailLoginPage/EmailLoginPage";
 import SignUpPage from "./pages/signUpPage/SignUpPage";
 import SearchUserPage from "./pages/searchUserPage/SearchUserPage";
 import ProfilePage from "./pages/profilePage/ProfilePage";
-import ProfileEdit from "./pages/profileEditPage/ProfileEdit";
+import ProfileEditPage from "./pages/profileEditPage/ProfileEditPage";
 import PostDetailPage from "./pages/postDetailPage/PostDetailPage";
 import FollowPage from "./pages/followPage/FollowPage";
 import UploadPostPage from "./pages/uploadPostPage/UploadPostPage";
@@ -31,7 +31,7 @@ function Main() {
               <Route path="/signup" element={<SignUpPage />}></Route>
               <Route path="/search" element={<SearchUserPage />}></Route>
               <Route path="/:accountname" element={<ProfilePage />}></Route>
-              <Route path="/profileedit" element={<ProfileEdit />}></Route>
+              <Route path="/profileedit" element={<ProfileEditPage />}></Route>
               <Route
                 path="/:accountname/:postid"
                 element={<PostDetailPage />}
