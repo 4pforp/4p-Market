@@ -17,11 +17,7 @@ function Product({ id, mapdata }) {
 
       {mapdata.map((product, idx) => {
         return (
-          <li
-            key={product.author._id}
-            className="item-product"
-            onClick={openModal}
-          >
+          <li key={product.id} className="item-product" onClick={openModal}>
             <img src={product.itemImage} alt="" className="img-product" />
             <strong className="text-product">{product.itemName}</strong>
             <strong className="text-product-price">{`${product.price
