@@ -39,8 +39,7 @@ function HomePage() {
   }, [initialToken]);
   return (
     <>
-      {sessionStorage.getItem("splash") || <Splash />}
-      {sessionStorage.getItem("splash") && null}
+      {sessionStorage.getItem("splash") ? null : <Splash />}
 
       {initialToken ? (
         <>
