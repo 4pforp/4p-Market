@@ -108,7 +108,11 @@ function CommentList({ postid, post }) {
     <>
       <div className="container-comments" ref={Container}>
         <ul className="list-comments">
-          <Comment comments={comments} />
+          <Comment
+            comments={comments}
+            postid={postid}
+            setNewComment={setNewComment}
+          />
         </ul>
       </div>
       <CommentFooter

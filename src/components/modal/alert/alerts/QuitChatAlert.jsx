@@ -4,7 +4,7 @@ import CancelBtn from "../alertBase/CancelBtn";
 import AlertBtn from "../alertBase/AlertBtn";
 import AlertFrame from "../alertBase/AlertFrame";
 
-function QuitChatAlert({handleClick}) {
+function QuitChatAlert({ handleCancel }) {
   const navigate = useNavigate();
 
   function handleQuit() {
@@ -14,7 +14,7 @@ function QuitChatAlert({handleClick}) {
   return (
     <>
       <AlertFrame text="채팅방을 나가시겠어요?">
-        <CancelBtn handleClick={handleClick}/>
+        <CancelBtn handleCancel={handleCancel} />
         <AlertBtn handleClick={handleQuit}>나가기</AlertBtn>
       </AlertFrame>
     </>

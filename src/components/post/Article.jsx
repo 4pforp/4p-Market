@@ -104,7 +104,12 @@ function Article({ content, from }) {
               "일"}
           </strong>
         </main>
-        {onModal && <PostModal setOnModal={handleModal} content={content} />}
+        {onModal && (
+          <PostModal
+            setOnModal={handleModal}
+            content={content}
+          />
+        )}
         <UserMoreBtn handleClick={openModal} />
       </article>
     </>

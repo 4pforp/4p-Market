@@ -4,7 +4,8 @@ import UserMoreBtn from "../../../components/button/UserMoreBtn";
 import UserInfoBox from "../../../components/user/UserInfoBox";
 import CommentModal from "../../../components/modal/modals/CommentModal";
 
-function Comment({ comments }) {
+function Comment({ comments, postid, setNewComment }) {
+  const [comment, setComment] = useState({});
   const [onModal, setOnModal] = useState(false);
   function handleModal() {
     setOnModal(!onModal);
@@ -38,16 +39,24 @@ function Comment({ comments }) {
                 </UserInfoBox>
               </Link>
               <p className="content-comment">{comment.content}</p>
-              <UserMoreBtn handleClick={openModal} />
+              <UserMoreBtn
+                handleClick={() => {
+                  openModal();
+                  setComment(comment);
+                }}
+              />
             </li>
           );
         })}
-      {
-        <>
-          {/* 모달 조건부렌더링 위한 함수 */}
-          {onModal && <CommentModal setOnModal={handleModal} />}
-        </>
-      }
+      {onModal && (
+        <CommentModal
+          setOnModal={handleModal}
+          comment={comment}
+          postid={postid}
+          // 삭제 후 리렌더링 위해 
+          setNewComment={setNewComment}
+        />
+      )}
     </>
   );
 }

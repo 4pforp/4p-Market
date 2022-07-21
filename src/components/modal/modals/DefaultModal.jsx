@@ -1,16 +1,11 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import ModalLink from "../modalBase/ModalLink";
 import ModalBtn from "../modalBase/ModalBtn";
 import ModalFrame from "../modalBase/ModalFrame";
 import LogoutAlert from "../alert/alerts/LogoutAlert";
 
 function DefaultModal({ setOnModal }) {
   const [onAlert, setOnAlert] = useState(false);
-  const navigate = useNavigate();
-
-  function handleNavigate() {
-    navigate("/profileedit");
-  }
 
   function handleAlert() {
     setOnAlert(!onAlert);
@@ -25,11 +20,11 @@ function DefaultModal({ setOnModal }) {
     <>
       {onAlert && (
         <>
-          <LogoutAlert handleClick={handleCancel} />
+          <LogoutAlert handleCancel={handleCancel} />
         </>
       )}
       <ModalFrame setOnModal={setOnModal}>
-        <ModalBtn handleClick={handleNavigate}>설정 및 개인정보</ModalBtn>
+        <ModalLink handleLink={"/profileedit"}>설정 및 개인정보</ModalLink>
         <ModalBtn handleClick={handleAlert}>로그아웃</ModalBtn>
       </ModalFrame>
     </>
