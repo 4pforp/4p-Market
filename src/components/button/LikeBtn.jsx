@@ -1,3 +1,6 @@
+import { useState, useEffect, useContext } from "react";
+import UserContext from "../../context/UserContext";
+import axios from "axios";
 import "./LikeBtn.scss";
 
 function LikeBtn({ heartcount, postid }) {
@@ -10,6 +13,28 @@ function LikeBtn({ heartcount, postid }) {
   //   setLiked({ heart: !liked.heart, number: !liked.number });
   // }
 
+  const { token } = useContext(UserContext);
+  const [likeNum, setLikeNum] = useState();
+  useEffect(() => {
+    async function getLikeNum() {
+      try {
+        const response = await axios.post(
+          "https://mandarin.api.weniv.co.kr/post/" + postid + "/heart",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-type": "application/json",
+            },
+          }
+        );
+        //setLikeNum
+        console.log(response);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  });
+  console.log(postid);
   return (
     <div className="wrapper-btn-like">
       <button
