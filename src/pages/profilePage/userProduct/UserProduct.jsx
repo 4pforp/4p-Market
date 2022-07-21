@@ -6,6 +6,8 @@ import "./UserProduct.scss";
 
 function UserProduct({ accountname }) {
   const { token } = useContext(UserContext);
+  const { myAccountname } = useContext(UserContext);
+
   const [productResult, setProductResult] = useState([]);
 
   useEffect(() => {
@@ -36,7 +38,11 @@ function UserProduct({ accountname }) {
           <div className="wrapper-product">
             <h3>판매 중인 상품</h3>
             <ol className="list-products">
-              <Product id="product1" mapdata={productResult} />
+              <Product
+                id="product1"
+                mapdata={productResult}
+                accountname={accountname}
+              />
             </ol>
           </div>
         </section>
