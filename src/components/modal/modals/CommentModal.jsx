@@ -33,6 +33,7 @@ function CommentModal({ setOnModal, comment, postid, setNewComment }) {
                 // DeleteAlert 내 remove 함수에 연결되는 backUrl
                 backUrl={`post/${postId}/comments/${commentId}`}
                 //댓글리스트 리렌더링위해 불러옴
+                from="commentPage"
                 setNewComment={setNewComment}
               />
             </>
