@@ -22,7 +22,7 @@ function LikeBtn({ heartcount, postid }) {
           "https://mandarin.api.weniv.co.kr/post/" + postid + "/heart",
           {
             headers: {
-              Authorization: `Bearer ${token}`,
+              Authorization: token,
               "Content-type": "application/json",
             },
           }
