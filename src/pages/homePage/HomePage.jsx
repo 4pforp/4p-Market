@@ -12,7 +12,7 @@ import pendingImg from "../../assets/logo_loading_purple.svg";
 import "./HomePage.scss";
 
 function HomePage() {
-  const { token } = useContext(UserContext);
+  const { token, initialToken } = useContext(UserContext);
   const [posts, setPosts] = useState();
   const [view, setView] = useState("pending");
 
@@ -35,14 +35,14 @@ function HomePage() {
         setView("false");
       }
     }
-    token && getPost();
-  }, [token]);
+    initialToken && getPost();
+  }, [initialToken]);
   return (
     <>
       {sessionStorage.getItem("splash") || <Splash />}
       {sessionStorage.getItem("splash") && null}
 
-      {token ? (
+      {initialToken ? (
         <>
           <MainHeader />
           {view === "true" && posts && posts.length > 0 && (
