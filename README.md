@@ -29,7 +29,7 @@
 
 |                                                                **FE 김세훈**                                                                 |                                                               **FE 박소현**                                                                |                                                                  **FE 이수빈**                                                                  |                                                           **FE 임현지**                                                           |
 | :------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------: |
-|                            <img src="https://avatars.githubusercontent.com/u/70246174?v=4" height=180 width=180>                             |                           <img src="https://avatars.githubusercontent.com/u/100866731?v=4" height=180 width=180>                           |                              <img src="https://avatars.githubusercontent.com/u/96714788?v=4" height=180 width=180>                              |                                   <img src="./src/assets/logo_white.svg" height=180 width=180>                                    |
+|                            <img src="https://avatars.githubusercontent.com/u/70246174?v=4" height=180 width=180>                             |                           <img src="https://avatars.githubusercontent.com/u/100866731?v=4" height=180 width=180>                           |                              <img src="https://avatars.githubusercontent.com/u/96714788?v=4" height=180 width=180>                              |              <img src="https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_960_720.jpg" height=180 width=180>              |
 |              **blog**: [for-it-study](https://for-it-study.tistory.com/) </br> **github**: [Hun-Se](https://github.com/Hun-Se)               |   **blog**: [doridori-samsam](https://doridori-samsam.tistory.com/) </br> **github**: [Sohyun Park](https://github.com/doridori-samsam)    |               **blog**: [waterbin.log](https://velog.io/@ewaterbin) </br> **github**: [Subin Lee](https://github.com/waterbinnn)                |    **blog**: [usablepaper.log](https://velog.io/@usablepaper) </br> **github**: [Hyeonji Lim](https://github.com/usablepaper)     |
 | ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb) ![WorkManagement](https://img.shields.io/badge/-Work%20Management%20leader-f67280) | ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb) ![Development%20Leader](https://img.shields.io/badge/-Develoment%20leader-green) | ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb) ![Communication%20Leader](https://img.shields.io/badge/-Comunication%20Leader-orange) | ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb) ![Development](https://img.shields.io/badge/-Develoment%20leader-green) |
 
@@ -97,9 +97,10 @@
  ┃ ┣📂 header
  ┃ ┣📂 modal
  ┃ ┃ ┣📂 alert
- ┃ ┃ ┃ ┗📂 common
- ┃ ┃ ┣📂 common
- ┃ ┃ ┗📂 contents
+ ┃ ┃ ┃ ┣📂 alertBase
+ ┃ ┃ ┃ ┗📂 alerts
+ ┃ ┃ ┣📂 modalBase
+ ┃ ┃ ┗📂 modals
  ┃ ┣📂 notFound
  ┃ ┣📂 post
  ┃ ┣📂 splash
@@ -108,7 +109,7 @@
  ┃ ┗📂 user
  ┣📂 context
  ┣📂 pages
- ┃ ┣📂 chatPagechatRoomInput
+ ┃ ┣📂 chatPage
  ┃ ┃ ┗📂 chatPageItem
  ┃ ┣📂 chatRoomPage
  ┃ ┃ ┗📂 chatRoomInput
@@ -120,7 +121,6 @@
  ┃ ┣📂 logInPage
  ┃ ┃ ┣📂 loginSection
  ┃ ┃ ┗📂 userAccount
- ┃ ┣📂 notFound
  ┃ ┣📂 postDetailPage
  ┃ ┃ ┗📂 comment
  ┃ ┣📂 profileEditPage
@@ -229,41 +229,41 @@
 
 <h1>🔧 구현 기능</h1>
 
-|                         0.splash                          |                        1.회원가입                         |
-| :-------------------------------------------------------: | :-------------------------------------------------------: |
-| <img src="./src/assets/example-picture.jpg" width="300"/> | <img src="./src/assets/example-picture.jpg" width="300"/> |
+|                                            0.splash                                             |                                           1.회원가입                                            |
+| :---------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------: |
+| <img src="https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_960_720.jpg" width="300"/> | <img src="https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_960_720.jpg" width="300"/> |
 
-|                       2.프로필설정                        |                         3.로그인                          |
-| :-------------------------------------------------------: | :-------------------------------------------------------: |
-| <img src="./src/assets/example-picture.jpg" width="300"/> | <img src="./src/assets/example-picture.jpg" width="300"/> |
+|                                          2.프로필설정                                           |                                            3.로그인                                             |
+| :---------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------: |
+| <img src="https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_960_720.jpg" width="300"/> | <img src="https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_960_720.jpg" width="300"/> |
 
-|                        4.계정검색                         |                          5.채팅                           |
-| :-------------------------------------------------------: | :-------------------------------------------------------: |
-| <img src="./src/assets/example-picture.jpg" width="300"/> | <img src="./src/assets/example-picture.jpg" width="300"/> |
+|                                           4.계정검색                                            |                                             5.채팅                                              |
+| :---------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------: |
+| <img src="https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_960_720.jpg" width="300"/> | <img src="https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_960_720.jpg" width="300"/> |
 
-|                       6.게시글등록                        |                       7.게시글수정                        |
-| :-------------------------------------------------------: | :-------------------------------------------------------: |
-| <img src="./src/assets/example-picture.jpg" width="300"/> | <img src="./src/assets/example-picture.jpg" width="300"/> |
+|                                          6.게시글등록                                           |                                          7.게시글수정                                           |
+| :---------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------: |
+| <img src="https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_960_720.jpg" width="300"/> | <img src="https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_960_720.jpg" width="300"/> |
 
-|                        7.내프로필                         |                       8.프로필 수정                       |
-| :-------------------------------------------------------: | :-------------------------------------------------------: |
-| <img src="./src/assets/example-picture.jpg" width="300"/> | <img src="./src/assets/example-picture.jpg" width="300"/> |
+|                                           7.내프로필                                            |                                          8.프로필 수정                                          |
+| :---------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------: |
+| <img src="https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_960_720.jpg" width="300"/> | <img src="https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_960_720.jpg" width="300"/> |
 
-|                        8.상품등록                         |                      9.상품등록 수정                      |
-| :-------------------------------------------------------: | :-------------------------------------------------------: |
-| <img src="./src/assets/example-picture.jpg" width="300"/> | <img src="./src/assets/example-picture.jpg" width="300"/> |
+|                                           8.상품등록                                            |                                         9.상품등록 수정                                         |
+| :---------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------: |
+| <img src="https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_960_720.jpg" width="300"/> | <img src="https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_960_720.jpg" width="300"/> |
 
-|                     10.팔로우, 팔로워                     |                      11.유저 프로필                       |
-| :-------------------------------------------------------: | :-------------------------------------------------------: |
-| <img src="./src/assets/example-picture.jpg" width="300"/> | <img src="./src/assets/example-picture.jpg" width="300"/> |
+|                                        10.팔로우, 팔로워                                        |                                         11.유저 프로필                                          |
+| :---------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------: |
+| <img src="https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_960_720.jpg" width="300"/> | <img src="https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_960_720.jpg" width="300"/> |
 
-|                   11.게시글 댓글, 삭제                    |                      12.게시글 신고                       |
-| :-------------------------------------------------------: | :-------------------------------------------------------: |
-| <img src="./src/assets/example-picture.jpg" width="300"/> | <img src="./src/assets/example-picture.jpg" width="300"/> |
+|                                      11.게시글 댓글, 삭제                                       |                                         12.게시글 신고                                          |
+| :---------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------: |
+| <img src="https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_960_720.jpg" width="300"/> | <img src="https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_960_720.jpg" width="300"/> |
 
-|                    13.상품 댓글, 삭제                     |                       14.상품 신고                        |
-| :-------------------------------------------------------: | :-------------------------------------------------------: |
-| <img src="./src/assets/example-picture.jpg" width="300"/> | <img src="./src/assets/example-picture.jpg" width="300"/> |
+|                                       13.상품 댓글, 삭제                                        |                                          14.상품 신고                                           |
+| :---------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------: |
+| <img src="https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_960_720.jpg" width="300"/> | <img src="https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_960_720.jpg" width="300"/> |
 
 <br>
 <br>
