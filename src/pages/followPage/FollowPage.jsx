@@ -31,16 +31,16 @@ function FollowPage() {
           },
         });
         setFollowList(res.data);
-        setView("true");
+        setView("fulfilled");
       } catch (err) {
-        setView("false");
+        setView("rejected");
       }
     }
     // 잘못된 url 예외처리
     if (followtype === "follower" || followtype === "following") {
       accountname && getFollowList();
     } else {
-      setView("false");
+      setView("fulfilled");
     }
   }, [token, accountname, followtype]);
 
@@ -48,7 +48,7 @@ function FollowPage() {
     <>
       <FollowHeader title="Followers" />
       <main className="container-follow">
-        {view === "true" && (
+        {view === "fulfilled" && (
           <div className="wrapper-follow">
             <ul className="wrapper-list-follow">
               <UserList followList={followList} />
@@ -60,7 +60,7 @@ function FollowPage() {
             <img src={pendingImg} className="img-pending" alt="loading" />
           </>
         )}
-        {view === "false" && (
+        {view === "rejected" && (
           <>
             <NotFound />
           </>

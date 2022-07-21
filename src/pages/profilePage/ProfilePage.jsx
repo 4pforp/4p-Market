@@ -49,9 +49,9 @@ function ProfilePage() {
           followers: res.data.profile.followerCount,
           isfollow: res.data.profile.isfollow,
         });
-        setView("true");
+        setView("fulfilled");
       } catch (err) {
-        setView("false");
+        setView("rejected");
       }
     }
     getUser();
@@ -62,7 +62,7 @@ function ProfilePage() {
       <CommonHeader />
       <main className="container-profile-page">
         <h1 className="a11y-hidden">{user.username + "의 프로필"}</h1>
-        {view === "true" && (
+        {view === "fulfilled" && (
           <>
             <UserHeader from={from} user={user} setUser={setUser} />
             <UserProducts accountname={accountname} />
@@ -74,7 +74,7 @@ function ProfilePage() {
             <img src={pendingImg} className="img-pending" alt="loading" />
           </>
         )}
-        {view === "false" && (
+        {view === "rejected" && (
           <>
             <NotFound />
           </>

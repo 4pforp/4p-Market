@@ -28,10 +28,10 @@ function PostDetailPage() {
           },
         });
         setPost(res.data.post);
-        setView("true");
+        setView("fulfilled");
       } catch (err) {
         console.error(err);
-        setView("false");
+        setView("rejected");
       }
     }
     getComment();
@@ -40,7 +40,7 @@ function PostDetailPage() {
   return (
     <>
       <CommonHeader />
-      {view === "true" && (
+      {view === "fulfilled" && (
         <>
           <main className="container-comment-page">
             <div className="wrapper-comment-post">
@@ -55,7 +55,7 @@ function PostDetailPage() {
           <img src={pendingImg} className="img-pending" alt="loading" />
         </>
       )}
-      {view === "false" && (
+      {view === "rejected" && (
         <>
           <NotFound />
         </>
