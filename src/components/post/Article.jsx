@@ -86,7 +86,11 @@ function Article({ content, from }) {
           )}
 
           <div className="container-btn-post">
-            <LikeBtn heartcount={post.heartcount} postid={post.id} />
+            <LikeBtn
+              heartcount={post.heartCount}
+              hearted={post.hearted}
+              postid={post.id}
+            />
             <CommentBtn
               commentcount={post.commentCount}
               postid={post.id}
@@ -104,12 +108,7 @@ function Article({ content, from }) {
               "일"}
           </strong>
         </main>
-        {onModal && (
-          <PostModal
-            setOnModal={handleModal}
-            content={content}
-          />
-        )}
+        {onModal && <PostModal setOnModal={handleModal} content={content} />}
         <UserMoreBtn handleClick={openModal} />
       </article>
     </>
