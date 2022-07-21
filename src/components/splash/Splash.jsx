@@ -8,7 +8,7 @@ function Splash() {
   const timeout = () => {
     setTimeout(() => {
       setBlindSplash(!blindSplash);
-      sessionStorage.setItem("splash", true);
+      sessionStorage.setItem("splash", "true");
       return null;
     }, 3000);
   };
