@@ -46,12 +46,11 @@ function EditInfo({
           },
           {
             header: {
-              Authorization: "Bearer {token}",
               "Content-Type": "application/json",
             },
           }
         );
-        if (res.data.message === "사용 가능한 계정ID 입니다.") {
+        if (res.data.message === "사용 가능한 ID 입니다.") {
           setResMessageAccountname(res.data.message);
           setIsValidAccountname(true);
         } else {

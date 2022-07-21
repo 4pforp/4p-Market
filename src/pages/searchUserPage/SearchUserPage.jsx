@@ -26,7 +26,7 @@ function SearchUserPage() {
           {
             method: "get",
             headers: {
-              Authorization: `Bearer ${token}`,
+              Authorization: token,
               "Content-type": "application/json",
             },
           }
