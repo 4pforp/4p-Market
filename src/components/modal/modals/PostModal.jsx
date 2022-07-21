@@ -1,21 +1,17 @@
-import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useContext, useEffect } from "react";
 import UserContext from "../../../context/UserContext";
+import axios from "axios";
+import ModalLink from "../modalBase/ModalLink";
 import ModalBtn from "../modalBase/ModalBtn";
 import ModalFrame from "../modalBase/ModalFrame";
 import DeleteAlert from "../alert/alerts/DeleteAlert";
 import ReportAlert from "../alert/alerts/ReportAlert";
 
 function PostModal({ content, setOnModal }) {
+  const { token, myAccountname } = useContext(UserContext);
   const [onAlert, setOnAlert] = useState(false);
-  const { myAccountname } = useContext(UserContext);
   const accountname = content.author.accountname;
-  const navigate = useNavigate();
-
-  function handleNavigate() {
-    //profileedit page 에러나서 임시로 0줬습니다
-    navigate("0");
-  }
+  const postId = content.id;
 
   function handleAlert() {
     setOnAlert(!onAlert);
@@ -34,20 +30,27 @@ function PostModal({ content, setOnModal }) {
             <>
               <DeleteAlert
                 text="게시글을 삭제하시겠어요?"
-                handleClick={handleCancel}
+                handleCancel={handleCancel}
+                // DeleteAlert 내 remove 함수에 연결되는 backUrl
+                backUrl={`post/${postId}`}
               />
             </>
           )}
           <ModalFrame setOnModal={setOnModal}>
             <ModalBtn handleClick={handleAlert}>삭제</ModalBtn>
-            <ModalBtn handleClick={handleNavigate}>수정</ModalBtn>
+            {/* 수정페이지 url 로 변경필요  */}
+            <ModalLink handleLink={"/"}>수정</ModalLink>
           </ModalFrame>
         </>
       ) : (
         <>
           {onAlert && (
             <>
-              <ReportAlert handleClick={handleCancel} />
+              <ReportAlert
+                handleCancel={handleCancel}
+                // ReportAlert 내 report 함수에 연결되는 backUrl
+                backUrl={`post/${postId}/report`}
+              />
             </>
           )}
           <ModalFrame setOnModal={setOnModal}>

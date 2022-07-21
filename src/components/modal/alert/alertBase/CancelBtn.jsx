@@ -1,15 +1,8 @@
-import { useNavigate } from "react-router-dom";
-
-function CancelBtn({handleClick}) {
-  const navigate = useNavigate();
-
-  function handleCancel() {
-    // navigate(0);
-  }
-
+// 취소버튼 공통 컴포넌트 
+function CancelBtn({ handleCancel }) {
   return (
     <li>
-      <button type="button" onClick={handleClick}>
+      <button type="button" onClick={handleCancel}>
         취소
       </button>
     </li>
@@ -17,5 +10,3 @@ function CancelBtn({handleClick}) {
 }
 
 export default CancelBtn;
-
-// canelBtn 눌렀을 때 alert 창 꺼지는거 구현 못해서 우선 네비게이트로 처리
