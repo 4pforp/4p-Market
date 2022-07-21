@@ -42,15 +42,7 @@ function ProfileHeader({ from, setUser, user }) {
           />
         ) : (
           <>
-            <Link
-              to={`/profileedit`}
-              state={{
-                username: user.username,
-                accountname: user.accountname,
-                intro: user.intro,
-                image: user.image,
-              }}
-            >
+            <Link to={`/profileedit`}>
               <EditProfileBtn key="editProfile" />
             </Link>
             <Link to="/product">

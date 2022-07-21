@@ -1,5 +1,5 @@
-import { useState, useContext } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import axios from "axios";
 import SaveHeader from "../../components/header/SaveHeader";
@@ -7,17 +7,18 @@ import ProfileEditInfo from "./profileEditInfo/ProfileEditInfo";
 import "./ProfileEditPage.scss";
 
 function ProfileEditPage() {
-  const location = useLocation();
   const navigate = useNavigate();
   const { token, myAccountname, setMyAccountname } = useContext(UserContext);
-  const [user, setUser] = useState("");
-  const [username, setUsername] = useState(location.state.username);
-  const [accountname, setAcountname] = useState(location.state.accountname);
-  const [intro, setIntro] = useState(location.state.intro);
-  const [image, setImage] = useState(location.state.image);
+  const authToken = "Bearer " + token;
+  const [user, setUser] = useState();
+  const [username, setUsername] = useState("");
+  const [accountname, setAcountname] = useState("");
+  const [intro, setIntro] = useState("");
+  const [image, setImage] = useState("");
   const [isActive, setIsActive] = useState(false);
   const [disabled, setDisabled] = useState(true);
 
+  // 프로필 수정 시 업데이트될 자료구조
   const updatedProfile = {
     user: {
       username: username,
@@ -27,6 +28,31 @@ function ProfileEditPage() {
     },
   };
 
+  // 기존 프로필 데이터 요청
+  useEffect(() => {
+    async function getUserInfo() {
+      try {
+        const res = await axios.get(
+          "https://mandarin.api.weniv.co.kr/user/myinfo",
+          {
+            headers: {
+              Authorization: authToken,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        setUsername(res.data.user.username);
+        setAcountname(res.data.user.accountname);
+        setIntro(res.data.user.intro);
+        setImage(res.data.user.image);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    getUserInfo();
+  }, []);
+
+  //프로필 수정 요청
   async function submitProfileEdit() {
     try {
       const res = await axios.put(
@@ -45,6 +71,7 @@ function ProfileEditPage() {
     }
   }
 
+  // 프로필데이터 업데이트 및 로컬스토리지에 업데이트된 accountname 저장 이벤트
   function handleClick() {
     setUser({
       username: username,
@@ -56,6 +83,7 @@ function ProfileEditPage() {
     localStorage.setItem("accountname", accountname);
   }
 
+  //
   function handleSubmit(e) {
     e.preventDefault();
     submitProfileEdit();
