@@ -31,13 +31,12 @@ function ProfilePage() {
 
   // 유저 프로필 정보 받아오기
   useEffect(() => {
-    const authToken = "Bearer " + token;
     const url = "https://mandarin.api.weniv.co.kr/profile/" + accountname;
     async function getUser() {
       try {
         const res = await axios.get(url, {
           headers: {
-            Authorization: authToken,
+            Authorization: token,
             "Content-type": "application/json",
           },
         });

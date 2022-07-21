@@ -13,14 +13,13 @@ function UserPost({ accountname, from }) {
   const [albumClicked, setAlbumClicked] = useState("off");
 
   useEffect(() => {
-    const authToken = "Bearer " + token;
     const url =
       "https://mandarin.api.weniv.co.kr/post/" + accountname + "/userpost";
     async function getPost() {
       try {
         const res = await axios.get(url, {
           headers: {
-            Authorization: authToken,
+            Authorization: token,
             "Content-type": "application/json",
           },
         });

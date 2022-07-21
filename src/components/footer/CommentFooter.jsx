@@ -27,13 +27,12 @@ function CommentFooter({ postid, post, setNewComment }) {
   }, [comment]);
 
   async function UploadComment() {
-    const authToken = "Bearer " + token;
     const url = "https://mandarin.api.weniv.co.kr/post/" + postid + "/comments";
     const commentData = { comment: { content: comment } };
     try {
       const res = await axios.post(url, commentData, {
         headers: {
-          Authorization: authToken,
+          Authorization: token,
           "Content-type": "application/json",
         },
       });

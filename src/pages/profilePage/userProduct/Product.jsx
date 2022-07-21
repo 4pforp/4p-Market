@@ -13,9 +13,7 @@ function Product({ id, mapdata }) {
 
   return (
     <>
-      {onModal && (
-        <ProductModal setOnModal={handleModal} />
-      )}
+      {onModal && <ProductModal setOnModal={handleModal} />}
 
       {mapdata.map((product, idx) => {
         return (
@@ -37,4 +35,3 @@ function Product({ id, mapdata }) {
 }
 
 export default Product;
-
