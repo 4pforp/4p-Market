@@ -7,7 +7,7 @@ import DeleteAlert from "../alert/alerts/DeleteAlert";
 import ReportAlert from "../alert/alerts/ReportAlert";
 
 function PostModal({ content, setOnModal }) {
-  const { token, myAccountname } = useContext(UserContext);
+  const { myAccountname } = useContext(UserContext);
   const [onAlert, setOnAlert] = useState(false);
   const accountname = content.author.accountname;
   const postId = content.id;
@@ -37,8 +37,7 @@ function PostModal({ content, setOnModal }) {
           )}
           <ModalFrame setOnModal={setOnModal}>
             <ModalBtn handleClick={handleAlert}>삭제</ModalBtn>
-            {/* 수정페이지 url 로 변경필요  */}
-            <ModalLink handleLink={"/"}>수정</ModalLink>
+            <ModalLink handleLink={`/upload/${postId}`}>수정</ModalLink>
           </ModalFrame>
         </>
       ) : (
