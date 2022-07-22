@@ -29,10 +29,10 @@ function HomePage() {
           },
         });
         setPosts(res.data.posts);
-        setView("true");
+        setView("fulfilled");
       } catch (err) {
         console.error(err);
-        setView("false");
+        setView("rejected");
       }
     }
     initialToken && getPost();
@@ -44,7 +44,7 @@ function HomePage() {
       {initialToken ? (
         <>
           <MainHeader />
-          {view === "true" && posts && posts.length > 0 && (
+          {view === "fulfilled" && posts && posts.length > 0 && (
             <>
               <main className="main-home feed">
                 <section className="container-post feed">
@@ -57,7 +57,7 @@ function HomePage() {
               </main>
             </>
           )}
-          {view === "true" && posts.length === 0 && (
+          {view === "fulfilled" && posts.length === 0 && (
             <>
               <main className="main-home">
                 <InitialFeed />
@@ -69,7 +69,7 @@ function HomePage() {
               <img src={pendingImg} className="img-pending" alt="loading" />
             </>
           )}
-          {view === "false" && (
+          {view === "rejected" && (
             <>
               <NotFound />
             </>

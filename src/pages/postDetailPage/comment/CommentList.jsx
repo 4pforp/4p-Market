@@ -11,7 +11,7 @@ function CommentList({ postid, post }) {
   const [newComment, setNewComment] = useState(true);
   const Container = useRef();
   const [reloadNeed, setReloadNeed] = useState(false);
-  const updateLimitCount = Math.ceil(post.commentCount / 10);
+  const updateLimitCount = Math.ceil(post.commentCount / 15);
   const [updatedCount, setUpdatedCount] = useState(0);
   const [skip, setSkip] = useState(0);
   useEffect(() => {
@@ -20,7 +20,7 @@ function CommentList({ postid, post }) {
       const url =
         "https://mandarin.api.weniv.co.kr/post/" +
         postid +
-        "/comments/?limit=10" +
+        "/comments/?limit=15" +
         "&skip=" +
         skip;
       try {
@@ -61,7 +61,7 @@ function CommentList({ postid, post }) {
       const url =
         "https://mandarin.api.weniv.co.kr/post/" +
         postid +
-        "/comments/?limit=10" +
+        "/comments/?limit=15" +
         "&skip=" +
         skip;
       try {
@@ -79,7 +79,7 @@ function CommentList({ postid, post }) {
         }
         setUpdatedCount(updatedCount + 1);
         setReloadNeed(false);
-        setSkip(skip + 10);
+        setSkip(skip + 15);
       } catch (err) {
         console.error(err);
       }
