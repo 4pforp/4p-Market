@@ -14,7 +14,7 @@ import FollowPage from "./pages/followPage/FollowPage";
 import UploadPostPage from "./pages/uploadPostPage/UploadPostPage";
 import UpdatePostPage from "./pages/updatePostPage/UpdatePostPage";
 import UploadProductPage from "./pages/uploadProductPage/UploadProductPage";
-import UpdateProductPage from "./pages/updateProuctPage/UpdateProductPage";
+import UpdateProductPage from "./pages/updateProductPage/UpdateProductPage";
 import ChatPage from "./pages/chatPage/ChatPage";
 import ChatRoom from "./pages/chatRoomPage/ChatRoomPage";
 import NotFound from "./components/notFound/NotFound";
