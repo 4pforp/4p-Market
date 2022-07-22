@@ -12,7 +12,9 @@ import ProfileEditPage from "./pages/profileEditPage/ProfileEditPage";
 import PostDetailPage from "./pages/postDetailPage/PostDetailPage";
 import FollowPage from "./pages/followPage/FollowPage";
 import UploadPostPage from "./pages/uploadPostPage/UploadPostPage";
+import UpdatePostPage from "./pages/updatePostPage/UpdatePostPage";
 import UploadProductPage from "./pages/uploadProductPage/UploadProductPage";
+import UpdateProductPage from "./pages/updateProductPage/UpdateProductPage";
 import ChatPage from "./pages/chatPage/ChatPage";
 import ChatRoom from "./pages/chatRoomPage/ChatRoomPage";
 import NotFound from "./components/notFound/NotFound";
@@ -79,7 +81,15 @@ function Main() {
                 element={<FollowPage />}
               ></Route>
               <Route path="/upload" element={<UploadPostPage />}></Route>
+              <Route
+                path="/upload/:postid"
+                element={<UpdatePostPage />}
+              ></Route>
               <Route path="/product" element={<UploadProductPage />}></Route>
+              <Route
+                path="/product/:postid"
+                element={<UpdateProductPage />}
+              ></Route>
               <Route path="/chat" element={<ChatPage />}></Route>
               <Route path="/chatroom/:id" element={<ChatRoom />}></Route>
               <Route path={"*"} element={<NotFound />}></Route>

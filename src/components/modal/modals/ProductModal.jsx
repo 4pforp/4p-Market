@@ -12,7 +12,6 @@ function ProductModal({ setOnModal, product }) {
   const productId = product.id;
   const accountname = product.author.accountname;
   const productUrl = product.link;
-  console.log(product);
 
   function handleAlert() {
     setOnAlert(!onAlert);
@@ -40,7 +39,7 @@ function ProductModal({ setOnModal, product }) {
           <ModalFrame setOnModal={setOnModal}>
             <ModalBtn handleClick={handleAlert}>삭제</ModalBtn>
             {/* Todo: 수정페이지 */}
-            <ModalLink handleLink={"/"}>수정</ModalLink>
+            <ModalLink handleLink={`/product/${productId}`}>수정</ModalLink>
             <li>
               <a href={productUrl}>웹사이트에서 상품보기</a>
             </li>

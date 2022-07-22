@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import { useEffect } from "react";
 
 function ProdcutInput({
@@ -85,7 +84,7 @@ function ProdcutInput({
           <input
             id="input-salelink"
             type="text"
-            placeholder="http://www. 형식으로 입력해주세요"
+            placeholder="http://www. 형식으로 입력해주세요."
             onChange={handleChangeSaleLink}
             value={link}
           ></input>

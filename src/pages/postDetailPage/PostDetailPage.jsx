@@ -14,7 +14,6 @@ function PostDetailPage() {
   const params = useParams();
   const postid = params.postid;
   const [post, setPost] = useState();
-  const [onModal, setOnModal] = useState(false);
   const [view, setView] = useState("pending");
 
   useEffect(() => {

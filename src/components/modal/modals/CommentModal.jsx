@@ -8,7 +8,7 @@ import ReportAlert from "../alert/alerts/ReportAlert";
 //comment moreBtn 클릭했을 때 뜨는 모달
 function CommentModal({ setOnModal, comment, postid, setNewComment }) {
   const [onAlert, setOnAlert] = useState(false);
-  const { token, myAccountname } = useContext(UserContext);
+  const { myAccountname } = useContext(UserContext);
   const accountname = comment.author.accountname;
   const commentId = comment.id;
   const postId = postid;

@@ -16,7 +16,6 @@ function ProfilePage() {
   const params = useParams();
   const accountname = params.accountname;
   const [view, setView] = useState("pending");
-  const [onModal, setOnModal] = useState(false);
   const from = accountname === myAccountname ? "myProfile" : "userProfile";
 
   const [user, setUser] = useState({
