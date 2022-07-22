@@ -130,6 +130,8 @@ axios: `0.27.2`
  ┃ ┣📂 signUpPage
  ┃ ┃ ┣📂 emailSignUp
  ┃ ┃ ┗ 📂 profileSet
+ ┃ ┣📂 updatePostPage
+ ┃ ┣📂 updateProductPage
  ┃ ┣📂 uploadPostPage
  ┃ ┗📂 uploadProductPage
  ┃  ┣📂 uploadProductImg
