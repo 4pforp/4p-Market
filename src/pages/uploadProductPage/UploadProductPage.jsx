@@ -40,7 +40,6 @@ function UploadProductPage() {
             },
           }
         );
-        console.log(res);
       } catch (err) {
         console.error(err);
       }
