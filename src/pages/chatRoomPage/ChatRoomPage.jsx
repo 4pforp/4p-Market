@@ -3,8 +3,7 @@ import ChatroomFooter from "../../components/footer/ChatroomFooter";
 import Chatting from "./chatRoomInput/Chatting";
 import "./ChatRoomPage.scss";
 
-function ChatRoom({id}) {
-
+function ChatRoomPage() {
   return (
     <>
       <ChatRoomHeader userName="숩삐" id="1" />
@@ -19,4 +18,4 @@ function ChatRoom({id}) {
   );
 }
 
-export default ChatRoom;
+export default ChatRoomPage;
