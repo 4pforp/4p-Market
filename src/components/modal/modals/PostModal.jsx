@@ -1,6 +1,5 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import UserContext from "../../../context/UserContext";
-import axios from "axios";
 import ModalLink from "../modalBase/ModalLink";
 import ModalBtn from "../modalBase/ModalBtn";
 import ModalFrame from "../modalBase/ModalFrame";
