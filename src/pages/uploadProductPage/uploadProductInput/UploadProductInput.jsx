@@ -11,10 +11,13 @@ function ProdcutInput({
   setIsActive,
   setIsDisabled,
 }) {
-
   // 저장 버튼활성화 기능
   useEffect(() => {
-    if (itemName.length > 1 && price.length !== 0 && link.length !== 0) {
+    //상품 판매 링크 유효성 검사
+    const checkLink =
+      /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/;
+
+    if (itemName.length > 1 && price.length !== 0 && checkLink.test(link)) {
       setIsActive(true);
       setIsDisabled(false);
     } else {
@@ -46,7 +49,6 @@ function ProdcutInput({
     setLink(e.target.value);
   }
 
-  
   return (
     <>
       <div className="container-input-product">
@@ -83,7 +85,7 @@ function ProdcutInput({
           <input
             id="input-salelink"
             type="text"
-            placeholder="URL을 입력해주세요"
+            placeholder="http://www. 형식으로 입력해주세요"
             onChange={handleChangeSaleLink}
             value={link}
           ></input>
