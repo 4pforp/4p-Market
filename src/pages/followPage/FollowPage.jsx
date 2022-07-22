@@ -40,7 +40,7 @@ function FollowPage() {
     if (followtype === "follower" || followtype === "following") {
       accountname && getFollowList();
     } else {
-      setView("fulfilled");
+      setView("rejected");
     }
   }, [token, accountname, followtype]);
 
