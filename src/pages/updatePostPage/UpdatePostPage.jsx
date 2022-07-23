@@ -36,7 +36,8 @@ function Upload() {
           }
         );
         setPostText(res.data.post.content);
-        // setPreviewImgUrl([res.data.post.image]);
+        setPreviewImgUrl([...res.data.post.image.split(",")]);
+        console.log(res.data.post);
       } catch (err) {
         console.log(err);
       }
