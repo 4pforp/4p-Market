@@ -19,7 +19,16 @@ function UpdateProductPage() {
   const [itemImage, setItemImage] = useState("");
   const productid = params.productid;
 
-  //Get Product data
+  const productData = {
+    product: {
+      itemName: itemName,
+      price: price,
+      link: link,
+      itemImage: itemImage,
+    },
+  };
+
+  //기존 상품 데이터 요청
   useEffect(() => {
     async function getProduct() {
       try {
@@ -43,35 +52,24 @@ function UpdateProductPage() {
     getProduct();
   }, []);
 
-  function handleSubmit(e) {
+  //상품 수정 요청
+  async function handleSubmit(e) {
     e.preventDefault();
-
-    const productData = {
-      product: {
-        itemName: itemName,
-        price: parseInt(price.replace(/[^0-9]/g, ""), 10),
-        link: link,
-        itemImage: itemImage,
-      },
-    };
-    async function updateProduct() {
-      try {
-        const res = await axios.put(
-          "https://mandarin.api.weniv.co.kr/product/" + productid,
-          productData,
-          {
-            headers: {
-              Authorization: token,
-              "Content-type": "application/json",
-            },
-          }
-        );
-      } catch (err) {
-        console.log(err);
-      }
+    try {
+      const res = await axios.put(
+        "https://mandarin.api.weniv.co.kr/product/" + productid,
+        productData,
+        {
+          headers: {
+            Authorization: token,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      navigate("/" + myAccountname);
+    } catch (err) {
+      console.error(err);
     }
-    updateProduct();
-    navigate(`/${myAccountname}`);
   }
 
   return (
