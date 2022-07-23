@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useContext } from "react";
+import { useState, useEffect, useRef, useContext, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import axios from "axios";
@@ -15,6 +15,7 @@ function Upload() {
   const [postText, setPostText] = useState("");
   const [fileName, setFileName] = useState([]); //api에서 인코딩한 파일이름
   const [previewImgUrl, setPreviewImgUrl] = useState([]); //미리보기 이미지 src
+  const [fileValue, setFileValue] = useState([]); //input file value
 
   const navigate = useNavigate();
   const textRef = useRef();
@@ -56,6 +57,7 @@ function Upload() {
 
   //이미지 파일 업로드
   function handleImgInput(e) {
+    setFileValue([...fileValue, e.target.value]);
     const loadImg = e.target.files;
     const formData = new FormData();
     formData.append("image", loadImg[0]);
@@ -102,6 +104,7 @@ function Upload() {
     if (postText.length === 0 && fileName.length <= 1) {
       setIsActive(false);
     }
+    setFileValue(fileValue.filter((el, idx) => e.target.id !== String(idx)));
   }
 
   //게시글 업로드 버튼 클릭 시 POST
