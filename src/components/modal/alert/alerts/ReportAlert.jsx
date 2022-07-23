@@ -11,6 +11,7 @@ function ReportAlert({ handleCancel, backUrl }) {
     //report :  useReport hook 의 매개변수 받는 함수
     report(backUrl);
     handleCancel();
+    alert("신고가 완료되었습니다.");
   }
 
   return (
