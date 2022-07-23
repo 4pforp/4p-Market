@@ -87,7 +87,7 @@ function Main() {
               ></Route>
               <Route path="/product" element={<UploadProductPage />}></Route>
               <Route
-                path="/product/:postid"
+                path="/product/:productid"
                 element={<UpdateProductPage />}
               ></Route>
               <Route path="/chat" element={<ChatPage />}></Route>
