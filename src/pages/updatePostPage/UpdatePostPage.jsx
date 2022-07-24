@@ -22,9 +22,9 @@ function Upload() {
   const textRef = useRef();
   const postid = params.postid;
 
-  //Get Post data
+  //기존 포스트 데이터 요청
   useEffect(() => {
-    async function getProduct() {
+    async function getPost() {
       try {
         const res = await axios.get(
           "https://mandarin.api.weniv.co.kr/post/" + postid,
@@ -37,12 +37,11 @@ function Upload() {
         );
         setPostText(res.data.post.content);
         setPreviewImgUrl([...res.data.post.image.split(",")]);
-        console.log(res.data.post);
       } catch (err) {
         console.log(err);
       }
     }
-    getProduct();
+    getPost();
   }, []);
 
   function handleResizeHeight() {
@@ -153,7 +152,6 @@ function Upload() {
             },
           }
         );
-        console.log(res);
       } catch (err) {
         console.error(err);
       }
