@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-function ProdcutInput({
+function ProductInput({
   itemName,
   price,
   link,
@@ -94,4 +94,4 @@ function ProdcutInput({
   );
 }
 
-export default ProdcutInput;
+export default ProductInput;

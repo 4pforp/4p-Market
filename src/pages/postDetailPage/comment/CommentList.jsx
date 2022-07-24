@@ -1,5 +1,6 @@
 import { React, useContext, useState, useEffect, useRef } from "react";
 import UserContext from "../../../context/UserContext";
+import useDelete from "../../../hooks/useDelete";
 import axios from "axios";
 import CommentFooter from "../../../components/footer/CommentFooter";
 import Comment from "./Comment";
@@ -14,6 +15,9 @@ function CommentList({ postid, post }) {
   const updateLimitCount = Math.ceil(post.commentCount / 15);
   const [updatedCount, setUpdatedCount] = useState(0);
   const [skip, setSkip] = useState(0);
+  // comment 삭제 후 업데이트 위한 함수 선언, props로 넘겨주기 위함
+  const { remove, isUpdate } = useDelete();
+
   useEffect(() => {
     // 실시간 업로드 댓글 반영 함수
     async function getNewComments() {
@@ -36,7 +40,7 @@ function CommentList({ postid, post }) {
       } catch (err) {}
     }
     getNewComments();
-  }, [newComment, postid, token]);
+  }, [newComment, postid, token, isUpdate]);
 
   useEffect(() => {
     // 화면 마지막에 도달하면 ReloadNeed!
@@ -111,7 +115,8 @@ function CommentList({ postid, post }) {
           <Comment
             comments={comments}
             postid={postid}
-            setNewComment={setNewComment}
+            //삭제 후 리렌더링 위해 내려준 props
+            remove={remove}
           />
         </ul>
       </div>

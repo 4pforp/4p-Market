@@ -6,7 +6,8 @@ import ModalFrame from "../modalBase/ModalFrame";
 import DeleteAlert from "../alert/alerts/DeleteAlert";
 import ReportAlert from "../alert/alerts/ReportAlert";
 
-function PostModal({ content, setOnModal }) {
+//Post의 Moretn 클릭했을 떄 나타나는 모달
+function PostModal({ content, setOnModal, remove, from }) {
   const { myAccountname } = useContext(UserContext);
   const [onAlert, setOnAlert] = useState(false);
   const accountname = content.author.accountname;
@@ -32,6 +33,9 @@ function PostModal({ content, setOnModal }) {
                 handleCancel={handleCancel}
                 // DeleteAlert 내 remove 함수에 연결되는 backUrl
                 backUrl={`post/${postId}`}
+                //삭제 후 리렌더링 위해 내려준 props
+                remove={remove}
+                from={from}
               />
             </>
           )}
@@ -48,6 +52,7 @@ function PostModal({ content, setOnModal }) {
                 handleCancel={handleCancel}
                 // ReportAlert 내 report 함수에 연결되는 backUrl
                 backUrl={`post/${postId}/report`}
+                remove={remove}
               />
             </>
           )}

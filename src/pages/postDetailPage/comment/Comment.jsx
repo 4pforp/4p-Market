@@ -4,7 +4,7 @@ import UserMoreBtn from "../../../components/button/UserMoreBtn";
 import UserInfoBox from "../../../components/user/UserInfoBox";
 import CommentModal from "../../../components/modal/modals/CommentModal";
 
-function Comment({ comments, postid, setNewComment }) {
+function Comment({ comments, postid, remove }) {
   const [comment, setComment] = useState({});
   const [onModal, setOnModal] = useState(false);
   function handleModal() {
@@ -53,8 +53,8 @@ function Comment({ comments, postid, setNewComment }) {
           setOnModal={handleModal}
           comment={comment}
           postid={postid}
-          // 삭제 후 리렌더링 위해 
-          setNewComment={setNewComment}
+          //삭제 후 리렌더링 위해 내려준 props
+          remove={remove}
         />
       )}
     </>
