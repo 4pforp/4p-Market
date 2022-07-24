@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ProductModal from "../../../components/modal/modals/ProductModal";
 
-function Product({ id, mapdata, accountname, setOnAlert }) {
+function Product({ mapdata, remove }) {
   const [onModal, setOnModal] = useState(false);
   const [product, setProduct] = useState({});
 
@@ -33,7 +33,13 @@ function Product({ id, mapdata, accountname, setOnAlert }) {
         );
       })}
 
-      {onModal && <ProductModal setOnModal={handleModal} product={product} />}
+      {onModal && (
+        <ProductModal
+          setOnModal={handleModal}
+          product={product}
+          remove={remove}
+        />
+      )}
     </>
   );
 }

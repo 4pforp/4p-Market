@@ -6,7 +6,7 @@ import DeleteAlert from "../alert/alerts/DeleteAlert";
 import ReportAlert from "../alert/alerts/ReportAlert";
 
 //comment moreBtn 클릭했을 때 뜨는 모달
-function CommentModal({ setOnModal, comment, postid, setNewComment }) {
+function CommentModal({ setOnModal, comment, postid, remove }) {
   const [onAlert, setOnAlert] = useState(false);
   const { myAccountname } = useContext(UserContext);
   const accountname = comment.author.accountname;
@@ -32,9 +32,8 @@ function CommentModal({ setOnModal, comment, postid, setNewComment }) {
                 handleCancel={handleCancel}
                 // DeleteAlert 내 remove 함수에 연결되는 backUrl
                 backUrl={`post/${postId}/comments/${commentId}`}
-                //댓글리스트 리렌더링위해 불러옴
-                from="commentPage"
-                setNewComment={setNewComment}
+               //삭제 후 리렌더링 위해 내려준 props
+                remove={remove}
               />
             </>
           )}

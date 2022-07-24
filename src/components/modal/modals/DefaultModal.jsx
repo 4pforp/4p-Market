@@ -4,6 +4,7 @@ import ModalBtn from "../modalBase/ModalBtn";
 import ModalFrame from "../modalBase/ModalFrame";
 import LogoutAlert from "../alert/alerts/LogoutAlert";
 
+//commonHeader moreBtn 클릭 했을 때 나타나는 모달
 function DefaultModal({ setOnModal }) {
   const [onAlert, setOnAlert] = useState(false);
 

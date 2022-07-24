@@ -1,19 +1,20 @@
-import React from "react";
-import useDelete from "../../../../hooks/useDelete";
+import { useContext } from "react";
+import UserContext from "../../../../context/UserContext";
+import { useNavigate } from "react-router-dom";
 import CancelBtn from "../alertBase/CancelBtn";
 import AlertBtn from "../alertBase/AlertBtn";
 import AlertFrame from "../alertBase/AlertFrame";
 
-function DeleteAlert({ text, backUrl, handleCancel, setNewComment, from }) {
-  // 삭제기능 구현 메서드
-  const { remove } = useDelete();
+function DeleteAlert({ text, backUrl, handleCancel, from, remove }) {
+  const { myAccountname } = useContext(UserContext);
+  const navigate = useNavigate();
+  // 삭제기능 메서드
   function handleDelete() {
+    handleCancel();
     // remove : useDelete hook 의 매개변수 받는 함수
     remove(backUrl);
-    handleCancel();
-    //댓글리스트 리렌더링 함수
-    if (from === "commentPage") {
-      setNewComment(false);
+    if ((from = "comment")) {
+      navigate(`/${myAccountname}`);
     }
   }
 
