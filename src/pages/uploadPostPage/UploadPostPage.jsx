@@ -12,13 +12,12 @@ function Upload() {
   const { token, myAccountname } = useContext(UserContext);
   const [profileImg, setProfileImg] = useState(defaultProfile);
   const [isActive, setIsActive] = useState(false);
-  const [postText, setPostText] = useState("");
   const [fileName, setFileName] = useState([]); //api에서 인코딩한 파일이름
   const [previewImgUrl, setPreviewImgUrl] = useState([]); //미리보기 이미지 src
-  const [fileValue, setFileValue] = useState([]); //input file value
 
   const navigate = useNavigate();
   const textRef = useRef();
+  const fileRef = useRef();
 
   function handleResizeHeight() {
     textRef.current.style.height = "auto";
@@ -26,10 +25,9 @@ function Upload() {
   }
 
   function handleText(e) {
-    setPostText(e.target.value);
-    if (e.target.value.length > 0) {
+    if (e.target.value) {
       setIsActive(true);
-    } else if (e.target.value.length === 0 && fileName.length === 0) {
+    } else if (!e.target.value && fileName.length === 0) {
       setIsActive(false);
     }
   }
@@ -57,7 +55,6 @@ function Upload() {
 
   //이미지 파일 업로드
   function handleImgInput(e) {
-    setFileValue([...fileValue, e.target.value]);
     const loadImg = e.target.files;
     const formData = new FormData();
     formData.append("image", loadImg[0]);
@@ -101,10 +98,10 @@ function Upload() {
       previewImgUrl.filter((el, idx) => e.target.id !== String(idx))
     );
     setFileName(fileName.filter((el, idx) => e.target.id !== String(idx)));
-    if (postText.length === 0 && fileName.length <= 1) {
+    if (textRef.current.value.length === 0 && fileName.length <= 1) {
       setIsActive(false);
     }
-    setFileValue(fileValue.filter((el, idx) => e.target.id !== String(idx)));
+    fileRef.current.value = "";
   }
 
   //게시글 업로드 버튼 클릭 시 POST
@@ -112,7 +109,7 @@ function Upload() {
     e.preventDefault();
     const postData = {
       post: {
-        content: postText,
+        content: textRef.current.value,
         image: fileName.join(","),
       },
     };
@@ -151,7 +148,7 @@ function Upload() {
               name="textarea-uploadpost"
               className="textarea-uploadpost"
               placeholder="게시글 입력하기"
-              value={postText}
+              //value={postText}
               onChange={handleText}
               onInput={handleResizeHeight}
               ref={textRef}
@@ -161,6 +158,7 @@ function Upload() {
               img="upload-file.svg"
               name="upload-post"
               onChange={handleImgInput}
+              ref={fileRef}
             />
           </form>
           <PreviewImgList mapdata={previewImgUrl} onClick={deletePreview} />
