@@ -6,7 +6,7 @@ import ModalLink from "../modalBase/ModalLink";
 import DeleteAlert from "../alert/alerts/DeleteAlert";
 import ReportAlert from "../alert/alerts/ReportAlert";
 
-function ProductModal({ setOnModal, product }) {
+function ProductModal({ setOnModal, product, remove }) {
   const { myAccountname } = useContext(UserContext);
   const [onAlert, setOnAlert] = useState(false);
   const productId = product.id;
@@ -33,12 +33,13 @@ function ProductModal({ setOnModal, product }) {
                 handleCancel={handleCancel}
                 // DeleteAlert 내 remove 함수에 연결되는 backUrl
                 backUrl={`product/${productId}`}
+                //삭제 후 리렌더링 위해 내려준 props
+                remove={remove}
               />
             </>
           )}
           <ModalFrame setOnModal={setOnModal}>
             <ModalBtn handleClick={handleAlert}>삭제</ModalBtn>
-            {/* Todo: 수정페이지 */}
             <ModalLink handleLink={`/product/${productId}`}>수정</ModalLink>
             <li>
               <a href={productUrl}>웹사이트에서 상품보기</a>
@@ -57,6 +58,9 @@ function ProductModal({ setOnModal, product }) {
             </>
           )}
           <ModalFrame setOnModal={setOnModal}>
+            <li>
+              <a href={productUrl}>웹사이트에서 상품보기</a>
+            </li>
             <ModalBtn handleClick={handleAlert}>신고</ModalBtn>
           </ModalFrame>
         </>

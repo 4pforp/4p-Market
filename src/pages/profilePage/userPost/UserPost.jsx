@@ -1,8 +1,8 @@
 import { React, useEffect, useContext, useState } from "react";
 import UserContext from "../../../context/UserContext";
 import axios from "axios";
+import useDelete from "../../../hooks/useDelete";
 import PostList from "../../../components/post/PostList";
-import NotFound from "../../../components/notFound/NotFound";
 import "./UserPost.scss";
 
 function UserPost({ accountname, from }) {
@@ -12,6 +12,9 @@ function UserPost({ accountname, from }) {
   const [postView, setPostView] = useState("list");
   const [listClicked, setListClicked] = useState("on");
   const [albumClicked, setAlbumClicked] = useState("off");
+
+  // post 삭제 후 업데이트 위한 함수 선언, props로 넘겨주기 위함
+  const { remove, isUpdate } = useDelete();
 
   useEffect(() => {
     const url =
@@ -30,7 +33,7 @@ function UserPost({ accountname, from }) {
       }
     }
     getPost();
-  }, [accountname, token, setReloadPost]);
+  }, [accountname, token, setReloadPost, isUpdate]);
 
   function handleClick(e) {
     if (e.target.classList.contains("list")) {
@@ -66,7 +69,7 @@ function UserPost({ accountname, from }) {
         </div>
         <div className="wrapper-post">
           <ol className={`list-posts ${postView}`}>
-            <PostList post={post} from={from} />
+            <PostList post={post} from={from} remove={remove} />
           </ol>
         </div>
       </section>

@@ -2,6 +2,7 @@ import { React, useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import axios from "axios";
+import useDelete from "../../hooks/useDelete";
 import CommonHeader from "../../components/header/CommonHeader";
 import Article from "../../components/post/Article";
 import NotFound from "../../components/notFound/NotFound";
@@ -15,6 +16,8 @@ function PostDetailPage() {
   const postid = params.postid;
   const [post, setPost] = useState();
   const [view, setView] = useState("pending");
+
+  const { remove } = useDelete();
 
   useEffect(() => {
     const url = "https://mandarin.api.weniv.co.kr/post/" + postid;
@@ -43,7 +46,9 @@ function PostDetailPage() {
         <>
           <main className="container-comment-page">
             <div className="wrapper-comment-post">
-              {post && <Article content={post} from="comment" />}
+              {post && (
+                <Article content={post} from="comment" remove={remove} />
+              )}
             </div>
             <CommentList postid={postid} post={post} />
           </main>

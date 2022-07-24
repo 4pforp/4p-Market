@@ -9,7 +9,7 @@ import PostModal from "../modal/modals/PostModal";
 import errorImage from "../../assets/image_error.png";
 import "./Post.scss";
 
-function Article({ content, from }) {
+function Article({ content, from, remove }) {
   const { ImageTest } = useContext(ImageTestContext);
   const post = content;
   const author = content.author;
@@ -108,7 +108,15 @@ function Article({ content, from }) {
               "일"}
           </strong>
         </main>
-        {onModal && <PostModal setOnModal={handleModal} content={content} />}
+        {onModal && (
+          <PostModal
+            setOnModal={handleModal}
+            content={content}
+            //삭제 후 리렌더링 위해 내려준 props
+            remove={remove}
+            from={from}
+          />
+        )}
         <UserMoreBtn handleClick={openModal} />
       </article>
     </>
