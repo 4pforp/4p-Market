@@ -1,4 +1,6 @@
-function UploadIconBtn({ img, name, onChange, multiple }) {
+import { forwardRef } from "react";
+
+function UploadIconBtn({ img, name, onChange }, ref) {
   return (
     <>
       <label htmlFor="choose-img" className="label-upload-icon">
@@ -14,9 +16,10 @@ function UploadIconBtn({ img, name, onChange, multiple }) {
         id="choose-img"
         accept="image/*"
         onChange={onChange}
+        ref={ref}
       ></input>
     </>
   );
 }
 
-export default UploadIconBtn;
+export default forwardRef(UploadIconBtn);
