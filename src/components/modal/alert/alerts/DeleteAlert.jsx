@@ -13,7 +13,7 @@ function DeleteAlert({ text, backUrl, handleCancel, from, remove }) {
     handleCancel();
     // remove : useDelete hook 의 매개변수 받는 함수
     remove(backUrl);
-    if ((from = "comment")) {
+    if (from === "comment") {
       navigate(`/${myAccountname}`);
     }
   }
