@@ -1,11 +1,11 @@
 import { createContext } from "react";
+import defaultProfile from "../assets/4p_profile.png";
+const ProfileTestContext = createContext();
 
-const ImageTestContext = createContext();
+export default ProfileTestContext;
 
-export default ImageTestContext;
-
-const ImageTestContextProvider = ({ children }) => {
-  const ImageTest = (img) => {
+const ProfileTestContextProvider = ({ children }) => {
+  const ProfileTest = (img) => {
     const testedImg =
       /Ellipse/.test(img) ||
       /heroku/.test(img) ||
@@ -14,21 +14,21 @@ const ImageTestContextProvider = ({ children }) => {
       /1657268443649/.test(img) ||
       null ||
       undefined
-        ? "https://mandarin.api.weniv.co.kr/1658759543397.png"
+        ? defaultProfile
         : img;
 
     return testedImg;
   };
 
   return (
-    <ImageTestContext.Provider
+    <ProfileTestContext.Provider
       value={{
-        ImageTest,
+        ProfileTest,
       }}
     >
       {children}
-    </ImageTestContext.Provider>
+    </ProfileTestContext.Provider>
   );
 };
 
-export { ImageTestContextProvider };
+export { ProfileTestContextProvider };

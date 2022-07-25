@@ -1,6 +1,5 @@
 import { createContext } from "react";
-import defaultProfile from "../assets/4p_profile.png";
-
+import errorImage from "../assets/image_error.png";
 const ImageTestContext = createContext();
 
 export default ImageTestContext;
@@ -15,7 +14,7 @@ const ImageTestContextProvider = ({ children }) => {
       /1657268443649/.test(img) ||
       null ||
       undefined
-        ? "https://mandarin.api.weniv.co.kr/1658759543397.png"
+        ? errorImage
         : img;
 
     return testedImg;

@@ -4,6 +4,8 @@ import ScrollToTop from "./scrollRestoration/ScrollToTop";
 import axios from "axios";
 import UserContext, { UserContextProvider } from "./context/UserContext";
 import { ImageTestContextProvider } from "./context/ImageTestContext";
+import { ProfileTestContextProvider } from "./context/ProfileTestContext";
+
 import HomePage from "./pages/homePage/HomePage";
 import EmailLoginPage from "./pages/emailLoginPage/EmailLoginPage";
 import SignUpPage from "./pages/signUpPage/SignUpPage";
@@ -115,7 +117,9 @@ function App() {
   return (
     <UserContextProvider>
       <ImageTestContextProvider>
-        <Main />
+        <ProfileTestContextProvider>
+          <Main />
+        </ProfileTestContextProvider>
       </ImageTestContextProvider>
     </UserContextProvider>
   );
