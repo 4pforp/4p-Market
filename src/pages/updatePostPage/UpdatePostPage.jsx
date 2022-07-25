@@ -8,19 +8,25 @@ import UploadIconBtn from "../../components/button/UploadIconBtn";
 import defaultProfile from "../../assets/4p_profile.png";
 import "../uploadPostPage/UploadPostPage.scss";
 
-function Upload() {
+function UpdatePost() {
   const { token, myAccountname } = useContext(UserContext);
   const [profileImg, setProfileImg] = useState(defaultProfile);
   const [isActive, setIsActive] = useState(false);
   const [postText, setPostText] = useState("");
   const [fileName, setFileName] = useState([]); //api에서 인코딩한 파일이름
   const [previewImgUrl, setPreviewImgUrl] = useState([]); //미리보기 이미지 src
-  const [fileValue, setFileValue] = useState([]); //input file value
+  const [updateImg, setUpdateImg] = useState();
 
   const navigate = useNavigate();
   const params = useParams();
   const textRef = useRef();
+  const fileRef = useRef();
   const postid = params.postid;
+
+  //페이지 로딩됐을 때 인풋 포커스
+  useEffect(() => {
+    textRef.current.focus();
+  }, []);
 
   //기존 포스트 데이터 요청
   useEffect(() => {
@@ -79,9 +85,20 @@ function Upload() {
     myAccountname && getImg();
   }, [myAccountname]);
 
+  function handleUpdateImg(e) {
+    let file = e.target.files[0];
+    let fileReader = new FileReader();
+
+    if (file === undefined) return;
+
+    fileReader.onload = function () {
+      console.log(fileReader.result);
+    };
+    e.target.value = "";
+  }
+
   //이미지 파일 업로드
   function handleImgInput(e) {
-    setFileValue([...fileValue, e.target.value]);
     const loadImg = e.target.files;
     const formData = new FormData();
     formData.append("image", loadImg[0]);
@@ -125,10 +142,10 @@ function Upload() {
       previewImgUrl.filter((el, idx) => e.target.id !== String(idx))
     );
     setFileName(fileName.filter((el, idx) => e.target.id !== String(idx)));
-    if (postText.length === 0 && fileName.length <= 1) {
+    if (textRef.current.value.length === 0 && fileName.length <= 1) {
       setIsActive(false);
     }
-    setFileValue(fileValue.filter((el, idx) => e.target.id !== String(idx)));
+    fileRef.current.value = "";
   }
 
   //게시글 업로드 버튼 클릭 시 PUT
@@ -140,7 +157,7 @@ function Upload() {
         image: fileName.join(","),
       },
     };
-    async function updatePost() {
+    async function update() {
       try {
         const res = await axios.put(
           "https://mandarin.api.weniv.co.kr/post/" + postid,
@@ -156,7 +173,7 @@ function Upload() {
         console.error(err);
       }
     }
-    updatePost();
+    update();
     navigate(`/${myAccountname}`);
   }
 
@@ -194,4 +211,4 @@ function Upload() {
   );
 }
 
-export default Upload;
+export default UpdatePost;

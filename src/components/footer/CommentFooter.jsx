@@ -1,9 +1,8 @@
-import { useContext, useState, useRef } from "react";
+import { useContext, useState, useRef, useEffect } from "react";
 import UserContext from "../../context/UserContext";
 import axios from "axios";
 import ImageTestContext from "../../context/ImageTestContext";
 import "./PageFooter.scss";
-import { useEffect } from "react";
 
 function CommentFooter({ postid, post, setNewComment }) {
   const { token, myImage } = useContext(UserContext);

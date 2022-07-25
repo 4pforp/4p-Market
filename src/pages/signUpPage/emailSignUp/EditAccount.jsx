@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect, useState, useRef } from "react";
 import axios from "axios";
 
 function EditAccount({
@@ -14,6 +14,12 @@ function EditAccount({
 }) {
   const [resMessagePassword, setResMessagePassword] = useState("");
   const [isValidPassword, setIsValidPassword] = useState(false);
+  const inputRef = useRef();
+
+  //페이지 로딩됐을 때 이메일 인풋 포커스
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   function handleChangeEmail(e) {
     setEmail(e.target.value);
@@ -91,6 +97,7 @@ function EditAccount({
           id="input-email"
           type="email"
           placeholder="이메일 주소를 입력해 주세요."
+          ref={inputRef}
         ></input>
         <strong className={`errorMsg email ${isValidEmail}`}>
           {resMessageEmail}
