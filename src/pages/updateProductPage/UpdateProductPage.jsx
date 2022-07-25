@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
 import UserContext from "../../context/UserContext";
+import axios from "axios";
 import SaveHeader from "../../components/header/SaveHeader";
 import UploadProductImg from "../uploadProductPage/uploadProductImg/UploadProductImg";
 import UploadProductInput from "../uploadProductPage/uploadProductInput/UploadProductInput";

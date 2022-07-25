@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 function ProductInput({
   itemName,
@@ -10,6 +10,13 @@ function ProductInput({
   setIsActive,
   setIsDisabled,
 }) {
+  const inputRef = useRef();
+
+  //페이지 로딩됐을 때 인풋 포커스
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   // 저장 버튼활성화 기능
   useEffect(() => {
     //상품 판매 링크 유효성 검사
@@ -63,6 +70,7 @@ function ProductInput({
             minLength="2"
             onChange={handleChangeProductName}
             value={itemName}
+            ref={inputRef}
           ></input>
         </div>
         <div className="wrapper-price">
