@@ -33,15 +33,25 @@ function PostAlbum({ setPostView, accountname }) {
     albumData &&
     albumData.map((album) => {
       const imageArray = album.image.split(",");
-      return (
-        <li key={album.id} className="list-album">
-          <Link to={album.id}>
-            {imageArray.map((image, i) => (
-              <img src={image} alt="" className="img-list-album" key={i} />
-            ))}
-          </Link>
-        </li>
-      );
+      if (imageArray.length > 1) {
+        return (
+          <li key={album.id} className="list-album multi">
+            <Link
+              to={album.id}
+              style={{ backgroundImage: `url(${imageArray[0]})` }}
+            ></Link>
+          </li>
+        );
+      } else {
+        return (
+          <li key={album.id} className="list-album">
+            <Link
+              to={album.id}
+              style={{ backgroundImage: `url(${album.image})` }}
+            ></Link>
+          </li>
+        );
+      }
     })
   );
 }

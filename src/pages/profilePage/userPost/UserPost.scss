@@ -53,11 +53,32 @@
 .list-posts.album {
   display: flex;
   flex-wrap: wrap;
+  gap: 8px;
   .list-album {
-    width: 50px;
+    width: calc((100% - 16px) / 3);
+    overflow: hidden;
     a {
-      .img-list-album {
-        width: 100%;
+      width: 100%;
+      height: 114px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    &.multi {
+      position: relative;
+      &::before {
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-image: url(../../../assets/iccon-img-layers.svg);
+        z-index: 99;
       }
     }
   }
