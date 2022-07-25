@@ -1,9 +1,11 @@
 @import "../../../components//style/default.scss";
 
 .container-post {
-  margin-top: 6px;
-  background-color: $white;
   height: auto;
+  margin-top: 6px;
+  border-top: 1px solid #dbdbdb;
+  background-color: $white;
+
   .wrapper-post {
     overflow: hidden;
     width: 390px;
@@ -49,12 +51,13 @@
 
 // 앨범 view 스타일
 .list-posts.album {
+  display: flex;
+  flex-wrap: wrap;
+  item-post {
+    width: 100% / 3;
+  }
   .article-post {
     background-color: $white;
-    float: left;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
   }
   .contents-post {
     padding: 0;

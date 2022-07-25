@@ -63,8 +63,10 @@ function ProfilePage() {
         <h1 className="a11y-hidden">{user.username + "의 프로필"}</h1>
         {view === "fulfilled" && (
           <>
-            <UserHeader from={from} user={user} setUser={setUser} />
-            <UserProducts accountname={accountname}  />
+            <div className="wrapper-for-scroll">
+              <UserHeader from={from} user={user} setUser={setUser} />
+              <UserProducts accountname={accountname} />
+            </div>
             <UserPost accountname={accountname} from="profile" />
           </>
         )}

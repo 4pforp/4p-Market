@@ -1,5 +1,6 @@
 import { React, useContext, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ScrollToTop from "./scrollRestoration/ScrollToTop";
 import axios from "axios";
 import UserContext, { UserContextProvider } from "./context/UserContext";
 import { ImageTestContextProvider } from "./context/ImageTestContext";
@@ -63,6 +64,7 @@ function Main() {
   return (
     <div className="App">
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           {token ? (
             <>
