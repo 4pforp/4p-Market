@@ -14,17 +14,19 @@ function UserPost({ accountname, from }) {
   const [listClicked, setListClicked] = useState("on");
   const [albumClicked, setAlbumClicked] = useState("off");
 
-  // post 삭제 후 업데이트 위한 함수 선언, props로 넘겨주기 위함
-  const { remove, isUpdate } = useDelete();
   const [reloadNeed, setReloadNeed] = useState(false);
   const [reloadStop, setReloadStop] = useState(false);
   const [updatedCount, setUpdatedCount] = useState(0);
   const [skip, setSkip] = useState(0);
 
+  // post 삭제 후 업데이트 위한 함수 선언, props로 넘겨주기 위함
+  const { remove, isUpdate } = useDelete();
+
   useEffect(() => {
     // 포스트 불러오기
+    setSkip(0);
+    setReloadStop(false);
     async function getPost() {
-      setSkip(0);
       const url =
         "https://mandarin.api.weniv.co.kr/post/" +
         accountname +
