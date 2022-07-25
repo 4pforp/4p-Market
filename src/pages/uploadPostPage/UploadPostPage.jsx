@@ -19,6 +19,11 @@ function Upload() {
   const textRef = useRef();
   const fileRef = useRef();
 
+  //페이지 로딩됐을 때 인풋 포커스
+  useEffect(() => {
+    textRef.current.focus();
+  }, []);
+
   function handleResizeHeight() {
     textRef.current.style.height = "auto";
     textRef.current.style.height = textRef.current.scrollHeight + "px";
@@ -148,7 +153,7 @@ function Upload() {
               name="textarea-uploadpost"
               className="textarea-uploadpost"
               placeholder="게시글 입력하기"
-              //value={postText}
+              // value={postText}
               onChange={handleText}
               onInput={handleResizeHeight}
               ref={textRef}

@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useRef } from "react";
 import axios from "axios";
 import UploadImg from "./UploadImg";
 
@@ -16,6 +16,13 @@ function EditInfo({
   const [resMessageAccountname, setResMessageAccountname] = useState("");
   const [isValidAccountname, setIsValidAccountname] = useState(false);
   const [isValidUsername, setIsValidUsername] = useState(false);
+
+  const inputRef = useRef();
+
+  //페이지 로딩됐을 때 사용자 이름 인풋 포커스
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   function handleChangeUsername(e) {
     setUsername(e.target.value);
@@ -100,6 +107,7 @@ function EditInfo({
             id="input-username"
             type="text"
             placeholder="2~10자 이내여야 합니다."
+            ref={inputRef}
           ></input>
         </div>
         <div className="wrapper-accountname">
