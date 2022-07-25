@@ -1,9 +1,8 @@
 import { useState, useEffect, useContext } from "react";
-import axios from "axios";
 import UserContext from "../../../context/UserContext";
-import Product from "./Product";
+import axios from "axios";
 import useDelete from "../../../hooks/useDelete";
-
+import Product from "./Product";
 import "./UserProduct.scss";
 
 function UserProduct({ accountname }) {
