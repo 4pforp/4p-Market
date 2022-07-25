@@ -8,14 +8,13 @@ import UploadIconBtn from "../../components/button/UploadIconBtn";
 import defaultProfile from "../../assets/4p_profile.png";
 import "../uploadPostPage/UploadPostPage.scss";
 
-function UpdatePost() {
+function UpdatePostPage() {
   const { token, myAccountname } = useContext(UserContext);
   const [profileImg, setProfileImg] = useState(defaultProfile);
   const [isActive, setIsActive] = useState(false);
   const [postText, setPostText] = useState("");
   const [fileName, setFileName] = useState([]); //api에서 인코딩한 파일이름
   const [previewImgUrl, setPreviewImgUrl] = useState([]); //미리보기 이미지 src
-  const [updateImg, setUpdateImg] = useState();
 
   const navigate = useNavigate();
   const params = useParams();
@@ -42,7 +41,12 @@ function UpdatePost() {
           }
         );
         setPostText(res.data.post.content);
-        setPreviewImgUrl([...res.data.post.image.split(",")]);
+        setFileName(res.data.post.image.split(","));
+        if (res.data.post.image == "") {
+          setPreviewImgUrl([]);
+        } else {
+          setPreviewImgUrl([...res.data.post.image.split(",")]);
+        }
       } catch (err) {
         console.log(err);
       }
@@ -56,10 +60,11 @@ function UpdatePost() {
   }
 
   function handleText(e) {
-    setPostText(e.target.value);
-    if (e.target.value.length > 0) {
+    if (e.target.value) {
       setIsActive(true);
-    } else if (e.target.value.length === 0 && fileName.length === 0) {
+      console.log(e.target.value);
+      console.log(fileName);
+    } else if (!e.target.value && fileName.length === 0) {
       setIsActive(false);
     }
   }
@@ -68,7 +73,7 @@ function UpdatePost() {
   useEffect(() => {
     async function getImg() {
       try {
-        const response = await axios.get(
+        const res = await axios.get(
           "https://mandarin.api.weniv.co.kr/profile/" + myAccountname,
           {
             headers: {
@@ -77,25 +82,13 @@ function UpdatePost() {
             },
           }
         );
-        setProfileImg(response.data.profile.image);
+        setProfileImg(res.data.profile.image);
       } catch (err) {
         console.error(err);
       }
     }
     myAccountname && getImg();
   }, [myAccountname]);
-
-  function handleUpdateImg(e) {
-    let file = e.target.files[0];
-    let fileReader = new FileReader();
-
-    if (file === undefined) return;
-
-    fileReader.onload = function () {
-      console.log(fileReader.result);
-    };
-    e.target.value = "";
-  }
 
   //이미지 파일 업로드
   function handleImgInput(e) {
@@ -153,7 +146,7 @@ function UpdatePost() {
     e.preventDefault();
     const postData = {
       post: {
-        content: postText,
+        content: textRef.current.value,
         image: fileName.join(","),
       },
     };
@@ -173,7 +166,7 @@ function UpdatePost() {
         console.error(err);
       }
     }
-    update();
+    postData && update();
     navigate(`/${myAccountname}`);
   }
 
@@ -192,7 +185,6 @@ function UpdatePost() {
               name="textarea-uploadpost"
               className="textarea-uploadpost"
               placeholder="게시글 입력하기"
-              value={postText}
               onChange={handleText}
               onInput={handleResizeHeight}
               ref={textRef}
@@ -202,6 +194,7 @@ function UpdatePost() {
               img="upload-file.svg"
               name="upload-post"
               onChange={handleImgInput}
+              ref={fileRef}
             />
           </form>
           <PreviewImgList mapdata={previewImgUrl} onClick={deletePreview} />
@@ -211,4 +204,4 @@ function UpdatePost() {
   );
 }
 
-export default UpdatePost;
+export default UpdatePostPage;
