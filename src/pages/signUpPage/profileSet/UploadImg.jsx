@@ -24,7 +24,6 @@ function UploadImg({ image, setImage }) {
           },
         }
       );
-      console.log(res);
       if (res.data.filename) {
         setImage("https://mandarin.api.weniv.co.kr/" + res.data.filename);
         preview(loadImage);

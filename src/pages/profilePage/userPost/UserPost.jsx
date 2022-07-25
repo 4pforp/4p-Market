@@ -81,7 +81,6 @@ function UserPost({ accountname, from }) {
             "Content-type": "application/json",
           },
         });
-        console.log(res);
         // 첫 데이터면 전체 데이터 받아오기/데이터가 있으면 스프레드 문법 사용하여 추가하기
         if (skip === 0) {
           setPost(res.data.post);
