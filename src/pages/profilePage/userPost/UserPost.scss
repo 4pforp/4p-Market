@@ -53,34 +53,12 @@
 .list-posts.album {
   display: flex;
   flex-wrap: wrap;
-  item-post {
-    width: 100% / 3;
-  }
-  .article-post {
-    background-color: $white;
-  }
-  .contents-post {
-    padding: 0;
-  }
-  .img-author,
-  .wrapper-author,
-  .text-post,
-  .container-btn-post,
-  .text-post-date,
-  .btn-user-more {
-    display: none;
-  }
-  .container-post-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    width: 114px;
-    height: 114px;
-    margin-bottom: 0;
-    border-radius: 0;
-    .img-post {
-      display: block;
+  .list-album {
+    width: 50px;
+    a {
+      .img-list-album {
+        width: 100%;
+      }
     }
   }
 }

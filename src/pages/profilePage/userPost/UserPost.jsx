@@ -1,6 +1,7 @@
 import { React, useEffect, useContext, useState, useRef } from "react";
 import UserContext from "../../../context/UserContext";
 import axios from "axios";
+import PostAlbum from "./PostAlbum";
 import useDelete from "../../../hooks/useDelete";
 import PostList from "../../../components/post/PostList";
 import "./UserPost.scss";
@@ -13,7 +14,6 @@ function UserPost({ accountname, from }) {
   const [postView, setPostView] = useState("list");
   const [listClicked, setListClicked] = useState("on");
   const [albumClicked, setAlbumClicked] = useState("off");
-
   const [reloadNeed, setReloadNeed] = useState(false);
   const [reloadStop, setReloadStop] = useState(false);
   const [updatedCount, setUpdatedCount] = useState(0);
@@ -23,9 +23,10 @@ function UserPost({ accountname, from }) {
   const { remove, isUpdate } = useDelete();
 
   useEffect(() => {
-    // 포스트 불러오기
+    // 다른페이지에서 넘어오는 경우 skip 초기화
     setSkip(0);
     setReloadStop(false);
+    // 포스트 불러오기
     async function getPost() {
       const url =
         "https://mandarin.api.weniv.co.kr/post/" +
@@ -41,7 +42,6 @@ function UserPost({ accountname, from }) {
             "Content-type": "application/json",
           },
         });
-        console.log(res);
         setPost(res.data.post);
       } catch (err) {
         console.error(err);
@@ -92,7 +92,6 @@ function UserPost({ accountname, from }) {
         setUpdatedCount(updatedCount + 1);
         setReloadNeed(false);
         setSkip(skip + 15);
-        console.log(res);
       } catch (err) {
         console.error(err);
       }
@@ -142,7 +141,11 @@ function UserPost({ accountname, from }) {
         </div>
         <div className="wrapper-post">
           <ol className={`list-posts ${postView}`}>
-            <PostList post={post} from={from} remove={remove} />
+            {postView === "list" ? (
+              <PostList post={post} from={from} remove={remove} />
+            ) : (
+              <PostAlbum setPostView={setPostView} accountname={accountname} />
+            )}
           </ol>
         </div>
       </section>
