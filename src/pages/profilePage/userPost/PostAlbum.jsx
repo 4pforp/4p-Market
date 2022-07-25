@@ -1,10 +1,12 @@
 import { React, useContext, useState, useEffect } from "react";
-import UserContext from "../../../context/UserContext";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import UserContext from "../../../context/UserContext";
+import ImageTestContext from "../../../context/ImageTestContext";
 
 function PostAlbum({ setPostView, accountname }) {
   const { token } = useContext(UserContext);
+  const { ImageTest } = useContext(ImageTestContext);
   const [albumData, setAlbumData] = useState();
 
   useEffect(() => {
@@ -32,13 +34,17 @@ function PostAlbum({ setPostView, accountname }) {
   return (
     albumData &&
     albumData.map((album) => {
-      const imageArray = album.image.split(",");
+      const imageArray =
+        album.image !== undefined
+          ? album.image.split(",")
+          : ["https://mandarin.api.weniv.co.kr/1658759543397.png"];
+      const img = ImageTest(imageArray[0]);
       if (imageArray.length > 1) {
         return (
           <li key={album.id} className="list-album multi">
             <Link
               to={album.id}
-              style={{ backgroundImage: `url(${imageArray[0]})` }}
+              style={{ backgroundImage: `url(${img})` }}
             ></Link>
           </li>
         );
@@ -47,7 +53,7 @@ function PostAlbum({ setPostView, accountname }) {
           <li key={album.id} className="list-album">
             <Link
               to={album.id}
-              style={{ backgroundImage: `url(${album.image})` }}
+              style={{ backgroundImage: `url(${img})` }}
             ></Link>
           </li>
         );

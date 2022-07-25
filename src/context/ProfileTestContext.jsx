@@ -1,5 +1,4 @@
 import { createContext } from "react";
-import defaultProfile from "../assets/4p_profile.png";
 
 const ImageTestContext = createContext();
 
