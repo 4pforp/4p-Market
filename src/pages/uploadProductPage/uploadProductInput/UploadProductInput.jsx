@@ -92,7 +92,7 @@ function ProductInput({
           <input
             id="input-salelink"
             type="text"
-            placeholder="http://www. 형식으로 입력해주세요."
+            placeholder="http:// 형식으로 입력해주세요."
             onChange={handleChangeSaleLink}
             value={link}
           ></input>
