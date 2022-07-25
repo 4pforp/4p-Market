@@ -22,7 +22,7 @@ function HomePage() {
   const [skip, setSkip] = useState(0);
 
   useEffect(() => {
-    // 실시간 업로드 댓글 반영 함수
+    // 포스트 불러오기
     async function getPosts() {
       const url =
         "https://mandarin.api.weniv.co.kr/post/feed" +
@@ -36,7 +36,6 @@ function HomePage() {
             "Content-type": "application/json",
           },
         });
-        setSkip(0);
         setPosts(res.data.posts);
         setView("fulfilled");
       } catch (err) {
