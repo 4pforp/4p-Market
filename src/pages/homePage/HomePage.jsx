@@ -18,17 +18,13 @@ function HomePage() {
   const Container = useRef();
   const [reloadNeed, setReloadNeed] = useState(false);
   const [reloadStop, setReloadStop] = useState(false);
-  const [updatedCount, setUpdatedCount] = useState(0);
-  const [skip, setSkip] = useState(0);
+  const [skip, setSkip] = useState(15);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     // 포스트 불러오기
     async function getPosts() {
-      const url =
-        "https://mandarin.api.weniv.co.kr/post/feed" +
-        "/?limit=15" +
-        "&skip=" +
-        skip;
+      const url = "https://mandarin.api.weniv.co.kr/post/feed/?limit=15&skip=0";
       try {
         const res = await axios.get(url, {
           headers: {
@@ -73,6 +69,7 @@ function HomePage() {
             "Content-type": "application/json",
           },
         });
+
         // 첫 데이터면 전체 데이터 받아오기/데이터가 있으면 스프레드 문법 사용하여 추가하기
         if (skip === 0) {
           setPosts(res.data.posts);
@@ -81,22 +78,23 @@ function HomePage() {
         }
         // 배열이 비어있으면 데이터 요청 차단
         res.data.posts.length === 0 && setReloadStop(true);
-        setUpdatedCount(updatedCount + 1);
         setReloadNeed(false);
         setSkip(skip + 15);
+        setIsLoading(false);
       } catch (err) {
         setView("rejected");
       }
     }
     // 화면 마지막에 도달하면 infinite scroll 시작
     if (reloadNeed === true) {
+      reloadStop || setIsLoading(true);
       reloadStop || getPosts();
     }
     // 언마운트시에 스크롤이벤트 발생하지 않도록!
     return () => {
       window.removeEventListener("scroll", infinitScoll);
     };
-  }, [token, posts, updatedCount, reloadNeed, skip, initialToken, view]);
+  }, [token, posts, reloadNeed, skip, initialToken, view]);
 
   return (
     <>
@@ -115,6 +113,7 @@ function HomePage() {
                     </ol>
                   </div>
                 </section>
+                <strong className={`loading ${isLoading}`}></strong>
               </main>
             </>
           )}

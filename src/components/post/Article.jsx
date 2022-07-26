@@ -53,7 +53,7 @@ function Article({ content, from, remove }) {
     <>
       <article className="article-post">
         <h3 className="a11y-hidden">user의 post</h3>
-        {from === "profile" && (
+        {from === "profile" ? (
           <>
             <UserInfoBox
               type="post"
@@ -62,18 +62,7 @@ function Article({ content, from, remove }) {
               img={author.image}
             ></UserInfoBox>
           </>
-        )}
-        {from === "comment" && (
-          <>
-            <UserInfoBox
-              type="post"
-              name={author.username}
-              id={"@" + author.accountname}
-              img={author.image}
-            ></UserInfoBox>
-          </>
-        )}
-        {from === "home" && (
+        ) : (
           <>
             <Link to={"/" + accountname}>
               <UserInfoBox
@@ -85,7 +74,6 @@ function Article({ content, from, remove }) {
             </Link>
           </>
         )}
-
         <main className="contents-post">
           <p className="text-post">{post.content}</p>
           {post.image === "" ? null : (

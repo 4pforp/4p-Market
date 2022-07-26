@@ -43,3 +43,21 @@
     }
   }
 }
+
+.loading {
+  position: fixed;
+  bottom: 60px;
+  left: 50%;
+  display: block;
+  margin: auto auto;
+  background-image: url(../../assets/icon-loading.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 50px;
+  z-index: 99;
+  &.false {
+    display: none;
+  }
+}

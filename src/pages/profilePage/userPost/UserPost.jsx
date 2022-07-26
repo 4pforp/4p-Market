@@ -16,25 +16,19 @@ function UserPost({ accountname, from }) {
   const [albumClicked, setAlbumClicked] = useState("off");
   const [reloadNeed, setReloadNeed] = useState(false);
   const [reloadStop, setReloadStop] = useState(false);
-  const [updatedCount, setUpdatedCount] = useState(0);
-  const [skip, setSkip] = useState(0);
+  const [skip, setSkip] = useState(15);
+  const [isLoading, setIsLoading] = useState(false);
 
   // post 삭제 후 업데이트 위한 함수 선언, props로 넘겨주기 위함
   const { remove, isUpdate } = useDelete();
 
   useEffect(() => {
-    // 다른페이지에서 넘어오는 경우 skip 초기화
-    setSkip(0);
-    setReloadStop(false);
     // 포스트 불러오기
     async function getPost() {
       const url =
         "https://mandarin.api.weniv.co.kr/post/" +
         accountname +
-        "/userpost" +
-        "/?limit=15" +
-        "&skip=" +
-        skip;
+        "/userpost/?limit=15&skip=0";
       try {
         const res = await axios.get(url, {
           headers: {
@@ -89,22 +83,23 @@ function UserPost({ accountname, from }) {
         }
         // 배열이 비어있으면 데이터 요청 차단
         res.data.post.length === 0 && setReloadStop(true);
-        setUpdatedCount(updatedCount + 1);
         setReloadNeed(false);
         setSkip(skip + 15);
+        setIsLoading(false);
       } catch (err) {
         console.error(err);
       }
     }
     // 화면 마지막에 도달하면 infinite scroll 시작
     if (reloadNeed === true) {
+      reloadStop || setIsLoading(true);
       reloadStop || getPosts();
     }
     // 언마운트시에 스크롤이벤트 발생하지 않도록!
     return () => {
       window.removeEventListener("scroll", infinitScoll);
     };
-  }, [token, post, updatedCount, reloadNeed, skip]);
+  }, [token, post, reloadNeed, skip]);
 
   // 앨범뷰 / 리스트뷰 선택
   function handleClick(e) {
@@ -149,6 +144,7 @@ function UserPost({ accountname, from }) {
           </ol>
         </div>
       </section>
+      <strong className={`loading ${isLoading}`}></strong>
     </>
   );
 }
