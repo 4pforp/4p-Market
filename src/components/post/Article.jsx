@@ -104,7 +104,7 @@ function Article({ content, from, remove }) {
                   pagination={{ clickable: true }}
                 >
                   {imgArray.map((img, i) => (
-                    <SwiperSlide>
+                    <SwiperSlide key={i}>
                       <img
                         key={i}
                         src={img}

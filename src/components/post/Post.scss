@@ -8,6 +8,10 @@
     padding-left: 54px;
     .swiper {
       z-index: 0;
+      .swiper-pagination {
+        position: static;
+        margin-top: 5px;
+      }
       .swiper-pagination-bullet-active {
         background: $primary-color;
       }
@@ -22,7 +26,7 @@
     .container-post-image {
       overflow: hidden;
       border-radius: 10px;
-      margin-bottom: 14.5px;
+      margin-bottom: 5px;
       .img-post {
         display: block;
         border-radius: 10px;
