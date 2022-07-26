@@ -26,4 +26,9 @@
     padding: 8px 0;
     font-size: 14px;
   }
+  &:hover,
+  &:active,
+  &:focus {
+    box-shadow: 1px 1px 5px #b6b6b6;
+  }
 }
