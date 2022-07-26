@@ -19,7 +19,8 @@ function FollowPage() {
   const [reloadNeed, setReloadNeed] = useState(false);
   const [reloadStop, setReloadStop] = useState(false);
   const [updatedCount, setUpdatedCount] = useState(0);
-  const [skip, setSkip] = useState(0);
+  const [skip, setSkip] = useState(15);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     // 팔로우 리스트 불러오기
@@ -29,9 +30,7 @@ function FollowPage() {
         accountname +
         "/" +
         followtype +
-        "?limit=15" +
-        "&skip=" +
-        skip;
+        "?limit=15&skip=0";
       try {
         const res = await axios.get(url, {
           headers: {
@@ -94,12 +93,14 @@ function FollowPage() {
         setUpdatedCount(updatedCount + 1);
         setReloadNeed(false);
         setSkip(skip + 15);
+        setIsLoading(false);
       } catch (err) {
         setView("rejected");
       }
     }
     // 화면 마지막에 도달하면 infinite scroll 시작
     if (reloadNeed === true) {
+      reloadStop || setIsLoading(true);
       reloadStop || getFollowList();
     }
     // 언마운트시에 스크롤이벤트 발생하지 않도록!
@@ -110,13 +111,14 @@ function FollowPage() {
 
   return (
     <>
-      <FollowHeader title="Followers" />
+      <FollowHeader title={followtype} />
       <main className="container-follow" ref={Container}>
         {view === "fulfilled" && (
           <div className="wrapper-follow">
             <ul className="wrapper-list-follow">
               <UserList followList={followList} />
             </ul>
+            <strong className={`loading ${isLoading}`}></strong>
           </div>
         )}
         {view === "pending" && (

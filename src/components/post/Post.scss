@@ -6,6 +6,16 @@
   margin-bottom: 30px;
   .contents-post {
     padding-left: 54px;
+    .swiper {
+      z-index: 0;
+      .swiper-pagination {
+        position: static;
+        margin-top: 5px;
+      }
+      .swiper-pagination-bullet-active {
+        background: $primary-color;
+      }
+    }
     .text-post {
       font-size: 14px;
       font-family: $basic-font;
@@ -16,10 +26,12 @@
     .container-post-image {
       overflow: hidden;
       border-radius: 10px;
-      margin-bottom: 14.5px;
+      margin-bottom: 5px;
       .img-post {
         display: block;
-        width: 100%;
+        border-radius: 10px;
+        width: 304px;
+        height: 228px;
       }
     }
     .container-btn-post {
@@ -41,5 +53,23 @@
       font-size: 10px;
       font-family: $basic-font;
     }
+  }
+}
+
+.loading {
+  position: fixed;
+  bottom: 60px;
+  left: 50%;
+  display: block;
+  margin: auto auto;
+  background-image: url(../../assets/icon-loading.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 50px;
+  z-index: 99;
+  &.false {
+    display: none;
   }
 }

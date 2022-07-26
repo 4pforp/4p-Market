@@ -2,6 +2,8 @@
 
 ### 뽀삐뽀삐
 
+📍 배포 URL: https://bbobbibbobbi-a0ebf.web.app/
+
 ```
 🐤 '뽀삐뽀삐'란 저희 팀이름인 '4P(뽀피)'와 사람들이 흔히 이름짓는 강아지 이름인 '뽀삐'의 의미를 가지고 있습니다.
 
@@ -68,7 +70,7 @@ axios: `0.27.2`
 
 📍 GitHub : [뽀삐뽀삐 GitHub](https://github.com/4pforp/4p-Market) | [뽀삐뽀삐 Project Log](https://github.com/orgs/4pforp/projects/1) | [GitHub 전략](https://doridori-samsam.notion.site/Github-branch-f64a37b9e1264d5d805f1d57a02c5c82)
 <br/>
-📍 WorkPlace: [뽀삐뽀삐 Notion](https://doridori-samsam.notion.site/FE2-3378be6bfc564354a1e812911a05fdb2EarthMarket-WorkSpace-aa9203776d074f6b974e26d06544577f)
+📍 WorkPlace: [뽀삐뽀삐 Notion](https://doridori-samsam.notion.site/FE2-3378be6bfc564354a1e812911a05fdb2)
 <br/>
 📍 Design : [뽀삐뽀삐 Figma](https://www.figma.com/file/U1sjmLNKLkfHPEV1pBfU0c/4pforp?node-id=0%3A1)
 <br/>
@@ -77,70 +79,6 @@ axios: `0.27.2`
 ### [코딩 컨벤션]
 
 - Coding Convention: [코딩 컨벤션](https://doridori-samsam.notion.site/c425ab2cc91d493ca19e835261cd7eb2)
-
-</br>
-
-<h1> 🗂 폴더트리</h1>
-
-```
-📦 src
- ┣📂 assets
- ┣📂 components
- ┃ ┣📂 button
- ┃ ┣📂 footer
- ┃ ┣📂 header
- ┃ ┣📂 modal
- ┃ ┃ ┣📂 alert
- ┃ ┃ ┃ ┣📂 alertBase
- ┃ ┃ ┃ ┗📂 alerts
- ┃ ┃ ┣📂 modalBase
- ┃ ┃ ┗📂 modals
- ┃ ┣📂 notFound
- ┃ ┣📂 post
- ┃ ┣📂 splash
- ┃ ┃ ┗📂 logo
- ┃ ┣📂 style
- ┃ ┗📂 user
- ┣📂 context
- ┣📂 hooks
- ┣📂 pages
- ┃ ┣📂 chatPage
- ┃ ┃ ┗📂 chatPageItem
- ┃ ┣📂 chatRoomPage
- ┃ ┃ ┗📂 chatRoomInput
- ┃ ┣📂 emailLoginPage
- ┃ ┣📂 followPage
- ┃ ┃ ┗📂 followList
- ┃ ┣📂 homePage
- ┃ ┃ ┗📂 initialFeed
- ┃ ┣📂 logInPage
- ┃ ┃ ┣📂 loginSection
- ┃ ┃ ┗📂 userAccount
- ┃ ┣📂 postDetailPage
- ┃ ┃ ┗📂 comment
- ┃ ┣📂 profileEditPage
- ┃ ┃ ┣📂 profileEditImg
- ┃ ┃ ┗📂 profileEditInfo
- ┃ ┣📂 profilePage
- ┃ ┃ ┣📂 userHeader
- ┃ ┃ ┣📂 userPost
- ┃ ┃ ┗📂 userProduct
- ┃ ┣📂 searchUserPage
- ┃ ┃ ┗📂 searchResult
- ┃ ┣📂 signUpPage
- ┃ ┃ ┣📂 emailSignUp
- ┃ ┃ ┗ 📂 profileSet
- ┃ ┣📂 updatePostPage
- ┃ ┣📂 updateProductPage
- ┃ ┣📂 uploadPostPage
- ┃ ┗📂 uploadProductPage
- ┃  ┣📂 uploadProductImg
- ┃  ┗📂 uploadProductInput
- ┣📜 App.jsx
- ┣📜 App.scss
- ┗📜 index.js
-
-```
 
 </br>
 
@@ -418,12 +356,12 @@ axios: `0.27.2`
 ### **🏷️ ROLE**
 
 - 커뮤니케이션 리더
-- 깃헙 Project Board 관리 
+- 깃헙 Project Board 관리
   - 작업에 대한 진척도를 가시적으로 표시하며 협업 능력 상승
 - 회의록 작성 및 팀 노션 정리
 - 팀원들 간의 원활한 소통 환경 제공
   - 게더타운 활용하여 팀원들간 유대감 형성
-  - 디스코드 '오늘 할 일' 게시판 운영(서로의 진행 상황, 해야할 일 공유, 응원 한마디) 
+  - 디스코드 '오늘 할 일' 게시판 운영(서로의 진행 상황, 해야할 일 공유, 응원 한마디)
 
 ### **🎨 UI**
 
@@ -433,21 +371,22 @@ axios: `0.27.2`
 ### **🔧 기능 구현**
 
 - 로그인 페이지
+
   - 사용자가 입력한 input 데이터를 서버에 전달하는 기능 구현
   - 로그인 유효성 검사 (API 명세에 따름)
     - 정규표현식으로 이메일 형태 및 비밀번호 유효성 검증
     - 서버 데이터를 받아 회원가입 된 정보인지 확인, 데이터 존재 시 로그인 기능 구현
   - 페이지 진입 시 인풋창 포커스 기능 추가 구현
-     - 클릭하지 않아도 input 창이 활성화되게끔 UX 측면 고려하여 구현
+    - 클릭하지 않아도 input 창이 활성화되게끔 UX 측면 고려하여 구현
 
 - 상품등록 페이지 (API 명세에 따름)
+
   - 상품 등록 포스트 업로드 구현
   - 유저가 등록한 웹사이트로 이동되도록 구현
     - 정규표현식으로 웹사이트 주소 유효성 검증
 
 - 에러 페이지
   - 잘못된 주소 입력 시 에러페이지로 이동되도록 구현
-    
 - 모달/알림창
   - React portal 로 모달창 구현
   - 버튼을 클릭하면 화면 하단에 모달창이 나타나고, 버튼을 클릭했을 때 알림창이 뜨도록 구현
@@ -455,14 +394,13 @@ axios: `0.27.2`
   - 모달창, 팝업창 내 모든 기능 구현 [로그아웃, 삭제, 신고, 수정, 페이지 이동] - API 명세에 따름
     - 로그아웃 기능
       - localStorage 내 저장된 유저 정보 clear 해주어 로그아웃 기능 구현
-    - 삭제 기능 
+    - 삭제 기능
       - 작성한 게시글, 상품, 댓글 삭제 기능 구현
       - 데이터 삭제 후 실시간 업데이트 기능 구현
-    - 신고 기능 
-      - 다른 유저의 게시글, 상품, 댓글 신고 기능 구현 
-    - 수정 기능 
+    - 신고 기능
+      - 다른 유저의 게시글, 상품, 댓글 신고 기능 구현
+    - 수정 기능
       - 작성한 게시글, 상품 수정 기능 구현
-
 
 ### 🧩 기타
 
@@ -522,9 +460,9 @@ axios: `0.27.2`
 ### 🧩 기타
 
 - 사용성을 고려한 무한스크롤(데이터 로드) 기능 구현
-    - 피드페이지와 댓글페이지에서 스크롤이 완성되면, 그 다음 데이터를 요청하도록 구현
-    - 받은 데이터를 다시 컨테이너에 이질감 없이 리스트업 되도록 스프레드 문법 사용하여 구현
-    - 오프셋 기반의 페이지네이션 데이터로 인해 데이터 추가시 중복된 데이터가 로드되는 이슈를, 요청할 쿼리의 변수를 초기화 하여 리랜더링 되도록 구현
+  - 피드페이지와 댓글페이지에서 스크롤이 완성되면, 그 다음 데이터를 요청하도록 구현
+  - 받은 데이터를 다시 컨테이너에 이질감 없이 리스트업 되도록 스프레드 문법 사용하여 구현
+  - 오프셋 기반의 페이지네이션 데이터로 인해 데이터 추가시 중복된 데이터가 로드되는 이슈를, 요청할 쿼리의 변수를 초기화 하여 리랜더링 되도록 구현
 - API 통신 중 pending status를 감지하여 로딩중 상태임을 표시하는 기능 추가 및 사용성 개선
 - token 검증 기능 구현(API 명세에 따름)
 - token이 유효하지 않거나 없는 경우 접근 차단 기능 구현
@@ -557,5 +495,69 @@ axios: `0.27.2`
 - inifinite scroll 로딩중 UI 추가
 - 다중 이미지 캐러셀 UI
 - 댓글 카운트 실시간 업데이트
+
+</br>
+
+<h1> 🗂 폴더트리</h1>
+
+```
+📦 src
+ ┣📂 assets
+ ┣📂 components
+ ┃ ┣📂 button
+ ┃ ┣📂 footer
+ ┃ ┣📂 header
+ ┃ ┣📂 modal
+ ┃ ┃ ┣📂 alert
+ ┃ ┃ ┃ ┣📂 alertBase
+ ┃ ┃ ┃ ┗📂 alerts
+ ┃ ┃ ┣📂 modalBase
+ ┃ ┃ ┗📂 modals
+ ┃ ┣📂 notFound
+ ┃ ┣📂 post
+ ┃ ┣📂 splash
+ ┃ ┃ ┗📂 logo
+ ┃ ┣📂 style
+ ┃ ┗📂 user
+ ┣📂 context
+ ┣📂 hooks
+ ┣📂 pages
+ ┃ ┣📂 chatPage
+ ┃ ┃ ┗📂 chatPageItem
+ ┃ ┣📂 chatRoomPage
+ ┃ ┃ ┗📂 chatRoomInput
+ ┃ ┣📂 emailLoginPage
+ ┃ ┣📂 followPage
+ ┃ ┃ ┗📂 followList
+ ┃ ┣📂 homePage
+ ┃ ┃ ┗📂 initialFeed
+ ┃ ┣📂 logInPage
+ ┃ ┃ ┣📂 loginSection
+ ┃ ┃ ┗📂 userAccount
+ ┃ ┣📂 postDetailPage
+ ┃ ┃ ┗📂 comment
+ ┃ ┣📂 profileEditPage
+ ┃ ┃ ┣📂 profileEditImg
+ ┃ ┃ ┗📂 profileEditInfo
+ ┃ ┣📂 profilePage
+ ┃ ┃ ┣📂 userHeader
+ ┃ ┃ ┣📂 userPost
+ ┃ ┃ ┗📂 userProduct
+ ┃ ┣📂 searchUserPage
+ ┃ ┃ ┗📂 searchResult
+ ┃ ┣📂 signUpPage
+ ┃ ┃ ┣📂 emailSignUp
+ ┃ ┃ ┗ 📂 profileSet
+ ┃ ┣📂 updatePostPage
+ ┃ ┣📂 updateProductPage
+ ┃ ┣📂 uploadPostPage
+ ┃ ┗📂 uploadProductPage
+ ┃  ┣📂 uploadProductImg
+ ┃  ┗📂 uploadProductInput
+ ┣📜 App.jsx
+ ┣📜 App.scss
+ ┗📜 index.js
+
+```
 
 </br>
