@@ -111,7 +111,7 @@ function FollowPage() {
 
   return (
     <>
-      <FollowHeader title="Followers" />
+      <FollowHeader title={followtype} />
       <main className="container-follow" ref={Container}>
         {view === "fulfilled" && (
           <div className="wrapper-follow">
