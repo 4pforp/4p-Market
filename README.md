@@ -2,6 +2,8 @@
 
 ### 뽀삐뽀삐
 
+📍 배포 URL: https://bbobbibbobbi-a0ebf.web.app/
+
 ```
 🐤 '뽀삐뽀삐'란 저희 팀이름인 '4P(뽀피)'와 사람들이 흔히 이름짓는 강아지 이름인 '뽀삐'의 의미를 가지고 있습니다.
 
@@ -77,70 +79,6 @@ axios: `0.27.2`
 ### [코딩 컨벤션]
 
 - Coding Convention: [코딩 컨벤션](https://doridori-samsam.notion.site/c425ab2cc91d493ca19e835261cd7eb2)
-
-</br>
-
-<h1> 🗂 폴더트리</h1>
-
-```
-📦 src
- ┣📂 assets
- ┣📂 components
- ┃ ┣📂 button
- ┃ ┣📂 footer
- ┃ ┣📂 header
- ┃ ┣📂 modal
- ┃ ┃ ┣📂 alert
- ┃ ┃ ┃ ┣📂 alertBase
- ┃ ┃ ┃ ┗📂 alerts
- ┃ ┃ ┣📂 modalBase
- ┃ ┃ ┗📂 modals
- ┃ ┣📂 notFound
- ┃ ┣📂 post
- ┃ ┣📂 splash
- ┃ ┃ ┗📂 logo
- ┃ ┣📂 style
- ┃ ┗📂 user
- ┣📂 context
- ┣📂 hooks
- ┣📂 pages
- ┃ ┣📂 chatPage
- ┃ ┃ ┗📂 chatPageItem
- ┃ ┣📂 chatRoomPage
- ┃ ┃ ┗📂 chatRoomInput
- ┃ ┣📂 emailLoginPage
- ┃ ┣📂 followPage
- ┃ ┃ ┗📂 followList
- ┃ ┣📂 homePage
- ┃ ┃ ┗📂 initialFeed
- ┃ ┣📂 logInPage
- ┃ ┃ ┣📂 loginSection
- ┃ ┃ ┗📂 userAccount
- ┃ ┣📂 postDetailPage
- ┃ ┃ ┗📂 comment
- ┃ ┣📂 profileEditPage
- ┃ ┃ ┣📂 profileEditImg
- ┃ ┃ ┗📂 profileEditInfo
- ┃ ┣📂 profilePage
- ┃ ┃ ┣📂 userHeader
- ┃ ┃ ┣📂 userPost
- ┃ ┃ ┗📂 userProduct
- ┃ ┣📂 searchUserPage
- ┃ ┃ ┗📂 searchResult
- ┃ ┣📂 signUpPage
- ┃ ┃ ┣📂 emailSignUp
- ┃ ┃ ┗ 📂 profileSet
- ┃ ┣📂 updatePostPage
- ┃ ┣📂 updateProductPage
- ┃ ┣📂 uploadPostPage
- ┃ ┗📂 uploadProductPage
- ┃  ┣📂 uploadProductImg
- ┃  ┗📂 uploadProductInput
- ┣📜 App.jsx
- ┣📜 App.scss
- ┗📜 index.js
-
-```
 
 </br>
 
@@ -557,5 +495,69 @@ axios: `0.27.2`
 - inifinite scroll 로딩중 UI 추가
 - 다중 이미지 캐러셀 UI
 - 댓글 카운트 실시간 업데이트
+
+</br>
+
+<h1> 🗂 폴더트리</h1>
+
+```
+📦 src
+ ┣📂 assets
+ ┣📂 components
+ ┃ ┣📂 button
+ ┃ ┣📂 footer
+ ┃ ┣📂 header
+ ┃ ┣📂 modal
+ ┃ ┃ ┣📂 alert
+ ┃ ┃ ┃ ┣📂 alertBase
+ ┃ ┃ ┃ ┗📂 alerts
+ ┃ ┃ ┣📂 modalBase
+ ┃ ┃ ┗📂 modals
+ ┃ ┣📂 notFound
+ ┃ ┣📂 post
+ ┃ ┣📂 splash
+ ┃ ┃ ┗📂 logo
+ ┃ ┣📂 style
+ ┃ ┗📂 user
+ ┣📂 context
+ ┣📂 hooks
+ ┣📂 pages
+ ┃ ┣📂 chatPage
+ ┃ ┃ ┗📂 chatPageItem
+ ┃ ┣📂 chatRoomPage
+ ┃ ┃ ┗📂 chatRoomInput
+ ┃ ┣📂 emailLoginPage
+ ┃ ┣📂 followPage
+ ┃ ┃ ┗📂 followList
+ ┃ ┣📂 homePage
+ ┃ ┃ ┗📂 initialFeed
+ ┃ ┣📂 logInPage
+ ┃ ┃ ┣📂 loginSection
+ ┃ ┃ ┗📂 userAccount
+ ┃ ┣📂 postDetailPage
+ ┃ ┃ ┗📂 comment
+ ┃ ┣📂 profileEditPage
+ ┃ ┃ ┣📂 profileEditImg
+ ┃ ┃ ┗📂 profileEditInfo
+ ┃ ┣📂 profilePage
+ ┃ ┃ ┣📂 userHeader
+ ┃ ┃ ┣📂 userPost
+ ┃ ┃ ┗📂 userProduct
+ ┃ ┣📂 searchUserPage
+ ┃ ┃ ┗📂 searchResult
+ ┃ ┣📂 signUpPage
+ ┃ ┃ ┣📂 emailSignUp
+ ┃ ┃ ┗ 📂 profileSet
+ ┃ ┣📂 updatePostPage
+ ┃ ┣📂 updateProductPage
+ ┃ ┣📂 uploadPostPage
+ ┃ ┗📂 uploadProductPage
+ ┃  ┣📂 uploadProductImg
+ ┃  ┗📂 uploadProductInput
+ ┣📜 App.jsx
+ ┣📜 App.scss
+ ┗📜 index.js
+
+```
 
 </br>
