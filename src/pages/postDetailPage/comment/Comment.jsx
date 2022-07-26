@@ -13,11 +13,35 @@ function Comment({ comments, postid, remove }) {
   function openModal() {
     setOnModal(true);
   }
+
+  function timeForToday(today, createAt) {
+    const betweenTime = Math.floor(
+      (today.getTime() - createAt.getTime()) / 1000 / 60
+    );
+    console.log(betweenTime);
+    if (betweenTime < 1) return "방금전";
+    if (betweenTime < 60) {
+      return `${betweenTime}분전`;
+    }
+    const betweenTimeHour = Math.floor(betweenTime / 60);
+    if (betweenTimeHour < 24) {
+      return `${betweenTimeHour}시간전`;
+    }
+
+    const betweenTimeDay = Math.floor(betweenTime / 60 / 24);
+    if (betweenTimeDay < 365) {
+      return `${betweenTimeDay}일전`;
+    }
+    return `${Math.floor(betweenTimeDay / 365)}년전`;
+  }
+
   return (
     <>
       {comments &&
         comments.map((comment) => {
+          const today = new Date();
           const createAt = new Date(comment.createdAt);
+          const timeAgo = timeForToday(today, createAt);
           return (
             <li className="item-comment" key={comment.id}>
               <Link to={"/" + comment.author.accountname}>
@@ -26,16 +50,7 @@ function Comment({ comments, postid, remove }) {
                   name={comment.author.username}
                   img={comment.author.image}
                 >
-                  {/* TODO -분 전으로 수정 by 현지*/}
-                  <span className="text-comment-time">
-                    {"· " +
-                      createAt.getFullYear() +
-                      "년 " +
-                      (createAt.getMonth() + 1) +
-                      "월 " +
-                      createAt.getDate() +
-                      "일"}
-                  </span>
+                  <span className="text-comment-time">{timeAgo}</span>
                 </UserInfoBox>
               </Link>
               <p className="content-comment">{comment.content}</p>
