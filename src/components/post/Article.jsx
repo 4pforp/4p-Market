@@ -63,17 +63,7 @@ function Article({ content, from, remove }) {
             ></UserInfoBox>
           </>
         )}
-        {from === "comment" && (
-          <>
-            <UserInfoBox
-              type="post"
-              name={author.username}
-              id={"@" + author.accountname}
-              img={author.image}
-            ></UserInfoBox>
-          </>
-        )}
-        {from === "home" && (
+        {(from === "comment" || "home") && (
           <>
             <Link to={"/" + accountname}>
               <UserInfoBox
@@ -85,7 +75,6 @@ function Article({ content, from, remove }) {
             </Link>
           </>
         )}
-
         <main className="contents-post">
           <p className="text-post">{post.content}</p>
           {post.image === "" ? null : (
