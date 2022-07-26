@@ -1,5 +1,7 @@
 import { React, useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { Navigation, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 import ImageTestContext from "../../context/ImageTestContext";
 import CommentBtn from "../button/CommentBtn";
 import LikeBtn from "../button/LikeBtn";
@@ -8,6 +10,9 @@ import UserInfoBox from "../user/UserInfoBox";
 import PostModal from "../modal/modals/PostModal";
 import errorImage from "../../assets/image_error.png";
 import "./Post.scss";
+import "swiper/scss";
+import "swiper/scss/navigation";
+import "swiper/scss/pagination";
 
 function Article({ content, from, remove }) {
   const { ImageTest } = useContext(ImageTestContext);
@@ -69,18 +74,28 @@ function Article({ content, from, remove }) {
 
         <main className="contents-post">
           <p className="text-post">{post.content}</p>
+
           {post.image === "" ? null : (
             <Link to={"/" + accountname + "/" + post.id}>
               <div className="container-post-image">
-                {imgArray.map((img, i) => (
-                  <img
-                    key={i}
-                    src={img}
-                    alt="게시글 사진"
-                    onError={handleImageError}
-                    className="img-post"
-                  />
-                ))}
+                <Swiper
+                  modules={[Navigation, Pagination]}
+                  spaceBetween={50}
+                  slidesPerView={1}
+                  pagination={{ clickable: true }}
+                >
+                  {imgArray.map((img, i) => (
+                    <SwiperSlide>
+                      <img
+                        key={i}
+                        src={img}
+                        alt="게시글 사진"
+                        onError={handleImageError}
+                        className="img-post"
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
               </div>
             </Link>
           )}

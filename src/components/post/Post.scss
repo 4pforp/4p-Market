@@ -6,6 +6,17 @@
   margin-bottom: 30px;
   .contents-post {
     padding-left: 54px;
+    .swiper {
+      z-index: 0;
+      .swiper-pagination-bullet-active {
+        background: $primary-color;
+      }
+      .img-post {
+        border-radius: 10px;
+        width: 304px;
+        height: 228px;
+      }
+    }
     .text-post {
       font-size: 14px;
       font-family: $basic-font;
@@ -19,7 +30,8 @@
       margin-bottom: 14.5px;
       .img-post {
         display: block;
-        width: 100%;
+        width: 304px;
+        height: 228px;
       }
     }
     .container-btn-post {
