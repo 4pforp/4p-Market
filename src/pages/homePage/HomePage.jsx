@@ -18,18 +18,13 @@ function HomePage() {
   const Container = useRef();
   const [reloadNeed, setReloadNeed] = useState(false);
   const [reloadStop, setReloadStop] = useState(false);
-  const [updatedCount, setUpdatedCount] = useState(0);
-  const [skip, setSkip] = useState(0);
+  const [skip, setSkip] = useState(15);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     // 포스트 불러오기
     async function getPosts() {
-      const url =
-        "https://mandarin.api.weniv.co.kr/post/feed" +
-        "/?limit=15" +
-        "&skip=" +
-        skip;
+      const url = "https://mandarin.api.weniv.co.kr/post/feed/?limit=15&skip=0";
       try {
         const res = await axios.get(url, {
           headers: {
@@ -82,9 +77,7 @@ function HomePage() {
           setPosts([...posts, ...res.data.posts]);
         }
         // 배열이 비어있으면 데이터 요청 차단
-        res.data.posts.length === 0 &&
-          setReloadStop(true) &&
-          setUpdatedCount(updatedCount + 1);
+        res.data.posts.length === 0 && setReloadStop(true);
         setReloadNeed(false);
         setSkip(skip + 15);
         setIsLoading(false);
@@ -101,7 +94,7 @@ function HomePage() {
     return () => {
       window.removeEventListener("scroll", infinitScoll);
     };
-  }, [token, posts, updatedCount, reloadNeed, skip, initialToken, view]);
+  }, [token, posts, reloadNeed, skip, initialToken, view]);
 
   return (
     <>

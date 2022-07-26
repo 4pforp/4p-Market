@@ -14,7 +14,9 @@ function CommentList({ postid, post }) {
   const [reloadNeed, setReloadNeed] = useState(false);
   const updateLimitCount = Math.ceil(post.commentCount / 15);
   const [updatedCount, setUpdatedCount] = useState(0);
-  const [skip, setSkip] = useState(0);
+  const [skip, setSkip] = useState(15);
+  const [isLoading, setIsLoading] = useState(false);
+
   // comment 삭제 후 업데이트 위한 함수 선언, props로 넘겨주기 위함
   const { remove, isUpdate } = useDelete();
   useEffect(() => {
@@ -23,9 +25,7 @@ function CommentList({ postid, post }) {
       const url =
         "https://mandarin.api.weniv.co.kr/post/" +
         postid +
-        "/comments/?limit=15" +
-        "&skip=" +
-        skip;
+        "/comments/?limit=15&skip=0";
       try {
         const res = await axios.get(url, {
           headers: {
@@ -33,7 +33,6 @@ function CommentList({ postid, post }) {
             "Content-type": "application/json",
           },
         });
-        setSkip(0);
         setComments(res.data.comments);
         setNewComment(true);
       } catch (err) {}
@@ -83,6 +82,7 @@ function CommentList({ postid, post }) {
         setUpdatedCount(updatedCount + 1);
         setReloadNeed(false);
         setSkip(skip + 15);
+        setIsLoading(false);
       } catch (err) {
         console.error(err);
       }
@@ -90,6 +90,7 @@ function CommentList({ postid, post }) {
     // 화면 마지막에 도달하면 infinite scroll 시작
     if (reloadNeed === true) {
       if (updatedCount <= updateLimitCount) {
+        setIsLoading(true);
         getComments();
       }
     }
@@ -118,7 +119,9 @@ function CommentList({ postid, post }) {
             remove={remove}
           />
         </ul>
+        <strong className={`loading ${isLoading}`}></strong>
       </div>
+
       <CommentFooter
         postid={postid}
         post={post}

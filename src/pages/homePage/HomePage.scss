@@ -19,19 +19,4 @@
     justify-content: flex-start;
     margin-top: 48px;
   }
-  .loading {
-    position: fixed;
-    bottom: 60px;
-    display: block;
-    background-image: url(../../assets/icon-loading.svg);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 30px;
-    height: 50px;
-    z-index: 99999;
-    &.false {
-      display: none;
-    }
-  }
 }
