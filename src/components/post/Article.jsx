@@ -14,7 +14,7 @@ function Article({ content, from, remove }) {
   const post = content;
   const author = content.author;
   const accountname = author.accountname;
-  const createAt = new Date(content.createdAt);
+  const createAtFull = new Date(content.createdAt);
   const [onModal, setOnModal] = useState(false);
 
   const img = ImageTest(post.image);
@@ -30,6 +30,25 @@ function Article({ content, from, remove }) {
     setOnModal(true);
   }
 
+  function createdAt(createdAt) {
+    const betweenTime = new Date() - createdAt;
+    const seconds = betweenTime / 1000;
+    if (seconds < 60) return `방금 전`;
+    const minutes = seconds / 60;
+    if (minutes < 60) return `${Math.floor(minutes)}분 전`;
+    const hours = minutes / 60;
+    if (hours < 24) return `${Math.floor(hours)}시간 전`;
+    const days = hours / 24;
+    if (days < 7) return `${Math.floor(days)}일 전`;
+    const weeks = days / 7;
+    if (weeks < 5) return `${Math.floor(weeks)}주 전`;
+    const months = days / 30;
+    if (months < 12) return `${Math.floor(months)}개월 전`;
+    const years = days / 365;
+    return `${Math.floor(years)}년 전`;
+  }
+
+  const commentCreatedAt = createdAt(createAtFull);
   return (
     <>
       <article className="article-post">
@@ -100,12 +119,14 @@ function Article({ content, from, remove }) {
             />
           </div>
           <strong className="text-post-date">
-            {createAt.getFullYear() +
-              "년 " +
-              (createAt.getMonth() + 1) +
-              "월 " +
-              createAt.getDate() +
-              "일"}
+            {from === "home"
+              ? commentCreatedAt
+              : createAtFull.getFullYear() +
+                "년 " +
+                (createAtFull.getMonth() + 1) +
+                "월 " +
+                createAtFull.getDate() +
+                "일"}
           </strong>
         </main>
         {onModal && (
