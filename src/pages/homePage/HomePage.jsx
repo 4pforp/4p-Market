@@ -20,6 +20,7 @@ function HomePage() {
   const [reloadStop, setReloadStop] = useState(false);
   const [updatedCount, setUpdatedCount] = useState(0);
   const [skip, setSkip] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     // 포스트 불러오기
@@ -73,6 +74,7 @@ function HomePage() {
             "Content-type": "application/json",
           },
         });
+
         // 첫 데이터면 전체 데이터 받아오기/데이터가 있으면 스프레드 문법 사용하여 추가하기
         if (skip === 0) {
           setPosts(res.data.posts);
@@ -80,16 +82,19 @@ function HomePage() {
           setPosts([...posts, ...res.data.posts]);
         }
         // 배열이 비어있으면 데이터 요청 차단
-        res.data.posts.length === 0 && setReloadStop(true);
-        setUpdatedCount(updatedCount + 1);
+        res.data.posts.length === 0 &&
+          setReloadStop(true) &&
+          setUpdatedCount(updatedCount + 1);
         setReloadNeed(false);
         setSkip(skip + 15);
+        setIsLoading(false);
       } catch (err) {
         setView("rejected");
       }
     }
     // 화면 마지막에 도달하면 infinite scroll 시작
     if (reloadNeed === true) {
+      reloadStop || setIsLoading(true);
       reloadStop || getPosts();
     }
     // 언마운트시에 스크롤이벤트 발생하지 않도록!
@@ -115,6 +120,7 @@ function HomePage() {
                     </ol>
                   </div>
                 </section>
+                <strong className={`loading ${isLoading}`}></strong>
               </main>
             </>
           )}
