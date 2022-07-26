@@ -3,8 +3,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./scrollRestoration/ScrollToTop";
 import axios from "axios";
 import UserContext, { UserContextProvider } from "./context/UserContext";
-import { ImageTestContextProvider } from "./context/ImageTestContext";
-import { ProfileTestContextProvider } from "./context/ProfileTestContext";
 
 import HomePage from "./pages/homePage/HomePage";
 import EmailLoginPage from "./pages/emailLoginPage/EmailLoginPage";
@@ -116,11 +114,7 @@ function Main() {
 function App() {
   return (
     <UserContextProvider>
-      <ImageTestContextProvider>
-        <ProfileTestContextProvider>
-          <Main />
-        </ProfileTestContextProvider>
-      </ImageTestContextProvider>
+      <Main />
     </UserContextProvider>
   );
 }

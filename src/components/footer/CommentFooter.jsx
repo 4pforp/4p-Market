@@ -1,17 +1,17 @@
 import { useContext, useState, useRef, useEffect } from "react";
 import UserContext from "../../context/UserContext";
 import axios from "axios";
-import ProfileTestContext from "../../context/ProfileTestContext";
 import "./PageFooter.scss";
+import useProfileTest from "../../hooks/useProfileImageTest";
 
 function CommentFooter({ postid, post, setNewComment }) {
   const { token, myImage } = useContext(UserContext);
-  const { ProfileTest } = useContext(ProfileTestContext);
+  const { imageTest } = useProfileTest();
   const [comment, setComment] = useState();
   const [valid, setValid] = useState(false);
   const commentinput = useRef();
 
-  const img = post && ProfileTest(myImage);
+  const img = post && imageTest(myImage);
   const imgStyle = {
     backgroundImage: `url(${img})`,
   };

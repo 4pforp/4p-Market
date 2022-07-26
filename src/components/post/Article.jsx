@@ -1,8 +1,8 @@
-import { React, useContext, useState } from "react";
+import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import ImageTestContext from "../../context/ImageTestContext";
+import useImageTest from "../../hooks/useImageTest";
 import CommentBtn from "../button/CommentBtn";
 import LikeBtn from "../button/LikeBtn";
 import UserMoreBtn from "../button/UserMoreBtn";
@@ -15,14 +15,14 @@ import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 
 function Article({ content, from, remove }) {
-  const { ImageTest } = useContext(ImageTestContext);
+  const { imageTest } = useImageTest();
   const post = content;
   const author = content.author;
   const accountname = author.accountname;
   const createAtFull = new Date(content.createdAt);
   const [onModal, setOnModal] = useState(false);
 
-  const img = ImageTest(post.image);
+  const img = imageTest(post.image);
   const imgArray = img.split(",");
 
   function handleImageError(e) {

@@ -1,14 +1,14 @@
-import { React, useContext } from "react";
+import { React } from "react";
 import { Link } from "react-router-dom";
-import ProfileTestContext from "../../../context/ProfileTestContext";
 import EditProfileBtn from "../../../components/button/EditProfileBtn";
 import FollowBtn from "../../../components/button/FollowBtn";
 import UploadProductBtn from "../../../components/button/UploadProductBtn";
+import useProfileTest from "../../../hooks/useProfileImageTest";
 import "./UserHeader.scss";
 
 function ProfileHeader({ from, setUser, user }) {
-  const { ProfileTest } = useContext(ProfileTestContext);
-  const img = ProfileTest(user.image);
+  const { imageTest } = useProfileTest();
+  const img = imageTest(user.image);
   const imgStyle = {
     backgroundImage: `url(${img})`,
   };

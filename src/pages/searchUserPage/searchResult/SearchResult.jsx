@@ -1,12 +1,12 @@
 import { React, useContext } from "react";
 import { Link } from "react-router-dom";
-import ProfileTestContext from "../../../context/ProfileTestContext";
 import UserInfoBox from "../../../components/user/UserInfoBox";
 import defaultProfile from "../../../assets/4p_profile.png";
 import "./SearchResult.scss";
+import useProfileTest from "../../../hooks/useProfileImageTest";
 
 function SearchResult({ mapdata }) {
-  const { ProfileTest } = useContext(ProfileTestContext);
+  const { imageTest } = useProfileTest();
 
   function handleImageError(e) {
     e.target.src = defaultProfile;
@@ -15,7 +15,7 @@ function SearchResult({ mapdata }) {
   return (
     <ul className="search-result">
       {mapdata.map((user) => {
-        const img = ProfileTest(user.image);
+        const img = imageTest(user.image);
         return (
           <li key={user._id} className="list-search-user">
             <Link to={"/" + user.accountname}>
