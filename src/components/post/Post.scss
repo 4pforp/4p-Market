@@ -1,16 +1,15 @@
 @import "../style/default.scss";
 
 .article-post {
-  padding-top: 4px;
   position: relative;
   margin-bottom: 30px;
   .contents-post {
     padding-left: 54px;
     .swiper {
       z-index: 0;
+      padding-bottom: 20px;
       .swiper-pagination {
-        position: static;
-        margin-top: 5px;
+        bottom: -2px;
       }
       .swiper-pagination-bullet-active {
         background: $primary-color;
@@ -26,12 +25,12 @@
     .container-post-image {
       overflow: hidden;
       border-radius: 10px;
-      margin-bottom: 5px;
       .img-post {
         display: block;
         border-radius: 10px;
         width: 304px;
-        height: 228px;
+        height: 304px;
+        object-fit: cover;
       }
     }
     .container-btn-post {
