@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
-import { Navigation, Pagination } from "swiper";
+import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import useImageTest from "../../hooks/useImageTest";
 import CommentBtn from "../button/CommentBtn";
@@ -83,16 +83,16 @@ function Article({ content, from, remove }) {
           <p className="text-post">{post.content}</p>
 
           {post.image === "" ? null : (
-            <Link to={"/" + accountname + "/" + post.id}>
-              <div className="container-post-image">
-                <Swiper
-                  modules={[Navigation, Pagination]}
-                  spaceBetween={50}
-                  slidesPerView={1}
-                  pagination={{ clickable: true }}
-                >
-                  {imgArray.map((img, i) => (
-                    <SwiperSlide key={i}>
+            <div className="container-post-image">
+              <Swiper
+                modules={[Pagination]}
+                spaceBetween={50}
+                slidesPerView={1}
+                pagination={{ clickable: true }}
+              >
+                {imgArray.map((img, i) => (
+                  <SwiperSlide key={i}>
+                    <Link to={"/" + accountname + "/" + post.id}>
                       <img
                         key={i}
                         src={img}
@@ -100,11 +100,11 @@ function Article({ content, from, remove }) {
                         onError={handleImageError}
                         className="img-post"
                       />
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-            </Link>
+                    </Link>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
           )}
 
           <div className="container-btn-post">
