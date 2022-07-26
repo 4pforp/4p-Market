@@ -3,7 +3,7 @@
 .container-post {
   height: auto;
   margin-top: 6px;
-  border-top: 1px solid #dbdbdb;
+  // border-top: 1px solid #dbdbdb;
   background-color: $white;
 
   .wrapper-post {
@@ -12,6 +12,7 @@
     margin: auto;
   }
   .container-view-btn {
+    border-top: 1px solid #dbdbdb;
     border-bottom: 1px solid #dbdbdb;
   }
   .wrapper-view-btn {
@@ -21,6 +22,7 @@
     width: 390px;
     padding: 9px 16px;
     margin: auto;
+
     .btn-view {
       width: 26px;
       height: 26px;
@@ -61,11 +63,10 @@
       width: 100%;
       height: 114px;
       position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display: block;
       background-size: cover;
       background-repeat: no-repeat;
+      background-position: center;
     }
     &.multi {
       position: relative;

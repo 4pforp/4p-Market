@@ -19,7 +19,7 @@ function CommentBtn({ commentcount, postid, from, accountname }) {
       >
         <span className="a11y-hidden">댓글</span>
       </button>
-      <span className="text-comment-num">{commentcount || 0}</span>
+      <span className="text-comment-num">{commentcount}</span>
     </div>
   );
 }

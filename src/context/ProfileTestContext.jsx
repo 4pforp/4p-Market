@@ -1,11 +1,11 @@
 import { createContext } from "react";
-import errorImage from "../assets/image_error.png";
-const ImageTestContext = createContext();
+import defaultProfile from "../assets/4p_profile.png";
+const ProfileTestContext = createContext();
 
-export default ImageTestContext;
+export default ProfileTestContext;
 
-const ImageTestContextProvider = ({ children }) => {
-  const ImageTest = (img) => {
+const ProfileTestContextProvider = ({ children }) => {
+  const ProfileTest = (img) => {
     const testedImg =
       /Ellipse/.test(img) ||
       /heroku/.test(img) ||
@@ -14,21 +14,21 @@ const ImageTestContextProvider = ({ children }) => {
       /1657268443649/.test(img) ||
       null ||
       undefined
-        ? errorImage
+        ? defaultProfile
         : img;
 
     return testedImg;
   };
 
   return (
-    <ImageTestContext.Provider
+    <ProfileTestContext.Provider
       value={{
-        ImageTest,
+        ProfileTest,
       }}
     >
       {children}
-    </ImageTestContext.Provider>
+    </ProfileTestContext.Provider>
   );
 };
 
-export { ImageTestContextProvider };
+export { ProfileTestContextProvider };

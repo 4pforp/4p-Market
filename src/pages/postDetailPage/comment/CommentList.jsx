@@ -17,7 +17,6 @@ function CommentList({ postid, post }) {
   const [skip, setSkip] = useState(0);
   // comment 삭제 후 업데이트 위한 함수 선언, props로 넘겨주기 위함
   const { remove, isUpdate } = useDelete();
-
   useEffect(() => {
     // 실시간 업로드 댓글 반영 함수
     async function getNewComments() {
