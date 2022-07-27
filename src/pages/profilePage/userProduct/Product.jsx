@@ -16,7 +16,6 @@ function Product({ accountname, mapdata, remove }) {
 
   const navigate = useNavigate();
 
-  console.log(imageTest);
   function openModal() {
     setModal(true);
   }
