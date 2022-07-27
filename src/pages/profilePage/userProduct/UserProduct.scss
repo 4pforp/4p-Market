@@ -47,8 +47,10 @@
           width: 140px;
           height: 90px;
           margin-bottom: 6px;
+          border: 1px solid $line-color;
           border-radius: 8px;
           overflow: hidden;
+          object-fit: contain;
         }
         .text-product {
           margin-bottom: 4px;
