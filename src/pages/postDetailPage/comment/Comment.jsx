@@ -1,18 +1,65 @@
-import { React, useState } from "react";
+import { React, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../../../context/UserContext";
 import UserMoreBtn from "../../../components/button/UserMoreBtn";
 import UserInfoBox from "../../../components/user/UserInfoBox";
-import CommentModal from "../../../components/modal/modals/CommentModal";
+import Modal from "../../../components/modal/Modal";
+import useReport from "../../../hooks/useReport";
+import AlertModal from "../../../components/modal/Alert";
 
 function Comment({ comments, postid, remove }) {
+  const { myAccountname } = useContext(UserContext);
   const [comment, setComment] = useState({});
-  const [onModal, setOnModal] = useState(false);
-  function handleModal() {
-    setOnModal(!onModal);
+  const [modal, setModal] = useState(false);
+  const [alertModal, setAlertModal] = useState(false);
+  const { report } = useReport();
+
+  const commentId = comment.id;
+  const postId = postid;
+  let accountname;
+  if (comment.author !== undefined) {
+    accountname = comment.author.accountname;
   }
+
   function openModal() {
-    setOnModal(true);
+    setModal(true);
   }
+
+  const myModalMenuList = [
+    {
+      content: "삭제",
+      onClick: () => {
+        setAlertModal(true);
+      },
+    },
+  ];
+
+  const userModalMenuList = [
+    {
+      content: "신고",
+      onClick: () => {
+        setAlertModal(true);
+      },
+    },
+  ];
+
+  const deleteBtn = {
+    content: "삭제",
+    onClick: () => {
+      remove(`post/${postId}/comments/${commentId}`);
+      setAlertModal(false);
+      setModal(false);
+    },
+  };
+
+  const reportBtn = {
+    content: "신고",
+    onClick: () => {
+      report(`post/${postId}/comments/${commentId}/report`);
+      setAlertModal(false);
+      setModal(false);
+    },
+  };
 
   function createdAt(createdAt) {
     const betweenTime = new Date() - createdAt;
@@ -58,14 +105,44 @@ function Comment({ comments, postid, remove }) {
             </li>
           );
         })}
-      {onModal && (
-        <CommentModal
-          setOnModal={handleModal}
-          comment={comment}
-          postid={postid}
-          //삭제 후 리렌더링 위해 내려준 props
-          remove={remove}
-        />
+      {myAccountname === accountname ? (
+        <>
+          {modal && (
+            <Modal
+              modal={modal}
+              setModal={setModal}
+              modalMenuList={myModalMenuList}
+            />
+          )}
+          {alertModal && (
+            <AlertModal
+              alertModal={alertModal}
+              setAlertModal={setAlertModal}
+              setModal={setModal}
+              content={"삭제하시겠어요?"}
+              alertBtn={deleteBtn}
+            />
+          )}
+        </>
+      ) : (
+        <>
+          {modal && (
+            <Modal
+              modal={modal}
+              setModal={setModal}
+              modalMenuList={userModalMenuList}
+            />
+          )}
+          {alertModal && (
+            <AlertModal
+              alertModal={alertModal}
+              setAlertModal={setAlertModal}
+              setModal={setModal}
+              content={"신고하시겠어요?"}
+              alertBtn={reportBtn}
+            />
+          )}
+        </>
       )}
     </>
   );

@@ -59,16 +59,14 @@
       padding-left: 11px;
       width: 100%;
       height: 46px;
-      button,
-      a {
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 18px;
-        width: 100%;
-        display: inline-flex;
-        padding: 15px;
-        color: $text-color;
-      }
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+      width: 100%;
+      display: inline-flex;
+      padding: 15px;
+      color: $text-color;
+      cursor: pointer;
     }
   }
 }
