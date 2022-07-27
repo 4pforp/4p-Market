@@ -1,16 +1,52 @@
-import { useState } from "react";
-import ProductModal from "../../../components/modal/modals/ProductModal";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import UserContext from "../../../context/UserContext";
+import Modal from "../../../components/modal/Modal";
+import AlertModal from "../../../components/modal/Alert";
+import "./UserProduct.scss";
 
-function Product({ mapdata, remove }) {
-  const [onModal, setOnModal] = useState(false);
+function Product({ accountname, mapdata, remove }) {
+  const { myAccountname } = useContext(UserContext);
   const [product, setProduct] = useState({});
+  const [modal, setModal] = useState(false);
+  const [alertModal, setAlertModal] = useState(false);
+  const backUrl = `product/${product.id}`;
 
-  function handleModal() {
-    setOnModal(!onModal);
-  }
+  const navigate = useNavigate();
+
   function openModal() {
-    setOnModal(true);
+    setModal(true);
   }
+
+  const modalMenuList = [
+    {
+      content: "삭제",
+      onClick: () => {
+        setAlertModal(true);
+      },
+    },
+    {
+      content: "수정",
+      onClick: () => {
+        navigate(`/product/${product.id}`);
+      },
+    },
+    {
+      content: "웹사이트로 이동",
+      onClick: () => {
+        window.open(product.link);
+      },
+    },
+  ];
+
+  const alertBtn = {
+    content: "삭제",
+    onClick: () => {
+      remove(backUrl);
+      setAlertModal(false);
+      setModal(false);
+    },
+  };
 
   return (
     <>
@@ -20,8 +56,12 @@ function Product({ mapdata, remove }) {
             key={product.id}
             className="item-product"
             onClick={() => {
-              openModal();
-              setProduct(product);
+              if (myAccountname === accountname) {
+                openModal();
+                setProduct(product);
+              } else {
+                window.open(product.link);
+              }
             }}
           >
             <img src={product.itemImage} alt="" className="img-product" />
@@ -33,11 +73,20 @@ function Product({ mapdata, remove }) {
         );
       })}
 
-      {onModal && (
-        <ProductModal
-          setOnModal={handleModal}
-          product={product}
-          remove={remove}
+      {modal && (
+        <Modal
+          modal={modal}
+          setModal={setModal}
+          modalMenuList={modalMenuList}
+        />
+      )}
+      {alertModal && (
+        <AlertModal
+          alertModal={alertModal}
+          setAlertModal={setAlertModal}
+          setModal={setModal}
+          content={"삭제하시겠어요?"}
+          alertBtn={alertBtn}
         />
       )}
     </>
