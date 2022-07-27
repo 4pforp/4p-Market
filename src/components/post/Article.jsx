@@ -1,8 +1,8 @@
-import { React, useContext, useState } from "react";
+import { React, useState } from "react";
 import { Link } from "react-router-dom";
-import { Navigation, Pagination } from "swiper";
+import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import ImageTestContext from "../../context/ImageTestContext";
+import useImageTest from "../../hooks/useImageTest";
 import CommentBtn from "../button/CommentBtn";
 import LikeBtn from "../button/LikeBtn";
 import UserMoreBtn from "../button/UserMoreBtn";
@@ -15,14 +15,14 @@ import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 
 function Article({ content, from, remove }) {
-  const { ImageTest } = useContext(ImageTestContext);
+  const { imageTest } = useImageTest();
   const post = content;
   const author = content.author;
   const accountname = author.accountname;
   const createAtFull = new Date(content.createdAt);
   const [onModal, setOnModal] = useState(false);
 
-  const img = ImageTest(post.image);
+  const img = imageTest(post.image);
   const imgArray = img.split(",");
 
   function handleImageError(e) {
@@ -83,16 +83,16 @@ function Article({ content, from, remove }) {
           <p className="text-post">{post.content}</p>
 
           {post.image === "" ? null : (
-            <Link to={"/" + accountname + "/" + post.id}>
-              <div className="container-post-image">
-                <Swiper
-                  modules={[Navigation, Pagination]}
-                  spaceBetween={50}
-                  slidesPerView={1}
-                  pagination={{ clickable: true }}
-                >
-                  {imgArray.map((img, i) => (
-                    <SwiperSlide key={i}>
+            <div className="container-post-image">
+              <Swiper
+                modules={[Pagination]}
+                spaceBetween={50}
+                slidesPerView={1}
+                pagination={{ clickable: true }}
+              >
+                {imgArray.map((img, i) => (
+                  <SwiperSlide key={i}>
+                    <Link to={"/" + accountname + "/" + post.id}>
                       <img
                         key={i}
                         src={img}
@@ -100,11 +100,11 @@ function Article({ content, from, remove }) {
                         onError={handleImageError}
                         className="img-post"
                       />
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-            </Link>
+                    </Link>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
           )}
 
           <div className="container-btn-post">

@@ -1,10 +1,10 @@
 import { React, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../../../context/UserContext";
-import ProfileTestContext from "../../../context/ProfileTestContext";
 
 import FollowBtn from "../../../components/button/FollowBtn";
 import UserInfoBox from "../../../components/user/UserInfoBox";
+import useProfileTest from "../../../hooks/useProfileImageTest";
 
 function User({
   size,
@@ -16,7 +16,7 @@ function User({
   followers,
   isfollow,
 }) {
-  const { ProfileTest } = useContext(ProfileTestContext);
+  const { imageTest } = useProfileTest();
   const { myAccountname } = useContext(UserContext);
 
   const [user, setUser] = useState({
@@ -29,7 +29,7 @@ function User({
     isfollow: isfollow,
   });
 
-  const img = ProfileTest(user.image);
+  const img = imageTest(user.image);
 
   return (
     <>
