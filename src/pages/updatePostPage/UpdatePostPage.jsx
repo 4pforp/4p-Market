@@ -60,6 +60,7 @@ function UpdatePostPage() {
   }
 
   function handleText(e) {
+    setPostText(e.target.value);
     if (e.target.value) {
       setIsActive(true);
     } else if (!e.target.value && fileName.length === 0) {
