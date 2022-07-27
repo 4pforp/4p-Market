@@ -4,6 +4,8 @@ import UserContext from "../../context/UserContext";
 import axios from "axios";
 import SaveHeader from "../../components/header/SaveHeader";
 import ProfileEditInfo from "./profileEditInfo/ProfileEditInfo";
+import NotFound from "../../components/notFound/NotFound";
+import pendingImg from "../../assets/logo_loading_purple.svg";
 import "./ProfileEditPage.scss";
 
 function ProfileEditPage() {
@@ -16,6 +18,7 @@ function ProfileEditPage() {
   const [image, setImage] = useState("");
   const [isActive, setIsActive] = useState(false);
   const [disabled, setDisabled] = useState(true);
+  const [view, setView] = useState("pending");
 
   // 프로필 수정 시 업데이트될 자료구조
   const updatedProfile = {
@@ -44,8 +47,9 @@ function ProfileEditPage() {
         setAcountname(res.data.user.accountname);
         setIntro(res.data.user.intro);
         setImage(res.data.user.image);
+        setView("fulfilled");
       } catch (err) {
-        console.error(err);
+        setView("rejected");
       }
     }
     getUserInfo();
@@ -102,20 +106,32 @@ function ProfileEditPage() {
           handleClick={handleClick}
           disabled={disabled}
         />
-        <ProfileEditInfo
-          setIsActive={setIsActive}
-          username={username}
-          setUsername={setUsername}
-          accountname={accountname}
-          setAcountName={setAcountname}
-          intro={intro}
-          setIntro={setIntro}
-          setImage={setImage}
-          image={image}
-          disabled={disabled}
-          setDisabled={setDisabled}
-          myAccountname={myAccountname}
-        />
+        {view === "fulfilled" && (
+          <ProfileEditInfo
+            setIsActive={setIsActive}
+            username={username}
+            setUsername={setUsername}
+            accountname={accountname}
+            setAcountName={setAcountname}
+            intro={intro}
+            setIntro={setIntro}
+            setImage={setImage}
+            image={image}
+            disabled={disabled}
+            setDisabled={setDisabled}
+            myAccountname={myAccountname}
+          />
+        )}
+        {view === "pending" && (
+          <>
+            <img src={pendingImg} className="img-pending" alt="loading" />
+          </>
+        )}
+        {view === "rejected" && (
+          <>
+            <NotFound />
+          </>
+        )}
       </form>
     </>
   );
