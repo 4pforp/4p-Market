@@ -5,6 +5,7 @@ import axios from "axios";
 import SaveHeader from "../../components/header/SaveHeader";
 import UploadProductImg from "./uploadProductImg/UploadProductImg";
 import ProductInput from "./uploadProductInput/UploadProductInput";
+import NotFound from "../../components/notFound/NotFound";
 import "./UploadProductPage.scss";
 
 function UploadProductPage() {
@@ -14,6 +15,7 @@ function UploadProductPage() {
   const [isActive, setIsActive] = useState(false);
   const [disabled, setIsDisabled] = useState(true);
   const [itemImage, setItemImage] = useState("");
+  const [view, setView] = useState("");
   const { token, myAccountname } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -41,7 +43,7 @@ function UploadProductPage() {
           }
         );
       } catch (err) {
-        console.error(err);
+        setView("rejected");
       }
     }
     postData && sendPost();
@@ -69,6 +71,11 @@ function UploadProductPage() {
           setIsActive={setIsActive}
           setIsDisabled={setIsDisabled}
         />
+        {view === "rejected" && (
+          <>
+            <NotFound />
+          </>
+        )}
       </form>
     </>
   );
