@@ -10,23 +10,31 @@
   background-color: $profile-background-color;
 
   .text-error {
-    margin-top: 100px;
+    margin-top: 120px;
     font-family: $basic-font;
     font-size: 14px;
     line-height: 14px;
     color: $subtext-color;
-    margin-bottom: 20px;
   }
 
-  .btn-error {
-    width: 120px;
-    height: 44px;
-    border-radius: 44px;
-    background-color: $primary-color;
-    font-family: $medium-font;
-    font-size: 14px;
-    line-height: 17px;
-    color: $white;
+  .btn-wrapper {
+    display: flex;
+    margin-top: 30px;
+
+    .btn-error {
+      width: 120px;
+      height: 44px;
+      border-radius: 44px;
+      background-color: $primary-color;
+      font-family: $medium-font;
+      font-size: 14px;
+      line-height: 17px;
+      color: $white;
+
+      &.home {
+        margin-left: 10px;
+      }
+    }
   }
   .img-error {
     width: 180px;
