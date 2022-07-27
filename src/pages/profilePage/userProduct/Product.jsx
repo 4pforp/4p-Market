@@ -1,12 +1,14 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../../../context/UserContext";
+import useImageTest from "../../../hooks/useImageTest";
 import Modal from "../../../components/modal/Modal";
 import AlertModal from "../../../components/modal/Alert";
 import "./UserProduct.scss";
 
 function Product({ accountname, mapdata, remove }) {
   const { myAccountname } = useContext(UserContext);
+  const { imageTest } = useImageTest();
   const [product, setProduct] = useState({});
   const [modal, setModal] = useState(false);
   const [alertModal, setAlertModal] = useState(false);
@@ -14,6 +16,7 @@ function Product({ accountname, mapdata, remove }) {
 
   const navigate = useNavigate();
 
+  console.log(imageTest);
   function openModal() {
     setModal(true);
   }
@@ -64,7 +67,11 @@ function Product({ accountname, mapdata, remove }) {
               }
             }}
           >
-            <img src={product.itemImage} alt="" className="img-product" />
+            <img
+              src={imageTest(product.itemImage)}
+              alt=""
+              className="img-product"
+            />
             <strong className="text-product">{product.itemName}</strong>
             <strong className="text-product-price">{`${product.price
               .toString()
