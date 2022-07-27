@@ -14,13 +14,22 @@ function NotFound() {
         <img src={errorLogo} className="img-error" alt="error" />
         <span className="text-error">페이지를 찾을 수 없습니다. </span>
 
-        <button
-          type="button"
-          className="btn-error "
-          onClick={() => navigate(-1)}
-        >
-          이전페이지
-        </button>
+        <div className="btn-wrapper">
+          <button
+            type="button"
+            className="btn-error "
+            onClick={() => navigate(-1)}
+          >
+            이전페이지
+          </button>
+          <button
+            type="button"
+            className="btn-error home "
+            onClick={() => navigate("/")}
+          >
+            홈으로 이동
+          </button>
+        </div>
       </main>
       <MainFooter />
     </>
