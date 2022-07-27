@@ -16,7 +16,7 @@ function User({
   followers,
   isfollow,
 }) {
-  const { imageTest } = useProfileTest();
+  const { profileImageTest } = useProfileTest();
   const { myAccountname } = useContext(UserContext);
 
   const [user, setUser] = useState({
@@ -29,7 +29,7 @@ function User({
     isfollow: isfollow,
   });
 
-  const img = imageTest(user.image);
+  const img = profileImageTest(user.image);
 
   return (
     <>

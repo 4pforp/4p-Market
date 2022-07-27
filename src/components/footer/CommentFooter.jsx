@@ -42,10 +42,12 @@ function CommentFooter({ postid, post, setNewComment }) {
   }
 
   function handleSubmit(e) {
+    const commentCount = document.querySelector(".text-comment-num");
     e.preventDefault();
     valid && UploadComment();
     setComment("");
     commentinput.current.value = "";
+    commentCount.innerHTML++;
   }
 
   return (
