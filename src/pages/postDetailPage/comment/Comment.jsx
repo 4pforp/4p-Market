@@ -1,5 +1,6 @@
 import { React, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import useProfileImageTest from "../../../hooks/useProfileImageTest";
 import UserContext from "../../../context/UserContext";
 import UserMoreBtn from "../../../components/button/UserMoreBtn";
 import UserInfoBox from "../../../components/user/UserInfoBox";
@@ -13,6 +14,7 @@ function Comment({ comments, postid, remove }) {
   const [modal, setModal] = useState(false);
   const [alertModal, setAlertModal] = useState(false);
   const { report } = useReport();
+  const { profileImageTest } = useProfileImageTest();
 
   const commentId = comment.id;
   const postId = postid;
@@ -83,6 +85,7 @@ function Comment({ comments, postid, remove }) {
     <>
       {comments &&
         comments.map((comment) => {
+          const authorImg = profileImageTest(comment.author.image);
           const commentCreatedAt = createdAt(new Date(comment.createdAt));
           return (
             <li className="item-comment" key={comment.id}>
@@ -90,7 +93,7 @@ function Comment({ comments, postid, remove }) {
                 <UserInfoBox
                   type="comment"
                   name={comment.author.username}
-                  img={comment.author.image}
+                  img={authorImg}
                 >
                   <span className="text-comment-time">{commentCreatedAt}</span>
                 </UserInfoBox>
