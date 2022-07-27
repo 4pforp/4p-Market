@@ -6,7 +6,7 @@ import "./SearchResult.scss";
 import useProfileTest from "../../../hooks/useProfileImageTest";
 
 function SearchResult({ mapdata }) {
-  const { imageTest } = useProfileTest();
+  const { profileImageTest } = useProfileTest();
 
   function handleImageError(e) {
     e.target.src = defaultProfile;
@@ -15,7 +15,7 @@ function SearchResult({ mapdata }) {
   return (
     <ul className="search-result">
       {mapdata.map((user) => {
-        const img = imageTest(user.image);
+        const img = profileImageTest(user.image);
         return (
           <li key={user._id} className="list-search-user">
             <Link to={"/" + user.accountname}>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import useImageTest from "../../hooks/useImageTest";
+import useProfileImageTest from "../../hooks/useProfileImageTest";
 import CommentBtn from "../button/CommentBtn";
 import LikeBtn from "../button/LikeBtn";
 import UserMoreBtn from "../button/UserMoreBtn";
@@ -16,6 +17,7 @@ import "swiper/scss/pagination";
 
 function Article({ content, from, remove }) {
   const { imageTest } = useImageTest();
+  const { profileImageTest } = useProfileImageTest();
   const post = content;
   const author = content.author;
   const accountname = author.accountname;
@@ -24,6 +26,7 @@ function Article({ content, from, remove }) {
 
   const img = imageTest(post.image);
   const imgArray = img.split(",");
+  const authorImg = profileImageTest(author.image);
 
   function handleImageError(e) {
     e.target.src = errorImage;
@@ -64,7 +67,7 @@ function Article({ content, from, remove }) {
               type="post"
               name={author.username}
               id={"@" + author.accountname}
-              img={author.image}
+              img={authorImg}
             ></UserInfoBox>
           </>
         ) : (
@@ -74,7 +77,7 @@ function Article({ content, from, remove }) {
                 type="post"
                 name={author.username}
                 id={"@" + author.accountname}
-                img={author.image}
+                img={authorImg}
               ></UserInfoBox>
             </Link>
           </>
