@@ -7,8 +7,8 @@ import useProfileTest from "../../../hooks/useProfileImageTest";
 import "./UserHeader.scss";
 
 function ProfileHeader({ from, setUser, user }) {
-  const { imageTest } = useProfileTest();
-  const img = imageTest(user.image);
+  const { profileImageTest } = useProfileTest();
+  const img = profileImageTest(user.image);
   const imgStyle = {
     backgroundImage: `url(${img})`,
   };
