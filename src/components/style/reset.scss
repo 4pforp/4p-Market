@@ -194,6 +194,10 @@ textarea {
   -webkit-appearance: none;
 }
 
+input {
+  -webkit-text-fill-color: #c4c4c4;
+}
+
 input:checked[type="checkbox"] {
   background-color: #fff;
   -webkit-appearance: checkbox;
