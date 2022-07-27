@@ -6,12 +6,12 @@ import useProfileTest from "../../hooks/useProfileImageTest";
 
 function CommentFooter({ postid, post, setNewComment }) {
   const { token, myImage } = useContext(UserContext);
-  const { imageTest } = useProfileTest();
+  const { profileImageTest } = useProfileTest();
   const [comment, setComment] = useState();
   const [valid, setValid] = useState(false);
   const commentinput = useRef();
 
-  const img = post && imageTest(myImage);
+  const img = post && profileImageTest(myImage);
   const imgStyle = {
     backgroundImage: `url(${img})`,
   };
