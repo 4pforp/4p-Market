@@ -1,13 +1,17 @@
-import { React, useState } from "react";
-import { Link } from "react-router-dom";
+import { React, useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import UserContext from "../../context/UserContext";
 import useImageTest from "../../hooks/useImageTest";
+import useProfileImageTest from "../../hooks/useProfileImageTest";
 import CommentBtn from "../button/CommentBtn";
 import LikeBtn from "../button/LikeBtn";
 import UserMoreBtn from "../button/UserMoreBtn";
 import UserInfoBox from "../user/UserInfoBox";
-import PostModal from "../modal/modals/PostModal";
+import Modal from "../../components/modal/Modal";
+import useReport from "../../hooks/useReport";
+import AlertModal from "../../components/modal/Alert";
 import errorImage from "../../assets/image_error.png";
 import "./Post.scss";
 import "swiper/scss";
@@ -15,25 +19,69 @@ import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 
 function Article({ content, from, remove }) {
+  const { myAccountname } = useContext(UserContext);
   const { imageTest } = useImageTest();
+  const { profileImageTest } = useProfileImageTest();
   const post = content;
   const author = content.author;
   const accountname = author.accountname;
   const createAtFull = new Date(content.createdAt);
-  const [onModal, setOnModal] = useState(false);
+  const [modal, setModal] = useState(false);
+  const [alertModal, setAlertModal] = useState(false);
+  const { report } = useReport();
+  const navigate = useNavigate();
 
   const img = imageTest(post.image);
   const imgArray = img.split(",");
+  const authorImg = profileImageTest(author.image);
 
   function handleImageError(e) {
     e.target.src = errorImage;
   }
-  function handleModal() {
-    setOnModal(!onModal);
-  }
   function openModal() {
-    setOnModal(true);
+    setModal(true);
   }
+  const myModalMenuList = [
+    {
+      content: "삭제",
+      onClick: () => {
+        setAlertModal(true);
+      },
+    },
+    {
+      content: "수정",
+      onClick: () => {
+        navigate(`/upload/${post.id}`);
+      },
+    },
+  ];
+
+  const userModalMenuList = [
+    {
+      content: "신고",
+      onClick: () => {
+        setAlertModal(true);
+      },
+    },
+  ];
+
+  const deleteBtn = {
+    content: "삭제",
+    onClick: () => {
+      remove(`post/${post.id}`);
+      setAlertModal(false);
+      setModal(false);
+    },
+  };
+
+  const reportBtn = {
+    content: "신고",
+    onClick: () => {
+      report(`post/${post.id}/report`);
+      setAlertModal(false);
+      setModal(false);
+    },
+  };
 
   function createdAt(createdAt) {
     const betweenTime = new Date() - createdAt;
@@ -64,7 +112,7 @@ function Article({ content, from, remove }) {
               type="post"
               name={author.username}
               id={"@" + author.accountname}
-              img={author.image}
+              img={authorImg}
             ></UserInfoBox>
           </>
         ) : (
@@ -74,7 +122,7 @@ function Article({ content, from, remove }) {
                 type="post"
                 name={author.username}
                 id={"@" + author.accountname}
-                img={author.image}
+                img={authorImg}
               ></UserInfoBox>
             </Link>
           </>
@@ -132,17 +180,48 @@ function Article({ content, from, remove }) {
                 "일"}
           </strong>
         </main>
-        {onModal && (
-          <PostModal
-            setOnModal={handleModal}
-            content={content}
-            //삭제 후 리렌더링 위해 내려준 props
-            remove={remove}
-            from={from}
-          />
-        )}
         <UserMoreBtn handleClick={openModal} />
       </article>
+      {/* 모닱창  */}
+      {myAccountname === accountname ? (
+        <>
+          {modal && (
+            <Modal
+              modal={modal}
+              setModal={setModal}
+              modalMenuList={myModalMenuList}
+            />
+          )}
+          {alertModal && (
+            <AlertModal
+              alertModal={alertModal}
+              setAlertModal={setAlertModal}
+              setModal={setModal}
+              content={"삭제하시겠어요?"}
+              alertBtn={deleteBtn}
+            />
+          )}
+        </>
+      ) : (
+        <>
+          {modal && (
+            <Modal
+              modal={modal}
+              setModal={setModal}
+              modalMenuList={userModalMenuList}
+            />
+          )}
+          {alertModal && (
+            <AlertModal
+              alertModal={alertModal}
+              setAlertModal={setAlertModal}
+              setModal={setModal}
+              content={"신고하시겠어요?"}
+              alertBtn={reportBtn}
+            />
+          )}
+        </>
+      )}
     </>
   );
 }

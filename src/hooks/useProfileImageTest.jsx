@@ -2,7 +2,7 @@ import defaultProfile from "../assets/4p_profile.png";
 
 // 에러이미지 예외처리 Hook
 function useProfileTest() {
-  function imageTest(img) {
+  function profileImageTest(img) {
     const testedImg =
       /Ellipse/.test(img) ||
       /heroku/.test(img) ||
@@ -16,7 +16,7 @@ function useProfileTest() {
 
     return testedImg;
   }
-  return { imageTest };
+  return { profileImageTest };
 }
 
 export default useProfileTest;

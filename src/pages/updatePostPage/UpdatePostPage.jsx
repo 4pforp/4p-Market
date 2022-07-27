@@ -62,8 +62,6 @@ function UpdatePostPage() {
   function handleText(e) {
     if (e.target.value) {
       setIsActive(true);
-      console.log(e.target.value);
-      console.log(fileName);
     } else if (!e.target.value && fileName.length === 0) {
       setIsActive(false);
     }
@@ -187,6 +185,7 @@ function UpdatePostPage() {
               placeholder="게시글 입력하기"
               onChange={handleText}
               onInput={handleResizeHeight}
+              value={postText}
               ref={textRef}
               maxLength="2000"
             />
