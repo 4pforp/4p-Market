@@ -5,6 +5,8 @@ import axios from "axios";
 import SaveHeader from "../../components/header/SaveHeader";
 import UploadProductImg from "../uploadProductPage/uploadProductImg/UploadProductImg";
 import UploadProductInput from "../uploadProductPage/uploadProductInput/UploadProductInput";
+import NotFound from "../../components/notFound/NotFound";
+import pendingImg from "../../assets/logo_loading_purple.svg";
 import "../uploadProductPage/UploadProductPage.scss";
 
 function UpdateProductPage() {
@@ -17,6 +19,8 @@ function UpdateProductPage() {
   const [isActive, setIsActive] = useState(false);
   const [disabled, setIsDisabled] = useState(true);
   const [itemImage, setItemImage] = useState("");
+  const [view, setView] = useState("pending");
+
   const productid = params.productid;
 
   const productData = {
@@ -45,8 +49,9 @@ function UpdateProductPage() {
         setItemName(res.data.product.itemName);
         setPrice(res.data.product.price);
         setLink(res.data.product.link);
+        setView("fulfilled");
       } catch (err) {
-        console.log(err);
+        setView("rejected");
       }
     }
     getProduct();
@@ -68,32 +73,44 @@ function UpdateProductPage() {
       );
       navigate("/" + myAccountname);
     } catch (err) {
-      console.error(err);
+      setView("rejected");
     }
   }
 
   return (
     <>
-      <form
-        method="POST"
-        encType="multipart/form-data"
-        className="container-form-product"
-        onSubmit={handleSubmit}
-      >
-        <SaveHeader isActive={isActive} disabled={disabled} />
-        <h1 className="a11y-hidden">상품등록페이지</h1>
-        <UploadProductImg itemImage={itemImage} setItemImage={setItemImage} />
-        <UploadProductInput
-          itemName={itemName}
-          setItemName={setItemName}
-          price={price}
-          setPrice={setPrice}
-          link={link}
-          setLink={setLink}
-          setIsActive={setIsActive}
-          setIsDisabled={setIsDisabled}
-        />
-      </form>
+      {view === "fulfilled" && (
+        <form
+          method="POST"
+          encType="multipart/form-data"
+          className="container-form-product"
+          onSubmit={handleSubmit}
+        >
+          <SaveHeader isActive={isActive} disabled={disabled} />
+          <h1 className="a11y-hidden">상품등록페이지</h1>
+          <UploadProductImg itemImage={itemImage} setItemImage={setItemImage} />
+          <UploadProductInput
+            itemName={itemName}
+            setItemName={setItemName}
+            price={price}
+            setPrice={setPrice}
+            link={link}
+            setLink={setLink}
+            setIsActive={setIsActive}
+            setIsDisabled={setIsDisabled}
+          />
+        </form>
+      )}
+      {view === "pending" && (
+        <>
+          <img src={pendingImg} className="img-pending" alt="loading" />
+        </>
+      )}
+      {view === "rejected" && (
+        <>
+          <NotFound />
+        </>
+      )}
     </>
   );
 }

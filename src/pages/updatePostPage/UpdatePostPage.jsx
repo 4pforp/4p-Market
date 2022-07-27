@@ -6,6 +6,8 @@ import UploadHeader from "../../components/header/UploadHeader";
 import PreviewImgList from "../uploadPostPage/previewImgList/PreviewImgList";
 import UploadIconBtn from "../../components/button/UploadIconBtn";
 import defaultProfile from "../../assets/4p_profile.png";
+import NotFound from "../../components/notFound/NotFound";
+import pendingImg from "../../assets/logo_loading_purple.svg";
 import "../uploadPostPage/UploadPostPage.scss";
 
 function UpdatePostPage() {
@@ -15,17 +17,12 @@ function UpdatePostPage() {
   const [postText, setPostText] = useState("");
   const [fileName, setFileName] = useState([]); //api에서 인코딩한 파일이름
   const [previewImgUrl, setPreviewImgUrl] = useState([]); //미리보기 이미지 src
-
+  const [view, setView] = useState("pending");
   const navigate = useNavigate();
   const params = useParams();
   const textRef = useRef();
   const fileRef = useRef();
   const postid = params.postid;
-
-  //페이지 로딩됐을 때 인풋 포커스
-  useEffect(() => {
-    textRef.current.focus();
-  }, []);
 
   //기존 포스트 데이터 요청
   useEffect(() => {
@@ -47,12 +44,13 @@ function UpdatePostPage() {
         } else {
           setPreviewImgUrl([...res.data.post.image.split(",")]);
         }
+        setView("fulfilled");
       } catch (err) {
-        console.log(err);
+        setView("rejected");
       }
     }
     getPost();
-  }, []);
+  }, [view]);
 
   function handleResizeHeight() {
     textRef.current.style.height = "auto";
@@ -68,7 +66,7 @@ function UpdatePostPage() {
     }
   }
 
-  //작성자 프로필 이미지 로딩
+  // 작성자 프로필 이미지 로딩
   useEffect(() => {
     async function getImg() {
       try {
@@ -82,9 +80,7 @@ function UpdatePostPage() {
           }
         );
         setProfileImg(res.data.profile.image);
-      } catch (err) {
-        console.error(err);
-      }
+      } catch (err) {}
     }
     myAccountname && getImg();
   }, [myAccountname]);
@@ -113,9 +109,7 @@ function UpdatePostPage() {
         "https://mandarin.api.weniv.co.kr/" + res.data[0].filename,
       ]);
       preview(loadImg);
-    } catch (err) {
-      console.error(err);
-    }
+    } catch (err) {}
   }
 
   //이미지 파일 미리보기
@@ -163,6 +157,7 @@ function UpdatePostPage() {
         );
       } catch (err) {
         console.error(err);
+        setView("rejected");
       }
     }
     postData && update();
@@ -172,34 +167,46 @@ function UpdatePostPage() {
   return (
     <>
       <UploadHeader isActive={isActive} disabled={!isActive} form="postForm" />
-      <div className="container-uploadpost">
-        <img
-          src={profileImg}
-          alt="프로필 사진입니다."
-          className="img-profile-uploadpost"
-        />
-        <div className="wrapper-write-section">
-          <form method="post" id="postForm" onSubmit={handleSubmit}>
-            <textarea
-              name="textarea-uploadpost"
-              className="textarea-uploadpost"
-              placeholder="게시글 입력하기"
-              onChange={handleText}
-              onInput={handleResizeHeight}
-              value={postText}
-              ref={textRef}
-              maxLength="2000"
-            />
-            <UploadIconBtn
-              img="upload-file.svg"
-              name="upload-post"
-              onChange={handleImgInput}
-              ref={fileRef}
-            />
-          </form>
-          <PreviewImgList mapdata={previewImgUrl} onClick={deletePreview} />
+      {view === "fulfilled" && (
+        <div className="container-uploadpost">
+          <img
+            src={profileImg}
+            alt="프로필 사진입니다."
+            className="img-profile-uploadpost"
+          />
+          <div className="wrapper-write-section">
+            <form method="post" id="postForm" onSubmit={handleSubmit}>
+              <textarea
+                name="textarea-uploadpost"
+                className="textarea-uploadpost"
+                placeholder="게시글 입력하기"
+                onChange={handleText}
+                onInput={handleResizeHeight}
+                value={postText}
+                ref={textRef}
+                maxLength="2000"
+              />
+              <UploadIconBtn
+                img="upload-file.svg"
+                name="upload-post"
+                onChange={handleImgInput}
+                ref={fileRef}
+              />
+            </form>
+            <PreviewImgList mapdata={previewImgUrl} onClick={deletePreview} />
+          </div>
         </div>
-      </div>
+      )}
+      {view === "pending" && (
+        <>
+          <img src={pendingImg} className="img-pending" alt="loading" />
+        </>
+      )}
+      {view === "rejected" && (
+        <>
+          <NotFound />
+        </>
+      )}
     </>
   );
 }
