@@ -2,15 +2,15 @@ import { useState, useRef, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import axios from "axios";
-import "./EmailLoginPage.scss";
 import Button from "../../components/button/LoginButton";
+import "./EmailLoginPage.scss";
 
 function EmailLoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isActive, setIsActive] = useState(false);
   const [isWrong, setIsWrong] = useState(false);
-  const { setToken, setInitialToken } = useContext(UserContext);
+  const { token, setToken, setInitialToken } = useContext(UserContext);
 
   const inputRef = useRef();
   const navigate = useNavigate();
@@ -59,15 +59,14 @@ function EmailLoginPage() {
           },
         }
       );
-      const data = res.data;
 
-      if (data.message === "이메일 또는 비밀번호가 일치하지 않습니다.") {
+      if (res.data.message === "이메일 또는 비밀번호가 일치하지 않습니다.") {
         setIsWrong(true);
       } else {
         // 로그인 유지 기능
-        localStorage.setItem("token", data.user.token);
-        setInitialToken(localStorage.getItem("token"));
-        setToken("Bearer " + localStorage.getItem("token"));
+        localStorage.setItem("token", token);
+        setInitialToken(token);
+        setToken("Bearer " + token);
         setIsWrong(false);
         navigate("/");
       }

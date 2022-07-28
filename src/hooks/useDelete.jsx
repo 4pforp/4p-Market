@@ -1,7 +1,6 @@
-import { useContext } from "react";
+import { useContext,useState } from "react";
 import UserContext from "../context/UserContext";
 import axios from "axios";
-import { useState } from "react";
 
 // 삭제기능 위한 hook
 function useDelete() {
@@ -19,7 +18,7 @@ function useDelete() {
         }
       );
       // 삭제 처리 되었을 때 isUpdate의 상태값을 true로 변경
-      if (res.data.status == 200) {
+      if (res.data.status === 200) {
         setIsUpdate(!isUpdate);
       }
     } catch (err) {
