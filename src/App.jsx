@@ -23,8 +23,7 @@ import "./components/style/reset.scss";
 import "./App.scss";
 
 function Main() {
-  const { initialToken, token, setToken, setMyAccountname, setMyImage } =
-    useContext(UserContext);
+  const { initialToken, token, setToken, setMyAccountname, setMyImage } = useContext(UserContext);
   useEffect(() => {
     // 1. 토큰 유효 확인
     async function getTokenIsValid() {
@@ -74,24 +73,12 @@ function Main() {
               <Route path="/search" element={<SearchUserPage />}></Route>
               <Route path="/:accountname" element={<ProfilePage />}></Route>
               <Route path="/profileedit" element={<ProfileEditPage />}></Route>
-              <Route
-                path="/:accountname/:postid"
-                element={<PostDetailPage />}
-              ></Route>
-              <Route
-                path="/:accountname/follow/:followtype"
-                element={<FollowPage />}
-              ></Route>
+              <Route path="/:accountname/:postid" element={<PostDetailPage />}></Route>
+              <Route path="/:accountname/follow/:followtype" element={<FollowPage />}></Route>
               <Route path="/upload" element={<UploadPostPage />}></Route>
-              <Route
-                path="/upload/:postid"
-                element={<UpdatePostPage />}
-              ></Route>
+              <Route path="/upload/:postid" element={<UpdatePostPage />}></Route>
               <Route path="/product" element={<UploadProductPage />}></Route>
-              <Route
-                path="/product/:productid"
-                element={<UpdateProductPage />}
-              ></Route>
+              <Route path="/product/:productid" element={<UpdateProductPage />}></Route>
               <Route path="/chat" element={<ChatPage />}></Route>
               <Route path="/chatroom/:id" element={<ChatRoom />}></Route>
               <Route path={"*"} element={<NotFound />}></Route>
