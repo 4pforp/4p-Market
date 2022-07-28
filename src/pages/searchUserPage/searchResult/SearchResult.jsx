@@ -5,11 +5,14 @@ import defaultProfile from "../../../assets/4p_profile.png";
 import "./SearchResult.scss";
 import useProfileTest from "../../../hooks/useProfileImageTest";
 
-function SearchResult({ mapdata }) {
+function SearchResult({ mapdata, keyword }) {
   const { profileImageTest } = useProfileTest();
-
   function handleImageError(e) {
     e.target.src = defaultProfile;
+  }
+
+  function setSessionStorage() {
+    sessionStorage.setItem("keyword", keyword);
   }
 
   return (
@@ -17,7 +20,11 @@ function SearchResult({ mapdata }) {
       {mapdata.map((user) => {
         const img = profileImageTest(user.image);
         return (
-          <li key={user._id} className="list-search-user">
+          <li
+            key={user._id}
+            className="list-search-user"
+            onClick={setSessionStorage}
+          >
             <Link to={"/" + user.accountname}>
               <UserInfoBox
                 type="search"

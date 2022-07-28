@@ -1,7 +1,7 @@
 import BackBtn from "../button/BackBtn";
 import "./SearchHeader.scss";
 
-function SearchHeader({value, handle}) {
+function SearchHeader({ value, handle }) {
   return (
     <header className="container-header">
       <section className="top-bar">
