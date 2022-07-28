@@ -72,9 +72,13 @@ function Product({ accountname, mapdata, remove }) {
               className="img-product"
             />
             <strong className="text-product">{product.itemName}</strong>
-            <strong className="text-product-price">{`${product.price
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원`}</strong>
+            <strong className="text-product-price">
+              {typeof product.price === "number"
+                ? `${product.price
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원`
+                : `- 원`}
+            </strong>
           </li>
         );
       })}
