@@ -18,7 +18,7 @@ function useReport() {
           },
         }
       );
-      if (res.status == 200) {
+      if (res.status === 200) {
         alert("신고가 완료되었습니다!");
       }
     } catch (err) {
