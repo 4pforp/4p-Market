@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import axios from "axios";
@@ -18,6 +18,26 @@ function UploadProductPage() {
   const [view, setView] = useState("");
   const { token, myAccountname } = useContext(UserContext);
   const navigate = useNavigate();
+
+  // 저장 버튼활성화 기능
+  useEffect(() => {
+    //상품 판매 링크 유효성 검사
+    const checkLink =
+      /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/;
+
+    if (
+      itemName.length > 1 &&
+      price.length !== 0 &&
+      checkLink.test(link) &&
+      itemImage.length !== 0
+    ) {
+      setIsActive(true);
+      setIsDisabled(false);
+    } else {
+      setIsActive(false);
+      setIsDisabled(true);
+    }
+  });
 
   //상품 저장 버튼 클릭시 POST
   function handleSubmit(e) {
