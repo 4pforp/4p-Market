@@ -8,10 +8,7 @@ function FollowBtn({ text, size, setUser, user }) {
 
   function handleClick() {
     if (user.isfollow) {
-      const url =
-        "https://mandarin.api.weniv.co.kr/profile/" +
-        user.accountname +
-        "/unfollow";
+      const url = "https://mandarin.api.weniv.co.kr/profile/" + user.accountname + "/unfollow";
       axios
         .delete(url, {
           headers: {
@@ -23,17 +20,14 @@ function FollowBtn({ text, size, setUser, user }) {
           setUser({
             ...user,
             isfollow: res.data.profile.isfollow,
-            followers: res.data.profile.followerCount,
+            followerCount: res.data.profile.followerCount,
           });
         })
         .catch((err) => {
           console.error(err);
         });
     } else {
-      const url =
-        "https://mandarin.api.weniv.co.kr/profile/" +
-        user.accountname +
-        "/follow";
+      const url = "https://mandarin.api.weniv.co.kr/profile/" + user.accountname + "/follow";
       axios
         .post(url, [], {
           headers: {
@@ -45,7 +39,7 @@ function FollowBtn({ text, size, setUser, user }) {
           setUser({
             ...user,
             isfollow: res.data.profile.isfollow,
-            followers: res.data.profile.followerCount,
+            followerCount: res.data.profile.followerCount,
           });
         })
         .catch((err) => {
@@ -55,11 +49,7 @@ function FollowBtn({ text, size, setUser, user }) {
   }
 
   return (
-    <button
-      type="Button"
-      className={`btn ${user.isfollow} ${size}`}
-      onClick={handleClick}
-    >
+    <button type="Button" className={`btn ${user.isfollow} ${size}`} onClick={handleClick}>
       {text}
     </button>
   );

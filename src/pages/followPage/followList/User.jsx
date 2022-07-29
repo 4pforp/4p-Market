@@ -10,15 +10,7 @@ function User({ size, accountname, username, image, intro, followings, followers
   const { imageTest } = useImageTest();
   const { myAccountname } = useContext(UserContext);
 
-  const [user, setUser] = useState({
-    accountname: accountname,
-    username: username,
-    image: image,
-    intro: intro,
-    followings: followings,
-    followers: followers,
-    isfollow: isfollow,
-  });
+  const [user, setUser] = useState({ accountname, username, image, intro, followings, followers, isfollow });
 
   const img = imageTest(user.image, "profile");
 

@@ -195,11 +195,11 @@ textarea {
 }
 
 input::placeholder {
-  -webkit-text-fill-color: $search-placeholder-color;
+  -webkit-text-fill-color: #c4c4c4;
 }
 
 input:checked[type="checkbox"] {
-  background-color: $white;
+  background-color: #fff;
   -webkit-appearance: checkbox;
 }
 

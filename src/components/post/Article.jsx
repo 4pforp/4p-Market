@@ -4,13 +4,13 @@ import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import UserContext from "../../context/UserContext";
 import useImageTest from "../../hooks/useImageTest";
+import useReport from "../../hooks/useReport";
 import CommentBtn from "../button/CommentBtn";
 import LikeBtn from "../button/LikeBtn";
 import UserMoreBtn from "../button/UserMoreBtn";
 import UserInfoBox from "../user/UserInfoBox";
-import Modal from "../../components/modal/Modal";
-import useReport from "../../hooks/useReport";
-import AlertModal from "../../components/modal/Alert";
+import Modal from "../modal/Modal";
+import AlertModal from "../modal/Alert";
 import errorImage from "../../assets/image_error.png";
 import "./Post.scss";
 import "swiper/scss";
@@ -20,14 +20,15 @@ import "swiper/scss/pagination";
 function Article({ content, from, remove }) {
   const { myAccountname } = useContext(UserContext);
   const { imageTest } = useImageTest();
+  const { report } = useReport();
+  const navigate = useNavigate();
+  const [modal, setModal] = useState(false);
+  const [alertModal, setAlertModal] = useState(false);
+
   const post = content;
   const author = content.author;
   const accountname = author.accountname;
   const createAtFull = new Date(content.createdAt);
-  const [modal, setModal] = useState(false);
-  const [alertModal, setAlertModal] = useState(false);
-  const { report } = useReport();
-  const navigate = useNavigate();
 
   const img = imageTest(post.image, "post");
   const authorImg = imageTest(author.image, "profile");
@@ -36,9 +37,11 @@ function Article({ content, from, remove }) {
   function handleImageError(e) {
     e.target.src = errorImage;
   }
+
   function openModal() {
     setModal(true);
   }
+
   const myModalMenuList = [
     {
       content: "삭제",
@@ -103,7 +106,7 @@ function Article({ content, from, remove }) {
   return (
     <>
       <article className="article-post">
-        <h3 className="a11y-hidden">user의 post</h3>
+        <h3 className="a11y-hidden">{author.username}의 게시물</h3>
         {from === "profile" ? (
           <>
             <UserInfoBox type="post" name={author.username} id={"@" + author.accountname} img={authorImg}></UserInfoBox>
@@ -117,7 +120,6 @@ function Article({ content, from, remove }) {
         )}
         <main className="contents-post">
           <p className="text-post">{post.content}</p>
-
           {post.image === "" ? null : (
             <div className="container-post-image">
               <Swiper modules={[Pagination]} spaceBetween={50} slidesPerView={1} pagination={{ clickable: true }}>
@@ -131,7 +133,6 @@ function Article({ content, from, remove }) {
               </Swiper>
             </div>
           )}
-
           <div className="container-btn-post">
             <LikeBtn heartcount={post.heartCount} hearted={post.hearted} postid={post.id} />
             <CommentBtn commentcount={post.commentCount} postid={post.id} post={post} from={from} accountname={accountname} />

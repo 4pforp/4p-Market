@@ -8,24 +8,22 @@ import "./CommentList.scss";
 
 function CommentList({ postid, post }) {
   const { token } = useContext(UserContext);
+  const Container = useRef();
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState(true);
-  const Container = useRef();
-  const [reloadNeed, setReloadNeed] = useState(false);
-  const updateLimitCount = Math.ceil(post.commentCount / 15);
-  const [updatedCount, setUpdatedCount] = useState(0);
   const [skip, setSkip] = useState(15);
   const [isLoading, setIsLoading] = useState(false);
+  const [reloadNeed, setReloadNeed] = useState(false);
+  const [updatedCount, setUpdatedCount] = useState(1);
+  const updateLimitCount = Math.ceil(post.commentCount / 15);
 
   // comment 삭제 후 업데이트 위한 함수 선언, props로 넘겨주기 위함
   const { remove, isUpdate } = useDelete();
+
   useEffect(() => {
     // 실시간 업로드 댓글 반영 함수
     async function getNewComments() {
-      const url =
-        "https://mandarin.api.weniv.co.kr/post/" +
-        postid +
-        "/comments/?limit=15&skip=0";
+      const url = "https://mandarin.api.weniv.co.kr/post/" + postid + "/comments/?limit=15&skip=0";
       try {
         const res = await axios.get(url, {
           headers: {
@@ -38,21 +36,15 @@ function CommentList({ postid, post }) {
       } catch (err) {}
     }
     getNewComments();
-  }, [newComment, postid, token, isUpdate]);
+  }, [newComment, isUpdate]);
 
   useEffect(() => {
     // 화면 마지막에 도달하면 ReloadNeed!
     function infinitScoll() {
-      const postHeight =
-        document.querySelector(".wrapper-comment-post").getBoundingClientRect()
-          .height + 30;
+      const postHeight = document.querySelector(".wrapper-comment-post").getBoundingClientRect().height + 30;
 
-      const targetHeight = Math.floor(
-        Container.current.getBoundingClientRect().height + postHeight
-      );
-      const currentScrollY = Math.floor(
-        window.scrollY + window.innerHeight - 60
-      );
+      const targetHeight = Math.floor(Container.current.getBoundingClientRect().height + postHeight);
+      const currentScrollY = Math.floor(window.scrollY + window.innerHeight - 60);
       targetHeight < currentScrollY && setReloadNeed(true);
     }
 
@@ -60,12 +52,7 @@ function CommentList({ postid, post }) {
 
     // 스크롤시 데이터 추가 요청 함수
     async function getComments() {
-      const url =
-        "https://mandarin.api.weniv.co.kr/post/" +
-        postid +
-        "/comments/?limit=15" +
-        "&skip=" +
-        skip;
+      const url = "https://mandarin.api.weniv.co.kr/post/" + postid + "/comments/?limit=15" + "&skip=" + skip;
       try {
         const res = await axios.get(url, {
           headers: {
@@ -80,8 +67,8 @@ function CommentList({ postid, post }) {
           setComments([...comments, ...res.data.comments]);
         }
         setUpdatedCount(updatedCount + 1);
-        setReloadNeed(false);
         setSkip(skip + 15);
+        setReloadNeed(false);
         setIsLoading(false);
       } catch (err) {
         console.error(err);
@@ -98,15 +85,7 @@ function CommentList({ postid, post }) {
     return () => {
       window.removeEventListener("scroll", infinitScoll);
     };
-  }, [
-    postid,
-    token,
-    comments,
-    updateLimitCount,
-    updatedCount,
-    reloadNeed,
-    skip,
-  ]);
+  }, [reloadNeed]);
 
   return (
     <>
@@ -122,12 +101,7 @@ function CommentList({ postid, post }) {
         <strong className={`loading ${isLoading}`}></strong>
       </div>
 
-      <CommentFooter
-        postid={postid}
-        post={post}
-        setNewComment={setNewComment}
-        newComment={newComment}
-      />
+      <CommentFooter postid={postid} post={post} setNewComment={setNewComment} newComment={newComment} />
     </>
   );
 }

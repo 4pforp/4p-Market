@@ -8,21 +8,28 @@ import "./UserPost.scss";
 
 function UserPost({ accountname, from }) {
   const { token } = useContext(UserContext);
-  const [post, setPost] = useState();
   const Container = useRef();
-  const [postView, setPostView] = useState("list");
-  const [listClicked, setListClicked] = useState("on");
-  const [albumClicked, setAlbumClicked] = useState("off");
+  const [post, setPost] = useState();
   const [reloadNeed, setReloadNeed] = useState(false);
   const [reloadStop, setReloadStop] = useState(false);
   const [skip, setSkip] = useState(15);
   const [isLoading, setIsLoading] = useState(false);
 
+  // 앨범뷰/리스트뷰 UI를 위한 className 변수
+  const [postView, setPostView] = useState("list");
+  const [listClicked, setListClicked] = useState("on");
+  const [albumClicked, setAlbumClicked] = useState("off");
+
   // post 삭제 후 업데이트 위한 함수 선언, props로 넘겨주기 위함
   const { remove, isUpdate } = useDelete();
 
   useEffect(() => {
-    // 포스트 불러오기
+    // 앨범뷰에서 페이지 이동시 reset
+    setPostView("list");
+    setListClicked("on");
+    setAlbumClicked("off");
+
+    // 포스트 데이터 불러오기
     async function getPost() {
       const url = "https://mandarin.api.weniv.co.kr/post/" + accountname + "/userpost/?limit=15&skip=0";
       try {
@@ -32,7 +39,8 @@ function UserPost({ accountname, from }) {
             "Content-type": "application/json",
           },
         });
-        setPost(res.data.post);
+        const posts = res.data.post;
+        setPost(posts);
       } catch (err) {
         console.error(err);
       }
@@ -61,11 +69,12 @@ function UserPost({ accountname, from }) {
             "Content-type": "application/json",
           },
         });
+        const posts = res.data.post;
         // 첫 데이터면 전체 데이터 받아오기/데이터가 있으면 스프레드 문법 사용하여 추가하기
         if (skip === 0) {
-          setPost(res.data.post);
+          setPost(posts);
         } else {
-          setPost([...post, ...res.data.post]);
+          setPost([...post, ...posts]);
         }
         // 배열이 비어있으면 데이터 요청 차단
         res.data.post.length === 0 && setReloadStop(true);

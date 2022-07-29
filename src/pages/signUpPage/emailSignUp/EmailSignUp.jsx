@@ -11,8 +11,7 @@ function EmailSignUp({ setView, user, setUser }) {
   const [isValidEmail, setIsValidEmail] = useState(false);
 
   // 이메일 주소 유효성 검사
-  const checkEmail =
-    /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,5}$/i;
+  const checkEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,5}$/i;
 
   function handleView() {
     setView("ProfileSet");
@@ -44,8 +43,8 @@ function EmailSignUp({ setView, user, setUser }) {
         } else {
           setUser({
             ...user,
-            email: email,
-            password: password,
+            email,
+            password,
           });
           handleView();
         }
@@ -70,15 +69,7 @@ function EmailSignUp({ setView, user, setUser }) {
           isValidEmail={isValidEmail}
           setIsValidEmail={setIsValidEmail}
         />
-        <Button
-          type="submit"
-          setView={setView}
-          isActive={isActive}
-          email={email}
-          password={password}
-          handleClick={handleClick}
-          name="emailSingUp"
-        >
+        <Button type="submit" setView={setView} isActive={isActive} email={email} password={password} handleClick={handleClick} name="emailSingUp">
           다음
         </Button>
       </form>

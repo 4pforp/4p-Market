@@ -23,8 +23,8 @@ function ProfilePage() {
     username: "",
     image: "",
     intro: "",
-    followings: "",
-    followers: "",
+    followingCount: "",
+    followerCount: "",
     isfollow: "",
   });
 
@@ -39,14 +39,15 @@ function ProfilePage() {
             "Content-type": "application/json",
           },
         });
+        const { accountname, username, image, intro, followerCount, followingCount, isfollow } = res.data.profile;
         setUser({
-          accountname: res.data.profile.accountname,
-          username: res.data.profile.username,
-          image: res.data.profile.image,
-          intro: res.data.profile.intro,
-          followings: res.data.profile.followingCount,
-          followers: res.data.profile.followerCount,
-          isfollow: res.data.profile.isfollow,
+          accountname,
+          username,
+          image,
+          intro,
+          followingCount,
+          followerCount,
+          isfollow,
         });
         setView("fulfilled");
       } catch (err) {
@@ -54,7 +55,7 @@ function ProfilePage() {
       }
     }
     getUser();
-  }, []);
+  }, [user]);
 
   return (
     <>

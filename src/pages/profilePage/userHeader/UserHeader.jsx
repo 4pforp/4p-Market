@@ -8,7 +8,9 @@ import "./UserHeader.scss";
 
 function ProfileHeader({ from, setUser, user }) {
   const { imageTest } = useImageTest();
-  const img = imageTest(user.image, "profile");
+  const { username, accountname, intro, isfollow, followerCount, followingCount, image } = user;
+
+  const img = imageTest(image, "profile");
   const imgStyle = {
     backgroundImage: `url(${img})`,
   };
@@ -20,20 +22,20 @@ function ProfileHeader({ from, setUser, user }) {
           <div className="wrapper-follow">
             <div className="img-author-m" style={imgStyle}></div>
             <Link to="follow/follower" className="text-follow follower">
-              <span className="text-follow-num">{user.followers}</span>
+              <span className="text-follow-num">{followerCount}</span>
               followers
             </Link>
             <Link to="follow/following" className="text-follow followings">
-              <span className="text-follow-num">{user.followings}</span>
+              <span className="text-follow-num">{followingCount}</span>
               follwings
             </Link>
           </div>
-          <h2 className="text-username">{user.username}</h2>
-          <span className="text-accountname">@{user.accountname}</span>
-          <p className="text-profile-info">{user.intro}</p>
+          <h2 className="text-username">{username}</h2>
+          <span className="text-accountname">@{accountname}</span>
+          <p className="text-profile-info">{intro}</p>
         </div>
         {from === "userProfile" ? (
-          <FollowBtn text={user.isfollow ? "팔로잉" : "팔로우"} setUser={setUser} user={user} size="btn-m" />
+          <FollowBtn text={isfollow ? "팔로잉" : "팔로우"} setUser={setUser} user={user} size="btn-m" />
         ) : (
           <>
             <Link to={`/profileedit`}>

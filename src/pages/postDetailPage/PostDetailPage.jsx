@@ -12,12 +12,11 @@ import "./PostDetailPage.scss";
 
 function PostDetailPage() {
   const { token } = useContext(UserContext);
+  const { remove } = useDelete();
   const params = useParams();
   const postid = params.postid;
   const [post, setPost] = useState();
   const [view, setView] = useState("pending");
-
-  const { remove } = useDelete();
 
   useEffect(() => {
     const url = "https://mandarin.api.weniv.co.kr/post/" + postid;
