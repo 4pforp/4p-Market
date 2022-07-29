@@ -3,7 +3,6 @@
 .container-post {
   height: auto;
   margin-top: 6px;
-  // border-top: 1px solid #dbdbdb;
   background-color: $white;
 
   .wrapper-post {
@@ -12,8 +11,8 @@
     margin: auto;
   }
   .container-view-btn {
-    border-top: 1px solid #dbdbdb;
-    border-bottom: 1px solid #dbdbdb;
+    border-top: 1px solid $line-color;
+    border-bottom: 1px solid $line-color;
   }
   .wrapper-view-btn {
     display: flex;

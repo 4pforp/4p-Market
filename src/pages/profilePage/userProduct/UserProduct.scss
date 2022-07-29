@@ -3,8 +3,8 @@
 .container-product {
   padding-bottom: 10px;
   margin-top: 6px;
-  border-top: 1px solid #dbdbdb;
-  border-bottom: 1px solid #dbdbdb;
+  border-top: 1px solid $line-color;
+  border-bottom: 1px solid $line-color;
   background-color: $white;
   .wrapper-product {
     width: 390px;

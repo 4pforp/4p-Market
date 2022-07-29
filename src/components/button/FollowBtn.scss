@@ -12,7 +12,7 @@
   &.true {
     color: $subtext-color;
     background-color: $white;
-    outline: 1px solid #dbdbdb;
+    box-shadow: 0 0 0 1px $line-color inset;
   }
   &.btn-s {
     width: $btn-s;
