@@ -1,17 +1,17 @@
 import { useContext, useState, useRef, useEffect } from "react";
 import UserContext from "../../context/UserContext";
+import useImageTest from "../../hooks/useImageTest";
 import axios from "axios";
 import "./PageFooter.scss";
-import useProfileTest from "../../hooks/useProfileImageTest";
 
 function CommentFooter({ postid, post, setNewComment }) {
   const { token, myImage } = useContext(UserContext);
-  const { profileImageTest } = useProfileTest();
+  const { imageTest } = useImageTest();
   const [comment, setComment] = useState();
   const [valid, setValid] = useState(false);
   const commentinput = useRef();
 
-  const img = post && profileImageTest(myImage);
+  const img = post && imageTest(myImage, "profile");
   const imgStyle = {
     backgroundImage: `url(${img})`,
   };
@@ -53,19 +53,9 @@ function CommentFooter({ postid, post, setNewComment }) {
   return (
     <>
       <footer>
-        <form
-          method="POST"
-          encType="multipart/form-data"
-          className="container-form-pagefooter"
-          onSubmit={handleSubmit}
-        >
+        <form method="POST" encType="multipart/form-data" className="container-form-pagefooter" onSubmit={handleSubmit}>
           <div className="img-profile-footer" style={imgStyle}></div>
-          <input
-            className="textarea-pagefooter"
-            placeholder="댓글 입력하기"
-            onChange={handleChange}
-            ref={commentinput}
-          />
+          <input className="textarea-pagefooter" placeholder="댓글 입력하기" onChange={handleChange} ref={commentinput} />
           <button type="submit" className={`btn-send-footer ${valid}`}>
             게시
           </button>

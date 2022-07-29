@@ -4,7 +4,6 @@ import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import UserContext from "../../context/UserContext";
 import useImageTest from "../../hooks/useImageTest";
-import useProfileImageTest from "../../hooks/useProfileImageTest";
 import CommentBtn from "../button/CommentBtn";
 import LikeBtn from "../button/LikeBtn";
 import UserMoreBtn from "../button/UserMoreBtn";
@@ -21,7 +20,6 @@ import "swiper/scss/pagination";
 function Article({ content, from, remove }) {
   const { myAccountname } = useContext(UserContext);
   const { imageTest } = useImageTest();
-  const { profileImageTest } = useProfileImageTest();
   const post = content;
   const author = content.author;
   const accountname = author.accountname;
@@ -31,9 +29,9 @@ function Article({ content, from, remove }) {
   const { report } = useReport();
   const navigate = useNavigate();
 
-  const img = imageTest(post.image);
+  const img = imageTest(post.image, "post");
+  const authorImg = imageTest(author.image, "profile");
   const imgArray = img.split(",");
-  const authorImg = profileImageTest(author.image);
 
   function handleImageError(e) {
     e.target.src = errorImage;
@@ -108,22 +106,12 @@ function Article({ content, from, remove }) {
         <h3 className="a11y-hidden">user의 post</h3>
         {from === "profile" ? (
           <>
-            <UserInfoBox
-              type="post"
-              name={author.username}
-              id={"@" + author.accountname}
-              img={authorImg}
-            ></UserInfoBox>
+            <UserInfoBox type="post" name={author.username} id={"@" + author.accountname} img={authorImg}></UserInfoBox>
           </>
         ) : (
           <>
             <Link to={"/" + accountname}>
-              <UserInfoBox
-                type="post"
-                name={author.username}
-                id={"@" + author.accountname}
-                img={authorImg}
-              ></UserInfoBox>
+              <UserInfoBox type="post" name={author.username} id={"@" + author.accountname} img={authorImg}></UserInfoBox>
             </Link>
           </>
         )}
@@ -132,22 +120,11 @@ function Article({ content, from, remove }) {
 
           {post.image === "" ? null : (
             <div className="container-post-image">
-              <Swiper
-                modules={[Pagination]}
-                spaceBetween={50}
-                slidesPerView={1}
-                pagination={{ clickable: true }}
-              >
+              <Swiper modules={[Pagination]} spaceBetween={50} slidesPerView={1} pagination={{ clickable: true }}>
                 {imgArray.map((img, i) => (
                   <SwiperSlide key={i}>
                     <Link to={"/" + accountname + "/" + post.id}>
-                      <img
-                        key={i}
-                        src={img}
-                        alt="게시글 사진"
-                        onError={handleImageError}
-                        className="img-post"
-                      />
+                      <img key={i} src={img} alt="게시글 사진" onError={handleImageError} className="img-post" />
                     </Link>
                   </SwiperSlide>
                 ))}
@@ -156,70 +133,23 @@ function Article({ content, from, remove }) {
           )}
 
           <div className="container-btn-post">
-            <LikeBtn
-              heartcount={post.heartCount}
-              hearted={post.hearted}
-              postid={post.id}
-            />
-            <CommentBtn
-              commentcount={post.commentCount}
-              postid={post.id}
-              post={post}
-              from={from}
-              accountname={accountname}
-            />
+            <LikeBtn heartcount={post.heartCount} hearted={post.hearted} postid={post.id} />
+            <CommentBtn commentcount={post.commentCount} postid={post.id} post={post} from={from} accountname={accountname} />
           </div>
-          <strong className="text-post-date">
-            {from === "home"
-              ? commentCreatedAt
-              : createAtFull.getFullYear() +
-                "년 " +
-                (createAtFull.getMonth() + 1) +
-                "월 " +
-                createAtFull.getDate() +
-                "일"}
-          </strong>
+          <strong className="text-post-date">{from === "home" ? commentCreatedAt : createAtFull.getFullYear() + "년 " + (createAtFull.getMonth() + 1) + "월 " + createAtFull.getDate() + "일"}</strong>
         </main>
         <UserMoreBtn handleClick={openModal} />
       </article>
       {/* 모닱창  */}
       {myAccountname === accountname ? (
         <>
-          {modal && (
-            <Modal
-              modal={modal}
-              setModal={setModal}
-              modalMenuList={myModalMenuList}
-            />
-          )}
-          {alertModal && (
-            <AlertModal
-              alertModal={alertModal}
-              setAlertModal={setAlertModal}
-              setModal={setModal}
-              content={"삭제하시겠어요?"}
-              alertBtn={deleteBtn}
-            />
-          )}
+          {modal && <Modal modal={modal} setModal={setModal} modalMenuList={myModalMenuList} />}
+          {alertModal && <AlertModal alertModal={alertModal} setAlertModal={setAlertModal} setModal={setModal} content={"삭제하시겠어요?"} alertBtn={deleteBtn} />}
         </>
       ) : (
         <>
-          {modal && (
-            <Modal
-              modal={modal}
-              setModal={setModal}
-              modalMenuList={userModalMenuList}
-            />
-          )}
-          {alertModal && (
-            <AlertModal
-              alertModal={alertModal}
-              setAlertModal={setAlertModal}
-              setModal={setModal}
-              content={"신고하시겠어요?"}
-              alertBtn={reportBtn}
-            />
-          )}
+          {modal && <Modal modal={modal} setModal={setModal} modalMenuList={userModalMenuList} />}
+          {alertModal && <AlertModal alertModal={alertModal} setAlertModal={setAlertModal} setModal={setModal} content={"신고하시겠어요?"} alertBtn={reportBtn} />}
         </>
       )}
     </>

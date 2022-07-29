@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import EditProfileBtn from "../../../components/button/EditProfileBtn";
 import FollowBtn from "../../../components/button/FollowBtn";
 import UploadProductBtn from "../../../components/button/UploadProductBtn";
-import useProfileTest from "../../../hooks/useProfileImageTest";
+import useImageTest from "../../../hooks/useImageTest";
 import "./UserHeader.scss";
 
 function ProfileHeader({ from, setUser, user }) {
-  const { profileImageTest } = useProfileTest();
-  const img = profileImageTest(user.image);
+  const { imageTest } = useImageTest();
+  const img = imageTest(user.image, "profile");
   const imgStyle = {
     backgroundImage: `url(${img})`,
   };
@@ -33,12 +33,7 @@ function ProfileHeader({ from, setUser, user }) {
           <p className="text-profile-info">{user.intro}</p>
         </div>
         {from === "userProfile" ? (
-          <FollowBtn
-            text={user.isfollow ? "팔로잉" : "팔로우"}
-            setUser={setUser}
-            user={user}
-            size="btn-m"
-          />
+          <FollowBtn text={user.isfollow ? "팔로잉" : "팔로우"} setUser={setUser} user={user} size="btn-m" />
         ) : (
           <>
             <Link to={`/profileedit`}>

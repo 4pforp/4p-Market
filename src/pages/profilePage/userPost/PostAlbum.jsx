@@ -32,7 +32,7 @@ function PostAlbum({ setPostView, accountname }) {
     albumData &&
     albumData.map((album) => {
       const imageArray = album.image !== undefined ? album.image.split(",") : ["https://mandarin.api.weniv.co.kr/1658759543397.png"];
-      const img = imageTest(imageArray[0]);
+      const img = imageTest(imageArray[0], "post");
       if (imageArray.length > 1) {
         return (
           <li key={album.id} className="list-album multi">

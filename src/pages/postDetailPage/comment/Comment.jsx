@@ -1,6 +1,6 @@
 import { React, useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import useProfileImageTest from "../../../hooks/useProfileImageTest";
+import useImageTest from "../../../hooks/useImageTest";
 import UserContext from "../../../context/UserContext";
 import UserMoreBtn from "../../../components/button/UserMoreBtn";
 import UserInfoBox from "../../../components/user/UserInfoBox";
@@ -14,7 +14,7 @@ function Comment({ comments, postid, remove }) {
   const [modal, setModal] = useState(false);
   const [alertModal, setAlertModal] = useState(false);
   const { report } = useReport();
-  const { profileImageTest } = useProfileImageTest();
+  const { imageTest } = useImageTest();
 
   const commentId = comment.id;
   const postId = postid;
@@ -85,16 +85,12 @@ function Comment({ comments, postid, remove }) {
     <>
       {comments &&
         comments.map((comment) => {
-          const authorImg = profileImageTest(comment.author.image);
+          const authorImg = imageTest(comment.author.image, "profile");
           const commentCreatedAt = createdAt(new Date(comment.createdAt));
           return (
             <li className="item-comment" key={comment.id}>
               <Link to={"/" + comment.author.accountname}>
-                <UserInfoBox
-                  type="comment"
-                  name={comment.author.username}
-                  img={authorImg}
-                >
+                <UserInfoBox type="comment" name={comment.author.username} img={authorImg}>
                   <span className="text-comment-time">{commentCreatedAt}</span>
                 </UserInfoBox>
               </Link>
@@ -110,41 +106,13 @@ function Comment({ comments, postid, remove }) {
         })}
       {myAccountname === accountname ? (
         <>
-          {modal && (
-            <Modal
-              modal={modal}
-              setModal={setModal}
-              modalMenuList={myModalMenuList}
-            />
-          )}
-          {alertModal && (
-            <AlertModal
-              alertModal={alertModal}
-              setAlertModal={setAlertModal}
-              setModal={setModal}
-              content={"삭제하시겠어요?"}
-              alertBtn={deleteBtn}
-            />
-          )}
+          {modal && <Modal modal={modal} setModal={setModal} modalMenuList={myModalMenuList} />}
+          {alertModal && <AlertModal alertModal={alertModal} setAlertModal={setAlertModal} setModal={setModal} content={"삭제하시겠어요?"} alertBtn={deleteBtn} />}
         </>
       ) : (
         <>
-          {modal && (
-            <Modal
-              modal={modal}
-              setModal={setModal}
-              modalMenuList={userModalMenuList}
-            />
-          )}
-          {alertModal && (
-            <AlertModal
-              alertModal={alertModal}
-              setAlertModal={setAlertModal}
-              setModal={setModal}
-              content={"신고하시겠어요?"}
-              alertBtn={reportBtn}
-            />
-          )}
+          {modal && <Modal modal={modal} setModal={setModal} modalMenuList={userModalMenuList} />}
+          {alertModal && <AlertModal alertModal={alertModal} setAlertModal={setAlertModal} setModal={setModal} content={"신고하시겠어요?"} alertBtn={reportBtn} />}
         </>
       )}
     </>
