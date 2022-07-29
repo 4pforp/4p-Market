@@ -83,6 +83,7 @@ function ProductInput({
             placeholder="숫자만 입력 가능합니다."
             onChange={handleChangePrice}
             value={price}
+            maxlength="10"
           ></input>
         </div>
         <div className="wrapper-salelink">

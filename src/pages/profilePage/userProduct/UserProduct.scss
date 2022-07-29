@@ -42,15 +42,14 @@
         flex-direction: column;
         width: 140px;
         cursor: pointer;
-
         .img-product {
           width: 140px;
           height: 90px;
           margin-bottom: 6px;
           border: 1px solid $line-color;
           border-radius: 8px;
-          overflow: hidden;
-          object-fit: contain;
+          background-size: cover;
+          background-position: center;
         }
         .text-product {
           margin-bottom: 4px;
