@@ -52,7 +52,10 @@ function Product({ accountname, mapdata, remove }) {
 
   return (
     <>
-      {mapdata.map((product, idx) => {
+      {mapdata.map((product) => {
+        const imgStyle = {
+          backgroundImage: `url(${imageTest(product.itemImage)})`,
+        };
         return (
           <li
             key={product.id}
@@ -64,37 +67,16 @@ function Product({ accountname, mapdata, remove }) {
               } else {
                 window.open(product.link);
               }
-            }}
-          >
-            <img
-              src={imageTest(product.itemImage)}
-              alt=""
-              className="img-product"
-            />
+            }}>
+            <div className="img-product" style={imgStyle}></div>
             <strong className="text-product">{product.itemName}</strong>
-            <strong className="text-product-price">{`${product.price
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원`}</strong>
+            <strong className="text-product-price">{`${product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원`}</strong>
           </li>
         );
       })}
 
-      {modal && (
-        <Modal
-          modal={modal}
-          setModal={setModal}
-          modalMenuList={modalMenuList}
-        />
-      )}
-      {alertModal && (
-        <AlertModal
-          alertModal={alertModal}
-          setAlertModal={setAlertModal}
-          setModal={setModal}
-          content={"삭제하시겠어요?"}
-          alertBtn={alertBtn}
-        />
-      )}
+      {modal && <Modal modal={modal} setModal={setModal} modalMenuList={modalMenuList} />}
+      {alertModal && <AlertModal alertModal={alertModal} setAlertModal={setAlertModal} setModal={setModal} content={"삭제하시겠어요?"} alertBtn={alertBtn} />}
     </>
   );
 }
