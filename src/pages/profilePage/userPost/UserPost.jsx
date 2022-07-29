@@ -9,7 +9,6 @@ import "./UserPost.scss";
 function UserPost({ accountname, from }) {
   const { token } = useContext(UserContext);
   const [post, setPost] = useState();
-  const [reloadePost, setReloadPost] = useState(true);
   const Container = useRef();
   const [postView, setPostView] = useState("list");
   const [listClicked, setListClicked] = useState("on");
@@ -25,10 +24,7 @@ function UserPost({ accountname, from }) {
   useEffect(() => {
     // 포스트 불러오기
     async function getPost() {
-      const url =
-        "https://mandarin.api.weniv.co.kr/post/" +
-        accountname +
-        "/userpost/?limit=15&skip=0";
+      const url = "https://mandarin.api.weniv.co.kr/post/" + accountname + "/userpost/?limit=15&skip=0";
       try {
         const res = await axios.get(url, {
           headers: {
@@ -42,17 +38,13 @@ function UserPost({ accountname, from }) {
       }
     }
     getPost();
-  }, [accountname, token, setReloadPost, isUpdate]);
+  }, [accountname, isUpdate]);
 
   useEffect(() => {
     // 화면 마지막에 도달하면 ReloadNeed!
     function infinitScoll() {
-      const postHeight = document
-        .querySelector(".wrapper-for-scroll")
-        .getBoundingClientRect().height;
-      const targetHeight = Math.floor(
-        Container.current.getBoundingClientRect().height + postHeight
-      );
+      const postHeight = document.querySelector(".wrapper-for-scroll").getBoundingClientRect().height;
+      const targetHeight = Math.floor(Container.current.getBoundingClientRect().height + postHeight);
       const currentScrollY = Math.floor(window.scrollY + window.innerHeight);
       targetHeight < currentScrollY && setReloadNeed(true);
     }
@@ -61,13 +53,7 @@ function UserPost({ accountname, from }) {
 
     // 스크롤시 데이터 추가 요청 함수
     async function getPosts() {
-      const url =
-        "https://mandarin.api.weniv.co.kr/post/" +
-        accountname +
-        "/userpost" +
-        "/?limit=15" +
-        "&skip=" +
-        skip;
+      const url = "https://mandarin.api.weniv.co.kr/post/" + accountname + "/userpost" + "/?limit=15" + "&skip=" + skip;
       try {
         const res = await axios.get(url, {
           headers: {
@@ -99,7 +85,7 @@ function UserPost({ accountname, from }) {
     return () => {
       window.removeEventListener("scroll", infinitScoll);
     };
-  }, [token, post, reloadNeed, skip]);
+  }, [reloadNeed]);
 
   // 앨범뷰 / 리스트뷰 선택
   function handleClick(e) {
@@ -120,28 +106,16 @@ function UserPost({ accountname, from }) {
         <h3 className="a11y-hidden">포스트 목록</h3>
         <div className="container-view-btn">
           <div className="wrapper-view-btn">
-            <button
-              className={`btn-view list ${listClicked}`}
-              onClick={handleClick}
-            >
+            <button className={`btn-view list ${listClicked}`} onClick={handleClick}>
               <strong className=" a11y-hidden">post view</strong>
             </button>
-            <button
-              className={`btn-view album ${albumClicked}`}
-              onClick={handleClick}
-            >
+            <button className={`btn-view album ${albumClicked}`} onClick={handleClick}>
               <strong className=" a11y-hidden">album view</strong>
             </button>
           </div>
         </div>
         <div className="wrapper-post">
-          <ol className={`list-posts ${postView}`}>
-            {postView === "list" ? (
-              <PostList post={post} from={from} remove={remove} />
-            ) : (
-              <PostAlbum setPostView={setPostView} accountname={accountname} />
-            )}
-          </ol>
+          <ol className={`list-posts ${postView}`}>{postView === "list" ? <PostList post={post} from={from} remove={remove} /> : <PostAlbum setPostView={setPostView} accountname={accountname} />}</ol>
         </div>
       </section>
       <strong className={`loading ${isLoading}`}></strong>

@@ -2,17 +2,7 @@ import { React, useState, useEffect, useRef } from "react";
 import axios from "axios";
 import UploadImg from "./UploadImg";
 
-function EditInfo({
-  setIsActive,
-  username,
-  setUsername,
-  accountname,
-  setAcountName,
-  intro,
-  setIntro,
-  setImage,
-  image,
-}) {
+function EditInfo({ setIsActive, username, setUsername, accountname, setAcountName, intro, setIntro, setImage, image }) {
   const [resMessageAccountname, setResMessageAccountname] = useState("");
   const [isValidAccountname, setIsValidAccountname] = useState(false);
   const [isValidUsername, setIsValidUsername] = useState(false);
@@ -65,13 +55,10 @@ function EditInfo({
           setIsValidAccountname(false);
         }
       } catch (err) {
-        console.error(err);
         alert("잘못된 접근입니다.");
       }
     } else {
-      setResMessageAccountname(
-        "*영문, 숫자, 밑줄 및 마침표만 사용할 수 있습니다."
-      );
+      setResMessageAccountname("*영문, 숫자, 밑줄 및 마침표만 사용할 수 있습니다.");
       setIsValidAccountname(false);
     }
   }
@@ -102,39 +89,20 @@ function EditInfo({
           <label htmlFor="input-username" className="label-username">
             사용자 이름
           </label>
-          <input
-            onChange={handleChangeUsername}
-            id="input-username"
-            type="text"
-            placeholder="2~10자 이내여야 합니다."
-            ref={inputRef}
-          ></input>
+          <input onChange={handleChangeUsername} id="input-username" type="text" placeholder="2~10자 이내여야 합니다." ref={inputRef}></input>
         </div>
         <div className="wrapper-accountname">
           <label htmlFor="id" className="label-accountname">
             계정 ID
           </label>
-          <input
-            onChange={handleChangeAccountname}
-            onBlur={handleBlurAccountname}
-            id="input-accountname"
-            type="text"
-            placeholder="영문, 숫자, 특수문자(.),(_)만 사용 가능합니다. "
-          ></input>
-          <strong className={`errorMsg accountname ${isValidAccountname}`}>
-            {resMessageAccountname}
-          </strong>
+          <input onChange={handleChangeAccountname} onBlur={handleBlurAccountname} id="input-accountname" type="text" placeholder="영문, 숫자, 특수문자(.),(_)만 사용 가능합니다. "></input>
+          <strong className={`errorMsg accountname ${isValidAccountname}`}>{resMessageAccountname}</strong>
         </div>
         <div className="container-intro">
           <label htmlFor="input-intro" className="label-intro">
             소개
           </label>
-          <input
-            onChange={handleChangeIntro}
-            id="input-intro"
-            type="text"
-            placeholder="자신과 판매할 상품에 대해 소개해 주세요!"
-          ></input>
+          <input onChange={handleChangeIntro} id="input-intro" type="text" placeholder="자신과 판매할 상품에 대해 소개해 주세요!"></input>
         </div>
       </div>
     </>

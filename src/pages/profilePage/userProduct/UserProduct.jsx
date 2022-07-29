@@ -14,19 +14,16 @@ function UserProduct({ accountname }) {
   useEffect(() => {
     async function getProduct() {
       try {
-        const response = await axios.get(
-          "https://mandarin.api.weniv.co.kr/product/" + accountname,
-          {
-            headers: {
-              Authorization: token,
-              "Content-type": "application/json",
-            },
-          }
-        );
+        const response = await axios.get("https://mandarin.api.weniv.co.kr/product/" + accountname, {
+          headers: {
+            Authorization: token,
+            "Content-type": "application/json",
+          },
+        });
         const userProduct = response;
         setProductResult(userProduct.data.product);
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     }
     getProduct();
@@ -39,12 +36,7 @@ function UserProduct({ accountname }) {
           <div className="wrapper-product">
             <h3>판매 중인 상품</h3>
             <ol className="list-products">
-              <Product
-                id="product1"
-                mapdata={productResult}
-                accountname={accountname}
-                remove={remove}
-              />
+              <Product id="product1" mapdata={productResult} accountname={accountname} remove={remove} />
             </ol>
           </div>
         </section>
