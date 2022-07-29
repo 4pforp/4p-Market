@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function ProductInput({
   itemName,
@@ -7,30 +7,14 @@ function ProductInput({
   setItemName,
   setPrice,
   setLink,
-  setIsActive,
-  setIsDisabled,
 }) {
   const inputRef = useRef();
+  const [isWrong, setIsWrong] = useState(false);
 
   //페이지 로딩됐을 때 인풋 포커스
   useEffect(() => {
     inputRef.current.focus();
   }, []);
-
-  // 저장 버튼활성화 기능
-  useEffect(() => {
-    //상품 판매 링크 유효성 검사
-    const checkLink =
-      /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/;
-
-    if (itemName.length > 1 && price.length !== 0 && checkLink.test(link)) {
-      setIsActive(true);
-      setIsDisabled(false);
-    } else {
-      setIsActive(false);
-      setIsDisabled(true);
-    }
-  });
 
   // 가격인풋창 3자리마다 콤마 붙여주는 기능
   const inputPriceFormat = (str) => {
@@ -50,6 +34,9 @@ function ProductInput({
   }
   function handleChangePrice(e) {
     setPrice(inputPriceFormat(e.target.value));
+    if (price.length >= 8) {
+      setIsWrong(true);
+    }
   }
   function handleChangeSaleLink(e) {
     setLink(e.target.value);
@@ -85,6 +72,9 @@ function ProductInput({
             value={price}
             maxlength="10"
           ></input>
+          <strong className={`msg-error ${isWrong}`}>
+            * 천만 단위 미만 가격의 상품만 등록해주세요.
+          </strong>
         </div>
         <div className="wrapper-salelink">
           <label htmlFor="input-salelink" className="label-salelink">

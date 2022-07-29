@@ -2,7 +2,7 @@
 @import "../../components/style/reset.scss";
 
 .container-form-product {
-  min-width: 322px;
+  width: 322px;
   padding-top: 78px;
   .wrapper-productimg {
     position: relative;
@@ -29,6 +29,7 @@
   .wrapper-salelink {
     margin-top: 16px;
   }
+
   .text-upload-img,
   .label-productname,
   .label-price,
@@ -56,5 +57,18 @@
     color: $line-color;
     font-family: $basic-font;
     font-size: 14px;
+  }
+}
+.msg-error {
+  color: red;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  margin-top: 5px;
+  &.true {
+    display: block;
+  }
+  &.false {
+    display: none;
   }
 }
