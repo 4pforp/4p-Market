@@ -14,14 +14,11 @@ function EditInfo({ setIsActive, username, setUsername, accountname, setAcountNa
     inputRef.current.focus();
   }, []);
 
-  function handleChangeUsername(e) {
-    setUsername(e.target.value);
-  }
-  function handleChangeAccountname(e) {
-    setAcountName(e.target.value);
-  }
-  function handleChangeIntro(e) {
-    setIntro(e.target.value);
+  function handleChange(e) {
+    const inputType = e.target.id.slice(6);
+    inputType === "username" && setUsername(e.target.value);
+    inputType === "accountname" && setAcountName(e.target.value);
+    inputType === "intro" && setIntro(e.target.value);
   }
 
   // 계정 ID 유효성 검사
@@ -89,20 +86,20 @@ function EditInfo({ setIsActive, username, setUsername, accountname, setAcountNa
           <label htmlFor="input-username" className="label-username">
             사용자 이름
           </label>
-          <input onChange={handleChangeUsername} id="input-username" type="text" placeholder="2~10자 이내여야 합니다." ref={inputRef}></input>
+          <input onChange={handleChange} id="input-username" type="text" placeholder="2~10자 이내여야 합니다." ref={inputRef}></input>
         </div>
         <div className="wrapper-accountname">
           <label htmlFor="id" className="label-accountname">
             계정 ID
           </label>
-          <input onChange={handleChangeAccountname} onBlur={handleBlurAccountname} id="input-accountname" type="text" placeholder="영문, 숫자, 특수문자(.),(_)만 사용 가능합니다. "></input>
+          <input onChange={handleChange} onBlur={handleBlurAccountname} id="input-accountname" type="text" placeholder="영문, 숫자, 특수문자(.),(_)만 사용 가능합니다. "></input>
           <strong className={`errorMsg accountname ${isValidAccountname}`}>{resMessageAccountname}</strong>
         </div>
         <div className="container-intro">
           <label htmlFor="input-intro" className="label-intro">
             소개
           </label>
-          <input onChange={handleChangeIntro} id="input-intro" type="text" placeholder="자신과 판매할 상품에 대해 소개해 주세요!"></input>
+          <input onChange={handleChange} id="input-intro" type="text" placeholder="자신과 판매할 상품에 대해 소개해 주세요!"></input>
         </div>
       </div>
     </>
