@@ -73,7 +73,7 @@ function ProductInput({
             maxlength="10"
           ></input>
           <strong className={`msg-error ${isWrong}`}>
-            * 천만 단위 미만 가격의 상품만 등록해주세요.
+            * 천만 단위 미만의 상품만 등록해주세요.
           </strong>
         </div>
         <div className="wrapper-salelink">
