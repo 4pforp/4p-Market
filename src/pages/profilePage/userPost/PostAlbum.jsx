@@ -12,10 +12,7 @@ function PostAlbum({ setPostView, accountname }) {
   useEffect(() => {
     // 포스트 불러오기
     async function getAlbumData() {
-      const url =
-        "https://mandarin.api.weniv.co.kr/post/" +
-        accountname +
-        "/userpost/?limit=0&skip=";
+      const url = "https://mandarin.api.weniv.co.kr/post/" + accountname + "/userpost/?limit=0&skip=";
       try {
         const res = await axios.get(url, {
           headers: {
@@ -29,32 +26,23 @@ function PostAlbum({ setPostView, accountname }) {
       }
     }
     getAlbumData();
-  }, [token, accountname]);
+  }, []);
 
   return (
     albumData &&
     albumData.map((album) => {
-      const imageArray =
-        album.image !== undefined
-          ? album.image.split(",")
-          : ["https://mandarin.api.weniv.co.kr/1658759543397.png"];
+      const imageArray = album.image !== undefined ? album.image.split(",") : ["https://mandarin.api.weniv.co.kr/1658759543397.png"];
       const img = imageTest(imageArray[0]);
       if (imageArray.length > 1) {
         return (
           <li key={album.id} className="list-album multi">
-            <Link
-              to={album.id}
-              style={{ backgroundImage: `url(${img})` }}
-            ></Link>
+            <Link to={album.id} style={{ backgroundImage: `url(${img})` }}></Link>
           </li>
         );
       } else {
         return (
           <li key={album.id} className="list-album">
-            <Link
-              to={album.id}
-              style={{ backgroundImage: `url(${img})` }}
-            ></Link>
+            <Link to={album.id} style={{ backgroundImage: `url(${img})` }}></Link>
           </li>
         );
       }

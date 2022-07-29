@@ -54,7 +54,7 @@ function ProfilePage() {
       }
     }
     getUser();
-  }, [accountname, token]);
+  }, []);
 
   return (
     <>

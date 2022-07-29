@@ -37,7 +37,7 @@ function PostDetailPage() {
       }
     }
     getComment();
-  }, [postid, token]);
+  }, []);
 
   return (
     <>
@@ -45,11 +45,7 @@ function PostDetailPage() {
       {view === "fulfilled" && (
         <>
           <main className="container-comment-page">
-            <div className="wrapper-comment-post">
-              {post && (
-                <Article content={post} from="comment" remove={remove} />
-              )}
-            </div>
+            <div className="wrapper-comment-post">{post && <Article content={post} from="comment" remove={remove} />}</div>
             <CommentList postid={postid} post={post} />
           </main>
         </>
