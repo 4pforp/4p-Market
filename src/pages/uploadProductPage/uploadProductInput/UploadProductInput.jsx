@@ -49,16 +49,7 @@ function ProductInput({
           <label htmlFor="input-productname" className="label-productname">
             상품명
           </label>
-          <input
-            id="input-productname"
-            type="text"
-            placeholder="2~15자 "
-            maxLength="16"
-            minLength="2"
-            onChange={handleChangeProductName}
-            value={itemName}
-            ref={inputRef}
-          ></input>
+          <input id="input-productname" type="text" placeholder="2~15자 " maxLength="16" minLength="2" onChange={handleChangeProductName} value={itemName} ref={inputRef}></input>
         </div>
         <div className="wrapper-price">
           <label htmlFor="input-price" className="label-price">
@@ -80,13 +71,7 @@ function ProductInput({
           <label htmlFor="input-salelink" className="label-salelink">
             판매 링크
           </label>
-          <input
-            id="input-salelink"
-            type="text"
-            placeholder="http:// 형식으로 입력해주세요."
-            onChange={handleChangeSaleLink}
-            value={link}
-          ></input>
+          <input id="input-salelink" type="text" placeholder="http:// 형식으로 입력해주세요." onChange={handleChangeSaleLink} value={link}></input>
         </div>
       </div>
     </>

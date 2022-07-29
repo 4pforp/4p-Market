@@ -4,19 +4,10 @@ import UserContext from "../../../context/UserContext";
 
 import FollowBtn from "../../../components/button/FollowBtn";
 import UserInfoBox from "../../../components/user/UserInfoBox";
-import useProfileTest from "../../../hooks/useProfileImageTest";
+import useImageTest from "../../../hooks/useImageTest";
 
-function User({
-  size,
-  accountname,
-  username,
-  image,
-  intro,
-  followings,
-  followers,
-  isfollow,
-}) {
-  const { profileImageTest } = useProfileTest();
+function User({ size, accountname, username, image, intro, followings, followers, isfollow }) {
+  const { imageTest } = useImageTest();
   const { myAccountname } = useContext(UserContext);
 
   const [user, setUser] = useState({
@@ -29,27 +20,15 @@ function User({
     isfollow: isfollow,
   });
 
-  const img = profileImageTest(user.image);
+  const img = imageTest(user.image, "profile");
 
   return (
     <>
       <li className="wrapper-item-follow">
         <Link to={"/" + accountname} className="wrapper-follow-info">
-          <UserInfoBox
-            type="follow"
-            name={user.username}
-            subtext={user.intro}
-            img={img}
-          />
+          <UserInfoBox type="follow" name={user.username} subtext={user.intro} img={img} />
         </Link>
-        {accountname === myAccountname ? null : (
-          <FollowBtn
-            text={user.isfollow ? "팔로잉" : "팔로우"}
-            size={size}
-            user={user}
-            setUser={setUser}
-          />
-        )}
+        {accountname === myAccountname ? null : <FollowBtn text={user.isfollow ? "팔로잉" : "팔로우"} size={size} user={user} setUser={setUser} />}
       </li>
     </>
   );
