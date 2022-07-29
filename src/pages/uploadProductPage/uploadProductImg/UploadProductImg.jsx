@@ -17,20 +17,14 @@ function UploadProductImg({ itemImage, setItemImage }) {
 
   async function onLoadImage(formData, loadImage) {
     try {
-      const res = await axios.post(
-        "https://mandarin.api.weniv.co.kr/image/uploadfile",
-        formData,
-        {
-          "Content-Type": "multipart/form-data",
-        }
-      );
+      const res = await axios.post("https://mandarin.api.weniv.co.kr/image/uploadfile", formData, {
+        "Content-Type": "multipart/form-data",
+      });
       if (res.data.filename) {
         setItemImage("https://mandarin.api.weniv.co.kr/" + res.data.filename);
         preview(loadImage);
       } else {
-        alert(
-          ".jpg, .gif, .png, .jpeg, .bmp, .tif, .heic 파일만 업로드 가능합니다."
-        );
+        alert(".jpg, .gif, .png, .jpeg, .bmp, .tif, .heic 파일만 업로드 가능합니다.");
       }
     } catch (err) {
       console.error(err);
@@ -52,14 +46,7 @@ function UploadProductImg({ itemImage, setItemImage }) {
         <label htmlFor="choose-img" className="label-upload-icon">
           <img src={PictureIcon} alt="upload" />
         </label>
-        <input
-          type="file"
-          name="img-product"
-          id="choose-img"
-          accept="image/*"
-          onChange={handleChange}
-          required
-        ></input>
+        <input type="file" name="img-product" id="choose-img" accept="image/*" onChange={handleChange}></input>
       </div>
     </>
   );
