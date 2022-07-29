@@ -1,11 +1,14 @@
-import { React, useState } from "react";
+import { React, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import UserContext from "../../context/UserContext";
 import axios from "axios";
 import ProfileSet from "./profileSet/ProfileSet";
 import EmailSignUp from "./emailSignUp/EmailSignUp";
 import "./SignUpPage.scss";
 
 function SignUpPage() {
+  const { setToken, setInitialToken } = useContext(UserContext);
+
   const userForm = {
     username: "",
     email: "",
@@ -29,6 +32,29 @@ function SignUpPage() {
           "Content-Type": "application/json",
         },
       });
+      const loginData = {
+        user: {
+          email: user.email,
+          password: user.password,
+        },
+      };
+      login(loginData);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  // 회원가입시 자동 로그인
+  async function login(loginData) {
+    try {
+      const res = await axios.post("https://mandarin.api.weniv.co.kr/user/login", loginData, {
+        header: {
+          "Content-Type": "application/json",
+        },
+      });
+      localStorage.setItem("token", res.data.user.token);
+      setInitialToken(localStorage.getItem("token"));
+      setToken("Bearer " + localStorage.getItem("token"));
       navigate("/");
     } catch (err) {
       console.error(err);
