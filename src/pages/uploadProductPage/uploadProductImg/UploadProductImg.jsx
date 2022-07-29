@@ -58,6 +58,7 @@ function UploadProductImg({ itemImage, setItemImage }) {
           id="choose-img"
           accept="image/*"
           onChange={handleChange}
+          required
         ></input>
       </div>
     </>
