@@ -13,8 +13,8 @@
   .text-message {
     max-width: 240px;
     padding: 12px;
-    background-color: #fff;
-    border: 1px solid #c4c4c4;
+    background-color: $white;
+    border: 1px solid $search-placeholder-color;
     border-radius: 10px;
     border-top-left-radius: 0;
     font-weight: 400;
@@ -39,7 +39,7 @@
       border: none;
       border-top-left-radius: 10px;
       border-top-right-radius: 0;
-      color: #fff;
+      color: $white;
     }
   }
 }

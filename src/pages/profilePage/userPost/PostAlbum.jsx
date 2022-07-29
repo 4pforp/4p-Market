@@ -4,13 +4,13 @@ import axios from "axios";
 import UserContext from "../../../context/UserContext";
 import useImageTest from "../../../hooks/useImageTest";
 
-function PostAlbum({ setPostView, accountname }) {
+function PostAlbum({ accountname }) {
   const { token } = useContext(UserContext);
   const { imageTest } = useImageTest();
   const [albumData, setAlbumData] = useState();
 
   useEffect(() => {
-    // 포스트 불러오기
+    // 포스트 데이터 불러오기
     async function getAlbumData() {
       const url = "https://mandarin.api.weniv.co.kr/post/" + accountname + "/userpost/?limit=0&skip=";
       try {

@@ -10,11 +10,11 @@ import AlertModal from "../../../components/modal/Alert";
 
 function Comment({ comments, postid, remove }) {
   const { myAccountname } = useContext(UserContext);
+  const { report } = useReport();
+  const { imageTest } = useImageTest();
   const [comment, setComment] = useState({});
   const [modal, setModal] = useState(false);
   const [alertModal, setAlertModal] = useState(false);
-  const { report } = useReport();
-  const { imageTest } = useImageTest();
 
   const commentId = comment.id;
   const postId = postid;

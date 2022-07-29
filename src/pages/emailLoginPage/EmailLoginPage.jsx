@@ -10,7 +10,7 @@ function EmailLoginPage() {
   const [password, setPassword] = useState("");
   const [isActive, setIsActive] = useState(false);
   const [isWrong, setIsWrong] = useState(false);
-  const { token, setToken, setInitialToken } = useContext(UserContext);
+  const { setToken, setInitialToken } = useContext(UserContext);
 
   const inputRef = useRef();
   const navigate = useNavigate();

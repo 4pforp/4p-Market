@@ -13,9 +13,9 @@ function FollowPage() {
   const params = useParams();
   const accountname = params.accountname;
   const followtype = params.followtype;
-  const [followList, setFollowList] = useState([]);
-  const [view, setView] = useState("pending");
   const Container = useRef();
+  const [view, setView] = useState("pending");
+  const [followList, setFollowList] = useState([]);
   const [reloadNeed, setReloadNeed] = useState(false);
   const [reloadStop, setReloadStop] = useState(false);
   const [updatedCount, setUpdatedCount] = useState(0);
@@ -46,7 +46,7 @@ function FollowPage() {
     } else {
       setView("rejected");
     }
-  }, [token, accountname, followtype]);
+  }, []);
 
   useEffect(() => {
     // 화면 마지막에 도달하면 ReloadNeed!

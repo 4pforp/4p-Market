@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./scrollRestoration/ScrollToTop";
 import axios from "axios";
 import UserContext, { UserContextProvider } from "./context/UserContext";
-
 import HomePage from "./pages/homePage/HomePage";
 import EmailLoginPage from "./pages/emailLoginPage/EmailLoginPage";
 import SignUpPage from "./pages/signUpPage/SignUpPage";
@@ -84,7 +83,6 @@ function Main() {
               <Route path={"*"} element={<NotFound />}></Route>
             </>
           ) : (
-            // TODO url로 비정상 접근시 로그인 창으로 넘어가도록 추가 (token 검증!) by 현지
             <>
               <Route path="/" element={<HomePage />}></Route>
               <Route path="/login" element={<EmailLoginPage />}></Route>
