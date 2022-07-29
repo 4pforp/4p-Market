@@ -15,12 +15,10 @@ function EmailLoginPage() {
   const inputRef = useRef();
   const navigate = useNavigate();
 
-  function handleChangeEmail(e) {
-    setEmail(e.target.value);
-  }
-
-  function handleChangePassword(e) {
-    setPassword(e.target.value);
+  function handleChange(e) {
+    const inputType = e.target.id.slice(6);
+    inputType === "email" && setEmail(e.target.value);
+    inputType === "password" && setPassword(e.target.value);
   }
 
   //페이지 로딩됐을 때 이메일 인풋 포커스
@@ -29,14 +27,11 @@ function EmailLoginPage() {
   }, []);
 
   //이메일 주소 유효성 검사
-  const checkEmail =
-    /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,6}$/i;
+  const checkEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,6}$/i;
 
   //로그인버튼 활성화 검사
   function handleKeyUp() {
-    return checkEmail.test(email) && password.length > 5
-      ? setIsActive(true)
-      : setIsActive(false);
+    return checkEmail.test(email) && password.length > 5 ? setIsActive(true) : setIsActive(false);
   }
 
   // 로그인
@@ -50,15 +45,11 @@ function EmailLoginPage() {
     };
 
     try {
-      const res = await axios.post(
-        "https://mandarin.api.weniv.co.kr/user/login",
-        loginData,
-        {
-          header: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await axios.post("https://mandarin.api.weniv.co.kr/user/login", loginData, {
+        header: {
+          "Content-Type": "application/json",
+        },
+      });
 
       if (res.data.message === "이메일 또는 비밀번호가 일치하지 않습니다.") {
         setIsWrong(true);
@@ -83,27 +74,14 @@ function EmailLoginPage() {
           <label htmlFor="email" className="label-email">
             이메일
           </label>
-          <input
-            onKeyUp={handleKeyUp}
-            id="input-email"
-            type="id"
-            onChange={handleChangeEmail}
-            ref={inputRef}
-          />
+          <input onKeyUp={handleKeyUp} id="input-email" type="id" onChange={handleChange} ref={inputRef} />
         </div>
         <div className="wrapper-password">
           <label htmlFor="password" className="label-password">
             비밀번호
           </label>
-          <input
-            onKeyUp={handleKeyUp}
-            id="input-password"
-            type="password"
-            onChange={handleChangePassword}
-          />
-          <strong className={`errorMsg ${isWrong}`}>
-            * 이메일 또는 비밀번호가 일치하지 않습니다.
-          </strong>
+          <input onKeyUp={handleKeyUp} id="input-password" type="password" onChange={handleChange} />
+          <strong className={`errorMsg ${isWrong}`}>* 이메일 또는 비밀번호가 일치하지 않습니다.</strong>
         </div>
 
         <Button type="submit" name="login" isActive={isActive}>
