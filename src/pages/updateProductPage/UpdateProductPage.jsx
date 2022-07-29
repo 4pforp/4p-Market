@@ -32,19 +32,30 @@ function UpdateProductPage() {
     },
   };
 
+  // 저장 버튼활성화 기능
+  useEffect(() => {
+    //상품 판매 링크 유효성 검사
+    const checkLink = /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/;
+
+    if (itemName.length > 1 && price.length !== 0 && checkLink.test(link) && itemImage.length !== 0) {
+      setIsActive(true);
+      setIsDisabled(false);
+    } else {
+      setIsActive(false);
+      setIsDisabled(true);
+    }
+  });
+
   //기존 상품 데이터 요청
   useEffect(() => {
     async function getProduct() {
       try {
-        const res = await axios.get(
-          "https://mandarin.api.weniv.co.kr/product/detail/" + productid,
-          {
-            headers: {
-              Authorization: token,
-              "Content-type": "application/json",
-            },
-          }
-        );
+        const res = await axios.get("https://mandarin.api.weniv.co.kr/product/detail/" + productid, {
+          headers: {
+            Authorization: token,
+            "Content-type": "application/json",
+          },
+        });
         setItemImage(res.data.product.itemImage);
         setItemName(res.data.product.itemName);
         setPrice(res.data.product.price);
@@ -61,16 +72,12 @@ function UpdateProductPage() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const res = await axios.put(
-        "https://mandarin.api.weniv.co.kr/product/" + productid,
-        productData,
-        {
-          headers: {
-            Authorization: token,
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await axios.put("https://mandarin.api.weniv.co.kr/product/" + productid, productData, {
+        headers: {
+          Authorization: token,
+          "Content-Type": "application/json",
+        },
+      });
       navigate("/" + myAccountname);
     } catch (err) {
       setView("rejected");
@@ -80,25 +87,11 @@ function UpdateProductPage() {
   return (
     <>
       {view === "fulfilled" && (
-        <form
-          method="POST"
-          encType="multipart/form-data"
-          className="container-form-product"
-          onSubmit={handleSubmit}
-        >
+        <form method="POST" encType="multipart/form-data" className="container-form-product" onSubmit={handleSubmit}>
           <SaveHeader isActive={isActive} disabled={disabled} />
           <h1 className="a11y-hidden">상품등록페이지</h1>
           <UploadProductImg itemImage={itemImage} setItemImage={setItemImage} />
-          <UploadProductInput
-            itemName={itemName}
-            setItemName={setItemName}
-            price={price}
-            setPrice={setPrice}
-            link={link}
-            setLink={setLink}
-            setIsActive={setIsActive}
-            setIsDisabled={setIsDisabled}
-          />
+          <UploadProductInput itemName={itemName} setItemName={setItemName} price={price} setPrice={setPrice} link={link} setLink={setLink} setIsActive={setIsActive} setIsDisabled={setIsDisabled} />
         </form>
       )}
       {view === "pending" && (
