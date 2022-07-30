@@ -47,7 +47,6 @@ function FollowPage() {
       setView("rejected");
     }
   }, []);
-
   useEffect(() => {
     // 화면 마지막에 도달하면 ReloadNeed!
     function infinitScoll() {

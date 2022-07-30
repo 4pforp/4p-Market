@@ -55,8 +55,7 @@ function ProfilePage() {
       }
     }
     getUser();
-  }, []);
-
+  }, [accountname]);
   return (
     <>
       <CommonHeader />
