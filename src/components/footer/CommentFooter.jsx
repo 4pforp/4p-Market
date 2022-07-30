@@ -35,6 +35,11 @@ function CommentFooter({ postid, post, setNewComment }) {
           "Content-type": "application/json",
         },
       });
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
       setNewComment(false);
     } catch (err) {
       console.error(err);

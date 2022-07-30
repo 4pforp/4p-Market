@@ -43,10 +43,11 @@ function ProfileEditPage() {
             },
           }
         );
-        setUsername(res.data.user.username);
-        setAcountname(res.data.user.accountname);
-        setIntro(res.data.user.intro);
-        setImage(res.data.user.image);
+        const { accountname, username, image, intro } = res.data.user;
+        setAcountname(accountname);
+        setUsername(username);
+        setImage(image);
+        setIntro(intro);
         setView("fulfilled");
       } catch (err) {
         setView("rejected");
@@ -99,8 +100,7 @@ function ProfileEditPage() {
         method="GET"
         encType="multipart/form-data"
         className="form-profileeddit"
-        onSubmit={handleSubmit}
-      >
+        onSubmit={handleSubmit}>
         <SaveHeader
           isActive={isActive}
           handleClick={handleClick}
