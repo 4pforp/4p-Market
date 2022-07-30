@@ -169,11 +169,10 @@ function UpdatePostPage() {
       <UploadHeader isActive={isActive} disabled={!isActive} form="postForm" />
       {view === "fulfilled" && (
         <div className="container-uploadpost">
-          <img
-            src={profileImg}
-            alt="프로필 사진입니다."
+          <div
+            style={{ backgroundImage: `url(${profileImg})` }}
             className="img-profile-uploadpost"
-          />
+          ></div>
           <div className="wrapper-write-section">
             <form method="post" id="postForm" onSubmit={handleSubmit}>
               <textarea
