@@ -1,12 +1,12 @@
-import { React, useContext } from "react";
 import { Link } from "react-router-dom";
 import UserInfoBox from "../../../components/user/UserInfoBox";
 import defaultProfile from "../../../assets/4p_profile.png";
-import "./SearchResult.scss";
 import useImageTest from "../../../hooks/useImageTest";
+import "./SearchResult.scss";
 
 function SearchResult({ mapdata, keyword }) {
   const { imageTest } = useImageTest();
+
   function handleImageError(e) {
     e.target.src = defaultProfile;
   }
@@ -23,7 +23,8 @@ function SearchResult({ mapdata, keyword }) {
           <li
             key={user._id}
             className="list-search-user"
-            onClick={setSessionStorage}>
+            onClick={setSessionStorage}
+          >
             <Link to={"/" + user.accountname}>
               <UserInfoBox
                 type="search"
