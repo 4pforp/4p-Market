@@ -58,10 +58,13 @@
     padding-top: 6px;
     font-family: $basic-font;
     font-size: 12px;
+    overflow-wrap: break-word;
   }
   .text-profile-info {
     padding: 16px 0 24px;
     font-family: $basic-font;
     font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
