@@ -39,7 +39,15 @@ function ProfilePage() {
             "Content-type": "application/json",
           },
         });
-        const { accountname, username, image, intro, followerCount, followingCount, isfollow } = res.data.profile;
+        const {
+          accountname,
+          username,
+          image,
+          intro,
+          followerCount,
+          followingCount,
+          isfollow,
+        } = res.data.profile;
         setUser({
           accountname,
           username,

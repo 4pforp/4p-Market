@@ -44,15 +44,23 @@ function HomePage() {
   useEffect(() => {
     // 화면 마지막에 도달하면 ReloadNeed!
     function infinitScoll() {
-      const targetHeight = Math.floor(Container.current.getBoundingClientRect().height);
-      const currentScrollY = Math.floor(window.scrollY + window.innerHeight - 50);
+      const targetHeight = Math.floor(
+        Container.current.getBoundingClientRect().height
+      );
+      const currentScrollY = Math.floor(
+        window.scrollY + window.innerHeight - 50
+      );
       targetHeight < currentScrollY && setReloadNeed(true);
     }
     window.addEventListener("scroll", infinitScoll);
 
     // 스크롤시 데이터 추가 요청 함수
     async function getPosts() {
-      const url = "https://mandarin.api.weniv.co.kr/post/feed" + "/?limit=15" + "&skip=" + skip;
+      const url =
+        "https://mandarin.api.weniv.co.kr/post/feed" +
+        "/?limit=15" +
+        "&skip=" +
+        skip;
       try {
         const res = await axios.get(url, {
           headers: {

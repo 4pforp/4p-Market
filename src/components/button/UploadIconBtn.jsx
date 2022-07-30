@@ -16,8 +16,7 @@ function UploadIconBtn({ img, name, onChange }, ref) {
         id="choose-img"
         accept="image/*"
         onChange={onChange}
-        ref={ref}
-      ></input>
+        ref={ref}></input>
     </>
   );
 }

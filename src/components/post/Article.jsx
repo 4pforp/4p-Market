@@ -112,12 +112,20 @@ function Article({ content, from, remove }) {
         <h3 className="a11y-hidden">{author.username}의 게시물</h3>
         {from === "profile" ? (
           <>
-            <UserInfoBox type="post" name={author.username} id={"@" + author.accountname} img={authorImg}></UserInfoBox>
+            <UserInfoBox
+              type="post"
+              name={author.username}
+              id={"@" + author.accountname}
+              img={authorImg}></UserInfoBox>
           </>
         ) : (
           <>
             <Link to={"/" + accountname}>
-              <UserInfoBox type="post" name={author.username} id={"@" + author.accountname} img={authorImg}></UserInfoBox>
+              <UserInfoBox
+                type="post"
+                name={author.username}
+                id={"@" + author.accountname}
+                img={authorImg}></UserInfoBox>
             </Link>
           </>
         )}
@@ -125,11 +133,21 @@ function Article({ content, from, remove }) {
           <p className="text-post">{post.content}</p>
           {post.image === "" ? null : (
             <div className="container-post-image">
-              <Swiper modules={[Pagination]} spaceBetween={50} slidesPerView={1} pagination={{ clickable: true }}>
+              <Swiper
+                modules={[Pagination]}
+                spaceBetween={50}
+                slidesPerView={1}
+                pagination={{ clickable: true }}>
                 {imgArray.map((img, i) => (
                   <SwiperSlide key={i}>
                     <Link to={"/" + accountname + "/" + post.id}>
-                      <img key={i} src={img} alt="게시글 사진" onError={handleImageError} className="img-post" />
+                      <img
+                        key={i}
+                        src={img}
+                        alt="게시글 사진"
+                        onError={handleImageError}
+                        className="img-post"
+                      />
                     </Link>
                   </SwiperSlide>
                 ))}
@@ -137,23 +155,70 @@ function Article({ content, from, remove }) {
             </div>
           )}
           <div className="container-btn-post">
-            <LikeBtn heartcount={post.heartCount} hearted={post.hearted} postid={post.id} />
-            <CommentBtn commentcount={post.commentCount} postid={post.id} post={post} from={from} accountname={accountname} />
+            <LikeBtn
+              heartcount={post.heartCount}
+              hearted={post.hearted}
+              postid={post.id}
+            />
+            <CommentBtn
+              commentcount={post.commentCount}
+              postid={post.id}
+              post={post}
+              from={from}
+              accountname={accountname}
+            />
           </div>
-          <strong className="text-post-date">{from === "home" ? commentCreatedAt : createAtFull.getFullYear() + "년 " + (createAtFull.getMonth() + 1) + "월 " + createAtFull.getDate() + "일"}</strong>
+          <strong className="text-post-date">
+            {from === "home"
+              ? commentCreatedAt
+              : createAtFull.getFullYear() +
+                "년 " +
+                (createAtFull.getMonth() + 1) +
+                "월 " +
+                createAtFull.getDate() +
+                "일"}
+          </strong>
         </main>
         <UserMoreBtn handleClick={openModal} />
       </article>
       {/* 모닱창  */}
       {myAccountname === accountname ? (
         <>
-          {isModal && <Modal isModal={isModal} setIsModal={setIsModal} modalMenuList={myModalMenuList} />}
-          {isAlert && <AlertModal isAlert={isAlert} setIsAlert={setIsAlert} setIsModal={setIsModal} content={"삭제하시겠어요?"} alertBtn={deleteBtn} />}
+          {isModal && (
+            <Modal
+              isModal={isModal}
+              setIsModal={setIsModal}
+              modalMenuList={myModalMenuList}
+            />
+          )}
+          {isAlert && (
+            <AlertModal
+              isAlert={isAlert}
+              setIsAlert={setIsAlert}
+              setIsModal={setIsModal}
+              content={"삭제하시겠어요?"}
+              alertBtn={deleteBtn}
+            />
+          )}
         </>
       ) : (
         <>
-          {isModal && <Modal isModal={isModal} setIsModal={setIsModal} modalMenuList={userModalMenuList} />}
-          {isAlert && <AlertModal isAlert={isAlert} setIsAlert={setIsAlert} setIsModal={setIsModal} content={"신고하시겠어요?"} alertBtn={reportBtn} />}
+          {isModal && (
+            <Modal
+              isModal={isModal}
+              setIsModal={setIsModal}
+              modalMenuList={userModalMenuList}
+            />
+          )}
+          {isAlert && (
+            <AlertModal
+              isAlert={isAlert}
+              setIsAlert={setIsAlert}
+              setIsModal={setIsModal}
+              content={"신고하시겠어요?"}
+              alertBtn={reportBtn}
+            />
+          )}
         </>
       )}
     </>

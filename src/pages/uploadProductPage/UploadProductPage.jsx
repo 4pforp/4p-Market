@@ -76,8 +76,7 @@ function UploadProductPage() {
         method="POST"
         encType="multipart/form-data"
         className="container-form-product"
-        onSubmit={handleSubmit}
-      >
+        onSubmit={handleSubmit}>
         <SaveHeader isActive={isActive} disabled={disabled} />
         <h1 className="a11y-hidden">상품등록페이지</h1>
         <UploadProductImg itemImage={itemImage} setItemImage={setItemImage} />

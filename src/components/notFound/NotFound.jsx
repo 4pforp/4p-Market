@@ -18,15 +18,13 @@ function NotFound() {
           <button
             type="button"
             className="btn-error "
-            onClick={() => navigate(-1)}
-          >
+            onClick={() => navigate(-1)}>
             이전페이지
           </button>
           <button
             type="button"
             className="btn-error home "
-            onClick={() => navigate("/")}
-          >
+            onClick={() => navigate("/")}>
             홈으로 이동
           </button>
         </div>

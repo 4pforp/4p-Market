@@ -15,8 +15,7 @@ function CommentBtn({ commentcount, postid, from, accountname }) {
         type="button"
         className="btn-comment"
         style={style}
-        onClick={handleClick}
-      >
+        onClick={handleClick}>
         <span className="a11y-hidden">댓글</span>
       </button>
       <span className="text-comment-num">{commentcount}</span>

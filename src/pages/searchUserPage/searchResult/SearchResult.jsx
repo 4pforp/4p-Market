@@ -20,9 +20,18 @@ function SearchResult({ mapdata, keyword }) {
       {mapdata.map((user) => {
         const img = imageTest(user.image, "profile");
         return (
-          <li key={user._id} className="list-search-user" onClick={setSessionStorage}>
+          <li
+            key={user._id}
+            className="list-search-user"
+            onClick={setSessionStorage}>
             <Link to={"/" + user.accountname}>
-              <UserInfoBox type="search" name={user.username} id={`@${user.accountname}`} img={img} onError={handleImageError} />
+              <UserInfoBox
+                type="search"
+                name={user.username}
+                id={`@${user.accountname}`}
+                img={img}
+                onError={handleImageError}
+              />
             </Link>
           </li>
         );

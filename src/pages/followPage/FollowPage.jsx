@@ -25,7 +25,12 @@ function FollowPage() {
   useEffect(() => {
     // 팔로우 리스트 불러오기
     async function getFollowList() {
-      const url = "https://mandarin.api.weniv.co.kr/profile/" + accountname + "/" + followtype + "?limit=15&skip=0";
+      const url =
+        "https://mandarin.api.weniv.co.kr/profile/" +
+        accountname +
+        "/" +
+        followtype +
+        "?limit=15&skip=0";
       try {
         const res = await axios.get(url, {
           headers: {
@@ -50,7 +55,9 @@ function FollowPage() {
   useEffect(() => {
     // 화면 마지막에 도달하면 ReloadNeed!
     function infinitScoll() {
-      const targetHeight = Math.floor(Container.current.getBoundingClientRect().height);
+      const targetHeight = Math.floor(
+        Container.current.getBoundingClientRect().height
+      );
       const currentScrollY = Math.floor(window.scrollY + window.innerHeight);
       targetHeight < currentScrollY && setReloadNeed(true);
     }
@@ -59,7 +66,14 @@ function FollowPage() {
 
     // 스크롤시 데이터 추가 요청 함수
     async function getFollowList() {
-      const url = "https://mandarin.api.weniv.co.kr/profile/" + accountname + "/" + followtype + "?limit=15" + "&skip=" + skip;
+      const url =
+        "https://mandarin.api.weniv.co.kr/profile/" +
+        accountname +
+        "/" +
+        followtype +
+        "?limit=15" +
+        "&skip=" +
+        skip;
       try {
         const res = await axios.get(url, {
           headers: {
