@@ -9,6 +9,7 @@ import NotFound from "../../components/notFound/NotFound";
 import InitialFeed from "./initialFeed/InitialFeed";
 import LoginPage from "../logInPage/LoginPage";
 import pendingImg from "../../assets/logo_loading_purple.svg";
+import topButton from "../../assets/scroll-top.svg";
 import "./HomePage.scss";
 
 function HomePage() {
@@ -94,6 +95,15 @@ function HomePage() {
     };
   }, [reloadNeed]);
 
+  // 페이지 최상단 이동 이벤트
+  function handleClick() {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }
+
   return (
     <>
       {sessionStorage.getItem("splash") ? null : <Splash />}
@@ -113,6 +123,12 @@ function HomePage() {
                 </section>
                 <strong className={`loading ${isLoading}`}></strong>
               </main>
+              <img
+                src={topButton}
+                alt="최상단으로 이동"
+                className="btn-move-top"
+                onClick={handleClick}
+              />
             </>
           )}
           {view === "fulfilled" && posts.length === 0 && (
