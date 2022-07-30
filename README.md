@@ -500,15 +500,15 @@ axios: `0.27.2`
 
 |                               7-2. 상품 삭제                                |                                8. 게시글 등록                                |
 | :-------------------------------------------------------------------------: | :-------------------------------------------------------------------------: |
-| <img src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/zW7DPpY1xZ.gif" width="300"/> | <img src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/jESddIKDFs.gif" width="300"/> |
+| <img src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/zW7DPpY1xZ.gif" width="300"/> | <img src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/5EMj5xakd8.gif" width="300"/> |
 
 |                              8-1. 게시글 수정                               |                              8-2. 게시글 삭제                               |
 | :-------------------------------------------------------------------------: | :-------------------------------------------------------------------------: |
-| <img src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/aBFkzSSdtG.gif" width="300"/> | <img src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/cestmT1sUo.gif" width="300"/> |
+| <img src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/aBFkzSSdtG.gif" width="300"/> | <img src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/C2qStjKzA2.gif" width="300"/> |
 
 |                            9. 유저 프로필 상세, 앨범뷰                             |                               10. 좋아요, 댓글 등록 / 삭제                                |
 | :-------------------------------------------------------------------------: | :-------------------------------------------------------------------------: |
-| <img src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/EWaZnYitUT.gif" width="300"/> | <img src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/YzBcZB5GM4.gif" width="300"/> |
+| <img src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/Obw5hrvJLU.gif" width="300"/> | <img src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/75aoVUqP3k.gif" width="300"/> |
 
 |                             11. 팔로잉, 팔로우                             |                                12. 로그아웃                                  |
 | :-------------------------------------------------------------------------: | :-------------------------------------------------------------------------: |
