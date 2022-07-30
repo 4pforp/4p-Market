@@ -7,19 +7,19 @@ import AlertModal from "../modal/Alert";
 import "./Header.scss";
 
 function ChatRoomHeader({ userName }) {
-  const [modal, setModal] = useState(false);
-  const [alertModal, setAlertModal] = useState(false);
+  const [isModal, setIsModal] = useState(false);
+  const [isAlert, setIsAlert] = useState(false);
   const navigate = useNavigate();
 
   function openModal() {
-    setModal(true);
+    setIsModal(true);
   }
 
   const modalMenuList = [
     {
       content: "채팅방 나가기",
       onClick: () => {
-        setAlertModal(true);
+        setIsModal(true);
       },
     },
   ];
@@ -40,22 +40,8 @@ function ChatRoomHeader({ userName }) {
           <MoreBtn handleClick={openModal} />
         </section>
       </header>
-      {modal && (
-        <Modal
-          modal={modal}
-          setModal={setModal}
-          modalMenuList={modalMenuList}
-        />
-      )}
-      {alertModal && (
-        <AlertModal
-          alertModal={alertModal}
-          setAlertModal={setAlertModal}
-          setModal={setModal}
-          content={"나가시겠어요?"}
-          alertBtn={alertBtn}
-        />
-      )}
+      {isModal && <Modal isModal={isModal} setIsModal={setIsModal} modalMenuList={modalMenuList} />}
+      {isAlert && <AlertModal isAlert={isAlert} setIsAlert={setIsAlert} setIsModal={setIsModal} content={"나가시겠어요?"} alertBtn={alertBtn} />}
     </>
   );
 }

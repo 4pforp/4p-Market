@@ -2,17 +2,17 @@ import "./Modal.scss";
 import ModalPortal from "./ModalPortal";
 
 function Modal(props) {
-  const { modal, setModal, modalMenuList } = props;
+  const { isModal, setIsModal, modalMenuList } = props;
 
   function handleModal() {
-    setModal(false);
+    setIsModal(false);
   }
 
   return (
     <>
       <ModalPortal>
-        <div className="background-modal" modal={modal} onClick={handleModal}>
-          <div modal={modal} onClick={(e) => e.stopPropagation()}>
+        <div className="background-modal" onClick={handleModal}>
+          <div onClick={(e) => e.stopPropagation()}>
             <section className="container-modal">
               <h2 className="a11y-hidden">메뉴</h2>
               <ul className="wrapper-list-modal">

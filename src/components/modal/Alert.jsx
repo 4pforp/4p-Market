@@ -12,7 +12,7 @@ function AlertModal(props) {
   return (
     <>
       <ModalPortal>
-        <div className="background-modal" alertModal={alertModal} />
+        <div className="background-modal" />
         <article className="container-alert">
           <h2 className="a11y-hidden">alert</h2>
           <div className="wrapper-alert">
