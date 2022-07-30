@@ -2,17 +2,17 @@ import ModalPortal from "./ModalPortal";
 import "./Alert.scss";
 
 function AlertModal(props) {
-  const { content, alertModal, setAlertModal, setModal, alertBtn } = props;
+  const { content, isAlert, setIsAlert, setIsModal, alertBtn } = props;
 
   function handleCancel() {
-    setModal(false);
-    setAlertModal(false);
+    setIsModal(false);
+    setIsAlert(false);
   }
 
   return (
     <>
       <ModalPortal>
-        <div className="background-modal" alertModal={alertModal} />
+        <div className="background-modal" />
         <article className="container-alert">
           <h2 className="a11y-hidden">alert</h2>
           <div className="wrapper-alert">

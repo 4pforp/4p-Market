@@ -8,6 +8,7 @@ import "./CommentList.scss";
 
 function CommentList({ postid, post }) {
   const { token } = useContext(UserContext);
+  const { remove, isUpdate } = useDelete();
   const Container = useRef();
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState(true);
@@ -16,9 +17,6 @@ function CommentList({ postid, post }) {
   const [reloadNeed, setReloadNeed] = useState(false);
   const [updatedCount, setUpdatedCount] = useState(1);
   const updateLimitCount = Math.ceil(post.commentCount / 15);
-
-  // comment 삭제 후 업데이트 위한 함수 선언, props로 넘겨주기 위함
-  const { remove, isUpdate } = useDelete();
 
   useEffect(() => {
     // 실시간 업로드 댓글 반영 함수
@@ -91,12 +89,7 @@ function CommentList({ postid, post }) {
     <>
       <div className="container-comments" ref={Container}>
         <ul className="list-comments">
-          <Comment
-            comments={comments}
-            postid={postid}
-            //삭제 후 리렌더링 위해 내려준 props
-            remove={remove}
-          />
+          <Comment comments={comments} postid={postid} remove={remove} />
         </ul>
         <strong className={`loading ${isLoading}`}></strong>
       </div>

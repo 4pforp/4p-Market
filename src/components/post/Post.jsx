@@ -8,7 +8,6 @@ function Post({ content, from, remove }) {
         <Article
           content={content}
           from={from}
-          //삭제 후 리렌더링 위해 내려준 props
           remove={remove}
         />
       </li>

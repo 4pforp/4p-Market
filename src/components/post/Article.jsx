@@ -22,8 +22,8 @@ function Article({ content, from, remove }) {
   const { imageTest } = useImageTest();
   const { report } = useReport();
   const navigate = useNavigate();
-  const [modal, setModal] = useState(false);
-  const [alertModal, setAlertModal] = useState(false);
+  const [isModal, setIsModal] = useState(false);
+  const [isAlert, setIsAlert] = useState(false);
 
   const post = content;
   const author = content.author;
@@ -39,14 +39,14 @@ function Article({ content, from, remove }) {
   }
 
   function openModal() {
-    setModal(true);
+    setIsModal(true);
   }
 
   const myModalMenuList = [
     {
       content: "삭제",
       onClick: () => {
-        setAlertModal(true);
+        setIsAlert(true);
       },
     },
     {
@@ -61,7 +61,7 @@ function Article({ content, from, remove }) {
     {
       content: "신고",
       onClick: () => {
-        setAlertModal(true);
+        setIsAlert(true);
       },
     },
   ];
@@ -70,8 +70,11 @@ function Article({ content, from, remove }) {
     content: "삭제",
     onClick: () => {
       remove(`post/${post.id}`);
-      setAlertModal(false);
-      setModal(false);
+      setIsAlert(false);
+      setIsModal(false);
+      if (from === "comment") {
+        navigate(`/${myAccountname}`);
+      }
     },
   };
 
@@ -79,8 +82,8 @@ function Article({ content, from, remove }) {
     content: "신고",
     onClick: () => {
       report(`post/${post.id}/report`);
-      setAlertModal(false);
-      setModal(false);
+      setIsAlert(false);
+      setIsModal(false);
     },
   };
 
@@ -144,13 +147,13 @@ function Article({ content, from, remove }) {
       {/* 모닱창  */}
       {myAccountname === accountname ? (
         <>
-          {modal && <Modal modal={modal} setModal={setModal} modalMenuList={myModalMenuList} />}
-          {alertModal && <AlertModal alertModal={alertModal} setAlertModal={setAlertModal} setModal={setModal} content={"삭제하시겠어요?"} alertBtn={deleteBtn} />}
+          {isModal && <Modal isModal={isModal} setIsModal={setIsModal} modalMenuList={myModalMenuList} />}
+          {isAlert && <AlertModal isAlert={isAlert} setIsAlert={setIsAlert} setIsModal={setIsModal} content={"삭제하시겠어요?"} alertBtn={deleteBtn} />}
         </>
       ) : (
         <>
-          {modal && <Modal modal={modal} setModal={setModal} modalMenuList={userModalMenuList} />}
-          {alertModal && <AlertModal alertModal={alertModal} setAlertModal={setAlertModal} setModal={setModal} content={"신고하시겠어요?"} alertBtn={reportBtn} />}
+          {isModal && <Modal isModal={isModal} setIsModal={setIsModal} modalMenuList={userModalMenuList} />}
+          {isAlert && <AlertModal isAlert={isAlert} setIsAlert={setIsAlert} setIsModal={setIsModal} content={"신고하시겠어요?"} alertBtn={reportBtn} />}
         </>
       )}
     </>
