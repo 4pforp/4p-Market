@@ -40,8 +40,22 @@ function ChatRoomHeader({ userName }) {
           <MoreBtn handleClick={openModal} />
         </section>
       </header>
-      {isModal && <Modal isModal={isModal} setIsModal={setIsModal} modalMenuList={modalMenuList} />}
-      {isAlert && <AlertModal isAlert={isAlert} setIsAlert={setIsAlert} setIsModal={setIsModal} content={"나가시겠어요?"} alertBtn={alertBtn} />}
+      {isModal && (
+        <Modal
+          isModal={isModal}
+          setIsModal={setIsModal}
+          modalMenuList={modalMenuList}
+        />
+      )}
+      {isAlert && (
+        <AlertModal
+          isAlert={isAlert}
+          setIsAlert={setIsAlert}
+          setIsModal={setIsModal}
+          content={"나가시겠어요?"}
+          alertBtn={alertBtn}
+        />
+      )}
     </>
   );
 }

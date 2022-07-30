@@ -27,11 +27,15 @@ function SignUpPage() {
     const userInfo = { user: "" };
     userInfo.user = user;
     try {
-      const res = await axios.post("https://mandarin.api.weniv.co.kr/user", userInfo, {
-        header: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await axios.post(
+        "https://mandarin.api.weniv.co.kr/user",
+        userInfo,
+        {
+          header: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const loginData = {
         user: {
           email: user.email,
@@ -47,11 +51,15 @@ function SignUpPage() {
   // 회원가입시 자동 로그인
   async function login(loginData) {
     try {
-      const res = await axios.post("https://mandarin.api.weniv.co.kr/user/login", loginData, {
-        header: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await axios.post(
+        "https://mandarin.api.weniv.co.kr/user/login",
+        loginData,
+        {
+          header: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       localStorage.setItem("token", res.data.user.token);
       setInitialToken(localStorage.getItem("token"));
       setToken("Bearer " + localStorage.getItem("token"));
@@ -61,7 +69,19 @@ function SignUpPage() {
     }
   }
 
-  return <section className="signup-section">{view === "EmailSignUp" ? <EmailSignUp setView={setView} user={user} setUser={setUser} /> : <ProfileSet user={user} setUser={setUser} submitUserInfo={submitUserInfo} />}</section>;
+  return (
+    <section className="signup-section">
+      {view === "EmailSignUp" ? (
+        <EmailSignUp setView={setView} user={user} setUser={setUser} />
+      ) : (
+        <ProfileSet
+          user={user}
+          setUser={setUser}
+          submitUserInfo={submitUserInfo}
+        />
+      )}
+    </section>
+  );
 }
 
 export default SignUpPage;

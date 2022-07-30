@@ -57,8 +57,7 @@ function LikeBtn({ heartcount, postid, hearted }) {
       <button
         type="type"
         className={liked ? "btn-liked" : "btn-like"}
-        onClick={handleClikLike}
-      >
+        onClick={handleClikLike}>
         <span className="a11y-hidden">좋아요</span>
       </button>
       <span className="text-like-num">{likeNum || 0}</span>

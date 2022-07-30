@@ -46,8 +46,22 @@ function CommonHeader() {
           <MoreBtn handleClick={openModal} />
         </section>
       </header>
-      {isModal && <Modal isModal={isModal} setIsModal={setIsModal} modalMenuList={modalMenuList} />}
-      {isAlert && <AlertModal isAlert={isAlert} setIsAlert={setIsAlert} setIsModal={setIsModal} content={"로그아웃 하시겠어요?"} alertBtn={alertBtn} />}
+      {isModal && (
+        <Modal
+          isModal={isModal}
+          setIsModal={setIsModal}
+          modalMenuList={modalMenuList}
+        />
+      )}
+      {isAlert && (
+        <AlertModal
+          isAlert={isAlert}
+          setIsAlert={setIsAlert}
+          setIsModal={setIsModal}
+          content={"로그아웃 하시겠어요?"}
+          alertBtn={alertBtn}
+        />
+      )}
     </>
   );
 }

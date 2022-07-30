@@ -5,11 +5,7 @@ function Post({ content, from, remove }) {
   return (
     <>
       <li className="item-post">
-        <Article
-          content={content}
-          from={from}
-          remove={remove}
-        />
+        <Article content={content} from={from} remove={remove} />
       </li>
     </>
   );

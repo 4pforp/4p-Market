@@ -21,7 +21,10 @@ function CommentList({ postid, post }) {
   useEffect(() => {
     // 실시간 업로드 댓글 반영 함수
     async function getNewComments() {
-      const url = "https://mandarin.api.weniv.co.kr/post/" + postid + "/comments/?limit=15&skip=0";
+      const url =
+        "https://mandarin.api.weniv.co.kr/post/" +
+        postid +
+        "/comments/?limit=15&skip=0";
       try {
         const res = await axios.get(url, {
           headers: {
@@ -39,10 +42,16 @@ function CommentList({ postid, post }) {
   useEffect(() => {
     // 화면 마지막에 도달하면 ReloadNeed!
     function infinitScoll() {
-      const postHeight = document.querySelector(".wrapper-comment-post").getBoundingClientRect().height + 30;
+      const postHeight =
+        document.querySelector(".wrapper-comment-post").getBoundingClientRect()
+          .height + 30;
 
-      const targetHeight = Math.floor(Container.current.getBoundingClientRect().height + postHeight);
-      const currentScrollY = Math.floor(window.scrollY + window.innerHeight - 60);
+      const targetHeight = Math.floor(
+        Container.current.getBoundingClientRect().height + postHeight
+      );
+      const currentScrollY = Math.floor(
+        window.scrollY + window.innerHeight - 60
+      );
       targetHeight < currentScrollY && setReloadNeed(true);
     }
 
@@ -50,7 +59,12 @@ function CommentList({ postid, post }) {
 
     // 스크롤시 데이터 추가 요청 함수
     async function getComments() {
-      const url = "https://mandarin.api.weniv.co.kr/post/" + postid + "/comments/?limit=15" + "&skip=" + skip;
+      const url =
+        "https://mandarin.api.weniv.co.kr/post/" +
+        postid +
+        "/comments/?limit=15" +
+        "&skip=" +
+        skip;
       try {
         const res = await axios.get(url, {
           headers: {
@@ -94,7 +108,12 @@ function CommentList({ postid, post }) {
         <strong className={`loading ${isLoading}`}></strong>
       </div>
 
-      <CommentFooter postid={postid} post={post} setNewComment={setNewComment} newComment={newComment} />
+      <CommentFooter
+        postid={postid}
+        post={post}
+        setNewComment={setNewComment}
+        newComment={newComment}
+      />
     </>
   );
 }

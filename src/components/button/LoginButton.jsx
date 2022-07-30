@@ -18,8 +18,7 @@ function Button({ children, type, setview, name, isActive, handleClick }) {
       formTarget="#none"
       className={`btn-login ${isActive}`}
       disabled={!isActive}
-      onClick={checkButton}
-    >
+      onClick={checkButton}>
       {children}
     </button>
   );
