@@ -55,7 +55,7 @@ function ProfilePage() {
       }
     }
     getUser();
-  }, [user]);
+  }, []);
 
   return (
     <>
