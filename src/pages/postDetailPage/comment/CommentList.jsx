@@ -34,11 +34,12 @@ function CommentList({ postid, post }) {
         });
         setComments(res.data.comments);
         setNewComment(true);
+        setSkip(15);
+        setUpdatedCount(1);
       } catch (err) {}
     }
     getNewComments();
   }, [newComment, isUpdate]);
-
   useEffect(() => {
     // 화면 마지막에 도달하면 ReloadNeed!
     function infinitScoll() {
@@ -97,7 +98,7 @@ function CommentList({ postid, post }) {
     return () => {
       window.removeEventListener("scroll", infinitScoll);
     };
-  }, [reloadNeed]);
+  }, [reloadNeed, newComment]);
 
   return (
     <>
