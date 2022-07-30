@@ -28,12 +28,15 @@ function UpdatePostPage() {
   useEffect(() => {
     async function getPost() {
       try {
-        const res = await axios.get("https://mandarin.api.weniv.co.kr/post/" + postid, {
-          headers: {
-            Authorization: token,
-            "Content-type": "application/json",
-          },
-        });
+        const res = await axios.get(
+          "https://mandarin.api.weniv.co.kr/post/" + postid,
+          {
+            headers: {
+              Authorization: token,
+              "Content-type": "application/json",
+            },
+          }
+        );
         setPostText(res.data.post.content);
         setFileName(res.data.post.image.split(","));
         if (res.data.post.image == "") {
@@ -67,12 +70,15 @@ function UpdatePostPage() {
   useEffect(() => {
     async function getImg() {
       try {
-        const res = await axios.get("https://mandarin.api.weniv.co.kr/profile/" + myAccountname, {
-          headers: {
-            Authorization: token,
-            "Content-type": "application/json",
-          },
-        });
+        const res = await axios.get(
+          "https://mandarin.api.weniv.co.kr/profile/" + myAccountname,
+          {
+            headers: {
+              Authorization: token,
+              "Content-type": "application/json",
+            },
+          }
+        );
         setProfileImg(res.data.profile.image);
       } catch (err) {}
     }
@@ -94,8 +100,14 @@ function UpdatePostPage() {
   //이미지 파일 인코딩된 스트링 데이터 얻기
   async function getImgUrl(formData, loadImg) {
     try {
-      const res = await axios.post("https://mandarin.api.weniv.co.kr/image/uploadfiles", formData);
-      setFileName([...fileName, "https://mandarin.api.weniv.co.kr/" + res.data[0].filename]);
+      const res = await axios.post(
+        "https://mandarin.api.weniv.co.kr/image/uploadfiles",
+        formData
+      );
+      setFileName([
+        ...fileName,
+        "https://mandarin.api.weniv.co.kr/" + res.data[0].filename,
+      ]);
       preview(loadImg);
     } catch (err) {}
   }
@@ -112,7 +124,9 @@ function UpdatePostPage() {
 
   //이미지 미리보기 및 파일 삭제
   function deletePreview(e) {
-    setPreviewImgUrl(previewImgUrl.filter((el, idx) => e.target.id !== String(idx)));
+    setPreviewImgUrl(
+      previewImgUrl.filter((el, idx) => e.target.id !== String(idx))
+    );
     setFileName(fileName.filter((el, idx) => e.target.id !== String(idx)));
     if (textRef.current.value.length === 0 && fileName.length <= 1) {
       setIsActive(false);
@@ -131,12 +145,16 @@ function UpdatePostPage() {
     };
     async function update() {
       try {
-        const res = await axios.put("https://mandarin.api.weniv.co.kr/post/" + postid, postData, {
-          headers: {
-            Authorization: token,
-            "Content-type": "application/json",
-          },
-        });
+        const res = await axios.put(
+          "https://mandarin.api.weniv.co.kr/post/" + postid,
+          postData,
+          {
+            headers: {
+              Authorization: token,
+              "Content-type": "application/json",
+            },
+          }
+        );
       } catch (err) {
         console.error(err);
         setView("rejected");
@@ -151,11 +169,28 @@ function UpdatePostPage() {
       <UploadHeader isActive={isActive} disabled={!isActive} form="postForm" />
       {view === "fulfilled" && (
         <div className="container-uploadpost">
-          <img src={profileImg} alt="프로필 사진입니다." className="img-profile-uploadpost" />
+          <div
+            style={{ backgroundImage: `url(${profileImg})` }}
+            className="img-profile-uploadpost"
+          ></div>
           <div className="wrapper-write-section">
             <form method="post" id="postForm" onSubmit={handleSubmit}>
-              <textarea name="textarea-uploadpost" className="textarea-uploadpost" placeholder="게시글 입력하기" onChange={handleText} onInput={handleResizeHeight} value={postText} ref={textRef} maxLength="2000" />
-              <UploadIconBtn img="upload-file.svg" name="upload-post" onChange={handleImgInput} ref={fileRef} />
+              <textarea
+                name="textarea-uploadpost"
+                className="textarea-uploadpost"
+                placeholder="게시글 입력하기"
+                onChange={handleText}
+                onInput={handleResizeHeight}
+                value={postText}
+                ref={textRef}
+                maxLength="2000"
+              />
+              <UploadIconBtn
+                img="upload-file.svg"
+                name="upload-post"
+                onChange={handleImgInput}
+                ref={fileRef}
+              />
             </form>
             <PreviewImgList mapdata={previewImgUrl} onClick={deletePreview} />
           </div>
