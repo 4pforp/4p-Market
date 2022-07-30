@@ -53,9 +53,18 @@ function CommentFooter({ postid, post, setNewComment }) {
   return (
     <>
       <footer>
-        <form method="POST" encType="multipart/form-data" className="container-form-pagefooter" onSubmit={handleSubmit}>
+        <form
+          method="POST"
+          encType="multipart/form-data"
+          className="container-form-pagefooter"
+          onSubmit={handleSubmit}>
           <div className="img-profile-footer" style={imgStyle}></div>
-          <input className="textarea-pagefooter" placeholder="댓글 입력하기" onChange={handleChange} ref={commentinput} />
+          <input
+            className="textarea-pagefooter"
+            placeholder="댓글 입력하기"
+            onChange={handleChange}
+            ref={commentinput}
+          />
           <button type="submit" className={`btn-send-footer ${valid}`}>
             게시
           </button>

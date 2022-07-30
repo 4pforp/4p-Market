@@ -6,12 +6,12 @@ import Modal from "../modal/Modal";
 import AlertModal from "../modal/Alert";
 
 function CommonHeader() {
-  const [modal, setModal] = useState(false);
-  const [alertModal, setAlertModal] = useState(false);
+  const [isModal, setIsModal] = useState(false);
+  const [isAlert, setIsAlert] = useState(false);
   const navigate = useNavigate();
 
   function openModal() {
-    setModal(true);
+    setIsModal(true);
   }
 
   //로그아웃 기능 함수
@@ -28,7 +28,7 @@ function CommonHeader() {
     {
       content: "로그아웃",
       onClick: () => {
-        setAlertModal(true);
+        setIsAlert(true);
       },
     },
   ];
@@ -46,18 +46,18 @@ function CommonHeader() {
           <MoreBtn handleClick={openModal} />
         </section>
       </header>
-      {modal && (
+      {isModal && (
         <Modal
-          modal={modal}
-          setModal={setModal}
+          isModal={isModal}
+          setIsModal={setIsModal}
           modalMenuList={modalMenuList}
         />
       )}
-      {alertModal && (
+      {isAlert && (
         <AlertModal
-          alertModal={alertModal}
-          setAlertModal={setAlertModal}
-          setModal={setModal}
+          isAlert={isAlert}
+          setIsAlert={setIsAlert}
+          setIsModal={setIsModal}
           content={"로그아웃 하시겠어요?"}
           alertBtn={alertBtn}
         />

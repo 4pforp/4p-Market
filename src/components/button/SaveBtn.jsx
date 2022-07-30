@@ -7,8 +7,7 @@ function SaveBtn(props) {
       className={`btn-save ${props.isActive}`}
       disabled={props.disabled}
       onClick={props.handleClick}
-      form={props.form}
-    >
+      form={props.form}>
       {props.text}
     </button>
   );

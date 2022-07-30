@@ -10,21 +10,21 @@ function Product({ accountname, mapdata, remove }) {
   const { myAccountname } = useContext(UserContext);
   const { imageTest } = useImageTest();
   const [product, setProduct] = useState({});
-  const [modal, setModal] = useState(false);
-  const [alertModal, setAlertModal] = useState(false);
+  const [isModal, setIsModal] = useState(false);
+  const [isAlert, setIsAlert] = useState(false);
   const backUrl = `product/${product.id}`;
 
   const navigate = useNavigate();
 
   function openModal() {
-    setModal(true);
+    setIsModal(true);
   }
 
   const modalMenuList = [
     {
       content: "삭제",
       onClick: () => {
-        setAlertModal(true);
+        setIsAlert(true);
       },
     },
     {
@@ -45,8 +45,8 @@ function Product({ accountname, mapdata, remove }) {
     content: "삭제",
     onClick: () => {
       remove(backUrl);
-      setAlertModal(false);
-      setModal(false);
+      setIsAlert(false);
+      setIsModal(false);
     },
   };
 
@@ -67,7 +67,8 @@ function Product({ accountname, mapdata, remove }) {
               } else {
                 window.open(product.link);
               }
-            }}>
+            }}
+          >
             <div className="img-product" style={imgStyle}></div>
             <strong className="text-product">{product.itemName}</strong>
             <strong className="text-product-price">{typeof product.price === "number" ? `${product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원` : `- 원`}</strong>
@@ -75,8 +76,8 @@ function Product({ accountname, mapdata, remove }) {
         );
       })}
 
-      {modal && <Modal modal={modal} setModal={setModal} modalMenuList={modalMenuList} />}
-      {alertModal && <AlertModal alertModal={alertModal} setAlertModal={setAlertModal} setModal={setModal} content={"삭제하시겠어요?"} alertBtn={alertBtn} />}
+      {isModal && <Modal isModal={isModal} setIsModal={setIsModal} modalMenuList={modalMenuList} />}
+      {isAlert && <AlertModal isAlert={isAlert} setIsAlert={setIsAlert} setIsModal={setIsModal} content={"삭제하시겠어요?"} alertBtn={alertBtn} />}
     </>
   );
 }

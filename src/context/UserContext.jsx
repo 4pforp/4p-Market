@@ -4,9 +4,13 @@ const UserContext = createContext();
 export default UserContext;
 
 const UserContextProvider = ({ children }) => {
-  const [initialToken, setInitialToken] = useState(localStorage.getItem("token"));
+  const [initialToken, setInitialToken] = useState(
+    localStorage.getItem("token")
+  );
   const [token, setToken] = useState("Bearer " + localStorage.getItem("token"));
-  const [myAccountname, setMyAccountname] = useState(localStorage.getItem("accountname"));
+  const [myAccountname, setMyAccountname] = useState(
+    localStorage.getItem("accountname")
+  );
   const [myImage, setMyImage] = useState();
 
   return (

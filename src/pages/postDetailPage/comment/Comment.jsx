@@ -13,8 +13,8 @@ function Comment({ comments, postid, remove }) {
   const { report } = useReport();
   const { imageTest } = useImageTest();
   const [comment, setComment] = useState({});
-  const [modal, setModal] = useState(false);
-  const [alertModal, setAlertModal] = useState(false);
+  const [isModal, setIsModal] = useState(false);
+  const [isAlert, setIsAlert] = useState(false);
 
   const commentId = comment.id;
   const postId = postid;
@@ -24,14 +24,14 @@ function Comment({ comments, postid, remove }) {
   }
 
   function openModal() {
-    setModal(true);
+    setIsModal(true);
   }
 
   const myModalMenuList = [
     {
       content: "삭제",
       onClick: () => {
-        setAlertModal(true);
+        setIsAlert(true);
       },
     },
   ];
@@ -40,7 +40,7 @@ function Comment({ comments, postid, remove }) {
     {
       content: "신고",
       onClick: () => {
-        setAlertModal(true);
+        setIsAlert(true);
       },
     },
   ];
@@ -49,8 +49,8 @@ function Comment({ comments, postid, remove }) {
     content: "삭제",
     onClick: () => {
       remove(`post/${postId}/comments/${commentId}`);
-      setAlertModal(false);
-      setModal(false);
+      setIsAlert(false);
+      setIsModal(false);
     },
   };
 
@@ -58,8 +58,8 @@ function Comment({ comments, postid, remove }) {
     content: "신고",
     onClick: () => {
       report(`post/${postId}/comments/${commentId}/report`);
-      setAlertModal(false);
-      setModal(false);
+      setIsAlert(false);
+      setIsModal(false);
     },
   };
 
@@ -90,7 +90,10 @@ function Comment({ comments, postid, remove }) {
           return (
             <li className="item-comment" key={comment.id}>
               <Link to={"/" + comment.author.accountname}>
-                <UserInfoBox type="comment" name={comment.author.username} img={authorImg}>
+                <UserInfoBox
+                  type="comment"
+                  name={comment.author.username}
+                  img={authorImg}>
                   <span className="text-comment-time">{commentCreatedAt}</span>
                 </UserInfoBox>
               </Link>
@@ -106,13 +109,41 @@ function Comment({ comments, postid, remove }) {
         })}
       {myAccountname === accountname ? (
         <>
-          {modal && <Modal modal={modal} setModal={setModal} modalMenuList={myModalMenuList} />}
-          {alertModal && <AlertModal alertModal={alertModal} setAlertModal={setAlertModal} setModal={setModal} content={"삭제하시겠어요?"} alertBtn={deleteBtn} />}
+          {isModal && (
+            <Modal
+              isModal={isModal}
+              setIsModal={setIsModal}
+              modalMenuList={myModalMenuList}
+            />
+          )}
+          {isAlert && (
+            <AlertModal
+              isAlert={isAlert}
+              setIsAlert={setIsAlert}
+              setIsModal={setIsModal}
+              content={"삭제하시겠어요?"}
+              alertBtn={deleteBtn}
+            />
+          )}
         </>
       ) : (
         <>
-          {modal && <Modal modal={modal} setModal={setModal} modalMenuList={userModalMenuList} />}
-          {alertModal && <AlertModal alertModal={alertModal} setAlertModal={setAlertModal} setModal={setModal} content={"신고하시겠어요?"} alertBtn={reportBtn} />}
+          {isModal && (
+            <Modal
+              isModal={isModal}
+              setIsModal={setIsModal}
+              modalMenuList={userModalMenuList}
+            />
+          )}
+          {isAlert && (
+            <AlertModal
+              isAlert={isAlert}
+              setIsAlert={setIsAlert}
+              setIsModal={setIsModal}
+              content={"신고하시겠어요?"}
+              alertBtn={reportBtn}
+            />
+          )}
         </>
       )}
     </>

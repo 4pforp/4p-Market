@@ -9,13 +9,11 @@ function PreviewImgList({ mapdata, onClick }) {
             <li
               key={idx}
               className="list-photo-upload"
-              style={{ backgroundImage: `url(${img})` }}
-            >
+              style={{ backgroundImage: `url(${img})` }}>
               <button
                 id={idx}
                 onClick={onClick}
-                className="btn-remove-img"
-              ></button>
+                className="btn-remove-img"></button>
             </li>
           );
         })}

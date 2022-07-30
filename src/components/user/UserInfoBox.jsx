@@ -5,8 +5,7 @@ function UserInfoBox({ type, name, id, subtext, img, children }) {
     <div className={`wrapper-author ${type}`}>
       <div
         className={`img-author ${type}`}
-        style={{ backgroundImage: `url(${img})` }}
-      ></div>
+        style={{ backgroundImage: `url(${img})` }}></div>
       <div className="wrapper-author-info">
         <strong className={`text-username ${type}`}>{name}</strong>
         <strong className={`text-accountname ${type}`}>{id}</strong>

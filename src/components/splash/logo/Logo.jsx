@@ -11,8 +11,7 @@ function Logo() {
           y="0px"
           viewBox="0 0 244.8 290.4"
           // style="enable-background: new 0 0 244.8 290.4"
-          xmlSpace="preserve"
-        >
+          xmlSpace="preserve">
           <path
             id="body"
             d="M201.1,138.7c-0.1-1-0.5-2.5-0.8-3.5c-0.2-0.8-0.4-1.6-0.8-2.4c-0.8-1.8-1.6-3.6-2.5-5.4

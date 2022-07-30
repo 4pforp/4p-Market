@@ -55,8 +55,7 @@ function ProfileEditUpload({ image, setImage }) {
         name="user-pic"
         id="choose-img"
         accept="image/*"
-        onChange={handleChange}
-      ></input>
+        onChange={handleChange}></input>
     </div>
   );
 }
