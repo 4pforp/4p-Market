@@ -1,4 +1,3 @@
-//import { forwardRef } from "react";
 import "./PreviewImgList.scss";
 
 function PreviewImgList({ mapdata, onClick }) {

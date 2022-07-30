@@ -6,7 +6,6 @@
   width: 358px;
   height: fit-content;
   margin-bottom: 16px;
-
   &.message,
   &.follow {
     width: auto;
@@ -72,10 +71,13 @@
     .text-accountname,
     .text-subtext {
       margin-left: 12px;
+      max-width: 296px;
       font-family: $basic-font;
       font-size: 12px;
       line-height: 12px;
       color: $subtext-color;
+      overflow: hidden;
+      text-overflow: ellipsis;
       &.chatpage,
       &.follow {
         max-width: 238px;
