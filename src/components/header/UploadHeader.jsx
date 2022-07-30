@@ -6,7 +6,12 @@ function UploadHeader(props) {
     <header className="container-header">
       <section className="top-bar">
         <BackBtn />
-        <Savebtn text="업로드" disabled={props.disabled} isActive={props.isActive} form={props.form} />
+        <Savebtn
+          text="업로드"
+          disabled={props.disabled}
+          isActive={props.isActive}
+          form={props.form}
+        />
       </section>
     </header>
   );

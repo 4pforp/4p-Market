@@ -9,6 +9,7 @@ import NotFound from "../../components/notFound/NotFound";
 import InitialFeed from "./initialFeed/InitialFeed";
 import LoginPage from "../logInPage/LoginPage";
 import pendingImg from "../../assets/logo_loading_purple.svg";
+import topButton from "../../assets/scroll-top.svg";
 import "./HomePage.scss";
 
 function HomePage() {
@@ -44,15 +45,23 @@ function HomePage() {
   useEffect(() => {
     // 화면 마지막에 도달하면 ReloadNeed!
     function infinitScoll() {
-      const targetHeight = Math.floor(Container.current.getBoundingClientRect().height);
-      const currentScrollY = Math.floor(window.scrollY + window.innerHeight - 50);
+      const targetHeight = Math.floor(
+        Container.current.getBoundingClientRect().height
+      );
+      const currentScrollY = Math.floor(
+        window.scrollY + window.innerHeight - 50
+      );
       targetHeight < currentScrollY && setReloadNeed(true);
     }
     window.addEventListener("scroll", infinitScoll);
 
     // 스크롤시 데이터 추가 요청 함수
     async function getPosts() {
-      const url = "https://mandarin.api.weniv.co.kr/post/feed" + "/?limit=15" + "&skip=" + skip;
+      const url =
+        "https://mandarin.api.weniv.co.kr/post/feed" +
+        "/?limit=15" +
+        "&skip=" +
+        skip;
       try {
         const res = await axios.get(url, {
           headers: {
@@ -86,6 +95,15 @@ function HomePage() {
     };
   }, [reloadNeed]);
 
+  // 페이지 최상단 이동 이벤트
+  function handleClick() {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }
+
   return (
     <>
       {sessionStorage.getItem("splash") ? null : <Splash />}
@@ -105,6 +123,12 @@ function HomePage() {
                 </section>
                 <strong className={`loading ${isLoading}`}></strong>
               </main>
+              <img
+                src={topButton}
+                alt="최상단으로 이동"
+                className="btn-move-top"
+                onClick={handleClick}
+              />
             </>
           )}
           {view === "fulfilled" && posts.length === 0 && (

@@ -35,6 +35,11 @@ function CommentFooter({ postid, post, setNewComment }) {
           "Content-type": "application/json",
         },
       });
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
       setNewComment(false);
     } catch (err) {
       console.error(err);
@@ -53,9 +58,18 @@ function CommentFooter({ postid, post, setNewComment }) {
   return (
     <>
       <footer>
-        <form method="POST" encType="multipart/form-data" className="container-form-pagefooter" onSubmit={handleSubmit}>
+        <form
+          method="POST"
+          encType="multipart/form-data"
+          className="container-form-pagefooter"
+          onSubmit={handleSubmit}>
           <div className="img-profile-footer" style={imgStyle}></div>
-          <input className="textarea-pagefooter" placeholder="댓글 입력하기" onChange={handleChange} ref={commentinput} />
+          <input
+            className="textarea-pagefooter"
+            placeholder="댓글 입력하기"
+            onChange={handleChange}
+            ref={commentinput}
+          />
           <button type="submit" className={`btn-send-footer ${valid}`}>
             게시
           </button>

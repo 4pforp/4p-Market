@@ -90,7 +90,10 @@ function Comment({ comments, postid, remove }) {
           return (
             <li className="item-comment" key={comment.id}>
               <Link to={"/" + comment.author.accountname}>
-                <UserInfoBox type="comment" name={comment.author.username} img={authorImg}>
+                <UserInfoBox
+                  type="comment"
+                  name={comment.author.username}
+                  img={authorImg}>
                   <span className="text-comment-time">{commentCreatedAt}</span>
                 </UserInfoBox>
               </Link>
@@ -106,13 +109,41 @@ function Comment({ comments, postid, remove }) {
         })}
       {myAccountname === accountname ? (
         <>
-          {isModal && <Modal isModal={isModal} setIsModal={setIsModal} modalMenuList={myModalMenuList} />}
-          {isAlert && <AlertModal isAlert={isAlert} setIsAlert={setIsAlert} setIsModal={setIsModal} content={"삭제하시겠어요?"} alertBtn={deleteBtn} />}
+          {isModal && (
+            <Modal
+              isModal={isModal}
+              setIsModal={setIsModal}
+              modalMenuList={myModalMenuList}
+            />
+          )}
+          {isAlert && (
+            <AlertModal
+              isAlert={isAlert}
+              setIsAlert={setIsAlert}
+              setIsModal={setIsModal}
+              content={"삭제하시겠어요?"}
+              alertBtn={deleteBtn}
+            />
+          )}
         </>
       ) : (
         <>
-          {isModal && <Modal isModal={isModal} setIsModal={setIsModal} modalMenuList={userModalMenuList} />}
-          {isAlert && <AlertModal isAlert={isAlert} setIsAlert={setIsAlert} setIsModal={setIsModal} content={"신고하시겠어요?"} alertBtn={reportBtn} />}
+          {isModal && (
+            <Modal
+              isModal={isModal}
+              setIsModal={setIsModal}
+              modalMenuList={userModalMenuList}
+            />
+          )}
+          {isAlert && (
+            <AlertModal
+              isAlert={isAlert}
+              setIsAlert={setIsAlert}
+              setIsModal={setIsModal}
+              content={"신고하시겠어요?"}
+              alertBtn={reportBtn}
+            />
+          )}
         </>
       )}
     </>
