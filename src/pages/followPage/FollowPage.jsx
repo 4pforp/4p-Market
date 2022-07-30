@@ -19,7 +19,7 @@ function FollowPage() {
   const [reloadNeed, setReloadNeed] = useState(false);
   const [reloadStop, setReloadStop] = useState(false);
   const [updatedCount, setUpdatedCount] = useState(0);
-  const [skip, setSkip] = useState(15);
+  const [skip, setSkip] = useState(20);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ function FollowPage() {
         accountname +
         "/" +
         followtype +
-        "?limit=15&skip=0";
+        "?limit=20&skip=0";
       try {
         const res = await axios.get(url, {
           headers: {
@@ -71,7 +71,7 @@ function FollowPage() {
         accountname +
         "/" +
         followtype +
-        "?limit=15" +
+        "?limit=20" +
         "&skip=" +
         skip;
       try {
@@ -91,7 +91,7 @@ function FollowPage() {
         res.data.length === 0 && setReloadStop(true);
         setUpdatedCount(updatedCount + 1);
         setReloadNeed(false);
-        setSkip(skip + 15);
+        setSkip(skip + 20);
         setIsLoading(false);
       } catch (err) {
         setView("rejected");
