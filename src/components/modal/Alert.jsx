@@ -2,11 +2,11 @@ import ModalPortal from "./ModalPortal";
 import "./Alert.scss";
 
 function AlertModal(props) {
-  const { content, alertModal, setAlertModal, setModal, alertBtn } = props;
+  const { content, isAlert, setIsAlert, setIsModal, alertBtn } = props;
 
   function handleCancel() {
-    setModal(false);
-    setAlertModal(false);
+    setIsModal(false);
+    setIsAlert(false);
   }
 
   return (
