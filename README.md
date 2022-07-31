@@ -1,13 +1,14 @@
 <h1>🐶 뽀삐뽀삐</h1>
+📍 프로젝트 기간 : 2022.6.18 ~ 2022.7.30
+<br>
+📍 배포 URL : https://ppoppimarket.web.app
+<br>
+<br>
 
 <img src="https://media.discordapp.net/attachments/986558961241182208/1003300321260486727/KakaoTalk_Photo_2022-07-31-22-56-15.jpeg?width=1440&height=1362">
 
 
 <h1>📌 개요</h1>
-
-📍 프로젝트 기간 : 2022.6.18 ~ 2022.7.30
-<br>
-📍 배포 URL : https://ppoppimarket.web.app
 
 ```
 🐤 '뽀삐뽀삐'란 저희 팀이름인 '4P(뽀피)'와 사람들이 흔히 이름짓는 강아지 이름인 '뽀삐'의 의미를 가지고 있습니다.
