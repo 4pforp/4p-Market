@@ -80,7 +80,7 @@ axios: `0.27.2`
 <br/>
 📍 Design : [뽀삐뽀삐 Figma](https://www.figma.com/file/U1sjmLNKLkfHPEV1pBfU0c/4pforp?node-id=0%3A1)
 <br/>
-📍 Conference: GatherTown | Discord 
+📍 Conference: GatherTown | Discord | [회의록](https://plant-light-56b.notion.site/41b38f41607a4514b54ee9d89787c7e9)
 
 ### [코딩 컨벤션]
 
