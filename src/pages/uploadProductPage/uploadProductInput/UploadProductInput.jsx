@@ -32,10 +32,8 @@ function ProductInput({
     const inputType = e.target.id.slice(6);
     inputType === "productname" && setItemName(e.target.value);
     inputType === "salelink" && setLink(e.target.value);
-    inputType === "price" &&
-      setPrice(inputPriceFormat(e.target.value)) &&
-      price.length >= 8 &&
-      setIsWrong(true);
+    inputType === "price" && setPrice(inputPriceFormat(e.target.value));
+    price.length >= 8 && setIsWrong(true);
   }
 
   return (
@@ -53,7 +51,8 @@ function ProductInput({
             minLength="2"
             onChange={handleChange}
             value={itemName}
-            ref={inputRef}></input>
+            ref={inputRef}
+          ></input>
         </div>
         <div className="wrapper-price">
           <label htmlFor="input-price" className="label-price">
@@ -65,7 +64,8 @@ function ProductInput({
             placeholder="숫자만 입력 가능합니다."
             onChange={handleChange}
             value={price}
-            maxLength="10"></input>
+            maxLength="10"
+          ></input>
           <strong className={`msg-error ${isWrong}`}>
             * 천만 단위 미만의 상품만 등록해주세요.
           </strong>
@@ -79,7 +79,8 @@ function ProductInput({
             type="text"
             placeholder="http:// 형식으로 입력해주세요."
             onChange={handleChange}
-            value={link}></input>
+            value={link}
+          ></input>
         </div>
       </div>
     </>
