@@ -74,17 +74,17 @@ axios: `0.27.2`
 <div/>
 </br>
 
-📍 GitHub : [뽀삐뽀삐 GitHub](https://github.com/4pforp/4p-Market) | [뽀삐뽀삐 Project Log](https://github.com/orgs/4pforp/projects/1) | [GitHub 전략](https://doridori-samsam.notion.site/Github-branch-f64a37b9e1264d5d805f1d57a02c5c82)
+📍 GitHub : [뽀삐뽀삐 GitHub](https://github.com/4pforp/4p-Market) | [뽀삐뽀삐 Project Log](https://github.com/orgs/4pforp/projects/1) | [GitHub 전략](https://plant-light-56b.notion.site/Github-branch-fed6080235b542c5b5c651376acaa544)
 <br/>
-📍 WorkPlace: [뽀삐뽀삐 Notion](https://doridori-samsam.notion.site/FE2-3378be6bfc564354a1e812911a05fdb2)
+📍 WorkPlace: [뽀삐뽀삐 Notion](https://plant-light-56b.notion.site/4f5a88aab27944d598d7ceebd83a9bc0)
 <br/>
 📍 Design : [뽀삐뽀삐 Figma](https://www.figma.com/file/U1sjmLNKLkfHPEV1pBfU0c/4pforp?node-id=0%3A1)
 <br/>
-📍 Conference: GatherTown | Discord | [회의록](https://doridori-samsam.notion.site/9555c67e88c249f78ebe313fac8aa1fc)
+📍 Conference: GatherTown | Discord 
 
 ### [코딩 컨벤션]
 
-- Coding Convention: [코딩 컨벤션](https://doridori-samsam.notion.site/c425ab2cc91d493ca19e835261cd7eb2)
+- Coding Convention: [코딩 컨벤션](https://plant-light-56b.notion.site/063746546f2246a9bc9552ce25001d43)
 
 </br>
 
