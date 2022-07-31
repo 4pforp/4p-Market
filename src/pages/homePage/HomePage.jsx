@@ -75,11 +75,11 @@ function HomePage() {
         } else {
           setPosts([...posts, ...res.data.posts]);
         }
-        // 배열이 비어있으면 데이터 요청 차단
-        res.data.posts.length === 0 && setReloadStop(true);
         setReloadNeed(false);
         setSkip(skip + 15);
         setIsLoading(false);
+        // nextData가 없으면 데이터 요청 차단
+        res.data.posts.length < 15 && setReloadStop(true);
       } catch (err) {
         setView("rejected");
       }
