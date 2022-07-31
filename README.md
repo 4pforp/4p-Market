@@ -362,7 +362,7 @@ axios: `0.27.2`
 
 |                                   7. 유저 프로필                                   |                           7-1. 댓글 등록 / 삭제 / 좋아요                 |
 | :---------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
-| <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/Obw5hrvJLU.gif"> | <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/XzLQoynnUG.gif"> |
+| <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/Pop2WYVaA0.gif"> | <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/XzLQoynnUG.gif"> |
 
 
 
