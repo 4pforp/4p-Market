@@ -31,7 +31,10 @@ function UserPost({ accountname, from }) {
 
     // 포스트 데이터 불러오기
     async function getPost() {
-      const url = "https://mandarin.api.weniv.co.kr/post/" + accountname + "/userpost/?limit=15&skip=0";
+      const url =
+        "https://mandarin.api.weniv.co.kr/post/" +
+        accountname +
+        "/userpost/?limit=15&skip=0";
       try {
         const res = await axios.get(url, {
           headers: {
@@ -51,8 +54,12 @@ function UserPost({ accountname, from }) {
   useEffect(() => {
     // 화면 마지막에 도달하면 ReloadNeed!
     function infinitScoll() {
-      const postHeight = document.querySelector(".wrapper-for-scroll").getBoundingClientRect().height;
-      const targetHeight = Math.floor(Container.current.getBoundingClientRect().height + postHeight);
+      const postHeight = document
+        .querySelector(".wrapper-for-scroll")
+        .getBoundingClientRect().height;
+      const targetHeight = Math.floor(
+        Container.current.getBoundingClientRect().height + postHeight
+      );
       const currentScrollY = Math.floor(window.scrollY + window.innerHeight);
       targetHeight < currentScrollY && setReloadNeed(true);
     }
@@ -61,7 +68,13 @@ function UserPost({ accountname, from }) {
 
     // 스크롤시 데이터 추가 요청 함수
     async function getPosts() {
-      const url = "https://mandarin.api.weniv.co.kr/post/" + accountname + "/userpost" + "/?limit=15" + "&skip=" + skip;
+      const url =
+        "https://mandarin.api.weniv.co.kr/post/" +
+        accountname +
+        "/userpost" +
+        "/?limit=15" +
+        "&skip=" +
+        skip;
       try {
         const res = await axios.get(url, {
           headers: {
@@ -76,11 +89,11 @@ function UserPost({ accountname, from }) {
         } else {
           setPost([...post, ...posts]);
         }
-        // 배열이 비어있으면 데이터 요청 차단
-        res.data.post.length === 0 && setReloadStop(true);
         setReloadNeed(false);
         setSkip(skip + 15);
         setIsLoading(false);
+        // nextData가 없으면 데이터 요청 차단
+        res.data.post.length < 15 && setReloadStop(true);
       } catch (err) {
         console.error(err);
       }
@@ -115,16 +128,26 @@ function UserPost({ accountname, from }) {
         <h3 className="a11y-hidden">포스트 목록</h3>
         <div className="container-view-btn">
           <div className="wrapper-view-btn">
-            <button className={`btn-view list ${listClicked}`} onClick={handleClick}>
+            <button
+              className={`btn-view list ${listClicked}`}
+              onClick={handleClick}>
               <strong className=" a11y-hidden">post view</strong>
             </button>
-            <button className={`btn-view album ${albumClicked}`} onClick={handleClick}>
+            <button
+              className={`btn-view album ${albumClicked}`}
+              onClick={handleClick}>
               <strong className=" a11y-hidden">album view</strong>
             </button>
           </div>
         </div>
         <div className="wrapper-post">
-          <ol className={`list-posts ${postView}`}>{postView === "list" ? <PostList post={post} from={from} remove={remove} /> : <PostAlbum setPostView={setPostView} accountname={accountname} />}</ol>
+          <ol className={`list-posts ${postView}`}>
+            {postView === "list" ? (
+              <PostList post={post} from={from} remove={remove} />
+            ) : (
+              <PostAlbum setPostView={setPostView} accountname={accountname} />
+            )}
+          </ol>
         </div>
       </section>
       <strong className={`loading ${isLoading}`}></strong>
