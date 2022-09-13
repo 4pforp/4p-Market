@@ -345,7 +345,7 @@ axios: `0.27.2`
 
 |                                   0. Splash                                   |                           1. 회원가입, 프로필 설정                          |
 | :---------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
-| <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/K5sjaWEAHC.gif"> | <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/Le4ROe50xu.gif"> |
+| <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/LCLUNhaVZz.gif"> | <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/dvoy57KtST.gif"> |
 
 
 |                                2. 로그인                                 |                               3. 로그아웃                                |
@@ -355,29 +355,29 @@ axios: `0.27.2`
 
 |                                   4. 홈 피드                                   |                           5. 계정 검색                          |
 | :---------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
-| <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/ZbTtnVALaK.gif"> | <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/dgH1Asan9i.gif"> |
+| <img width="300px;"  src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/fUIqtOFH1j.gif"> | <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/2KVE7IjN2A.gif"> |
 
 |                                   6. 마이 프로필                                   |                           6-1. 마이 프로필 수정                          |
 | :---------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
-| <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/svLwT1TN4A.gif"> | <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/RZBSIaKSi9.gif"> |
+| <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/oHl0icNxAM.gif"> | <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/Ks4mDvY7p7.gif"> |
 
 |                                   7. 유저 프로필                                   |                           7-1. 댓글 등록 / 삭제 / 좋아요                 |
 | :---------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
-| <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/w42cfEFeI6.gif"> | <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/XzLQoynnUG.gif"> |
+| <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/RRdVHYTicw.gif"> | <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/XzLQoynnUG.gif"> |
 
 
 
 |                                9. 게시물 등록                                 |                               9-1. 게시글 수정                                |                               9-2. 게시글 삭제                                |
 | :---------------------------------------------------------------------------: | :---------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
-| <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/5EMj5xakd8.gif"> | <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/aBFkzSSdtG.gif"> | <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/p8R3YFo269.gif"> |
+| <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/W9ZWuT9I0p.gif"> | <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/uLz18CdOw5.gif"> | <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/anBnxqsuRE.gif"> |
 
 |                                 10. 상품 등록                                 |                             10-1. 상품 등록 수정                              |                                10-2. 상품 삭제                                |
 | :---------------------------------------------------------------------------: | :---------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
-| <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/oEYxjznqV3.gif"> | <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/k2ypXlinOO.gif"> | <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/m1v8QseAC3.gif"> |
+| <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/zOsbOm3WZn.gif"> | <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/kqOsW0zEmX.gif"> | <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/70SGj8lyKI.gif"> |
 
 |                              11. 팔로잉 / 팔로우                              |                                   12. 채팅                                    |                                   13. 신고                                    |
 | :---------------------------------------------------------------------------: | :---------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
-| <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/x2wHAvFVgz.gif"> | <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/FkViWg1mOe.gif"> | <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/cTDNclZgYK.gif"> |
+| <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/x2wHAvFVgz.gif"> | <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/N6FcIiIjcg.gif"> | <img width="300px;" src="https://i.esdrop.com/d/f/eZ1kpS3Y3y/Hk7tE5C8pQ.gif"> |
 
 <br>
 <br>
