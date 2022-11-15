@@ -1,14 +1,14 @@
 import BackBtn from "../button/BackBtn";
 import "./SearchHeader.scss";
 
-function SearchHeader({ value, handle }) {
+function SearchHeader({ defaultValue, handle }) {
   return (
     <header className="container-header">
       <section className="top-bar">
         <BackBtn />
         <input
           type="text"
-          value={value}
+          defaultValue={defaultValue}
           onChange={handle}
           className="input-search"
           placeholder="계정 검색"
