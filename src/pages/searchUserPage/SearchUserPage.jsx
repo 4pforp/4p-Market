@@ -13,7 +13,7 @@ function SearchUserPage() {
   const history = createBrowserHistory();
 
   function handleKeyword(e) {
-    setKeyword(e.target.value);
+    const saveKeyword = setTimeout(() => setKeyword(e.target.value), 1200);
     if (e.target.value === "") {
       setSearchResult([]);
     }
@@ -30,6 +30,7 @@ function SearchUserPage() {
   useEffect(() => {
     if (keyword !== "") {
       const search = async () => {
+        console.log("안녕");
         const response = await axios(
           "https://mandarin.api.weniv.co.kr/user/searchuser/?keyword=" +
             keyword,
@@ -50,7 +51,7 @@ function SearchUserPage() {
 
   return (
     <>
-      <SearchHeader value={keyword} handle={handleKeyword} />
+      <SearchHeader defaultValue={keyword} handle={handleKeyword} />
       <main className="container-main-search">
         <SearchResult mapdata={searchResult} keyword={keyword} />
       </main>
